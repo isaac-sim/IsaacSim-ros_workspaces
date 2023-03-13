@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>carter_navigation</name>
+  <version>0.1.0</version>
+  <description>
+    The carter_navigation package
+  </description>
+
+  <maintainer email="isaac-sim@todo.todo">isaac sim</maintainer>
+
+  <license>Copyright (c) 2022, NVIDIA CORPORATION. All rights reserved.
+    NVIDIA CORPORATION and its licensors retain all intellectual property
+    and proprietary rights in and to this software, related documentation
+    and any modifications thereto.  Any use, reproduction, disclosure or
+    distribution of this software and related documentation without an express
+    license agreement from NVIDIA CORPORATION is strictly prohibited.</license>
+  
+  <url type="Documentation">https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/overview.html</url>
+  <url type="Forums">https://forums.developer.nvidia.com/c/agx-autonomous-machines/isaac/simulation</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <exec_depend>joint_state_publisher</exec_depend>
+
+  <exec_depend>rviz2</exec_depend>
+
+  <exec_depend>nav2_amcl</exec_depend>
+  <exec_depend>nav2_bringup</exec_depend>
+  <exec_depend>nav2_bt_navigator</exec_depend>
+  <exec_depend>nav2_costmap_2d</exec_depend>
+  <exec_depend>nav2_core</exec_depend>
+  <exec_depend>nav2_dwb_controller</exec_depend>
+  <exec_depend>nav2_lifecycle_manager</exec_depend>
+  <exec_depend>nav2_map_server</exec_depend>
+  <exec_depend>nav2_recoveries</exec_depend>
+  <exec_depend>nav2_planner</exec_depend>
+  <exec_depend>nav2_msgs</exec_depend>
+  <exec_depend>nav2_navfn_planner</exec_depend>
+  <exec_depend>nav2_rviz_plugins</exec_depend>
+  <exec_depend>nav2_behavior_tree</exec_depend>
+  <exec_depend>nav2_util</exec_depend>
+  <exec_depend>nav2_voxel_grid</exec_depend>
+  <exec_depend>nav2_controller</exec_depend>
+  <exec_depend>nav2_waypoint_follower</exec_depend>
+
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
