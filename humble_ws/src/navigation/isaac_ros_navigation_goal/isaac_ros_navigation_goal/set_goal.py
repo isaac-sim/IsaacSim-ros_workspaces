@@ -21,9 +21,9 @@ class SetNavigationGoal(Node):
                 ("action_server_name", "navigate_to_pose"),
                 ("obstacle_search_distance_in_meters", 0.2),
                 ("frame_id", "map"),
-                ("map_yaml_path", None),
-                ("goal_text_file_path", None),
-                ("initial_pose", None),
+                ("map_yaml_path", rclpy.Parameter.Type.STRING),
+                ("goal_text_file_path", rclpy.Parameter.Type.STRING),
+                ("initial_pose", rclpy.Parameter.Type.DOUBLE_ARRAY),
             ],
         )
 

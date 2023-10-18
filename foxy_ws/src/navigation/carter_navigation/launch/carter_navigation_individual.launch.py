@@ -13,7 +13,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PythonExpression
+from launch.substitutions import LaunchConfiguration, PythonExpression, TextSubstitution
 from launch_ros.actions import Node
 
 
@@ -43,7 +43,7 @@ def generate_launch_description():
 
     declare_map_yaml_cmd = DeclareLaunchArgument(
         "map",
-        default_value=os.path.join(nav2_launch_dir, "maps", "turtlebot3_world.yaml"),
+        default_value=os.path.join(nav2_launch_dir, "maps", "carter_warehouse_navigation.yaml"),
         description="Full path to map file to load",
     )
 
@@ -80,7 +80,7 @@ def generate_launch_description():
             "params_file": params_file,
             "default_bt_xml_filename": default_bt_xml_filename,
             "autostart": autostart,
-        }.items(),
+        }.items(),   
     )
 
     # Create the launch description and populate
