@@ -33,6 +33,7 @@ def generate_launch_description():
         ),
     )
 
+
     nav2_bringup_launch_dir = os.path.join(get_package_share_directory("nav2_bringup"), "launch")
 
     rviz_config_dir = os.path.join(get_package_share_directory("carter_navigation"), "rviz2", "carter_navigation.rviz")
@@ -54,5 +55,27 @@ def generate_launch_description():
                 PythonLaunchDescriptionSource([nav2_bringup_launch_dir, "/bringup_launch.py"]),
                 launch_arguments={"map": map_dir, "use_sim_time": use_sim_time, "params_file": param_dir}.items(),
             ),
+
+            Node(
+                package='pointcloud_to_laserscan', executable='pointcloud_to_laserscan_node',
+                remappings=[('cloud_in', ['/front_3d_lidar/point_cloud']),
+                            ('scan', ['/scan'])],
+                parameters=[{
+                    'target_frame': 'front_3d_lidar',
+                    'transform_tolerance': 0.01,
+                    'min_height': -0.4,
+                    'max_height': 1.5,
+                    'angle_min': -1.5708,  # -M_PI/2
+                    'angle_max': 1.5708,  # M_PI/2
+                    'angle_increment': 0.0087,  # M_PI/360.0
+                    'scan_time': 0.3333,
+                    'range_min': 0.05,
+                    'range_max': 100.0,
+                    'use_inf': True,
+                    'inf_epsilon': 1.0,
+                    # 'concurrency_level': 1,
+                }],
+                name='pointcloud_to_laserscan'
+            )
         ]
     )

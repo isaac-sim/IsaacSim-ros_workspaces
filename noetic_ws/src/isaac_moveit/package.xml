@@ -24,6 +24,11 @@
   <exec_depend>rospy</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>panda_moveit_config</exec_depend>
+  <exec_depend>franka_description</exec_depend>
+  <exec_depend>pilz_industrial_motion</exec_depend>
+  <exec_depend>moveit_planners_chomp</exec_depend>
+  <exec_depend>rviz_visual_tools</exec_depend>
+  
 
   <export>
 

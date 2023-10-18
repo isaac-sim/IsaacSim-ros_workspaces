@@ -21,31 +21,33 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <exec_depend>launch</exec_depend>
-  <exec_depend>launch_ros</exec_depend>
+  <build_depend>launch</build_depend>
+  <build_depend>launch_ros</build_depend>
 
-  <exec_depend>joint_state_publisher</exec_depend>
+  <build_depend>joint_state_publisher</build_depend>
 
-  <exec_depend>rviz2</exec_depend>
+  <build_depend>rviz2</build_depend>
 
-  <exec_depend>nav2_amcl</exec_depend>
-  <exec_depend>nav2_bringup</exec_depend>
-  <exec_depend>nav2_bt_navigator</exec_depend>
-  <exec_depend>nav2_costmap_2d</exec_depend>
-  <exec_depend>nav2_core</exec_depend>
-  <exec_depend>nav2_dwb_controller</exec_depend>
-  <exec_depend>nav2_lifecycle_manager</exec_depend>
-  <exec_depend>nav2_map_server</exec_depend>
-  <exec_depend>nav2_recoveries</exec_depend>
-  <exec_depend>nav2_planner</exec_depend>
-  <exec_depend>nav2_msgs</exec_depend>
-  <exec_depend>nav2_navfn_planner</exec_depend>
-  <exec_depend>nav2_rviz_plugins</exec_depend>
-  <exec_depend>nav2_behavior_tree</exec_depend>
-  <exec_depend>nav2_util</exec_depend>
-  <exec_depend>nav2_voxel_grid</exec_depend>
-  <exec_depend>nav2_controller</exec_depend>
-  <exec_depend>nav2_waypoint_follower</exec_depend>
+  <build_depend>nav2_amcl</build_depend>
+  <build_depend>nav2_bringup</build_depend>
+  <build_depend>nav2_bt_navigator</build_depend>
+  <build_depend>nav2_costmap_2d</build_depend>
+  <build_depend>nav2_core</build_depend>
+  <build_depend>nav2_dwb_controller</build_depend>
+  <build_depend>nav2_lifecycle_manager</build_depend>
+  <build_depend>nav2_map_server</build_depend>
+  <build_depend>nav2_recoveries</build_depend>
+  <build_depend>nav2_planner</build_depend>
+  <build_depend>nav2_msgs</build_depend>
+  <build_depend>nav2_navfn_planner</build_depend>
+  <build_depend>nav2_rviz_plugins</build_depend>
+  <build_depend>nav2_behavior_tree</build_depend>
+  <build_depend>nav2_util</build_depend>
+  <build_depend>nav2_voxel_grid</build_depend>
+  <build_depend>nav2_controller</build_depend>
+  <build_depend>nav2_waypoint_follower</build_depend>
+  <build_depend>pointcloud_to_laserscan</build_depend>
+  <build_depend>navigation2</build_depend>
 
 
   <export>

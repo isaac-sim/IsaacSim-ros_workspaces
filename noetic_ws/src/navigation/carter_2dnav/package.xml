@@ -17,11 +17,14 @@
   <url type="Forums">https://forums.developer.nvidia.com/c/agx-autonomous-machines/isaac/simulation</url>
   
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>move_base</build_depend>
+  <build_depend>navigation</build_depend>
+  <build_depend>pointcloud_to_laserscan</build_depend>
   
-  <build_export_depend>move_base</build_export_depend>
+  <build_export_depend>navigation</build_export_depend>
+  <build_export_depend>pointcloud_to_laserscan</build_export_depend>
   
-  <exec_depend>move_base</exec_depend>
+  <exec_depend>navigation</exec_depend>
+  <exec_depend>pointcloud_to_laserscan</exec_depend>
   
   <export>
 
