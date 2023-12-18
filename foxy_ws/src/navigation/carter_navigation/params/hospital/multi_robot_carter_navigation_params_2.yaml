@@ -161,8 +161,8 @@ local_costmap:
       robot_base_frame: base_link
       use_sim_time: True
       rolling_window: True
-      width: 10
-      height: 10
+      width: 7
+      height: 7
       resolution: 0.05
       transform_tolerance: 0.3
       footprint: "[ [0.14, 0.25], [0.14, -0.25], [-0.607, -0.25], [-0.607, 0.25] ]"
