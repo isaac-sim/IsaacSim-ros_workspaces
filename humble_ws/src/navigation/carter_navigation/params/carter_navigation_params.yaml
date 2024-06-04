@@ -60,7 +60,7 @@ bt_navigator:
     use_sim_time: True
     global_frame: map
     robot_base_frame: base_link
-    odom_topic: /odom
+    odom_topic: /chassis/odom
     bt_loop_duration: 20
     default_server_timeout: 40
     # 'default_nav_through_poses_bt_xml' and 'default_nav_to_pose_bt_xml' are use defaults:
@@ -127,7 +127,7 @@ velocity_smoother:
     velocity_timeout: 1.0 
     # max_accel: [1.0, 0.0, 1.25] 
     # max_decel: [-1.0, 0.0, -1.25] 
-    odom_topic: "odom" 
+    odom_topic: "chassis/odom" 
     odom_duration: 0.1
 
 controller_server:
@@ -232,7 +232,7 @@ local_costmap:
         unknown_threshold: 15
         observation_sources: pointcloud
         pointcloud:  # no frame set, uses frame from message
-          topic: /front_3d_lidar/point_cloud
+          topic: /front_3d_lidar/lidar_points
           max_obstacle_height: 2.0
           min_obstacle_height: 0.1
           obstacle_max_range: 10.0

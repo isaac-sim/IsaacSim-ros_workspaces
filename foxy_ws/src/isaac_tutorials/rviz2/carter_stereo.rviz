@@ -57,17 +57,17 @@ Visualization Manager:
           Value: true
         front_3d_lidar:
           Value: true
-        front_stereo_camera:imu:
+        front_stereo_camera_imu:
           Value: true
-        front_stereo_camera:left_rgb:
+        front_stereo_camera_left_optical:
           Value: true
-        front_stereo_camera:right_rgb:
+        front_stereo_camera_right_optical:
           Value: true
-        left_stereo_camera:imu:
+        left_stereo_camera_imu:
           Value: true
-        left_stereo_camera:left_rgb:
+        left_stereo_camera_left_optical:
           Value: true
-        left_stereo_camera:right_rgb:
+        left_stereo_camera_right_optical:
           Value: true
         odom:
           Value: true
@@ -79,11 +79,11 @@ Visualization Manager:
           Value: true
         rear_stereo_camera:right_rgb:
           Value: true
-        right_stereo_camera:imu:
+        right_stereo_camera_imu:
           Value: true
-        right_stereo_camera:left_rgb:
+        right_stereo_camera_left_optical:
           Value: true
-        right_stereo_camera:right_rgb:
+        right_stereo_camera_right_optical:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -99,17 +99,17 @@ Visualization Manager:
               {}
             front_3d_lidar:
               {}
-            front_stereo_camera:imu:
+            front_stereo_camera_imu:
               {}
-            front_stereo_camera:left_rgb:
+            front_stereo_camera_left_optical:
               {}
-            front_stereo_camera:right_rgb:
+            front_stereo_camera_right_optical:
               {}
-            left_stereo_camera:imu:
+            left_stereo_camera_imu:
               {}
-            left_stereo_camera:left_rgb:
+            left_stereo_camera_left_optical:
               {}
-            left_stereo_camera:right_rgb:
+            left_stereo_camera_right_optical:
               {}
             rear_2d_lidar:
               {}
@@ -119,11 +119,11 @@ Visualization Manager:
               {}
             rear_stereo_camera:right_rgb:
               {}
-            right_stereo_camera:imu:
+            right_stereo_camera_imu:
               {}
-            right_stereo_camera:left_rgb:
+            right_stereo_camera_left_optical:
               {}
-            right_stereo_camera:right_rgb:
+            right_stereo_camera_right_optical:
               {}
       Update Interval: 0
       Value: true
@@ -177,7 +177,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /front_stereo_camera/left_rgb/image_raw
+        Value: /front_stereo_camera/left/image_raw
       Value: true
     - Class: rviz_default_plugins/Image
       Enabled: true
@@ -191,7 +191,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /front_stereo_camera/right_rgb/image_raw
+        Value: /front_stereo_camera/right/image_raw
       Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
@@ -222,7 +222,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /front_3d_lidar/point_cloud
+        Value: /front_3d_lidar/lidar_points
       Use Fixed Frame: true
       Use rainbow: true
       Value: true

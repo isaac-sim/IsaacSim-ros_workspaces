@@ -47,7 +47,11 @@ find_package(geometry_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/IsaacPose.srv"
+  "srv/GetPrims.srv"
+  "srv/GetPrimAttributes.srv"
+  "srv/GetPrimAttribute.srv"
+  "srv/SetPrimAttribute.srv"
   DEPENDENCIES builtin_interfaces std_msgs geometry_msgs
- )
+)
 
- ament_package()
+ament_package()

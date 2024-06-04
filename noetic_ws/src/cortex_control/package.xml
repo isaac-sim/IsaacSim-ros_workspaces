@@ -3,13 +3,17 @@
   <version>1.0.0</version>
   <description>NVIDIA Isaac Cortex Control ROS package.</description>
 
-  <author>Nathan Ratliff</author>
-  <maintainer email="isaac-sim@see.forums.for.help">Nathan Ratliff</maintainer>
+  <maintainer email="isaac-sim-maintainers@nvidia.com">Isaac Sim</maintainer>
 
-  <license>See LICENSE file.</license>
-
+  <license>Copyright (c) 2024, NVIDIA CORPORATION. All rights reserved.
+    NVIDIA CORPORATION and its licensors retain all intellectual property
+    and proprietary rights in and to this software, related documentation
+    and any modifications thereto.  Any use, reproduction, disclosure or
+    distribution of this software and related documentation without an express
+    license agreement from NVIDIA CORPORATION is strictly prohibited.</license>
+    
   <url type="Documentation">https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/overview.html</url>
-  <url type="Forums">https://forums.developer.nvidia.com/c/agx-autonomous-machines/isaac/simulation</url>
+  <url type="Forums">https://forums.developer.nvidia.com/c/omniverse/simulation/69</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 

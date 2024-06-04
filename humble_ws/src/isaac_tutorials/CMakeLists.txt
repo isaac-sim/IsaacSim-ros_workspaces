@@ -12,6 +12,7 @@ install(DIRECTORY
 # Install Python executables
 install(PROGRAMS
   scripts/ros2_publisher.py
+  scripts/ros2_ackermann_publisher.py
   DESTINATION lib/${PROJECT_NAME}
 )
 ament_package()

@@ -1,4 +1,4 @@
-## Copyright (c) 2022, NVIDIA CORPORATION. All rights reserved.
+## Copyright (c) 2024, NVIDIA CORPORATION. All rights reserved.
 ## NVIDIA CORPORATION and its licensors retain all intellectual property
 ## and proprietary rights in and to this software, related documentation
 ## and any modifications thereto.  Any use, reproduction, disclosure or
@@ -57,7 +57,7 @@ def generate_launch_description():
 
             Node(
                 package='pointcloud_to_laserscan', executable='pointcloud_to_laserscan_node',
-                remappings=[('cloud_in', ['/front_3d_lidar/point_cloud']),
+                remappings=[('cloud_in', ['/front_3d_lidar/lidar_points']),
                             ('scan', ['/scan'])],
                 parameters=[{
                     'target_frame': 'front_3d_lidar',

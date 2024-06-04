@@ -1,0 +1,6 @@
+string path             # prim path
+string attribute        # attribute name
+string value            # attribute value (as JSON)
+---
+bool success            # indicate a successful execution of the service
+string message          # informational, e.g. for error messages
