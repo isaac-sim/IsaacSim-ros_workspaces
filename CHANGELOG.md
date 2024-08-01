@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.0] - 2024-08-01
+
+### Added
+- Option in `isaacsim` package to launch Isaac Sim in headless mode [Foxy, Humble]
+
+### Changed
+- Bumped versions in `isaacsim` package to Isaac Sim version 4.1.0 [Foxy, Humble]
+
+
 ## [1.0.0] - 2024-05-28
 
 ### Added

@@ -16,7 +16,7 @@ from launch_ros.substitutions import FindPackageShare
 
 # Declare all launch arguments corresponding to the bash script options
 launch_args = [
-    DeclareLaunchArgument('version', default_value='4.0.0', description='Specify the version of Isaac Sim to use. Isaac Sim will be run from default install root folder for the specified version. Leave empty to use latest version of Isaac Sim.'),
+    DeclareLaunchArgument('version', default_value='4.1.0', description='Specify the version of Isaac Sim to use. Isaac Sim will be run from default install root folder for the specified version. Leave empty to use latest version of Isaac Sim.'),
     
     DeclareLaunchArgument('install_path', default_value='', description='If Isaac Sim is insalled in a non-default location, provide a specific path to Isaac Sim installation root folder. (If defined, "version" parameter will be ignored)'),
     
@@ -33,7 +33,9 @@ launch_args = [
     DeclareLaunchArgument('ros_distro', default_value='humble', description='Provide ROS version to use. Only Humble and Foxy is supported.'),
     
     DeclareLaunchArgument('ros_installation_path', default_value='', description='If ROS is installed in a non-default location (as in not under /opt/ros/), provide the path to your main setup.bash file for your ROS install. (/path/to/custom/ros/install/setup.bash)'),
-    
+
+    DeclareLaunchArgument('headless', default_value='', description='Set to "native" or "webrtc" to run Isaac Sim with different headless modes, if left blank, Isaac Sim will run in the regular GUI workflow. This parameter can be overridden by "standalone" parameter.'),
+
 ]
 
 # List of parameters to check
@@ -76,7 +78,8 @@ def launch_setup(context):
             'standalone': LaunchConfiguration('standalone'),
             'play_sim_on_start': LaunchConfiguration('play_sim_on_start'),
             'ros_distro': LaunchConfiguration('ros_distro'),
-            'ros_installation_path': LaunchConfiguration('ros_installation_path')
+            'ros_installation_path': LaunchConfiguration('ros_installation_path'),
+            'headless': LaunchConfiguration('headless')
         }]
     )
     return [isaacsim_node]
