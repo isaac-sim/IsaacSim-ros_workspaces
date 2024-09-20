@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>carter_navigation</name>
-  <version>0.1.1</version>
+  <name>iw_hub_navigation</name>
+  <version>0.1.0</version>
   <description>
-    The carter_navigation package
+    The iw_hub_navigation package
   </description>
 
   <maintainer email="isaac-sim-maintainers@nvidia.com">Isaac Sim</maintainer>
@@ -46,7 +46,6 @@
   <build_depend>nav2_voxel_grid</build_depend>
   <build_depend>nav2_controller</build_depend>
   <build_depend>nav2_waypoint_follower</build_depend>
-  <build_depend>pointcloud_to_laserscan</build_depend>
   <build_depend>navigation2</build_depend>
 
 

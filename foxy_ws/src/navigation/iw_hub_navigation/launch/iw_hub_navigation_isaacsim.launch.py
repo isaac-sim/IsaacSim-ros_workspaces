@@ -24,21 +24,21 @@ def generate_launch_description():
     map_dir = LaunchConfiguration(
         "map",
         default=os.path.join(
-            get_package_share_directory("carter_navigation"), "maps", "carter_warehouse_navigation.yaml"
+            get_package_share_directory("iw_hub_navigation"), "maps", "iw_hub_warehouse_navigation.yaml"
         ),
     )
 
     param_dir = LaunchConfiguration(
         "params_file",
         default=os.path.join(
-            get_package_share_directory("carter_navigation"), "params", "carter_navigation_params.yaml"
+            get_package_share_directory("iw_hub_navigation"), "params", "iw_hub_navigation_params.yaml"
         ),
     )
 
 
     nav2_bringup_launch_dir = os.path.join(get_package_share_directory("nav2_bringup"), "launch")
 
-    rviz_config_dir = os.path.join(get_package_share_directory("carter_navigation"), "rviz2", "carter_navigation.rviz")
+    rviz_config_dir = os.path.join(get_package_share_directory("iw_hub_navigation"), "rviz2", "iw_hub_navigation.rviz")
 
     ld_automatic_goal = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
@@ -63,7 +63,7 @@ def generate_launch_description():
     return LaunchDescription(
         [
             # Declaring the Isaac Sim scene path. 'gui' launch argument is already used withing run_isaac_sim.launch.py
-            DeclareLaunchArgument("gui", default_value='omniverse://localhost/NVIDIA/Assets/Isaac/4.2/Isaac/Samples/ROS2/Scenario/carter_warehouse_navigation.usd', description="Path to isaac sim scene"),
+            DeclareLaunchArgument("gui", default_value='omniverse://localhost/NVIDIA/Assets/Isaac/4.2/Isaac/Samples/ROS2/Scenario/iw_hub_warehouse_navigation.usd', description="Path to isaac sim scene"),
 
             # Include Isaac Sim launch file from isaacsim package with given launch parameters.
             IncludeLaunchDescription(
@@ -93,28 +93,6 @@ def generate_launch_description():
                 PythonLaunchDescriptionSource([nav2_bringup_launch_dir, "/bringup_launch.py"]),
                 launch_arguments={"map": map_dir, "use_sim_time": use_sim_time, "params_file": param_dir}.items(),
             ),
-            Node(
-                package='pointcloud_to_laserscan', executable='pointcloud_to_laserscan_node',
-                remappings=[('cloud_in', ['/front_3d_lidar/lidar_points']),
-                            ('scan', ['/scan'])],
-                parameters=[{
-                    'target_frame': 'front_3d_lidar',
-                    'transform_tolerance': 0.01,
-                    'min_height': -0.4,
-                    'max_height': 1.5,
-                    'angle_min': -1.5708,  # -M_PI/2
-                    'angle_max': 1.5708,  # M_PI/2
-                    'angle_increment': 0.0087,  # M_PI/360.0
-                    'scan_time': 0.3333,
-                    'range_min': 0.05,
-                    'range_max': 100.0,
-                    'use_inf': True,
-                    'inf_epsilon': 1.0,
-                    # 'concurrency_level': 1,
-                }],
-                name='pointcloud_to_laserscan'
-            ),
-
             # Launch automatic goal generator node when Isaac Sim has finished loading.
             RegisterEventHandler(
                 OnProcessIO(

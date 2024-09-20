@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>isaacsim</name>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <description>
     The isaacsim package that contains the script which can used to launch Isaac Sim as a ROS2 node from a launch file. 
   </description>

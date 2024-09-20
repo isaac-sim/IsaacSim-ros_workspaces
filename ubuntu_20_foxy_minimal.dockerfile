@@ -58,6 +58,8 @@ RUN apt update && apt install -y \
   libtinyxml2-dev \
   libcunit1-dev
 
+RUN pip3 install setuptools==70.0.0
+
 RUN python3 -m pip install -U \
   argcomplete \
   flake8-blind-except \
@@ -77,11 +79,10 @@ RUN python3.10 -m pip uninstall numpy -y
 RUN python3.10 -m pip install --upgrade pip
 RUN python3.10 -m pip install numpy
 
-RUN pip3 install setuptools==58.2.0  
 
 RUN mkdir -p ${ROS_ROOT}/src && \
     cd ${ROS_ROOT} && \
-    rosinstall_generator --deps --rosdistro ${ROS_DISTRO} rosidl_runtime_c rcutils rcl rmw tf2_msgs geometry_msgs nav_msgs std_msgs rosgraph_msgs sensor_msgs vision_msgs rclpy ros2topic ros2pkg ros2doctor ros2run ros2node ros_environment > ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
+    rosinstall_generator --deps --rosdistro ${ROS_DISTRO} rosidl_runtime_c rcutils rcl rmw tf2 tf2_msgs geometry_msgs nav_msgs std_msgs rosgraph_msgs sensor_msgs vision_msgs rclpy ros2topic ros2pkg ros2doctor ros2run ros2node ros_environment ackermann_msgs example_interfaces > ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
     cat ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
     vcs import src < ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall
 

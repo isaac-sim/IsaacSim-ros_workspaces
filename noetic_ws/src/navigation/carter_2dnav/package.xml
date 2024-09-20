@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>carter_2dnav</name>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <description>The carter_2dnav package</description>
 
   <maintainer email="isaac-sim-maintainers@nvidia.com">Isaac Sim</maintainer>

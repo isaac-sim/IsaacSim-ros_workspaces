@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.0] - 2024-09-20
+
+### Added
+- New `iw_hub_navigation` package to run Nav2 with new iw.hub robot in new environment [Foxy, Humble]
+- New RViz config for TurtleBot tutorials [Noetic]
+- New RViz config and launch file with Carter robot for SLAM with gmapping
+
+### Changed
+- Bumped versions in `isaacsim` package to Isaac Sim version 4.2.0 [Foxy, Humble]
+- Changed `carter_2dnav` package to only use RTX Lidar [Noetic]
+- Updated dockerfiles to use setuptools 70.0.0 [Humble, Foxy]
+- Updated QoS settings for image subscribers in ``carter_stereo.rviz`` and ``carter_navigation.rviz`` config files. [Foxy, Humble] 
+
 ## [1.1.0] - 2024-08-01
 
 ### Added
