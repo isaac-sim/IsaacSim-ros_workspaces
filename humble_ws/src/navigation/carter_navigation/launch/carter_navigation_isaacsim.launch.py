@@ -56,14 +56,17 @@ def generate_launch_description():
         if "Stage loaded and simulation is playing." in output:
             # Log a message indicating the condition has been met
             print("Condition met, launching the second node.")
-
+            
+            # If Nav2 takes additional time to initialize, uncomment the lines below to add a delay of 10 seconds (or any desired duration) before launching the second_node_action
+            # import time
+            # time.sleep(10)
             return second_node_action
 
 
     return LaunchDescription(
         [
             # Declaring the Isaac Sim scene path. 'gui' launch argument is already used withing run_isaac_sim.launch.py
-            DeclareLaunchArgument("gui", default_value='omniverse://localhost/NVIDIA/Assets/Isaac/4.2/Isaac/Samples/ROS2/Scenario/carter_warehouse_navigation.usd', description="Path to isaac sim scene"),
+            DeclareLaunchArgument("gui", default_value='https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.5/Isaac/Samples/ROS2/Scenario/carter_warehouse_navigation.usd', description="Path to isaac sim scene"),
 
             # Include Isaac Sim launch file from isaacsim package with given launch parameters.
             IncludeLaunchDescription(
@@ -73,7 +76,7 @@ def generate_launch_description():
                     ]
                 ),
                 launch_arguments={
-                    'version': '4.2.0',
+                    'version': '4.5.0',
                     'play_sim_on_start': 'true',
                 }.items(),
             ),

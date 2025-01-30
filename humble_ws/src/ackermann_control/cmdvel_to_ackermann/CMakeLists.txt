@@ -1,18 +1,19 @@
 cmake_minimum_required(VERSION 3.5)
-project(isaac_tutorials)
+project(cmdvel_to_ackermann)
 
 find_package(ament_cmake REQUIRED)
 find_package(rclpy REQUIRED)
+find_package(ackermann_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 install(DIRECTORY
-  rviz2
   scripts
+  launch
   DESTINATION share/${PROJECT_NAME})
 
 # Install Python executables
 install(PROGRAMS
-  scripts/ros2_publisher.py
-  scripts/ros2_ackermann_publisher.py
+  scripts/cmdvel_to_ackermann.py
   DESTINATION lib/${PROJECT_NAME}
 )
 ament_package()

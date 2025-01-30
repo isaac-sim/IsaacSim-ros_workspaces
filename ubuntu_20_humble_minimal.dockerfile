@@ -102,4 +102,4 @@ RUN cp /usr/lib/x86_64-linux-gnu/libcrypto.so* /workspace/humble_ws/install/lib/
 RUN cd ${WORKDIR} && mkdir build_ws
 COPY humble_ws build_ws
 
-RUN /bin/bash -c "source ${ROS_ROOT}/install/setup.sh && cd build_ws && colcon build --cmake-args ' -DPython3_EXECUTABLE=/usr/bin/python3.10' --packages-select custom_message --merge-install"
+RUN /bin/bash -c "source ${ROS_ROOT}/install/setup.sh && cd build_ws && colcon build --cmake-args ' -DPython3_EXECUTABLE=/usr/bin/python3.10' --merge-install"

@@ -20,16 +20,17 @@ import psutil
 
 # Default values
 defaults = {
-    "isaac_sim_version": "4.2.0",
+    "isaac_sim_version": "4.5.0",
     "isaac_sim_path": "",
     "use_internal_libs": False,
     "dds_type": "fastdds",
     "gui": "",
     "standalone": "",
     "play_sim_on_start": False,
-    "ros_distro_var": "foxy",
+    "ros_distro_var": "humble",
     "ros_installation_path": "",
-    "headless": ""
+    "headless": "",
+    "custom_args": "",
 }
 
 # List to keep track of subprocesses
@@ -80,7 +81,8 @@ class IsaacSimLauncherNode(Node):
                 ('play_sim_on_start', defaults['play_sim_on_start']),
                 ('ros_distro', defaults['ros_distro_var']),
                 ('ros_installation_path', defaults['ros_installation_path']),
-                ('headless', defaults['headless'])
+                ('headless', defaults['headless']),
+                ('custom_args', defaults['custom_args'])
             ]
         )
         self.execute_launch()
@@ -97,6 +99,7 @@ class IsaacSimLauncherNode(Node):
         args.ros_distro = self.get_parameter('ros_distro').get_parameter_value().string_value
         args.ros_installation_path = self.get_parameter('ros_installation_path').get_parameter_value().string_value
         args.headless = self.get_parameter('headless').get_parameter_value().string_value
+        args.custom_args = self.get_parameter('custom_args').get_parameter_value().string_value
 
         filepath_root = ""
 
@@ -107,6 +110,11 @@ class IsaacSimLauncherNode(Node):
             home_var = "USERPROFILE" if sys.platform == "win32" else "HOME"
             home_path = os.getenv(home_var)
             if version_ge(args.version, "4.2.0") and not version_gt(args.version, "2021.2.0"):
+                if sys.platform == "win32":
+                    filepath_root = os.path.join("C:", "isaacsim")
+                else:
+                    filepath_root = os.path.join(home_path, "isaacsim")
+            elif args.version == "4.2.0":
                 if sys.platform == "win32":
                     filepath_root = os.path.join(home_path, "AppData", "Local", "ov", "pkg", f"isaac-sim-{args.version}")
                 else:
@@ -127,7 +135,7 @@ class IsaacSimLauncherNode(Node):
                 print("use_internal_libs parameter is not supported in Windows")
                 sys.exit(0)
             else:
-                os.environ["LD_LIBRARY_PATH"] = f"{os.getenv('LD_LIBRARY_PATH')}:{filepath_root}/exts/omni.isaac.ros2_bridge/{args.ros_distro}/lib"
+                os.environ["LD_LIBRARY_PATH"] = f"{os.getenv('LD_LIBRARY_PATH')}:{filepath_root}/exts/isaacsim.ros2.bridge/{args.ros_distro}/lib"
                 specific_path_to_remove = f"/opt/ros/{args.ros_distro}"
                 version_to_remove = "foxy" if args.ros_distro == "humble" else "humble"
                 update_env_vars(version_to_remove, specific_path_to_remove, "LD_LIBRARY_PATH")
@@ -152,22 +160,21 @@ class IsaacSimLauncherNode(Node):
             subprocesses.append(proc.pid)
         else:
             # Default command
-            executable_command = f'{os.path.join(filepath_root, "isaac-sim.sh" if sys.platform != "win32" else "isaac-sim.bat")} --/isaac/startup/ros_bridge_extension=omni.isaac.ros2_bridge'
+            executable_command = f'{os.path.join(filepath_root, "isaac-sim.sh" if sys.platform != "win32" else "isaac-sim.bat")} --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge'
 
-            if args.headless == "native":
-                executable_command = f'{os.path.join(filepath_root, "isaac-sim.headless.native.sh" if sys.platform != "win32" else "isaac-sim.headless.native.bat")} --/isaac/startup/ros_bridge_extension=omni.isaac.ros2_bridge'
-            elif args.headless == "webrtc":
-                executable_command = f'{os.path.join(filepath_root, "isaac-sim.headless.webrtc.sh" if sys.platform != "win32" else "isaac-sim.headless.webrtc.bat")} --/isaac/startup/ros_bridge_extension=omni.isaac.ros2_bridge'
+            if args.headless == "webrtc":
+                executable_command = f'{os.path.join(filepath_root, "isaac-sim.streaming.sh" if sys.platform != "win32" else "isaac-sim.streaming.bat")} --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge'
+
+            if args.custom_args!= "":
+                executable_command += f" {args.custom_args}"
 
             if args.gui != "":
                 script_dir = os.path.dirname(__file__)
                 file_arg = os.path.join(script_dir, "open_isaacsim_stage.py") + f" --path {args.gui} {play_sim_on_start_arg}"
-                command = f"{executable_command} --exec '{file_arg}'"
-                proc = subprocess.Popen(command, shell=True, start_new_session=True)
-                subprocesses.append(proc.pid)
-            else:
-                proc = subprocess.Popen(executable_command, shell=True, start_new_session=True)
-                subprocesses.append(proc.pid)
+                executable_command += f" --exec '{file_arg}'"
+
+            proc = subprocess.Popen(executable_command, shell=True, start_new_session=True)
+            subprocesses.append(proc.pid)
 
 def main(args=None):
     rclpy.init(args=args)

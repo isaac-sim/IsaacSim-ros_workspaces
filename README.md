@@ -1,6 +1,6 @@
 # Isaac Sim ROS & ROS2 Workspaces
 
-This repository contains three workspaces: `noetic_ws` (ROS Noetic), `foxy_ws` (ROS2 Foxy) and `humble_ws` (ROS2 Humble). 
+This repository contains three workspaces: `noetic_ws` (ROS Noetic) and `humble_ws` (ROS2 Humble). 
 
 [Click here for usage and installation instructions with Isaac Sim](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_ros.html)
 

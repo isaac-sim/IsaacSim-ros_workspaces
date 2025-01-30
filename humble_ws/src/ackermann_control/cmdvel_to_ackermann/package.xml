@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>custom_message</name>
-  <version>0.0.0</version>
-  <description>Custom Message Sample Package</description>
+  <name>cmdvel_to_ackermann</name>
+  <version>0.1.0</version>
+  <description>This package converts command velocity (Twist Msg) to ackermann messages (AckermannDriveStamped Msg)</description>
   <maintainer email="isaac-sim-maintainers@nvidia.com">Isaac Sim</maintainer>
 
   <license>Copyright (c) 2024, NVIDIA CORPORATION. All rights reserved.
@@ -12,19 +12,15 @@
     and any modifications thereto.  Any use, reproduction, disclosure or
     distribution of this software and related documentation without an express
     license agreement from NVIDIA CORPORATION is strictly prohibited.</license>
-  
+    
   <url type="Documentation">https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/overview.html</url>
   <url type="Forums">https://forums.developer.nvidia.com/c/omniverse/simulation/69</url>
-
-  <buildtool_depend>ament_cmake</buildtool_depend>
   
-  <depend>std_msgs</depend>
-  <buildtool_depend>rosidl_default_generators</buildtool_depend>
-  <exec_depend>rosidl_default_runtime</exec_depend>
-  <member_of_group>rosidl_interface_packages</member_of_group>
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <test_depend>ament_lint_auto</test_depend>
-  <test_depend>ament_lint_common</test_depend>
+  <build_depend>ackermann_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>launch</build_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
