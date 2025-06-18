@@ -20,7 +20,7 @@ import psutil
 
 # Default values
 defaults = {
-    "isaac_sim_version": "4.5.0",
+    "isaac_sim_version": "5.0.0",
     "isaac_sim_path": "",
     "use_internal_libs": False,
     "dds_type": "fastdds",
@@ -137,7 +137,7 @@ class IsaacSimLauncherNode(Node):
             else:
                 os.environ["LD_LIBRARY_PATH"] = f"{os.getenv('LD_LIBRARY_PATH')}:{filepath_root}/exts/isaacsim.ros2.bridge/{args.ros_distro}/lib"
                 specific_path_to_remove = f"/opt/ros/{args.ros_distro}"
-                version_to_remove = "foxy" if args.ros_distro == "humble" else "humble"
+                version_to_remove = "jazzy" if args.ros_distro == "humble" else "humble"
                 update_env_vars(version_to_remove, specific_path_to_remove, "LD_LIBRARY_PATH")
                 update_env_vars(version_to_remove, specific_path_to_remove, "PYTHONPATH")
                 update_env_vars(version_to_remove, specific_path_to_remove, "PATH")

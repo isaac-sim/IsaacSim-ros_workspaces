@@ -1,5 +1,41 @@
 # Changelog
+## [4.3.1] - 2025-06-11
 
+### Changed
+- Bumped versions in `isaacsim` package to Isaac Sim version 5.0.0 [Humble, Jazzy]
+- Updated all asset paths referenced in ROS 2 packages to Isaac Sim 5.0 convention
+
+## [4.3.0] - 2025-06-04
+
+### Added
+- Humanoid locomotion policy example [Humble, Jazzy]
+
+## [4.2.1] - 2025-06-03
+
+### Changed
+- Updating the H1 joint names in the wholebody controller package [Humble]
+
+## [4.2.0] - 2025-05-30
+
+### Added
+- Launch file in carter_navigation for running the nova carter robot description [Humble, Jazzy]
+
+## [4.1.0] - 2025-05-20
+
+### Added
+- Build scripts for Humble and Jazzy workspaces in Python 3.11 [Humble, Jazzy]
+
+## [4.0.0] - 2025-04-30
+
+### Added
+- New Jazzy workspace for Isaac Sim 5.0 [Jazzy]
+- New Moveit tutorial [Jazzy, Humble] 
+
+### Changed
+- Bumped verison to Isaac Sim 5.0 [Humble]
+
+### Removed
+- Removed all Noetic packages and dockerfiles [Noetic]
 
 ## [3.3.1] - 2025-01-24
 

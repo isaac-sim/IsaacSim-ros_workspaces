@@ -1,4 +1,4 @@
-## Copyright (c) 2024, NVIDIA CORPORATION. All rights reserved.
+## Copyright (c) 2025, NVIDIA CORPORATION. All rights reserved.
 ## NVIDIA CORPORATION and its licensors retain all intellectual property
 ## and proprietary rights in and to this software, related documentation
 ## and any modifications thereto.  Any use, reproduction, disclosure or
@@ -16,13 +16,13 @@ from launch_ros.substitutions import FindPackageShare
 
 # Declare all launch arguments corresponding to the bash script options
 launch_args = [
-    DeclareLaunchArgument('version', default_value='4.5.0', description='Specify the version of Isaac Sim to use. Isaac Sim will be run from default install root folder for the specified version. Leave empty to use latest version of Isaac Sim.'),
+    DeclareLaunchArgument('version', default_value='5.0.0', description='Specify the version of Isaac Sim to use. Isaac Sim will be run from default install root folder for the specified version. Leave empty to use latest version of Isaac Sim.'),
     
     DeclareLaunchArgument('install_path', default_value='', description='If Isaac Sim is insalled in a non-default location, provide a specific path to Isaac Sim installation root folder. (If defined, "version" parameter will be ignored)'),
     
     DeclareLaunchArgument('use_internal_libs', default_value='false', description='Set to true if you wish to use internal ROS libraries shipped with Isaac Sim.'),
     
-    DeclareLaunchArgument('dds_type', default_value='fastdds', description='Set to "fastdds" or "cyclonedds" (Cyclone only supported for ROS Humble) to run Isaac Sim with a specific dds type.'),
+    DeclareLaunchArgument('dds_type', default_value='fastdds', description='Set to "fastdds" or "cyclonedds" (Cyclone only supported for ROS 2 Humble and ROS 2 Jazzy) to run Isaac Sim with a specific dds type.'),
     
     DeclareLaunchArgument('gui', default_value='', description='Provide the path to a usd file to open it when starting Isaac Sim in standard gui mode. If left empty, Isaac Sim will open an empty stage in standard gui mode.'),
     
@@ -30,7 +30,7 @@ launch_args = [
     
     DeclareLaunchArgument('play_sim_on_start', default_value='false', description='If enabled and Isaac Sim will start playing the scene after it is loaded. (Only applicable when in standard gui mode and loading a scene)'),
     
-    DeclareLaunchArgument('ros_distro', default_value='humble', description='Provide ROS version to use. Only Humble and Foxy is supported.'),
+    DeclareLaunchArgument('ros_distro', default_value='humble', description='Provide ROS version to use. Only Humble and Jazzy is supported.'),
     
     DeclareLaunchArgument('ros_installation_path', default_value='', description='If ROS is installed in a non-default location (as in not under /opt/ros/), provide the path to your main setup.bash file for your ROS install. (/path/to/custom/ros/install/setup.bash)'),
 

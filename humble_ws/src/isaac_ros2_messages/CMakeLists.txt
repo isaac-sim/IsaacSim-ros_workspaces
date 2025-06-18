@@ -36,12 +36,6 @@ endif()
 find_package(builtin_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
-IF (WIN32)
-find_package(FastRTPS REQUIRED)
-ELSE()
-find_package(fastrtps REQUIRED)
-ENDIF()
-
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 

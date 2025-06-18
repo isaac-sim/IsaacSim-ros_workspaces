@@ -1,0 +1,7 @@
+string path             # prim path
+---
+string[] names          # list of attribute base names (name used to Get or Set an attribute)
+string[] displays       # list of attribute display names (name displayed in Property tab)
+string[] types          # list of attribute data types
+bool success            # indicate a successful execution of the service
+string message          # informational, e.g. for error messages
