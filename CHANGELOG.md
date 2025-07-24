@@ -1,4 +1,18 @@
 # Changelog
+## [4.4.1] - 2025-07-23
+
+### Changed
+- Updated links within docker build files [Humble, Jazzy]
+- Updated licenses for all scripts [Humble, Jazzy]
+
+## [4.4.0] - 2025-07-16
+
+### Added
+- Added `exclude_install_path` arguments in `isaacsim` package to allow removing certain install paths from environment variables when launching Isaac Sim [Humble, Jazzy]
+
+### Changed
+- The `use_internal_libs` parameter in `isaacsim` package is set to true by default [Humble, Jazzy]
+
 ## [4.3.1] - 2025-06-11
 
 ### Changed
