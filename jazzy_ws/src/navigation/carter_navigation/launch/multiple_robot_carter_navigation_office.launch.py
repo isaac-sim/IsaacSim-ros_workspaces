@@ -53,7 +53,7 @@ def generate_launch_description():
     autostart = LaunchConfiguration("autostart")
     rviz_config_file = LaunchConfiguration("rviz_config")
     use_rviz = LaunchConfiguration("use_rviz")
-    log_settings = LaunchConfiguration("log_settings", default="true")
+    log_settings = LaunchConfiguration("log_settings", default="True")
 
     # Declare the launch arguments
     declare_map_yaml_cmd = DeclareLaunchArgument(

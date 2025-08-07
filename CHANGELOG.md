@@ -1,4 +1,9 @@
 # Changelog
+## [4.4.2] - 2025-08-06
+
+### Changed
+- Upgraded configs in `carter_navigation` and `iw_hub_navigation` packages for Nav2 Jazzy [Jazzy]
+
 ## [4.4.1] - 2025-07-23
 
 ### Changed

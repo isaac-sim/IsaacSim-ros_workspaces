@@ -53,7 +53,7 @@ def generate_launch_description():
     autostart = LaunchConfiguration("autostart")
     rviz_config_file = LaunchConfiguration("rviz_config")
     use_rviz = LaunchConfiguration("use_rviz")
-    log_settings = LaunchConfiguration("log_settings", default="true")
+    log_settings = LaunchConfiguration("log_settings", default="True")
 
     # Declare the launch arguments
     declare_map_yaml_cmd = DeclareLaunchArgument(
@@ -144,15 +144,15 @@ def generate_launch_description():
                                 ('scan', ['scan'])],
                     parameters=[{
                         'target_frame': 'front_3d_lidar',
-                        'transform_tolerance': 0.01,
-                        'min_height': -0.4,
+                        'transform_tolerance': 0.3,
+                        'min_height': -0.1,
                         'max_height': 1.5,
                         'angle_min': -1.5708,  # -M_PI/2
                         'angle_max': 1.5708,  # M_PI/2
                         'angle_increment': 0.0087,  # M_PI/360.0
                         'scan_time': 0.3333,
-                        'range_min': 0.05,
-                        'range_max': 100.0,
+                        # 'range_min': 0.05,
+                        # 'range_max': 100.0,
                         'use_inf': True,
                         'inf_epsilon': 1.0,
                         # 'concurrency_level': 1,

@@ -44,7 +44,7 @@ def generate_launch_description():
     declare_namespace_cmd = DeclareLaunchArgument("namespace", default_value="", description="Top-level namespace")
 
     declare_use_namespace_cmd = DeclareLaunchArgument(
-        "use_namespace", default_value="false", description="Whether to apply a namespace to the navigation stack"
+        "use_namespace", default_value="False", description="Whether to apply a namespace to the navigation stack"
     )
 
     declare_slam_cmd = DeclareLaunchArgument("slam", default_value="False", description="Whether run a SLAM")
@@ -56,7 +56,7 @@ def generate_launch_description():
     )
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
-        "use_sim_time", default_value="True", description="Use simulation (Isaac Sim) clock if true"
+        "use_sim_time", default_value="True", description="Use simulation (Isaac Sim) clock if True"
     )
 
     declare_params_file_cmd = DeclareLaunchArgument(
@@ -74,7 +74,7 @@ def generate_launch_description():
     )
 
     declare_autostart_cmd = DeclareLaunchArgument(
-        "autostart", default_value="true", description="Automatically startup the nav2 stack"
+        "autostart", default_value="True", description="Automatically startup the nav2 stack"
     )
 
     bringup_cmd = IncludeLaunchDescription(

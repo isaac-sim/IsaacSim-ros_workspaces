@@ -85,7 +85,7 @@ def generate_launch_description():
                 ),
                 launch_arguments={
                     'version': '5.0.0',
-                    'play_sim_on_start': 'true',
+                    'play_sim_on_start': 'True',
                 }.items(),
             ),
             
@@ -94,7 +94,7 @@ def generate_launch_description():
                 "params_file", default_value=param_dir, description="Full path to param file to load"
             ),
             DeclareLaunchArgument(
-                "use_sim_time", default_value="true", description="Use simulation (Omniverse Isaac Sim) clock if true"
+                "use_sim_time", default_value="True", description="Use simulation (Omniverse Isaac Sim) clock if True"
             ),
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(os.path.join(nav2_bringup_launch_dir, "rviz_launch.py")),
