@@ -27,7 +27,7 @@ import psutil
 
 # Default values
 defaults = {
-    "isaac_sim_version": "5.0.0",
+    "isaac_sim_version": "5.1.0",
     "isaac_sim_path": "",
     "use_internal_libs": True,
     "dds_type": "fastdds",

@@ -1,4 +1,17 @@
 # Changelog
+
+## [4.5.0] - 2025-09-29
+### Changed
+- Updated links and bumped versions in all packages to Isaac Sim version 5.1.0 [Humble, Jazzy]
+
+## [4.4.4] - 2025-09-29
+### Changed
+- Updated setgoal.py in `isaac_ros_navigation_goal` for NavigateToPose action result handling [Humble, Jazzy]
+
+## [4.4.3] - 2025-08-14
+### Changed
+- `.gitignore` to ignore `.vscode/`.
+
 ## [4.4.2] - 2025-08-06
 
 ### Changed

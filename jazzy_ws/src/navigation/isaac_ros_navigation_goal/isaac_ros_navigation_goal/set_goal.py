@@ -162,7 +162,7 @@ class SetNavigationGoal(Node):
         """
         # Nav2 is sending empty message for success as well as for failure.
         result = future.result().result
-        self.get_logger().info("Result: {0}".format(result.result))
+        self.get_logger().info("Result: {0}".format(result))
 
         if self.curr_iteration_count < self.MAX_ITERATION_COUNT:
             self.curr_iteration_count += 1
