@@ -144,8 +144,8 @@ velocity_smoother:
     smoothing_frequency: 20.0 
     scale_velocities: false 
     feedback: "OPEN_LOOP" 
-    max_velocity: [1.8, 0.0, 1.2] 
-    min_velocity: [-1.8, 0.0, -1.2] 
+    max_velocity: [0.8, 0.0, 0.7] 
+    min_velocity: [-0.8, 0.0, -0.7] 
     # deadband_velocity: [0.0, 0.0, 0.0] 
     velocity_timeout: 1.0 
     # max_accel: [1.0, 0.0, 1.25] 
@@ -189,9 +189,9 @@ controller_server:
       debug_trajectory_details: True
       min_vel_x: 0.0
       min_vel_y: 0.0
-      max_vel_x: 1.8
+      max_vel_x: 0.8
       max_vel_y: 0.0
-      max_vel_theta: 1.0
+      max_vel_theta: 0.7
       min_speed_xy: 0.0
       max_speed_xy: 1.0
       min_speed_theta: 0.0

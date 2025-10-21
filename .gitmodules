@@ -2,8 +2,7 @@
 	path = humble_ws/src/moveit/moveit_resources
 	url = https://github.com/ayushgnv/moveit_resources.git
 	branch = isaacsim_moveit_tutorial
-
 [submodule "jazzy_ws/src/moveit/moveit_resources"]
 	path = jazzy_ws/src/moveit/moveit_resources
 	url = https://github.com/ayushgnv/moveit_resources.git
-	branch = isaacsim_moveit_tutorial
+	branch = isaac_moveit_tutorial_jazzy

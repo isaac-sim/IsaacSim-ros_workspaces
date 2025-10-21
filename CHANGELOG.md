@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.5.1] - 2025-10-07
+### Changed
+- Updated MoveIt configs to mitigate timeout issues [Jazzy]
+
 ## [4.5.0] - 2025-09-29
 ### Changed
 - Updated links and bumped versions in all packages to Isaac Sim version 5.1.0 [Humble, Jazzy]

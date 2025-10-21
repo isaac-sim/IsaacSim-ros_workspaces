@@ -12,6 +12,7 @@ install(DIRECTORY
 
 # Install Python executables
 install(PROGRAMS
+  scripts/gripper_to_isaac.py
   DESTINATION lib/${PROJECT_NAME}
 )
 ament_package()

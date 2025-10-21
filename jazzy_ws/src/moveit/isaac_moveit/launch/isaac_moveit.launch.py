@@ -171,10 +171,13 @@ def generate_launch_description():
         arguments=["panda_arm_controller", "-c", "/controller_manager"],
     )
 
-    panda_hand_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["panda_hand_controller", "-c", "/controller_manager"],
+    # Use direct bridge instead of spawning panda_hand_controller
+    gripper_to_isaac_bridge = Node(
+        package="isaac_moveit",
+        executable="gripper_to_isaac.py",
+        name="gripper_to_isaac",
+        output="screen",
+        parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
     )
 
     return LaunchDescription(
@@ -189,6 +192,6 @@ def generate_launch_description():
             ros2_control_node,
             joint_state_broadcaster_spawner,
             panda_arm_controller_spawner,
-            panda_hand_controller_spawner,
+            gripper_to_isaac_bridge,
         ]
     )
