@@ -20,7 +20,6 @@ from launch.substitutions import (
     LaunchConfiguration,
     IfElseSubstitution,
     TextSubstitution,
-    PythonExpression,
 )
 from ament_index_python.packages import get_package_share_directory
 import os
@@ -58,13 +57,7 @@ def generate_launch_description():
             name='h1_fullbody_controller',
             output="screen",
             namespace=IfElseSubstitution(
-                [
-                    PythonExpression([
-                        '"1" if "',
-                        LaunchConfiguration('use_namespace'),
-                        '".lower() in ["1","true"] else ""'
-                    ])
-                ],
+                [LaunchConfiguration('use_namespace')],
                 [LaunchConfiguration('namespace')],
                 [TextSubstitution(text='')]
             ),
