@@ -61,27 +61,27 @@ class H1FullbodyController(Node):
         # Create subscription for velocity commands
         self._cmd_vel_subscription = self.create_subscription(
             Twist,
-            '/cmd_vel',
+            'cmd_vel',
             self._cmd_vel_callback,
             qos_profile=10)
 
         # Create publisher for joint commands
         self._joint_publisher = self.create_publisher(
             JointState,
-            '/joint_command',
+            'joint_command',
             qos_profile=sim_qos_profile)
 
         # Setup synchronized subscribers for IMU and joint state data
         self._imu_sub_filter = Subscriber(
             self,
             Imu,
-            '/imu',
+            'imu',
             qos_profile=sim_qos_profile,
         )
         self._joint_states_sub_filter = Subscriber(
             self,
             JointState,
-            '/joint_states',
+            'joint_states',
             qos_profile=sim_qos_profile,
         )
         queue_size = 10

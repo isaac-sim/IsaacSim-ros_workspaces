@@ -23,11 +23,11 @@ RUN apt-get update && \
 # Upgrade installed packages
 RUN apt update && apt upgrade -y && apt clean
 
-# Install Python3.11
+# Install Python3.12
 RUN apt update && \
     apt install --no-install-recommends -y build-essential software-properties-common && \
     add-apt-repository -y ppa:deadsnakes/ppa && \
-    apt install --no-install-recommends -y python3.11 python3.11-dev python3.11-distutils python3.11-venv
+    apt install --no-install-recommends -y python3.12 python3.12-dev python3.12-venv
 
 # Setting up locale stuff
 RUN apt update && apt install locales
@@ -36,12 +36,12 @@ RUN locale-gen en_US en_US.UTF-8 && \
     update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 && \
     export LANG=en_US.UTF-8
 
-# Set default Python3 to Python3.11
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
+# Set default Python3 to Python3.12
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
 
 # Pip install stuff
 RUN curl -s https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
-    python3.11 get-pip.py --force-reinstall && \
+    python3.12 get-pip.py --force-reinstall && \
     rm get-pip.py
 
 RUN wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc && apt-key add ros.asc
@@ -133,8 +133,8 @@ RUN apt update && apt install -y \
 
 # Install the correct version of empy that is compatible with ROS 2 Humble
 # Uninstall any existing empy first, then install version 3.3.4 specifically
-RUN python3.11 -m pip uninstall -y em empy || true
-RUN python3.11 -m pip install empy==3.3.4
+RUN python3.12 -m pip uninstall -y em empy || true
+RUN python3.12 -m pip install empy==3.3.4
 
 RUN python3 -m pip install -U \
   argcomplete \
@@ -151,15 +151,15 @@ RUN python3 -m pip install -U \
   pytest \
   lark
 
-RUN python3.11 -m pip uninstall numpy -y
-RUN python3.11 -m pip install --upgrade pip
-RUN python3.11 -m pip install numpy pybind11 PyYAML
+RUN python3.12 -m pip uninstall numpy -y
+RUN python3.12 -m pip install --upgrade pip
+RUN python3.12 -m pip install numpy pybind11 PyYAML
 
-# Create symlinks for Python3.11 headers where CMake can find them
-RUN ln -sf /usr/include/python3.11 /usr/include/python3
+# Create symlinks for Python3.12 headers where CMake can find them
+RUN ln -sf /usr/include/python3.12 /usr/include/python3
 
 # Fix paths for pybind11
-RUN python3.11 -m pip install "pybind11[global]"
+RUN python3.12 -m pip install "pybind11[global]"
 
 RUN mkdir -p ${ROS_ROOT}/src && \
     cd ${ROS_ROOT} && \
@@ -167,24 +167,24 @@ RUN mkdir -p ${ROS_ROOT}/src && \
     cat ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
     vcs import src < ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall
 
-# Patch rclpy to ensure it builds with Python 3.11 - find the correct path first
+# Patch rclpy to ensure it builds with Python 3.12 - find the correct path first
 RUN find /workspace/${ROS_ROOT}/src -name rclpy -type d | xargs -I{} /bin/bash -c 'if [ -f {}/CMakeLists.txt ]; then \
     echo "Patching {}/CMakeLists.txt"; \
-    sed -i "s/include_directories(\${PYTHON_INCLUDE_DIRS})/include_directories(\/usr\/include\/python3.11)/" {}/CMakeLists.txt; \
-    sed -i "s/\${PYTHON_LIBRARY}/python3.11/" {}/CMakeLists.txt; \
+    sed -i "s/include_directories(\${PYTHON_INCLUDE_DIRS})/include_directories(\/usr\/include\/python3.12)/" {}/CMakeLists.txt; \
+    sed -i "s/\${PYTHON_LIBRARY}/python3.12/" {}/CMakeLists.txt; \
     fi'
 
 RUN rosdep init && rosdep update
 
 # Make sure PYTHONPATH includes the correct site-packages
-ENV PYTHONPATH=/usr/local/lib/python3.11/dist-packages
+ENV PYTHONPATH=/usr/local/lib/python3.12/dist-packages
 
 # Use logging to help debug build issues
 RUN cd ${ROS_ROOT} && colcon build --cmake-args \
-    "-DPython3_EXECUTABLE=/usr/bin/python3.11" \
-    "-DPYTHON_EXECUTABLE=/usr/bin/python3.11" \
-    "-DPYTHON_INCLUDE_DIR=/usr/include/python3.11" \
-    "-DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.11.so" \
+    "-DPython3_EXECUTABLE=/usr/bin/python3.12" \
+    "-DPYTHON_EXECUTABLE=/usr/bin/python3.12" \
+    "-DPYTHON_INCLUDE_DIR=/usr/include/python3.12" \
+    "-DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.12.so" \
     --merge-install
 
 # Need these to maintain compatibility on non 20.04 systems
@@ -199,7 +199,7 @@ RUN mkdir -p /workspace/build_ws/src
 # Copy the source files only - don't copy any build artifacts
 COPY humble_ws/src /workspace/build_ws/src
 
-# Removing MoveIt packages from the internal ROS Python 3.11 library build as it uses standard interfaces already built above.
+# Removing MoveIt packages from the internal ROS Python 3.12 library build as it uses standard interfaces already built above.
 # This is to ensure that the internal build is as minimal as possible. 
 # For the user facing MoveIt interface workflow, this package should be built with the rest of the workspace uisng the external ROS installation.
 RUN rm -rf /workspace/build_ws/src/moveit
@@ -207,16 +207,16 @@ RUN rm -rf /workspace/build_ws/src/moveit
 # Make sure we're in the right directory
 WORKDIR /workspace
 
-# Set up environment variables for Python 3.11
-ENV PYTHONPATH=/usr/local/lib/python3.11/dist-packages
-ENV PYTHON_EXECUTABLE=/usr/bin/python3.11
-ENV Python3_EXECUTABLE=/usr/bin/python3.11
-ENV PYTHON_INCLUDE_DIR=/usr/include/python3.11
-ENV PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.11.so
+# Set up environment variables for Python 3.12
+ENV PYTHONPATH=/usr/local/lib/python3.12/dist-packages
+ENV PYTHON_EXECUTABLE=/usr/bin/python3.12
+ENV Python3_EXECUTABLE=/usr/bin/python3.12
+ENV PYTHON_INCLUDE_DIR=/usr/include/python3.12
+ENV PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.12.so
 
-# Build the workspace with Python 3.11
+# Build the workspace with Python 3.12
 RUN /bin/bash -c "source ${ROS_ROOT}/install/setup.sh && cd build_ws && colcon build --cmake-args \
-    '-DPython3_EXECUTABLE=/usr/bin/python3.11' \
-    '-DPYTHON_EXECUTABLE=/usr/bin/python3.11' \
-    '-DPYTHON_INCLUDE_DIR=/usr/include/python3.11' \
-    '-DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.11.so'"
+    '-DPython3_EXECUTABLE=/usr/bin/python3.12' \
+    '-DPYTHON_EXECUTABLE=/usr/bin/python3.12' \
+    '-DPYTHON_INCLUDE_DIR=/usr/include/python3.12' \
+    '-DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.12.so'"

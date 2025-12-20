@@ -16,7 +16,11 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import (
+    LaunchConfiguration,
+    IfElseSubstitution,
+    TextSubstitution,
+)
 from ament_index_python.packages import get_package_share_directory
 import os
 
@@ -39,11 +43,24 @@ def generate_launch_description():
             "use_sim_time",
             default_value="True",
             description="Use simulation (Omniverse Isaac Sim) clock if true"),
+        DeclareLaunchArgument(
+            "namespace",
+            default_value="h1_01",
+            description="ROS namespace for the H1 controller"),
+        DeclareLaunchArgument(
+            "use_namespace",
+            default_value="False",
+            description="Whether to apply the ROS namespace to the node"),
         Node(
             package='h1_fullbody_controller',
             executable='h1_fullbody_controller.py',
             name='h1_fullbody_controller',
             output="screen",
+            namespace=IfElseSubstitution(
+                [LaunchConfiguration('use_namespace')],
+                [LaunchConfiguration('namespace')],
+                [TextSubstitution(text='')]
+            ),
             parameters=[{
                 'publish_period_ms': LaunchConfiguration('publish_period_ms'),
                 'policy_path': LaunchConfiguration('policy_path'),

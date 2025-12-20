@@ -25,7 +25,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
   </license>
-  <url type="Documentation">https://docs.isaacsim.omniverse.nvidia.com/5.1.0/index.html</url>
+  <url type="Documentation">https://docs.isaacsim.omniverse.nvidia.com/6.0.0/index.html</url>
   <url type="Forums">https://forums.developer.nvidia.com/c/omniverse/simulation/69</url>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
@@ -36,6 +36,7 @@
 
   <exec_depend>joint_state_publisher</exec_depend>
   <exec_depend>ackermann_msgs</exec_depend>
+  <exec_depend>sensor_msgs_py</exec_depend>
 
   <exec_depend>rviz2</exec_depend>
 

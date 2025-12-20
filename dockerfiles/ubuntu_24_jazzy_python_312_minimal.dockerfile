@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=ubuntu:22.04
+ARG BASE_IMAGE=ubuntu:24.04
 FROM ${BASE_IMAGE}
 
 ENV ROS_DISTRO=jazzy
@@ -23,12 +23,6 @@ RUN apt-get update && \
 # Upgrade installed packages
 RUN apt update && apt upgrade -y && apt clean
 
-# Install Python3.11
-RUN apt update && \
-    apt install --no-install-recommends -y build-essential software-properties-common && \
-    add-apt-repository -y ppa:deadsnakes/ppa && \
-    apt install --no-install-recommends -y python3.11 python3.11-dev python3.11-distutils python3.11-venv
-
 # Setting up locale stuff
 RUN apt update && apt install locales
 
@@ -36,15 +30,8 @@ RUN locale-gen en_US en_US.UTF-8 && \
     update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 && \
     export LANG=en_US.UTF-8
 
-# Set default Python3 to Python3.11
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
 
-# Pip install stuff
-RUN curl -s https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
-    python3.11 get-pip.py --force-reinstall && \
-    rm get-pip.py
-
-RUN wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc && apt-key add ros.asc
+RUN wget --no-check-certificate https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc && apt-key add ros.asc
 RUN sh -c 'echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
 
 # Additional dependencies needed for rosidl_generator_c
@@ -116,8 +103,6 @@ RUN apt update && apt install -y \
     libjpeg-dev \
     python3-pyqt5.qtwebengine
 
-RUN pip3 install setuptools==70.0.0
-
 RUN apt update && apt install -y \
   python3-pip \
   python3-pytest-cov \
@@ -132,12 +117,14 @@ RUN apt update && apt install -y \
   libpython3-dev \
   liblttng-ust-dev
 
+RUN pip3 install --break-system-packages setuptools==70.0.0
+
 # Install the correct version of empy that is compatible with ROS 2 jazzy
 # Uninstall any existing empy first, then install version 3.3.4 specifically
-RUN python3.11 -m pip uninstall -y em empy || true
-RUN python3.11 -m pip install empy==3.3.4
+RUN python3 -m pip uninstall -y em empy || true
+RUN python3 -m pip install --break-system-packages empy==3.3.4
 
-RUN python3 -m pip install -U \
+RUN python3 -m pip install --break-system-packages -U --ignore-installed \
   argcomplete \
   flake8-blind-except \
   flake8-builtins \
@@ -152,15 +139,12 @@ RUN python3 -m pip install -U \
   pytest \
   lark
 
-RUN python3.11 -m pip uninstall numpy -y
-RUN python3.11 -m pip install --upgrade pip
-RUN python3.11 -m pip install numpy pybind11 PyYAML
-
-# Create symlinks for Python3.11 headers where CMake can find them
-RUN ln -sf /usr/include/python3.11 /usr/include/python3
+RUN python3 -m pip uninstall numpy -y || true
+RUN python3 -m pip install --break-system-packages --ignore-installed --upgrade pip
+RUN python3 -m pip install --break-system-packages --ignore-installed numpy pybind11 PyYAML
 
 # Fix paths for pybind11
-RUN python3.11 -m pip install "pybind11[global]"
+RUN python3 -m pip install --break-system-packages --ignore-installed "pybind11[global]"
 
 RUN mkdir -p ${ROS_ROOT}/src && \
     cd ${ROS_ROOT} && \
@@ -168,25 +152,10 @@ RUN mkdir -p ${ROS_ROOT}/src && \
     cat ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
     vcs import src < ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall
 
-# Patch rclpy to ensure it builds with Python 3.11 - find the correct path first
-RUN find /workspace/${ROS_ROOT}/src -name rclpy -type d | xargs -I{} /bin/bash -c 'if [ -f {}/CMakeLists.txt ]; then \
-    echo "Patching {}/CMakeLists.txt"; \
-    sed -i "s/include_directories(\${PYTHON_INCLUDE_DIRS})/include_directories(\/usr\/include\/python3.11)/" {}/CMakeLists.txt; \
-    sed -i "s/\${PYTHON_LIBRARY}/python3.11/" {}/CMakeLists.txt; \
-    fi'
-
 RUN rosdep init && rosdep update
 
-# Make sure PYTHONPATH includes the correct site-packages
-ENV PYTHONPATH=/usr/local/lib/python3.11/dist-packages
-
 # Use logging to help debug build issues
-RUN cd ${ROS_ROOT} && colcon build --cmake-args \
-    "-DPython3_EXECUTABLE=/usr/bin/python3.11" \
-    "-DPYTHON_EXECUTABLE=/usr/bin/python3.11" \
-    "-DPYTHON_INCLUDE_DIR=/usr/include/python3.11" \
-    "-DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.11.so" \
-    --merge-install
+RUN cd ${ROS_ROOT} && colcon build --merge-install
 
 # Need these to maintain compatibility on non 20.04 systems
 RUN cp /usr/lib/x86_64-linux-gnu/libtinyxml2.so* /workspace/jazzy_ws/install/lib/ || true
@@ -200,7 +169,7 @@ RUN mkdir -p /workspace/build_ws/src
 # Copy the source files only - don't copy any build artifacts
 COPY jazzy_ws/src /workspace/build_ws/src
 
-# Removing MoveIt packages from the internal ROS Python 3.11 library build as it uses standard interfaces already built above.
+# Removing MoveIt packages from the internal ROS Python 3.12 library build as it uses standard interfaces already built above.
 # This is to ensure that the internal build is as minimal as possible. 
 # For the user facing MoveIt interface workflow, this package should be built with the rest of the workspace uisng the external ROS installation.
 RUN rm -rf /workspace/build_ws/src/moveit
@@ -208,16 +177,5 @@ RUN rm -rf /workspace/build_ws/src/moveit
 # Make sure we're in the right directory
 WORKDIR /workspace
 
-# Set up environment variables for Python 3.11
-ENV PYTHONPATH=/usr/local/lib/python3.11/dist-packages
-ENV PYTHON_EXECUTABLE=/usr/bin/python3.11
-ENV Python3_EXECUTABLE=/usr/bin/python3.11
-ENV PYTHON_INCLUDE_DIR=/usr/include/python3.11
-ENV PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.11.so
-
-# Build the workspace with Python 3.11
-RUN /bin/bash -c "source ${ROS_ROOT}/install/setup.sh && cd build_ws && colcon build --cmake-args \
-    '-DPython3_EXECUTABLE=/usr/bin/python3.11' \
-    '-DPYTHON_EXECUTABLE=/usr/bin/python3.11' \
-    '-DPYTHON_INCLUDE_DIR=/usr/include/python3.11' \
-    '-DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.11.so'"
+# Build the workspace
+RUN /bin/bash -c "source ${ROS_ROOT}/install/setup.sh && cd build_ws && colcon build"

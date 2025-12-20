@@ -6,3 +6,6 @@
 	path = jazzy_ws/src/moveit/moveit_resources
 	url = https://github.com/ayushgnv/moveit_resources.git
 	branch = isaac_moveit_tutorial_jazzy
+[submodule "jazzy_ws/src/moveit/topic_based_ros2_control"]
+	path = jazzy_ws/src/moveit/topic_based_ros2_control
+	url = https://github.com/PickNikRobotics/topic_based_ros2_control.git

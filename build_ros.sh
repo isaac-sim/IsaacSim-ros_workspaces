@@ -93,14 +93,14 @@ fi
 
 # Select the appropriate Docker file
 if [ "$ROS_DISTRO" = "humble" ]; then
-    DOCKERFILE="dockerfiles/ubuntu_22_humble_python_311_minimal.dockerfile"
+    DOCKERFILE="dockerfiles/ubuntu_22_humble_python_312_minimal.dockerfile"
     echo "Using Ubuntu 22.04 with ROS Humble"
 elif [ "$ROS_DISTRO" = "jazzy" ]; then
     if [ "$UBUNTU_VERSION" = "22.04" ]; then
-        DOCKERFILE="dockerfiles/ubuntu_22_jazzy_python_311_minimal.dockerfile"
+        DOCKERFILE="dockerfiles/ubuntu_22_jazzy_python_312_minimal.dockerfile"
         echo "Using Ubuntu 22.04 with ROS Jazzy"
     elif [ "$UBUNTU_VERSION" = "24.04" ]; then
-        DOCKERFILE="dockerfiles/ubuntu_24_jazzy_python_311_minimal.dockerfile" 
+        DOCKERFILE="dockerfiles/ubuntu_24_jazzy_python_312_minimal.dockerfile" 
         echo "Using Ubuntu 24.04 with ROS Jazzy"
     fi
 else

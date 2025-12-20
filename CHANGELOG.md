@@ -1,4 +1,29 @@
 # Changelog
+## [5.0.0] - 2025-12-10
+### Added
+- Ubuntu 24.04/ROS 2 Jazzy Python 3.12 build support and new dockerfile. [Humble, Jazzy]
+- Ubuntu 22.04/ROS 2 Humble and Jazzy Python 3.12 build support and new dockerfiles. [Humble, Jazzy]
+- Added topic_based_ros2_control ros2 package as submodule to workspace [Jazzy] 
+
+### Changed
+- Bumped versions to 6.0.
+- Cleaned up occupancy map parameters in Navigation packages. [Humble, Jazzy]
+- Updated helper script `build_ros.sh` to support new dockerfiles.
+- Updated internal libraries path to isaacsim.ros2.core in isaacsim package [Humble, Jazzy]
+
+### Removed
+- Legacy references to older Ubuntu/Python/ROS mentions from launch files, parameters and build scripts.
+- Redundant or broken dependencies from docker build stages.
+
+
+## [4.7.0] - 2025-12-02
+### Added
+- isaac_tutorials.ros2_object_id_subscriber example [Humble, Jazzy]
+
+## [4.6.0] - 2025-11-25
+### Changed
+- Updated `h1_fullbody_controller` launch to add `namespace` argument to enable multi-humanoid [Humble, Jazzy]
+- Switched all topics in `h1_fullbody_controller` to relative names to support namespaced multi-humanoid setups [Humble, Jazzy]
 
 ## [4.5.1] - 2025-10-07
 ### Changed
@@ -65,7 +90,7 @@
 
 ### Added
 - New Jazzy workspace for Isaac Sim 5.0 [Jazzy]
-- New Moveit tutorial [Jazzy, Humble] 
+- New Moveit tutorial [Jazzy, Humble]
 
 ### Changed
 - Bumped verison to Isaac Sim 5.0 [Humble]
@@ -142,7 +167,7 @@
 - Bumped versions in `isaacsim` package to Isaac Sim version 4.2.0 [Foxy, Humble]
 - Changed `carter_2dnav` package to only use RTX Lidar [Noetic]
 - Updated dockerfiles to use setuptools 70.0.0 [Humble, Foxy]
-- Updated QoS settings for image subscribers in ``carter_stereo.rviz`` and ``carter_navigation.rviz`` config files. [Foxy, Humble] 
+- Updated QoS settings for image subscribers in ``carter_stereo.rviz`` and ``carter_navigation.rviz`` config files. [Foxy, Humble]
 
 ## [1.1.0] - 2024-08-01
 

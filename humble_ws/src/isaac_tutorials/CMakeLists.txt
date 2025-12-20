@@ -13,6 +13,7 @@ install(DIRECTORY
 install(PROGRAMS
   scripts/ros2_publisher.py
   scripts/ros2_ackermann_publisher.py
+  scripts/ros2_object_id_subscriber.py
   DESTINATION lib/${PROJECT_NAME}
 )
 ament_package()
