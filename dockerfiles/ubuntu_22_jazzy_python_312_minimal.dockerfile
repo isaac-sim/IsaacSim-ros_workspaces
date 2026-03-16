@@ -73,7 +73,8 @@ RUN apt update && apt install -y \
     libassimp-dev \
     liboctomap-dev \
     libconsole-bridge-dev \
-    libfcl-dev
+    libfcl-dev \
+    nlohmann-json3-dev
 
 # Install Eigen3 needed for OMPL and MoveIt
 RUN apt update && apt install -y \
@@ -164,7 +165,7 @@ RUN python3.12 -m pip install "pybind11[global]"
 
 RUN mkdir -p ${ROS_ROOT}/src && \
     cd ${ROS_ROOT} && \
-    rosinstall_generator --deps --rosdistro ${ROS_DISTRO} rosidl_runtime_c rcutils rcl rmw tf2 tf2_msgs common_interfaces geometry_msgs nav_msgs std_msgs rosgraph_msgs sensor_msgs vision_msgs rclpy ros2topic ros2pkg ros2doctor ros2run ros2node ros_environment ackermann_msgs example_interfaces > ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
+    rosinstall_generator --deps --rosdistro ${ROS_DISTRO} rosidl_runtime_c rcutils rcl rmw tf2 tf2_msgs common_interfaces geometry_msgs nav_msgs std_msgs rosgraph_msgs sensor_msgs vision_msgs rclpy ros2topic ros2pkg ros2doctor ros2run ros2node ros_environment ackermann_msgs example_interfaces tinyxml2_vendor rmw_dds_common fastcdr rosidl_typesupport_fastrtps_c rosidl_typesupport_fastrtps_cpp rclcpp > ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
     cat ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
     vcs import src < ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall
 
@@ -182,6 +183,7 @@ ENV PYTHONPATH=/usr/local/lib/python3.12/dist-packages
 
 # Use logging to help debug build issues
 RUN cd ${ROS_ROOT} && colcon build --cmake-args \
+    "--no-warn-unused-cli" \
     "-DPython3_EXECUTABLE=/usr/bin/python3.12" \
     "-DPYTHON_EXECUTABLE=/usr/bin/python3.12" \
     "-DPYTHON_INCLUDE_DIR=/usr/include/python3.12" \
@@ -197,7 +199,6 @@ RUN cp /usr/lib/x86_64-linux-gnu/liblttng-ust*.so* /workspace/jazzy_ws/install/l
 # Next, build the additional workspace 
 RUN mkdir -p /workspace/build_ws/src
 
-
 # Copy the source files only - don't copy any build artifacts
 COPY jazzy_ws/src /workspace/build_ws/src
 
@@ -205,6 +206,12 @@ COPY jazzy_ws/src /workspace/build_ws/src
 # This is to ensure that the internal build is as minimal as possible. 
 # For the user facing MoveIt interface workflow, this package should be built with the rest of the workspace uisng the external ROS installation.
 RUN rm -rf /workspace/build_ws/src/moveit
+
+# Install Rust and Cargo only if zenoh_cpp_vendor is present (it builds zenoh-c from Rust source)
+RUN if [ -d /workspace/build_ws/src/rmw_zenoh/zenoh_cpp_vendor ]; then \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.75.0; \
+    fi
+ENV PATH="/root/.cargo/bin:${PATH}"
 
 # Make sure we're in the right directory
 WORKDIR /workspace
@@ -218,6 +225,7 @@ ENV PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.12.so
 
 # Build the workspace with Python 3.12
 RUN /bin/bash -c "source ${ROS_ROOT}/install/setup.sh && cd build_ws && colcon build --cmake-args \
+    '--no-warn-unused-cli' \
     '-DPython3_EXECUTABLE=/usr/bin/python3.12' \
     '-DPYTHON_EXECUTABLE=/usr/bin/python3.12' \
     '-DPYTHON_INCLUDE_DIR=/usr/include/python3.12' \

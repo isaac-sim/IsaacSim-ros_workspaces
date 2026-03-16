@@ -27,6 +27,7 @@ function display_help {
   echo "Options:"
   echo "  -d DISTRO     Specify ROS2 distro (humble or jazzy)"
   echo "  -v VERSION    Specify Ubuntu version (22.04 or 24.04)"
+  echo "  -n            Build without Docker cache (--no-cache)"
   echo "  -h            Display this help message"
   echo ""
   echo "Supported combinations:"
@@ -40,10 +41,12 @@ function display_help {
 # Add command-line arguments
 UBUNTU_VERSION=""
 ROS_DISTRO=""
-while getopts "v:d:h" opt; do
+NO_CACHE=""
+while getopts "v:d:hn" opt; do
   case $opt in
     v) UBUNTU_VERSION=$OPTARG ;;
     d) ROS_DISTRO=$OPTARG ;;
+    n) NO_CACHE="--no-cache" ;;
     h) display_help; exit 0 ;;
     \?) echo "Invalid option -$OPTARG" >&2; display_help; exit 1 ;;
   esac
@@ -110,7 +113,7 @@ else
 fi
 
 # Build the Docker image
-docker build . --network=host -f $DOCKERFILE -t isaac_sim_ros:ubuntu_${UBUNTU_VERSION%.*}_${ROS_DISTRO}
+docker build . --network=host $NO_CACHE -f $DOCKERFILE -t isaac_sim_ros:ubuntu_${UBUNTU_VERSION%.*}_${ROS_DISTRO}
 
 # Prepare the target directory
 rm -rf build_ws/${ROS_DISTRO}

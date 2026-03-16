@@ -1,4 +1,11 @@
 # Changelog
+
+## [5.1.0] - 2026-03-05
+### Changed
+- Added custom `panda_isaac.urdf.xacro` and `gripper_to_isaac.py` bridge for improved MoveIt Isaac Sim performance. [Humble]
+- Added rmw_zenoh support for Jazzy 22.04 Docker build: conditional Rust toolchain install, additional rosinstall_generator deps (tinyxml2_vendor, rmw_dds_common, fastcdr, rosidl_typesupport_fastrtps_c/cpp, rclcpp), nlohmann-json3-dev, and suppressed unused CMake variable warnings. [Jazzy]
+- Added `--no-cache` (`-n`) flag to `build_ros.sh` for Docker cache-free rebuilds. [Humble, Jazzy]
+
 ## [5.0.0] - 2025-12-10
 ### Added
 - Ubuntu 24.04/ROS 2 Jazzy Python 3.12 build support and new dockerfile. [Humble, Jazzy]

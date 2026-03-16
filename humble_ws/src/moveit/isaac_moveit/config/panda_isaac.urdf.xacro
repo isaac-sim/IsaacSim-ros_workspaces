@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+    <xacro:arg name="initial_positions_file" default="$(find moveit_resources_panda_moveit_config)/config/initial_positions.yaml" />
+    <xacro:arg name="ros2_control_hardware_type" default="isaac" />
+
+    <!-- Import panda urdf file -->
+    <xacro:include filename="$(find moveit_resources_panda_description)/urdf/panda.urdf" />
+
+    <!-- Import arm ros2_control only (hand is managed by gripper_to_isaac bridge) -->
+    <xacro:include filename="$(find moveit_resources_panda_moveit_config)/config/panda.ros2_control.xacro" />
+
+    <xacro:panda_ros2_control name="PandaFakeSystem" initial_positions_file="$(arg initial_positions_file)" ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
+</robot>
