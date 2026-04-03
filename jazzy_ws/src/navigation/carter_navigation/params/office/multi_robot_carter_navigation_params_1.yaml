@@ -38,7 +38,7 @@ amcl:
     z_rand: 0.5
     z_short: 0.05
     scan_topic: /carter1/scan
-    map_topic: /carter2/map
+    map_topic: /carter1/map
     set_initial_pose: true
     always_reset_initial_pose: false
     first_map_only: false
@@ -283,7 +283,7 @@ local_costmap:
         mark_threshold: 0
         observation_sources: scan
         scan:
-          topic: /scan
+          topic: /carter1/scan
           max_obstacle_height: 2.0
           clearing: True
           marking: True
