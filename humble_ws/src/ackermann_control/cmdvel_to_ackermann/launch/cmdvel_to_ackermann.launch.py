@@ -28,7 +28,7 @@ def generate_launch_description():
         
         Node(
             package='cmdvel_to_ackermann',
-            executable='cmdvel_to_ackermann.py',
+            executable='cmdvel_to_ackermann',
             name='cmdvel_to_ackermann',
             output="screen",
             parameters=[{

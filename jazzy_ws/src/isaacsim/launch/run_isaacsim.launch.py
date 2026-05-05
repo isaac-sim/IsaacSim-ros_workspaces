@@ -14,12 +14,10 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import Node
 from launch.actions import DeclareLaunchArgument, ExecuteProcess, OpaqueFunction
 from launch.substitutions import LaunchConfiguration, Command, PythonExpression
 from launch.conditions import IfCondition
-from launch_ros.substitutions import FindPackageShare
 
 
 # Declare all launch arguments corresponding to the bash script options
@@ -28,7 +26,7 @@ launch_args = [
     
     DeclareLaunchArgument('install_path', default_value='', description='If Isaac Sim is insalled in a non-default location, provide a specific path to Isaac Sim installation root folder. (If defined, "version" parameter will be ignored)'),
     
-    DeclareLaunchArgument('use_internal_libs', default_value='true', description='Set to true if you wish to use internal ROS libraries shipped with Isaac Sim.'),
+    DeclareLaunchArgument('use_internal_libs', default_value='false', description='Set to true if you wish to use internal ROS libraries shipped with Isaac Sim.'),
     
     DeclareLaunchArgument('dds_type', default_value='fastdds', description='Set to "fastdds" or "cyclonedds" (Cyclone only supported for ROS 2 Humble and ROS 2 Jazzy) to run Isaac Sim with a specific dds type.'),
     
@@ -55,7 +53,7 @@ def launch_setup(context):
         
     # Run isaac sim as a ROS2 node with default parameters. Parameters can be overridden here or via launch arguments from other launch files. 
     isaacsim_node = Node(
-        package='isaacsim', executable='run_isaacsim.py',
+        package='isaacsim', executable='run_isaacsim',
         name='isaacsim', output="screen", 
         parameters=[{
             'version': LaunchConfiguration('version'),

@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.2.0] - 2026-05-01
+### Changed
+- `use_internal_libs` default changed from `True` to `False` in the `isaacsim` package [Jazzy]. Python 3.12 on Isaac Sim allows ROS 2 system install to be sourced directly from the system, making internal lib loading unnecessary. Humble retains the default of `True`. Jazzy users who explicitly relied on internal libs should set `use_internal_libs:=True` when launching and verify their integration against Isaac Sim 6.0.
+- Converted `isaacsim`, `cmdvel_to_ackermann`, `h1_fullbody_controller`, and `isaac_moveit` packages from `ament_cmake` to `ament_python` build type [Humble, Jazzy]
+- Fixed `open_isaacsim_stage.py` path resolution to use `get_package_share_directory` instead of `__file__` [Humble, Jazzy]
+
 ## [5.1.0] - 2026-03-05
 ### Changed
 - Added custom `panda_isaac.urdf.xacro` and `gripper_to_isaac.py` bridge for improved MoveIt Isaac Sim performance. [Humble]

@@ -25,13 +25,12 @@
   <url type="Documentation">https://docs.isaacsim.omniverse.nvidia.com/6.0.0/index.html</url>
   <url type="Forums">https://forums.developer.nvidia.com/c/omniverse/simulation/69</url>
   
-  <buildtool_depend>ament_cmake</buildtool_depend>
-
-  <build_depend>ackermann_msgs</build_depend>
-  <build_depend>geometry_msgs</build_depend>
-  <build_depend>launch</build_depend>
+  <depend>ackermann_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>launch</depend>
+  <depend>rclpy</depend>
 
   <export>
-    <build_type>ament_cmake</build_type>
+    <build_type>ament_python</build_type>
   </export>
 </package>

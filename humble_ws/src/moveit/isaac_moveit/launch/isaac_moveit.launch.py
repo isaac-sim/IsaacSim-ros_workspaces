@@ -179,7 +179,7 @@ def generate_launch_description():
     # Use direct bridge instead of spawning panda_hand_controller
     gripper_to_isaac_bridge = Node(
         package="isaac_moveit",
-        executable="gripper_to_isaac.py",
+        executable="gripper_to_isaac",
         name="gripper_to_isaac",
         output="screen",
         parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
