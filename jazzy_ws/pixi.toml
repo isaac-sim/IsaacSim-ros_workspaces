@@ -1,0 +1,107 @@
+[workspace]
+name = "jazzy_ws"
+channels = ["https://prefix.dev/robostack-jazzy", "https://prefix.dev/conda-forge"]
+platforms = ["linux-64", "win-64"]
+
+[dependencies]
+# Base ROS dependencies
+ros-jazzy-ros-base = ">=0.11.0,<0.12"
+pkg-config = ">=0.29.2,<0.30"
+compilers = ">=1.11.0,<2"
+make = ">=4.4.1,<5"
+ninja = ">=1.13.2,<2"
+ros-jazzy-ros2cli = ">=0.32.8,<0.33"
+
+# Build tools
+colcon-common-extensions = ">=0.3.0,<0.4"
+cmake = ">=4.3.2,<5"
+
+# Workspace dependencies (common across platforms)
+pytest = ">=9.0.3,<10"
+ros-jazzy-ackermann-msgs = ">=2.0.2,<3"
+ros-jazzy-ament-cmake = ">=2.5.5,<3"
+ros-jazzy-ament-flake8 = ">=0.17.4,<0.18"
+ros-jazzy-ament-lint-auto = ">=0.17.4,<0.18"
+ros-jazzy-ament-lint-common = ">=0.17.4,<0.18"
+ros-jazzy-ament-pep257 = ">=0.17.4,<0.18"
+ros-jazzy-angles = ">=1.16.1,<2"
+ros-jazzy-builtin-interfaces = ">=2.0.3,<3"
+ros-jazzy-controller-manager = ">=4.43.0,<5"
+ros-jazzy-geometry-msgs = ">=5.3.6,<6"
+ros-jazzy-hardware-interface = ">=4.43.0,<5"
+ros-jazzy-joint-state-broadcaster = ">=4.37.0,<5"
+ros-jazzy-joint-state-publisher = ">=2.4.1,<3"
+ros-jazzy-joint-state-publisher-gui = ">=2.4.1,<3"
+ros-jazzy-joint-trajectory-controller = ">=4.37.0,<5"
+ros-jazzy-launch = ">=3.4.10,<4"
+ros-jazzy-launch-ros = ">=0.26.11,<0.27"
+ros-jazzy-launch-testing = ">=3.4.10,<4"
+ros-jazzy-moveit = ">=2.12.4,<3"
+ros-jazzy-moveit-simple-controller-manager = ">=2.12.4,<3"
+ros-jazzy-nav2-amcl = ">=1.3.11,<2"
+ros-jazzy-nav2-behavior-tree = ">=1.3.11,<2"
+ros-jazzy-nav2-behaviors = ">=1.3.11,<2"
+ros-jazzy-nav2-bringup = ">=1.3.11,<2"
+ros-jazzy-nav2-bt-navigator = ">=1.3.11,<2"
+ros-jazzy-nav2-controller = ">=1.3.11,<2"
+ros-jazzy-nav2-core = ">=1.3.11,<2"
+ros-jazzy-nav2-costmap-2d = ">=1.3.11,<2"
+ros-jazzy-nav2-dwb-controller = ">=1.3.11,<2"
+ros-jazzy-nav2-lifecycle-manager = ">=1.3.11,<2"
+ros-jazzy-nav2-map-server = ">=1.3.11,<2"
+ros-jazzy-nav2-msgs = ">=1.3.11,<2"
+ros-jazzy-nav2-navfn-planner = ">=1.3.11,<2"
+ros-jazzy-nav2-planner = ">=1.3.11,<2"
+ros-jazzy-nav2-rviz-plugins = ">=1.3.11,<2"
+ros-jazzy-nav2-util = ">=1.3.11,<2"
+ros-jazzy-nav2-voxel-grid = ">=1.3.11,<2"
+ros-jazzy-nav2-waypoint-follower = ">=1.3.11,<2"
+ros-jazzy-navigation2 = ">=1.3.11,<2"
+ros-jazzy-picknik-ament-copyright = ">=0.0.2,<0.0.3"
+ros-jazzy-pointcloud-to-laserscan = ">=2.0.2,<3"
+ros-jazzy-rclcpp = ">=28.1.16,<29"
+ros-jazzy-rclpy = ">=7.1.9,<8"
+ros-jazzy-robot-state-publisher = ">=3.3.3,<4"
+ros-jazzy-ros-testing = ">=0.6.0,<0.7"
+ros-jazzy-ros2-control = ">=4.43.0,<5"
+ros-jazzy-ros2-control-test-assets = ">=4.43.0,<5"
+ros-jazzy-ros2-controllers = ">=4.37.0,<5"
+ros-jazzy-rosidl-default-generators = ">=1.6.0,<2"
+ros-jazzy-rosidl-default-runtime = ">=1.6.0,<2"
+ros-jazzy-rqt-image-view = ">=1.3.0,<2"
+ros-jazzy-rviz2 = ">=14.1.19,<15"
+ros-jazzy-sensor-msgs = ">=5.3.6,<6"
+ros-jazzy-sensor-msgs-py = ">=5.3.6,<6"
+ros-jazzy-std-msgs = ">=5.3.6,<6"
+ros-jazzy-visualization-msgs = ">=5.3.6,<6"
+ros-jazzy-xacro = ">=2.1.1,<3"
+ros-jazzy-rmw-zenoh-cpp = "*"            # Zenoh RMW middleware
+
+# Python dependencies
+av = "*"                                   # PyAV for isaac_compressed_image_decoder
+filelock = "*"                             # required by controller_manager spawner
+
+
+[tasks]
+build = { cmd = "colcon build --merge-install --cmake-args -DBUILD_TESTING=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DPython_FIND_VIRTUALENV=ONLY -DPython3_FIND_VIRTUALENV=ONLY", description = "Build the ROS workspace" }
+test = {cmd = "colcon test", description = "Run tests for the workspace"}
+clean = {cmd = "rm -rf build install log", description = "Clean build artifacts (build, install, log directories)"}
+
+zenoh = "ros2 run rmw_zenoh_cpp rmw_zenohd"
+
+# Specific to the test machine
+sim = "$isaac_sim_package_path/_build/windows-x86_64/release/isaac-sim.bat --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
+
+# Scripts to source on environment activation, found after first colcon build.
+[activation.env]
+RMW_IMPLEMENTATION = "rmw_zenoh_cpp"
+ROS_DOMAIN_ID="0"
+ROS_DISTRO = "jazzy"
+
+[target.unix.activation]
+scripts = ["install/setup.bash"]
+env = { isaac_sim_package_path = "$HOME/isaacsim"}
+
+[target.win.activation]
+scripts = ["install\\setup.bat"]
+env = { isaac_sim_package_path = "C:\\isaacsim"}
