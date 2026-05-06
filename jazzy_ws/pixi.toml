@@ -76,6 +76,7 @@ ros-jazzy-std-msgs = ">=5.3.6,<6"
 ros-jazzy-visualization-msgs = ">=5.3.6,<6"
 ros-jazzy-xacro = ">=2.1.1,<3"
 ros-jazzy-rmw-zenoh-cpp = "*"            # Zenoh RMW middleware
+ros-jazzy-clearpath-common = "*"          # Clearpath Dingo-D tutorial (putting it all together)
 
 # Python dependencies
 av = "*"                                   # PyAV for isaac_compressed_image_decoder
