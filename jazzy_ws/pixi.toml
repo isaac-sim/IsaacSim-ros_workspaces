@@ -90,7 +90,11 @@ clean = {cmd = "rm -rf build install log", description = "Clean build artifacts 
 zenoh = "ros2 run rmw_zenoh_cpp rmw_zenohd"
 
 # Specific to the test machine
-sim = "$isaac_sim_package_path/_build/windows-x86_64/release/isaac-sim.bat --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
+[target.unix.tasks]
+sim = "$isaac_sim_package_path/isaac-sim.sh --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
+
+[target.win.tasks]
+sim = "$isaac_sim_package_path/isaac-sim.bat --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
 
 # Scripts to source on environment activation, found after first colcon build.
 [activation.env]
