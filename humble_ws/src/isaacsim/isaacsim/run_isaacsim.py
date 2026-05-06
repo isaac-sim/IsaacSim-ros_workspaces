@@ -24,14 +24,13 @@ import subprocess
 import signal
 import sys
 import atexit
-import psutil
 
 # Default values
 defaults = {
     "isaac_sim_version": "6.0.0",
     "isaac_sim_path": "",
     "use_internal_libs": True,
-    "dds_type": "fastdds",
+    "dds_type": "",
     "gui": "",
     "standalone": "",
     "play_sim_on_start": False,
@@ -140,6 +139,8 @@ class IsaacSimLauncherNode(Node):
 
         if args.install_path != "":
             filepath_root = os.path.expanduser(args.install_path)
+        elif os.environ.get("isaac_sim_package_path"):
+            filepath_root = os.path.expanduser(os.environ["isaac_sim_package_path"])
         else:
             # If custom Isaac Sim Installation folder not given, use the default path using version number provided.
             home_var = "USERPROFILE" if sys.platform == "win32" else "HOME"
@@ -167,8 +168,8 @@ class IsaacSimLauncherNode(Node):
 
         if args.use_internal_libs:
             if sys.platform == "win32":
-                print("use_internal_libs parameter is not supported in Windows")
-                sys.exit(0)
+                print("ERROR: use_internal_libs is not supported on Windows.", file=sys.stderr)
+                sys.exit(1)
             else:
                 os.environ["LD_LIBRARY_PATH"] = f"{os.getenv('LD_LIBRARY_PATH')}:{filepath_root}/exts/isaacsim.ros2.core/{args.ros_distro}/lib"
                 specific_path_to_remove = f"/opt/ros/{args.ros_distro}"
@@ -186,7 +187,8 @@ class IsaacSimLauncherNode(Node):
         if args.ros_installation_path:
             # If a custom ros installation path is provided (can be comma-separated list)
             if sys.platform == "win32":
-                print("Custom ROS installation path not fully supported on Windows")
+                print("ERROR: ros_installation_path is not supported on Windows.", file=sys.stderr)
+                sys.exit(1)
             else:
                 # Split by comma to handle multiple paths
                 ros_paths = [path.strip() for path in args.ros_installation_path.split(',') if path.strip()]
@@ -223,15 +225,28 @@ class IsaacSimLauncherNode(Node):
                         else:
                             os.environ['PYTHONPATH'] = f"{install_path}/lib/python3/dist-packages"
 
-        os.environ["RMW_IMPLEMENTATION"] = "rmw_cyclonedds_cpp" if args.dds_type == "cyclonedds" else "rmw_fastrtps_cpp"
+        # Only override RMW_IMPLEMENTATION when dds_type is explicitly set; otherwise
+        # keep whatever the surrounding environment selected (e.g. zenoh from pixi).
+        if args.dds_type:
+            dds_to_rmw = {"fastdds": "rmw_fastrtps_cpp", "cyclonedds": "rmw_cyclonedds_cpp", "zenoh": "rmw_zenoh_cpp"}
+            if args.dds_type not in dds_to_rmw:
+                print(f"ERROR: Unsupported dds_type '{args.dds_type}'. Use one of: {', '.join(dds_to_rmw)}.", file=sys.stderr)
+                sys.exit(1)
+            os.environ["RMW_IMPLEMENTATION"] = dds_to_rmw[args.dds_type]
         play_sim_on_start_arg = "--start-on-play" if args.play_sim_on_start else ""
+
+        popen_kwargs = {"shell": True}
+        if sys.platform == "win32":
+            popen_kwargs["creationflags"] = subprocess.CREATE_NEW_PROCESS_GROUP
+        else:
+            popen_kwargs["start_new_session"] = True
 
         if args.standalone != "":
             executable_path = os.path.join(filepath_root, "python.sh" if sys.platform != "win32" else "python.bat")
             if sys.platform == "win32":
-                proc = subprocess.Popen(f'"{executable_path}" {args.standalone}', shell=True, start_new_session=True)
+                proc = subprocess.Popen(f'"{executable_path}" {args.standalone}', **popen_kwargs)
             else:
-                proc = subprocess.Popen(f"{executable_path} {args.standalone}", shell=True, start_new_session=True)
+                proc = subprocess.Popen(f"{executable_path} {args.standalone}", **popen_kwargs)
             subprocesses.append(proc.pid)
         else:
             # Default command
@@ -252,9 +267,11 @@ class IsaacSimLauncherNode(Node):
             if args.gui != "":
                 scripts_dir = os.path.join(get_package_share_directory('isaacsim'), 'scripts')
                 file_arg = os.path.join(scripts_dir, "open_isaacsim_stage.py") + f" --path {args.gui} {play_sim_on_start_arg}"
-                executable_command += f" --exec '{file_arg}'"
+                # cmd.exe does not strip single quotes; use double quotes on Windows.
+                quote = '"' if sys.platform == "win32" else "'"
+                executable_command += f" --exec {quote}{file_arg}{quote}"
 
-            proc = subprocess.Popen(executable_command, shell=True, start_new_session=True)
+            proc = subprocess.Popen(executable_command, **popen_kwargs)
             subprocesses.append(proc.pid)
 
 def main(args=None):

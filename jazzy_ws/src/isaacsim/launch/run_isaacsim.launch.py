@@ -28,7 +28,7 @@ launch_args = [
     
     DeclareLaunchArgument('use_internal_libs', default_value='false', description='Set to true if you wish to use internal ROS libraries shipped with Isaac Sim.'),
     
-    DeclareLaunchArgument('dds_type', default_value='fastdds', description='Set to "fastdds" or "cyclonedds" (Cyclone only supported for ROS 2 Humble and ROS 2 Jazzy) to run Isaac Sim with a specific dds type.'),
+    DeclareLaunchArgument('dds_type', default_value='', description='Set to "fastdds", "cyclonedds", or "zenoh" to override RMW_IMPLEMENTATION. If left empty, the surrounding environment\'s RMW_IMPLEMENTATION is used.'),
     
     DeclareLaunchArgument('gui', default_value='', description='Provide the path to a usd file to open it when starting Isaac Sim in standard gui mode. If left empty, Isaac Sim will open an empty stage in standard gui mode.'),
     
