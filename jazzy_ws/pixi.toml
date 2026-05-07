@@ -81,6 +81,7 @@ ros-jazzy-clearpath-common = "*"          # Clearpath Dingo-D tutorial (putting 
 # Python dependencies
 av = "*"                                   # PyAV for isaac_compressed_image_decoder
 filelock = "*"                             # required by controller_manager spawner
+pytorch = ">=2.10.0,<3"
 
 
 [tasks]
