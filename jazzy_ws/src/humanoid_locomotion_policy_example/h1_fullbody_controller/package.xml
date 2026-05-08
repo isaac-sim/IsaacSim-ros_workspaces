@@ -35,6 +35,8 @@
   <depend>rclpy</depend>
   <depend>launch</depend>
 
+  <exec_depend>python3-pytorch-pip</exec_depend>
+
   <export>
     <build_type>ament_python</build_type>
   </export>

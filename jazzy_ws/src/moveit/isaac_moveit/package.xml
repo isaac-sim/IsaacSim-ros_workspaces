@@ -32,7 +32,6 @@
   <depend>moveit</depend>
   <depend>robot_state_publisher</depend>
   <depend>moveit_resources_panda_moveit_config</depend>
-  <depend>topic_based_ros2_control</depend>
   <depend>ros2_control</depend>
   <depend>ros2_controllers</depend>
   <depend>moveit_simple_controller_manager</depend>
