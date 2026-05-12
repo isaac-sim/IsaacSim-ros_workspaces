@@ -54,8 +54,8 @@ def launch_setup(context):
         
     # Run isaac sim as a ROS2 node with default parameters. Parameters can be overridden here or via launch arguments from other launch files. 
     isaacsim_node = Node(
-        package='isaacsim', executable='run_isaacsim',
-        name='isaacsim', output="screen", 
+        package='isaacsim_bringup', executable='run_isaacsim',
+        name='isaacsim_bringup', output="screen",
         parameters=[{
             'version': LaunchConfiguration('version'),
             'install_path': LaunchConfiguration('install_path'),

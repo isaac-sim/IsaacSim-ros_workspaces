@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 import os
 from glob import glob
 
-package_name = 'isaacsim'
+package_name = 'isaacsim_bringup'
 
 setup(
     name=package_name,
@@ -18,11 +18,11 @@ setup(
     zip_safe=True,
     maintainer='Isaac Sim',
     maintainer_email='isaac-sim-maintainers@nvidia.com',
-    description='The isaacsim package that contains the script which can used to launch Isaac Sim as a ROS2 node from a launch file.',
+    description='The isaacsim_bringup package that contains the script which can be used to launch Isaac Sim as a ROS2 node from a launch file.',
     license='Apache-2.0',
     entry_points={
         'console_scripts': [
-            'run_isaacsim = isaacsim.run_isaacsim:main',
+            'run_isaacsim = isaacsim_bringup.run_isaacsim:main',
         ],
     },
 )

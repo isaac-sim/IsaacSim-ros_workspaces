@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>isaacsim</name>
+  <name>isaacsim_bringup</name>
   <version>0.2.2</version>
   <description>
-    The isaacsim package that contains the script which can used to launch Isaac Sim as a ROS2 node from a launch file. 
+    The isaacsim_bringup package that contains the script which can be used to launch Isaac Sim as a ROS2 node from a launch file.
   </description>
 
   <maintainer email="isaac-sim-maintainers@nvidia.com">Isaac Sim</maintainer>
-  
+
   <license>
     SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION &amp; AFFILIATES. All rights reserved.
     SPDX-License-Identifier: Apache-2.0
@@ -25,7 +25,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
   </license>
-  
   <url type="Documentation">https://docs.isaacsim.omniverse.nvidia.com/6.0.0/index.html</url>
   <url type="Forums">https://forums.developer.nvidia.com/c/omniverse/simulation/69</url>
 

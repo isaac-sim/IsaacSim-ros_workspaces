@@ -265,7 +265,7 @@ class IsaacSimLauncherNode(Node):
                 executable_command += f" {args.custom_args}"
 
             if args.gui != "":
-                scripts_dir = os.path.join(get_package_share_directory('isaacsim'), 'scripts')
+                scripts_dir = os.path.join(get_package_share_directory('isaacsim_bringup'), 'scripts')
                 file_arg = os.path.join(scripts_dir, "open_isaacsim_stage.py") + f" --path {args.gui} {play_sim_on_start_arg}"
                 # cmd.exe does not strip single quotes; use double quotes on Windows.
                 quote = '"' if sys.platform == "win32" else "'"

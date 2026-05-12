@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.0.0] - 2026-05-11
+### Changed
+- Renamed `isaacsim` package to `isaacsim_bringup` in both Humble and Jazzy workspaces [Humble, Jazzy]
+
 ## [5.3.0] - 2026-05-06
 ### Fixed
 - `run_isaacsim.py`: Fixed `--exec` quoting on Windows so the `gui:=` USD path opens correctly under pixi. cmd.exe does not strip single quotes, so the launcher now uses double quotes on Windows. [Humble, Jazzy]
