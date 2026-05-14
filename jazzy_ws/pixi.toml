@@ -26,6 +26,7 @@ ros-jazzy-ament-lint-common = ">=0.17.4,<0.18"
 ros-jazzy-ament-pep257 = ">=0.17.4,<0.18"
 ros-jazzy-angles = ">=1.16.1,<2"
 ros-jazzy-builtin-interfaces = ">=2.0.3,<3"
+ros-jazzy-clearpath-common = "*"
 ros-jazzy-controller-manager = ">=4.43.0,<5"
 ros-jazzy-geometry-msgs = ">=5.3.6,<6"
 ros-jazzy-hardware-interface = ">=4.43.0,<5"
@@ -61,6 +62,7 @@ ros-jazzy-picknik-ament-copyright = ">=0.0.2,<0.0.3"
 ros-jazzy-pointcloud-to-laserscan = ">=2.0.2,<3"
 ros-jazzy-rclcpp = ">=28.1.16,<29"
 ros-jazzy-rclpy = ">=7.1.9,<8"
+ros-jazzy-rmw-zenoh-cpp = "*"             # Zenoh RMW middleware
 ros-jazzy-robot-state-publisher = ">=3.3.3,<4"
 ros-jazzy-ros-testing = ">=0.6.0,<0.7"
 ros-jazzy-ros2-control = ">=4.43.0,<5"
@@ -73,10 +75,9 @@ ros-jazzy-rviz2 = ">=14.1.19,<15"
 ros-jazzy-sensor-msgs = ">=5.3.6,<6"
 ros-jazzy-sensor-msgs-py = ">=5.3.6,<6"
 ros-jazzy-std-msgs = ">=5.3.6,<6"
+ros-jazzy-teleop-twist-keyboard = "*"     # Keyboard teleop for /cmd_vel
 ros-jazzy-visualization-msgs = ">=5.3.6,<6"
 ros-jazzy-xacro = ">=2.1.1,<3"
-ros-jazzy-rmw-zenoh-cpp = "*"            # Zenoh RMW middleware
-ros-jazzy-clearpath-common = "*"          # Clearpath Dingo-D tutorial (putting it all together)
 
 # Python dependencies
 av = "*"                                   # PyAV for isaac_compressed_image_decoder
