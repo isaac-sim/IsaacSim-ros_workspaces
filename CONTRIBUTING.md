@@ -13,7 +13,7 @@ or proposing a new feature, your help makes this project better for everyone.
 ### Ways to Contribute
 
 - **Bug reports** — Open an issue describing the problem, steps to reproduce, and your environment.
-- **Bug fixes** — Submit a pull request with a clear description and a link to the related issue.
+- **Bug fixes** — Every bug fix must have a linked GitHub Issue. Submit a pull request with a clear description and a link to the related issue.
 - **Enhancements** — Improvements to existing functionality. Opening an issue first is recommended.
 - **New features** — New packages, nodes, or APIs. An approved GitHub Issue is **required** before opening a PR.
 - **Documentation** — Fixes, clarifications, and additions to `README.md` or package docs.
@@ -42,7 +42,7 @@ Different changes carry different levels of risk and review overhead:
 | Type | Definition | Prior approval needed |
 |---|---|---|
 | **Trivial fix** | Docs, comments, typos, formatting — no functional change | No |
-| **Bug fix** | Corrects incorrect behavior in existing code | No (issue recommended) |
+| **Bug fix** | Corrects incorrect behavior in existing code | Issue **required** |
 | **Enhancement** | Improves existing functionality without breaking APIs | Issue recommended |
 | **New feature** | Adds new packages, nodes, or changes existing APIs | Issue **required** |
 
@@ -86,7 +86,7 @@ Before marking your PR ready for review, confirm:
 - [ ] Code follows the style guidelines above
 - [ ] Change is applied to all supported distro workspaces where applicable, or distro-specific reasoning is explained in the PR description
 - [ ] Documentation is updated for any new or changed behavior
-- [ ] For new features: a linked Issue is referenced in the PR description
+- [ ] For bug fixes and new features: a linked Issue is referenced in the PR description
 - [ ] If your change affects user-facing behavior or adds new functionality, note in the PR description whether the [Isaac Sim documentation](https://docs.isaacsim.omniverse.nvidia.com) needs updating — a maintainer will file the appropriate doc request
 
 
