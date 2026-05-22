@@ -31,6 +31,8 @@ setup(
             glob('launch/*.launch.py')),
         (os.path.join('share', package_name, 'rviz2'),
             glob('rviz2/*.rviz')),
+        (os.path.join('share', package_name, 'config'),
+            glob('config/*.xacro')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

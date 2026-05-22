@@ -38,10 +38,19 @@ def generate_launch_description():
         description="Use simulation clock if true",
     )
 
+    # Use a local URDF xacro that omits PandaHandFakeSystem so the unused
+    # topic_based_ros2_control hand instance doesn't pollute /isaac_joint_commands
+    # with malformed JointStates (name.size != position.size due to the
+    # finger_joint2 mimic). Gripper is driven by the gripper_to_isaac bridge.
+    isaac_moveit_share = get_package_share_directory("isaac_moveit")
+    custom_urdf_xacro = os.path.join(
+        isaac_moveit_share, "config", "panda_isaac.urdf.xacro"
+    )
+
     moveit_config = (
         MoveItConfigsBuilder("moveit_resources_panda")
         .robot_description(
-            file_path="config/panda.urdf.xacro",
+            file_path=custom_urdf_xacro,
             mappings={
                 "ros2_control_hardware_type": LaunchConfiguration(
                     "ros2_control_hardware_type"

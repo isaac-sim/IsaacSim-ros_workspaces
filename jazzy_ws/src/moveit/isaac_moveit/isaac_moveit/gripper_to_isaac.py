@@ -12,6 +12,9 @@ from sensor_msgs.msg import JointState
 import threading
 
 
+FINGER_JOINTS = ('panda_finger_joint1', 'panda_finger_joint2')
+
+
 class GripperToIsaac(Node):
     def __init__(self):
         super().__init__('gripper_to_isaac')
@@ -22,11 +25,24 @@ class GripperToIsaac(Node):
         self.target_position = 0.04  # Start open
         self.position_lock = threading.Lock()
 
-        # Publisher to Isaac Sim
+        # Publisher: gripper commands -> Isaac Sim
         self.isaac_pub = self.create_publisher(
             JointState,
             '/isaac_joint_commands',
             10
+        )
+
+        # Publisher: finger state -> MoveIt's /joint_states. PandaHandFakeSystem is intentionally
+        # not loaded into ros2_control (its topic_based_ros2_control mimic handling corrupts memory
+        # and destabilizes panda_arm_controller), so joint_state_broadcaster does NOT publish finger
+        # state. We mirror the finger positions out of /isaac_joint_states so MoveIt's planning
+        # scene monitor knows the gripper state.
+        self.joint_state_pub = self.create_publisher(JointState, '/joint_states', 10)
+        self.isaac_state_sub = self.create_subscription(
+            JointState,
+            '/isaac_joint_states',
+            self.isaac_state_callback,
+            10,
         )
 
         # Timer to continuously republish commands to Isaac Sim (20Hz)
@@ -49,9 +65,22 @@ class GripperToIsaac(Node):
         with self.position_lock:
             msg = JointState()
             msg.header.stamp = self.get_clock().now().to_msg()
-            msg.name = ['panda_finger_joint1', 'panda_finger_joint2']
+            msg.name = list(FINGER_JOINTS)
             msg.position = [self.target_position, self.target_position]
             self.isaac_pub.publish(msg)
+
+    def isaac_state_callback(self, msg: JointState):
+        """Forward finger positions from Isaac Sim to MoveIt's /joint_states."""
+        positions = {n: p for n, p in zip(msg.name, msg.position)}
+        finger_positions = [positions.get(j) for j in FINGER_JOINTS]
+        if any(p is None for p in finger_positions):
+            return  # Isaac hasn't reported the fingers yet — skip until they're present.
+
+        out = JointState()
+        out.header.stamp = msg.header.stamp if msg.header.stamp.sec else self.get_clock().now().to_msg()
+        out.name = list(FINGER_JOINTS)
+        out.position = finger_positions
+        self.joint_state_pub.publish(out)
 
     def goal_callback(self, goal_request):
         self.get_logger().info(f'Received goal: position={goal_request.command.position}')

@@ -1,5 +1,13 @@
 # Changelog
 
+## [6.0.2] - 2026-05-19
+### Fixed
+- `isaac_moveit`: Added local `panda_isaac.urdf.xacro` that omits `PandaHandFakeSystem` to stop malformed JointState warnings on `/isaac_joint_commands` and the mimic-loop fault that destabilized `panda_arm_controller`. Extended `gripper_to_isaac.py` to forward finger positions from `/isaac_joint_states` to `/joint_states` for MoveIt's planning scene. [Jazzy]
+
+## [6.0.1] - 2026-05-18
+### Fixed
+- Added pip dependency in package.xml for h1_fullbody_controller package [Jazzy]
+
 ## [6.0.0] - 2026-05-11
 ### Changed
 - Renamed `isaacsim` package to `isaacsim_bringup` in both Humble and Jazzy workspaces [Humble, Jazzy]
