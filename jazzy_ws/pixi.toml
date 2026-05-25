@@ -74,6 +74,7 @@ ros-jazzy-rqt-image-view = ">=1.3.0,<2"
 ros-jazzy-rviz2 = ">=14.1.19,<15"
 ros-jazzy-sensor-msgs = ">=5.3.6,<6"
 ros-jazzy-sensor-msgs-py = ">=5.3.6,<6"
+ros-jazzy-simulation-interfaces = "*"
 ros-jazzy-std-msgs = ">=5.3.6,<6"
 ros-jazzy-teleop-twist-keyboard = "*"     # Keyboard teleop for /cmd_vel
 ros-jazzy-visualization-msgs = ">=5.3.6,<6"
@@ -107,7 +108,7 @@ ROS_DISTRO = "jazzy"
 
 [target.unix.activation]
 scripts = ["install/setup.bash"]
-env = { isaac_sim_package_path = "$HOME/isaacsim"}
+env = { isaac_sim_package_path = "$HOME/isaacsim", LD_LIBRARY_PATH = "$isaac_sim_package_path/kit/python/lib:$LD_LIBRARY_PATH" }
 
 [target.win.activation]
 scripts = ["install\\setup.bat"]
