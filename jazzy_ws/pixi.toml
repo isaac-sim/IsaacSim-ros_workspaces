@@ -39,6 +39,7 @@ ros-jazzy-launch-ros = ">=0.26.11,<0.27"
 ros-jazzy-launch-testing = ">=3.4.10,<4"
 ros-jazzy-moveit = ">=2.12.4,<3"
 ros-jazzy-moveit-simple-controller-manager = ">=2.12.4,<3"
+ros-jazzy-moveit-resources-panda-moveit-config = ">=3.1.0,<4"
 ros-jazzy-nav2-amcl = ">=1.3.11,<2"
 ros-jazzy-nav2-behavior-tree = ">=1.3.11,<2"
 ros-jazzy-nav2-behaviors = ">=1.3.11,<2"
@@ -148,4 +149,4 @@ env = { isaac_sim_package_path = "$HOME/isaacsim", LD_LIBRARY_PATH = "$isaac_sim
 
 [target.win.activation]
 scripts = ["install\\setup.bat"]
-env = { isaac_sim_package_path = "%USERPROFILE%\\isaacsim", PATH = "%isaac_sim_package_path%\\kit\\python\\lib;%PATH%" }
+env = { isaac_sim_package_path = "C:\\isaacsim", PATH = "%isaac_sim_package_path%\\kit\\python\\lib;%PATH%" }
