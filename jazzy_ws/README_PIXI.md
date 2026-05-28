@@ -4,6 +4,9 @@ This ROS jazzy workspace is configured to use [Pixi](https://pixi.sh) for depend
 
 ## Getting Started
 
+> **Warning: Windows path length limitation**
+> Windows limits many file operations to paths of 260 characters. Clone this workspace into a short path, such as `C:\IsaacSim-ros_workspaces\jazzy_ws`. If `pixi run sim` or the build reports missing files, build errors, or `The filename or extension is too long`, move the repository to a shorter path.
+
 ### 1. Fetch git submodules
 
 Several packages under `src/moveit/` (including `moveit_resources` / `panda_moveit_config`
