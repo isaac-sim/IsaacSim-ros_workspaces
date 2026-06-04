@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+    <xacro:arg name="initial_positions_file" default="$(find moveit_resources_panda_moveit_config)/config/initial_positions.yaml" />
+    <xacro:arg name="ros2_control_hardware_type" default="isaac" />
+
+    <!-- Import panda urdf file -->
+    <xacro:include filename="$(find moveit_resources_panda_description)/urdf/panda.urdf" />
+
+    <!-- Arm ros2_control only. The hand is intentionally NOT instantiated here:
+         topic_based_ros2_control's panda_hand_ros2_control xacro publishes malformed JointStates
+         on /isaac_joint_commands (name.size != position.size, because panda_finger_joint2 is a
+         mimic with no command_interface), and the plugin's mimic loop writes past the end of
+         joint_state.position which corrupts memory and eventually destabilizes the arm controller.
+         Gripper state is published on /joint_states by the gripper_to_isaac bridge, and gripper
+         actuation goes through the same bridge's GripperCommand action server. -->
+    <xacro:include filename="$(find moveit_resources_panda_moveit_config)/config/panda.ros2_control.xacro" />
+
+    <xacro:panda_ros2_control name="PandaFakeSystem" initial_positions_file="$(arg initial_positions_file)" ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
+</robot>

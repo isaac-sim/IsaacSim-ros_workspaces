@@ -1,5 +1,33 @@
 # Changelog
 
+## [6.0.2] - 2026-05-19
+### Fixed
+- `isaac_moveit`: Added local `panda_isaac.urdf.xacro` that omits `PandaHandFakeSystem` to stop malformed JointState warnings on `/isaac_joint_commands` and the mimic-loop fault that destabilized `panda_arm_controller`. Extended `gripper_to_isaac.py` to forward finger positions from `/isaac_joint_states` to `/joint_states` for MoveIt's planning scene. [Jazzy]
+
+## [6.0.1] - 2026-05-18
+### Fixed
+- Added pip dependency in package.xml for h1_fullbody_controller package [Jazzy]
+
+## [6.0.0] - 2026-05-11
+### Changed
+- Renamed `isaacsim` package to `isaacsim_bringup` in both Humble and Jazzy workspaces [Humble, Jazzy]
+
+## [5.3.0] - 2026-05-06
+### Fixed
+- `run_isaacsim.py`: Fixed `--exec` quoting on Windows so the `gui:=` USD path opens correctly under pixi. cmd.exe does not strip single quotes, so the launcher now uses double quotes on Windows. [Humble, Jazzy]
+- `run_isaacsim.py`: Replaced POSIX-only `start_new_session=True` with `creationflags=CREATE_NEW_PROCESS_GROUP` on Windows for the Isaac Sim subprocess. [Humble, Jazzy]
+- `run_isaacsim.py`: `use_internal_libs` and `ros_installation_path` now exit with a non-zero status and a clear error on Windows instead of silently exiting 0 or continuing. [Humble, Jazzy]
+
+### Changed
+- `run_isaacsim.py`: `dds_type` is now opt-in and defaults to empty. When empty, the surrounding `RMW_IMPLEMENTATION` (e.g. `rmw_zenoh_cpp` set by pixi activation) is preserved. Explicit values map to `fastdds`/`cyclonedds`/`zenoh`. [Humble, Jazzy]
+- `run_isaacsim.py`: When `install_path:=` is not provided, the launcher falls back to the `isaac_sim_package_path` environment variable (set by pixi activation) before the version-based default. [Humble, Jazzy]
+
+## [5.2.0] - 2026-05-01
+### Changed
+- `use_internal_libs` default changed from `True` to `False` in the `isaacsim` package [Jazzy]. Python 3.12 on Isaac Sim allows ROS 2 system install to be sourced directly from the system, making internal lib loading unnecessary. Humble retains the default of `True`. Jazzy users who explicitly relied on internal libs should set `use_internal_libs:=True` when launching and verify their integration against Isaac Sim 6.0.
+- Converted `isaacsim`, `cmdvel_to_ackermann`, `h1_fullbody_controller`, and `isaac_moveit` packages from `ament_cmake` to `ament_python` build type [Humble, Jazzy]
+- Fixed `open_isaacsim_stage.py` path resolution to use `get_package_share_directory` instead of `__file__` [Humble, Jazzy]
+
 ## [5.1.0] - 2026-03-05
 ### Changed
 - Added custom `panda_isaac.urdf.xacro` and `gripper_to_isaac.py` bridge for improved MoveIt Isaac Sim performance. [Humble]

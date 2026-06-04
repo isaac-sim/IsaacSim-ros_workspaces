@@ -1,0 +1,11 @@
+serial_number: dd100-0000
+version: 0
+system:
+  hosts:
+    - hostname: cpr-dd100-0000
+      ip: 192.168.131.1
+  ros2:
+    namespace: dd100_0000
+platform:
+  mcu:
+    protocol: proton

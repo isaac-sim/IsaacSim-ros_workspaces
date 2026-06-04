@@ -79,7 +79,7 @@ def generate_launch_description():
             # Include Isaac Sim launch file from isaacsim package with given launch parameters.
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
-                            get_package_share_directory("isaacsim"), "launch", "run_isaacsim.launch.py"
+                            get_package_share_directory("isaacsim_bringup"), "launch", "run_isaacsim.launch.py"
                         ),
                     ]
                 ),

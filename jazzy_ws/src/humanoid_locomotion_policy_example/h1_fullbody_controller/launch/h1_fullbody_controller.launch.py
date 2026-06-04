@@ -53,7 +53,7 @@ def generate_launch_description():
             description="Whether to apply the ROS namespace to the node"),
         Node(
             package='h1_fullbody_controller',
-            executable='h1_fullbody_controller.py',
+            executable='h1_fullbody_controller',
             name='h1_fullbody_controller',
             output="screen",
             namespace=IfElseSubstitution(
