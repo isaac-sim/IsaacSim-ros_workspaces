@@ -82,29 +82,65 @@ ros-jazzy-xacro = ">=2.1.1,<3"
 
 # Python dependencies
 av = "*"                                   # PyAV for isaac_compressed_image_decoder
-filelock = "*"                             # required by controller_manager spawner
-pytorch = ">=2.10.0,<3"
+# On pypi tinyobjloader is only available in `0.1`.
+tinyobjloader = "==2.0.0rc13"
+
+# Needed as it uses the Sentinel
+typing-extensions = ">=4.13,<5"
+
+[target.win.dependencies]
+pywin32 = "==306"
+
+[system-requirements]
+libc = "2.35"
+cuda = "12.9"
+
+[pypi-options]
+extra-index-urls = ["https://pypi.nvidia.com"]
+
+# These are required to avoid the pypi solver to be confused about
+# the already installed dependencies from the conda side.
+[pypi-options.dependency-overrides]
+opencv-python-headless = "*"
+typing-extensions = "*"
+numpy = "*"
+cryptography = "*"
+packaging = "*"
+mujoco-usd-converter = "*"
+psutil = "*"
+jinja2 = "*"
+coverage = "*"
+pillow = "*"
+tinyobjloader = "*"
+# Pytorch related:
+mpmath = "*"
+fsspec = "*"
+filelock = "*"
+
+# Install isaacsim with Pixi/uv
+[pypi-dependencies]
+isaacsim = { version = "==6.0.0", extras = ["all", "extscache", "ros2"]}
+torch = { version = "==2.10.0", index = "https://download.pytorch.org/whl/cu128" }
 
 
 [tasks]
+# ROS
 build = { cmd = "colcon build --merge-install --cmake-args -DBUILD_TESTING=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DPython_FIND_VIRTUALENV=ONLY -DPython3_FIND_VIRTUALENV=ONLY", description = "Build the ROS workspace" }
 test = {cmd = "colcon test", description = "Run tests for the workspace"}
 clean = {cmd = "rm -rf build install log", description = "Clean build artifacts (build, install, log directories)"}
-
 zenoh = "ros2 run rmw_zenoh_cpp rmw_zenohd"
 
-# Specific to the test machine
-[target.unix.tasks]
-sim = "$isaac_sim_package_path/isaac-sim.sh --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
-
-[target.win.tasks]
-sim = "$isaac_sim_package_path/isaac-sim.bat --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
+# Isaacsim
+check = "isaacsim isaacsim.exp.compatibility_check"
+sim = "isaacsim --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
+headless = "isaacsim isaacsim.exp.full.streaming --no-window --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
 
 # Scripts to source on environment activation, found after first colcon build.
 [activation.env]
 RMW_IMPLEMENTATION = "rmw_zenoh_cpp"
 ROS_DOMAIN_ID="0"
 ROS_DISTRO = "jazzy"
+KMP_DUPLICATE_LIB_OK = "TRUE"
 
 [target.unix.activation]
 scripts = ["install/setup.bash"]
@@ -112,4 +148,4 @@ env = { isaac_sim_package_path = "$HOME/isaacsim", LD_LIBRARY_PATH = "$isaac_sim
 
 [target.win.activation]
 scripts = ["install\\setup.bat"]
-env = { isaac_sim_package_path = "C:\\isaacsim"}
+env = { isaac_sim_package_path = "C:\\isaacsim", PATH = "%isaac_sim_package_path%\\kit\\python\\lib;%PATH%" }

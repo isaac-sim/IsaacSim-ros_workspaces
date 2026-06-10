@@ -4,19 +4,34 @@ This ROS jazzy workspace is configured to use [Pixi](https://pixi.sh) for depend
 
 ## Getting Started
 
-### 1. Install dependencies
+> **Warning: Windows path length limitation**
+> Windows limits many file operations to paths of 260 characters. Clone this workspace into a short path, such as `C:\IsaacSim-ros_workspaces\jazzy_ws`. If `pixi run sim` or the build reports missing files, build errors, or `The filename or extension is too long`, move the repository to a shorter path.
+
+### 1. Fetch git submodules
+
+Several packages under `src/moveit/` (including `moveit_resources` / `panda_moveit_config`
+and `topic_based_ros2_control`) are tracked as git submodules. After cloning, you must
+initialize them or the workspace will fail to build with missing-package errors:
+
+```bash
+git submodule update --init --recursive
+```
+
+If you cloned with `git clone --recurse-submodules`, this step is already done.
+
+### 2. Install dependencies
 
 ```bash
 pixi install
 ```
 
-### 2. Build the workspace
+### 3. Build the workspace
 
 ```bash
 pixi run build
 ```
 
-### 3. Activate the environment
+### 4. Activate the environment
 
 ```bash
 pixi shell
@@ -30,7 +45,7 @@ with `pixi run <command>` without entering the shell.
 > are available without any manual sourcing.
 
 
-### 4. Start the Isaac Sim
+### 5. Start the Isaac Sim
 
 There is a `zenoh` and `sim` task you can run.
 
