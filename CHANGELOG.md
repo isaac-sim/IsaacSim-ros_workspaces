@@ -1,5 +1,10 @@
 # Changelog
 
+## [6.0.3] - 2026-06-10
+### Changed
+- Bumped versions for Isaac Sim pip dependency to 6.0.0.1.
+- Bumped versions for torch pip dependency to 2.11.0.
+
 ## [6.0.3] - 2026-06-09
 ### Changed
 - Pixi toml now adds Isaac Sim pip dependency.
