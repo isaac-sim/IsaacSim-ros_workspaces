@@ -119,8 +119,8 @@ filelock = "*"
 
 # Install isaacsim with Pixi/uv
 [pypi-dependencies]
-isaacsim = { version = "==6.0.0", extras = ["all", "extscache", "ros2"]}
-torch = { version = "==2.10.0", index = "https://download.pytorch.org/whl/cu128" }
+isaacsim = { version = "==6.0.0.1", extras = ["all", "extscache", "ros2"]}
+torch = { version = "==2.11.0", index = "https://download.pytorch.org/whl/cu128" }
 
 
 [tasks]
