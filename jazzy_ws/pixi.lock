@@ -1042,21 +1042,22 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros-jazzy-zenoh-cpp-vendor-0.2.9-np2py312ha80d210_16.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros-jazzy-zstd-vendor-0.26.9-np2py312h2ed9cc7_16.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-distro-mutex-0.14.0-jazzy_16.conda
-      - pypi: https://download-r2.pytorch.org/whl/cu128/torch-2.10.0%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl
+      - pypi: https://download-r2.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/00/2e/d53fa4befbf2cfa713304affc7ca780ce4fc1fd8710527771b58311a3229/click-8.1.7-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/01/89/862a822ecc14aeea5ce834bc70dbba6838cfa9a6dbbef189acd47337cfbd/imgui_bundle-1.92.601-cp312-cp312-manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/07/86/f1f61b7a0701f9d1299e5293d083318019f91021a4d449f94d59dbe024e4/pycollada-0.9.3-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/08/d1/3c16c963f8026e6e813c442db724abc1293fc67442f9620caa0d295a5d7a/newton_usd_schemas-0.1.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/0c/cd/711385df9f7c6ccf2fe7e6df9074c250c62bf11f93ed48ecb3cf4c67cc94/newton-1.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/0d/05/49564250b895976fd75dfddcccffb92283c1422a17aa7bf54d5b5adb0646/urdf_usd_converter-0.1.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/0f/15/5bf3b99495fb160b63f95972b81750f18f7f4e02ad051373b669d17d44f2/aiohappyeyeballs-2.6.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/0f/cb/c21b96ff379923310b4fb2c06e8d560d801e24aeb300faa72a04776868fc/sentry_sdk-2.42.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/11/c8/26f2e4aae92f11522a96043892ba39a90eac610d5242523aa863212bc1c7/cuda_pathfinder-1.5.5-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/13/ac/19dbba27e891f39feb4170b884da449ee2699ef4ebb88eefeda364bbbbcf/asteval-1.0.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/13/f2/abeec3db71d221ccd3cd89d206be1fabf5a3ee7178862f5fba23a59607e0/mpmath-1.4.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/18/a6/907a406bb7d359e6a63f99c313846d9eec4f7e6f7437809e03aa00fa3074/absl_py-2.4.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/1a/74/976abff30200cb0cab0bd076db074b8cdda9236ba885ebe3f4d91c7e074b/aiodns-3.1.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/1a/e1/a097d5755d3ea8479a42856f51d97eeff7a3a7160593332d98f2709b3580/yarl-1.18.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/1b/d0/397f9626e711ff749a95d96b7af99b9c566a9bb5129b8e4c10fc4d100304/python_multipart-0.0.22-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/1c/07/ebe102777a830bca91bbb93e3479cd34c2ca5d0361b83be9dbd93104865e/propcache-0.2.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/1e/d3/26bf1008eb3d2daa8ef4cacc7f3bfdc11818d111f7e2d0201bc6e3b49d45/annotated_doc-0.0.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/24/79/aaf0c1c7214f2632badb2771d770b1500d3d7cbdf2590ae62e721ec50584/qrcode-7.4.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/31/b4/b9b800c45527aadd64d5b442f9b932b00648617eb5d63d2c7a6587b7cafc/jmespath-1.0.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/33/16/fa96a5e057d6842e95d94fc410896e061b3d3a2584d57e13fc58268df45f/azure_identity-1.13.0-py3-none-any.whl
@@ -1067,35 +1068,29 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/45/66/d1a9fd8e6ff88f2157cb145dd054defb0fd7fe2507fe5a01347e7c690eab/aioitertools-0.11.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/46/03/07c4894aae38b0de52b52586b24bf189bb83e4ddabfe2e2c8f2419eec6f4/idna-ssl-1.1.0.tar.gz
       - pypi: https://files.pythonhosted.org/packages/48/f0/ae7ca09223a81a1d890b2557186ea015f6e0502e9b8cb8e1813f1d8cfa4e/s3transfer-0.14.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/4b/2e/90f05ad3818fd4b826f712c9f89a3df3aa3ef204efeaa71f8ddc2ca5fd3b/mujoco_warp-3.5.0.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/53/ee/3119604cad4ca894fb80ef8ccd06b6bbd0b485b38ddc152ca753c67e0e76/newton_actuators-0.1.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/56/b3/7c69b37f03260a061883bec0e7b05be7117c1b1c85f5212c72c8c2bc3c8c/munch-4.0.0-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/59/8c/57e832b7af6d7c5abe66eb3fbe3a3a32f4d11ea23a1aa7131371035be991/certifi-2026.5.20-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/59/d8/c0d8734fb0e3a4708b850b10fbe828d3fa5bbc510c53ae8553d6191bf98d/imgui_bundle-1.92.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/5a/3f/efeb7c6801c46e11bd666a5180f0d615f74f72264212f74f39586c6fda9d/glfw-2.10.0-py2.py27.py3.py30.py31.py32.py33.py34.py35.py36.py37.py38.py39.py310.py311.py312.py313.py314-none-manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/5e/75/bd9b7bb966668920f06b200e84454c8f3566b102183bc55c5473d96cb2b9/msal_extensions-1.3.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/5f/97/2aab507d3d00ca626e8e57c1eac6a79e4e5fbcc63eb99733ff55d1717f65/pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/61/24/3bf865b07d15fea85b63504856e137029b6acbc73762496064219cdb265d/boto3-1.40.61-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/62/62/30ca2405de6a20448ee557ab2cd61ab9c5900be7cbd18a2639db595f0b98/wrapt-1.16.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/68/2f/f24b039169db474e8688f649377de082a965fbf85daf4e46c44412f1d15a/torchvision-0.25.0-cp312-cp312-manylinux_2_28_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/6d/45/d9d3e8eeefbe93be1c50060a9d9a9f366dba66f288bb518a9566a23a8631/fastapi-0.117.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/6f/bb/5deac77a9af870143c684ab46a7934038a53eb4aa975bc0687ed6ca2c610/requests_oauthlib-1.3.1-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/6f/de/bc2271210dad5c6ab73af294779226308e9cf4ed8bc2dbe59922eb8702ed/mujoco-3.8.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/70/90/6d240beb0f24b74371762873e9b7f499f1e02166a2d9c5801f4dbf8fa12e/kiwisolver-1.4.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/73/12/2530fb2b08773f717ab2d249ca7a982ac66e32187c62d49e2c86c9bba9b4/aiohttp-3.12.14-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/73/f5/cbb16fcbe277c1e0b8b3ddd188f2df0e0947f545c49119b589643632d156/uvicorn-0.29.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/7b/91/984aca2ec129e2757d1e4e3c81c3fcda9d0f85b74670a094cc443d9ee949/joblib-1.5.3-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/7b/a9/fdab6c10190cfb8d639e01f2b168f2406fc847a2a6bc00e7de78c3381d0a/cbor2-5.8.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/7e/80/cab10959dc1faead58dc8384a781dfbf93cb4d33d50988f7a69f1b7c9bbe/oauthlib-3.2.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/81/47/dd9a212ef6e343a6857485ffe25bba537304f1913bdbed446a23f7f592e1/filelock-3.29.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/88/1d/4dec33add4b8aa9db070d2f89e21920ee9ef1a7f0ec861d25b42eb148710/urdf_usd_converter-0.1.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/82/f5/30c736dfe87ad7e8f7a7f8f43b80e0ff43c6af46cef65ba95d3ba172129a/mujoco_warp-3.8.0.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/88/d8/d6d0f896e064aa67377484efef4911cdcc07bce2929474e1417cc0af18c2/torchaudio-2.11.0-cp312-cp312-manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/8c/df/d4f711d168524f5aebd7fb30969eaa31e3048cf8979688cde3b08f6e5eb8/portalocker-2.7.0-py2.py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/8f/aa/ba0014cc4659328dc818a28827be78e6d97312ab0cb98105a770924dc11e/absl_py-2.3.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/91/7b/26d2f43aa9fe428416be21ee1cb9ac75638cf302466b7e706c14eeaea42c/watchdog-4.0.0-py3-none-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/95/2a/d275ec4ce5cd0096665043995a7d76f5d0524853c76a3d04656de49f8808/aiobotocore-2.25.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/96/86/16815fddf056ca998853c6dc525397edf0b43559bb4073a80d2bc7fe8009/msal-1.35.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/98/25/e55a30d7138f8fe56ed006df25b0a3c27681f0ec7bc9989e1778e6d559c3/torchaudio-2.10.0-cp312-cp312-manylinux_2_28_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/9a/22/f1925cdda983ab66fc8ec6ec8014b959262747e58bdca26a4e3d1da29d56/python_multipart-0.0.26-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9c/3d/a121f284241f08268b21359bd425f7d4825cffc5ac5cd0e1b3d82ffd2b10/pytz-2024.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9e/c9/b2622292ea83fbb4ec318f5b9ab867d0a28ab43c5717bb85b0a5f6b3b0a4/networkx-3.6.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a0/c4/c2971a3ba4c6103a3d10c4b0f24f461ddc027f0f09763220cf35ca1401b3/nest_asyncio-1.6.0-py3-none-any.whl
@@ -1104,18 +1099,20 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/a3/5e/ecf12fdb62546d64385c158514e9b2b671f7832108ef2ecd2020ce0af2d1/pyjwt-2.13.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a4/3d/8a6dde7092eeba0ddb0d75359e2cc1c7b61947b6f73da0bb73ac7ef9e997/pyopengl_accelerate-3.1.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/a4/d0/c67967a10abd89529cb9aded9d73f43e5de00cf21243638ef529f6757262/pycares-5.0.1-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/a7/7c/79ff957c828116966894268a749eccf455e4d11f08ef66ea681084c3faaa/newton_usd_schemas-0.2.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a9/c1/dabe88f52c3e3760d861401bb994df08f672ec893b8f7592dc91626adcf3/cuda_bindings-12.9.4-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/aa/85/4890a7c14b4fa54400945cb52ac3cd88545bbdb973c440f98ca41591cdc5/llvmlite-0.46.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/ab/a8/cdf8b3e4c98132f965f88c2313a4b493266832ad47fb52f23d14d4f86bb5/triton-3.6.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/ae/55/90ad03c32e673a9b33cfa7cb43f55d1ab0509b60396afbb1031fa1516fd9/qdldl-0.1.7.post5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/af/f2/64b73a9bb86f5a89fb55450e97cd5c1f84a862d4ff90d9fd1a73ab0f64a5/frozenlist-1.5.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/b0/7f/bd932351214640033c5b58ba1ab5682842f2643f686a58b7362f77fb598d/awscrt-0.23.8-cp311-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/b0/b6/f7f4f318c7e58c23b761c9b13b9a3c9b394e0f9d5d76fbc6622fa98509f6/aiohttp-3.13.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/b0/be/69fffc97b78f52a5d1372e5d56a0599291e96996a47089fb6312bc023d88/trimesh-4.11.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b6/85/7882d311924cbcfc70b1890780763e36ff0b140c7e51c110fc59a532f087/isodate-0.6.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b7/37/82dbef0f6342eb01f54bca073ac1498433d6ce71e50c3c3282b655733b31/fonttools-4.61.1-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/be/72/2db2f49247d0a18b4f1bb9a5a39a0162869acf235f3a96418363947b3d46/starlette-0.48.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/bf/a2/37101b824e0d444875d941ad6b41f64c1fe3829272d591d6a7ad07819790/newton-1.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/c5/19/5af6804c4cc0fed83f47bff6e413a98a36618e7d40185cd36e69737f3b0e/aiofiles-23.2.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/c8/8a/229e4db3692be55532e155e2ca6a1363752243ee79df0e7e22ba00f716cf/mujoco-3.5.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/cc/8f/ec6289987824b29529d0dfda0d74a07cec60e54b9c92f3c9da4c0ac732de/contourpy-1.3.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/d1/75/e5d44be90525cd28503e7f836d077ae6663ec0687a13ba7810b4114b3668/rtree-1.4.1-py3-none-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/d1/fe/66d73b76d378ba8cc2fe605920c0c75092e3a65ae746e1e767d9d020a75a/scipy-1.17.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
@@ -1123,6 +1120,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/d4/69/31c82567719b34d8f6b41077732589104883771d182a9f4ff3e71430999a/python_utils-3.9.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/d5/0c/043d5e551459da400957a1395e0febbf771446ff34291afcbe3d8be2a279/fsspec-2026.4.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/da/42/e921fccf5015463e32a3cf6ee7f980a6ed0f395ceeaa45060b61d86486c2/anyio-4.13.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/db/9d/7ede2cc42f9bb4260492e7d29d2aab781eacbbcfb09d983de1e695077199/cbor2-5.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/dc/9b/47798a6c91d8bdb567fe2698fe81e0c6b7cb7ef4d13da4114b41d239f65d/typing_inspection-0.4.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/de/e4/1ba6f44e491c4eece978685230dde56b14d51a0365bc1b774ddaa94d14cd/pyopengl-3.1.10-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/df/80/fc9d01d5ed37ba4c42ca2b55b4339ae6e200b456be3a1aaddf4a9fa99b8c/pyperclip-1.11.0-py3-none-any.whl
@@ -1131,9 +1129,12 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/e7/98/87b5946356095738cb90a6df7b35ff69ac5750f6e783d5fbcc5cb3b6cbd7/etils-1.13.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ea/2c/e17b8814050427929077639d35a42187a006922600d4840475bdc5f64ebb/numpy_stl-3.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ed/47/14a76b926edc3957c8a8258423db789d3fa925d2fed800102fce58959413/fastapi-0.120.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ee/fb/14d30eb4956408ee3ae09ad34299131fb383c47df355ddb428a7331cfa1e/charset_normalizer-3.3.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/f1/00/d6f01ca2b191f8b0808e4132ccd2e7691f0453cbd7d0f72330eb97453c3a/websockets-12.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/f1/06/68c50a905e1e5481b04a6166b69fecddb87681aae7a556ab727f8e8e6f70/azure_storage_blob-12.17.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f5/d8/cb6ccda1a1f35a6597645818641701207b3e8e13553e75fce5d86bac74b2/torchvision-0.26.0-cp312-cp312-manylinux_2_28_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/f8/52/92b11b909686bef993819720c518cb38318a16acae038b70f64a3c35582a/coacd-1.0.7-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/f9/9b/335f9764261e915ed497fcdeb11df5dfd6f7bf257d4a6a2a686d80da4d54/requests-2.32.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/fb/76/641ae371508676492379f16e2fa48f4e2c11741bd63c48be4b12a6b09cba/aiosignal-1.4.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/fb/fe/301e0936b79bcab4cacc7548bf2853fc28dced0a578bab1f7ef53c9aa75b/imageio-2.37.2-py3-none-any.whl
@@ -1141,48 +1142,48 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/fc/d8/b8fcba9464f02b121f39de2db2bf57f0b216fe11d014513d666e8634380d/azure_core-1.38.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/fd/7b/122376b1fd3c62c1ed9dc80c931ace4844b3c55407b6fb2d199377c9736f/pydantic-2.13.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/fe/ba/e2081de779ca30d473f21f5b30e0e737c438205440784c7dfc81efc2b029/async_timeout-5.0.1-py3-none-any.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-app/isaacsim_app-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-asset/isaacsim_asset-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-benchmark/isaacsim_benchmark-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-code-editor/isaacsim_code_editor-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-core/isaacsim_core-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-cortex/isaacsim_cortex-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-example/isaacsim_example-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-extscache-kit-sdk/isaacsim_extscache_kit_sdk-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-extscache-kit/isaacsim_extscache_kit-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-extscache-physics/isaacsim_extscache_physics-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-gui/isaacsim_gui-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-kernel/isaacsim_kernel-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-replicator/isaacsim_replicator-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-rl/isaacsim_rl-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-robot-motion/isaacsim_robot_motion-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-robot-setup/isaacsim_robot_setup-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-robot/isaacsim_robot-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-ros1/isaacsim_ros1-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-ros2/isaacsim_ros2-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-sensor/isaacsim_sensor-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-storage/isaacsim_storage-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-template/isaacsim_template-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-test/isaacsim_test-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-utils/isaacsim_utils-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim/isaacsim-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/cuda-toolkit/cuda_toolkit-12.8.1-py2.py3-none-any.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-app/isaacsim_app-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-asset/isaacsim_asset-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-benchmark/isaacsim_benchmark-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-code-editor/isaacsim_code_editor-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-core/isaacsim_core-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-cortex/isaacsim_cortex-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-example/isaacsim_example-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-extscache-kit-sdk/isaacsim_extscache_kit_sdk-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-extscache-kit/isaacsim_extscache_kit-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-extscache-physics/isaacsim_extscache_physics-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-gui/isaacsim_gui-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-kernel/isaacsim_kernel-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-replicator/isaacsim_replicator-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-rl/isaacsim_rl-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-robot-motion/isaacsim_robot_motion-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-robot-setup/isaacsim_robot_setup-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-robot/isaacsim_robot-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-ros1/isaacsim_ros1-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-ros2/isaacsim_ros2-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-sensor/isaacsim_sensor-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-storage/isaacsim_storage-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-template/isaacsim_template-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-test/isaacsim_test-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-utils/isaacsim_utils-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim/isaacsim-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
       - pypi: https://pypi.nvidia.com/mujoco-usd-converter/mujoco_usd_converter-0.1.0a2-py3-none-any.whl
       - pypi: https://pypi.nvidia.com/nvidia-cublas-cu12/nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-cuda-cupti-cu12/nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-cuda-nvrtc-cu12/nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-cuda-runtime-cu12/nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
-      - pypi: https://pypi.nvidia.com/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl
+      - pypi: https://pypi.nvidia.com/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.19.0.56-py3-none-manylinux_2_27_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-cufft-cu12/nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-cufile-cu12/nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-curand-cu12/nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-cusolver-cu12/nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-cusparse-cu12/nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-cusparselt-cu12/nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl
-      - pypi: https://pypi.nvidia.com/nvidia-nccl-cu12/nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+      - pypi: https://pypi.nvidia.com/nvidia-nccl-cu12/nvidia_nccl_cu12-2.28.9-py3-none-manylinux_2_18_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-nvjitlink-cu12/nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-nvshmem-cu12/nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
       - pypi: https://pypi.nvidia.com/nvidia-nvtx-cu12/nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
-      - pypi: https://pypi.nvidia.com/pynvvideocodec/pynvvideocodec-2.1.0-cp312-cp312-manylinux_2_28_x86_64.whl
       - pypi: https://pypi.nvidia.com/usd-exchange/usd_exchange-2.3.0-cp312-cp312-manylinux_2_35_x86_64.whl
       - pypi: https://pypi.nvidia.com/warp-lang/warp_lang-1.13.0-py3-none-manylinux_2_28_x86_64.whl
       win-64:
@@ -2100,21 +2101,23 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros-jazzy-zenoh-cpp-vendor-0.2.9-np2py312hf844956_16.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros-jazzy-zstd-vendor-0.26.9-np2py312hf80f32c_16.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-distro-mutex-0.14.0-jazzy_16.conda
-      - pypi: https://download-r2.pytorch.org/whl/cu128/torch-2.10.0%2Bcu128-cp312-cp312-win_amd64.whl
+      - pypi: https://download-r2.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/00/2e/d53fa4befbf2cfa713304affc7ca780ce4fc1fd8710527771b58311a3229/click-8.1.7-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/02/37/527d83610b878f27c01dd762e0e41aaa62f095c607f0500ac7f724a2c7a5/mujoco-3.5.0-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/07/86/f1f61b7a0701f9d1299e5293d083318019f91021a4d449f94d59dbe024e4/pycollada-0.9.3-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/08/d1/3c16c963f8026e6e813c442db724abc1293fc67442f9620caa0d295a5d7a/newton_usd_schemas-0.1.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/0c/cd/711385df9f7c6ccf2fe7e6df9074c250c62bf11f93ed48ecb3cf4c67cc94/newton-1.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/0d/05/49564250b895976fd75dfddcccffb92283c1422a17aa7bf54d5b5adb0646/urdf_usd_converter-0.1.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/0f/15/5bf3b99495fb160b63f95972b81750f18f7f4e02ad051373b669d17d44f2/aiohappyeyeballs-2.6.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/0f/cb/c21b96ff379923310b4fb2c06e8d560d801e24aeb300faa72a04776868fc/sentry_sdk-2.42.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/13/ac/19dbba27e891f39feb4170b884da449ee2699ef4ebb88eefeda364bbbbcf/asteval-1.0.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/13/f2/abeec3db71d221ccd3cd89d206be1fabf5a3ee7178862f5fba23a59607e0/mpmath-1.4.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/18/a6/907a406bb7d359e6a63f99c313846d9eec4f7e6f7437809e03aa00fa3074/absl_py-2.4.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/19/e8/6026ed58a64563186a9ee3f29f41261fd1828f527dd93d33b60feca63352/contourpy-1.3.3-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/1a/74/976abff30200cb0cab0bd076db074b8cdda9236ba885ebe3f4d91c7e074b/aiodns-3.1.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/1b/d0/397f9626e711ff749a95d96b7af99b9c566a9bb5129b8e4c10fc4d100304/python_multipart-0.0.22-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/1c/a9/c272623a0f735c35f0f6cd6dc74784d4f970e800cf063bb76687895a2ab9/torchvision-0.26.0-cp312-cp312-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/1e/1a/d92e3325134ebfff6f4069f270d3aac770d63320bd1fcd0eca023e74d9a8/aiohttp-3.13.4-cp312-cp312-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/1e/d3/26bf1008eb3d2daa8ef4cacc7f3bfdc11818d111f7e2d0201bc6e3b49d45/annotated_doc-0.0.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/20/52/8915f51f9aaef4e4361c89dd6cf69f72a0159f14e0d25026c81b6ad22525/websockets-12.0-cp312-cp312-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/23/a8/941277ecc39f7a0a169d554302a1f1afd87c1d94a8aec828891916cea59a/torchaudio-2.11.0-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/24/79/aaf0c1c7214f2632badb2771d770b1500d3d7cbdf2590ae62e721ec50584/qrcode-7.4.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/2a/6b/d139535d7590a1bba1ceb68751bef22fadaa5b815bbdf0e858e3875726b2/llvmlite-0.46.0-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/30/4e/c10f171b6e2f44d9e3a2b96efa38b1677439d79c99357600a62cc1e9594e/matplotlib-3.10.8-cp312-cp312-win_amd64.whl
@@ -2129,17 +2132,15 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/3e/e2/14f3837e943d46ee12441fe6aaa418fdb2f698d42e179f368eaa9829744b/pycares-5.0.1-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/40/8c/985c1d41ea1107c2534abd9870e4ed5c8e7669b5c308297835c001e7a1c4/pydantic_core-2.46.4-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/45/66/d1a9fd8e6ff88f2157cb145dd054defb0fd7fe2507fe5a01347e7c690eab/aioitertools-0.11.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/45/7b/286fc9520088889aaddc40aed6ffe2737fe79931ecba01002f4e7c632dd2/coacd-1.0.7-cp39-abi3-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/46/03/07c4894aae38b0de52b52586b24bf189bb83e4ddabfe2e2c8f2419eec6f4/idna-ssl-1.1.0.tar.gz
       - pypi: https://files.pythonhosted.org/packages/48/f0/ae7ca09223a81a1d890b2557186ea015f6e0502e9b8cb8e1813f1d8cfa4e/s3transfer-0.14.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/4b/2e/90f05ad3818fd4b826f712c9f89a3df3aa3ef204efeaa71f8ddc2ca5fd3b/mujoco_warp-3.5.0.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/53/ee/3119604cad4ca894fb80ef8ccd06b6bbd0b485b38ddc152ca753c67e0e76/newton_actuators-0.1.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/56/b3/7c69b37f03260a061883bec0e7b05be7117c1b1c85f5212c72c8c2bc3c8c/munch-4.0.0-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/59/8c/57e832b7af6d7c5abe66eb3fbe3a3a32f4d11ea23a1aa7131371035be991/certifi-2026.5.20-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/5c/cc/8297f9658506b224aa4bd71906447dea6bb0ba629861a758c28f67428b91/wrapt-1.16.0-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/5e/75/bd9b7bb966668920f06b200e84454c8f3566b102183bc55c5473d96cb2b9/msal_extensions-1.3.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/61/24/3bf865b07d15fea85b63504856e137029b6acbc73762496064219cdb265d/boto3-1.40.61-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/67/e5/9013d6b857ceb6cdb2851ffb5a887f53f2bab934a528c9d6fa73d9989d84/cbor2-5.8.0-cp312-cp312-win_amd64.whl
-      - pypi: https://files.pythonhosted.org/packages/6d/45/d9d3e8eeefbe93be1c50060a9d9a9f366dba66f288bb518a9566a23a8631/fastapi-0.117.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/65/87/198a88747ff0c01e35070c0c80ae0c05ff8d1a61d6e6f379a4e5ff3e6185/mujoco-3.8.0-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/6f/bb/5deac77a9af870143c684ab46a7934038a53eb4aa975bc0687ed6ca2c610/requests_oauthlib-1.3.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/73/f5/cbb16fcbe277c1e0b8b3ddd188f2df0e0947f545c49119b589643632d156/uvicorn-0.29.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/74/25/5282c8270bfcd620d3e73beb35b40ac4ab00f0a898d98ebeb41ef0989ec8/rtree-1.4.1-py3-none-win_amd64.whl
@@ -2149,14 +2150,12 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/7e/80/cab10959dc1faead58dc8384a781dfbf93cb4d33d50988f7a69f1b7c9bbe/oauthlib-3.2.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/80/3b/a3e81b71aed5a688e89dfe0e2694b26b78c7d7f39a5ffd8a7d75f54a12a8/fonttools-4.61.1-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/81/47/dd9a212ef6e343a6857485ffe25bba537304f1913bdbed446a23f7f592e1/filelock-3.29.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/88/1d/4dec33add4b8aa9db070d2f89e21920ee9ef1a7f0ec861d25b42eb148710/urdf_usd_converter-0.1.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/82/f5/30c736dfe87ad7e8f7a7f8f43b80e0ff43c6af46cef65ba95d3ba172129a/mujoco_warp-3.8.0.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/8c/df/d4f711d168524f5aebd7fb30969eaa31e3048cf8979688cde3b08f6e5eb8/portalocker-2.7.0-py2.py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/8f/aa/ba0014cc4659328dc818a28827be78e6d97312ab0cb98105a770924dc11e/absl_py-2.3.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/92/ce/672ed546f96d5d41ae78c4b9b02006cedd0b3d6f2bf5bb76ea455c320c28/scipy-1.17.0-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/95/2a/d275ec4ce5cd0096665043995a7d76f5d0524853c76a3d04656de49f8808/aiobotocore-2.25.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/96/2c/b250651b747d52d263291e6c1b2aba28f944e58366ebe250a169418e01f2/imgui_bundle-1.92.4-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/96/86/16815fddf056ca998853c6dc525397edf0b43559bb4073a80d2bc7fe8009/msal-1.35.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/98/d5/7ac2464aebd2eecac38dbe96148c9eb487679c512449ba5215d233755582/aiohttp-3.12.14-cp312-cp312-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/9a/22/f1925cdda983ab66fc8ec6ec8014b959262747e58bdca26a4e3d1da29d56/python_multipart-0.0.26-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9c/3d/a121f284241f08268b21359bd425f7d4825cffc5ac5cd0e1b3d82ffd2b10/pytz-2024.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9e/c9/b2622292ea83fbb4ec318f5b9ab867d0a28ab43c5717bb85b0a5f6b3b0a4/networkx-3.6.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a0/41/85d82b0291db7504da3c2defe35c9a8a5c9803a730f297bd823d11d5fb77/kiwisolver-1.4.9-cp312-cp312-win_amd64.whl
@@ -2164,16 +2163,17 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/a2/09/77d55d46fd61b4a135c444fc97158ef34a095e5681d0a6c10b75bf356191/sympy-1.14.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/5e/ecf12fdb62546d64385c158514e9b2b671f7832108ef2ecd2020ce0af2d1/pyjwt-2.13.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/bf/f332a13486b1ed0496d624bcc7e8357bb8053823e8cd4b9a18edc1d97e73/multidict-6.1.0-cp312-cp312-win_amd64.whl
-      - pypi: https://files.pythonhosted.org/packages/ad/16/8f650c2e288977cf0f8f85184b90ee56ed170a4919347fc74ee99286ed6f/torchvision-0.25.0-cp312-cp312-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/a7/7c/79ff957c828116966894268a749eccf455e4d11f08ef66ea681084c3faaa/newton_usd_schemas-0.2.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b0/be/69fffc97b78f52a5d1372e5d56a0599291e96996a47089fb6312bc023d88/trimesh-4.11.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b1/56/4e45136ffc6bdbfa68c29ca56ef53783ef4c2fd395f7cbf99a2624aa9aaa/frozenlist-1.5.0-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/b6/7c/8debebb4f90174074b827c63242c23851bdf00a532489fba57fef3416e40/charset_normalizer-3.3.2-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/b6/85/7882d311924cbcfc70b1890780763e36ff0b140c7e51c110fc59a532f087/isodate-0.6.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/bd/e1/6d6816b296a529ac9b897ad228b1e084eb1f92319e96371880eebdc874a6/glfw-2.10.0-py2.py27.py3.py30.py31.py32.py33.py34.py35.py36.py37.py38.py39.py310.py311.py312.py313.py314-none-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/be/72/2db2f49247d0a18b4f1bb9a5a39a0162869acf235f3a96418363947b3d46/starlette-0.48.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/be/a0/da53c7d20fac15f66f8838653b91162de1bf21fb40fee88cf839e4ef5174/torchaudio-2.10.0-cp312-cp312-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/bf/a2/37101b824e0d444875d941ad6b41f64c1fe3829272d591d6a7ad07819790/newton-1.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/c1/82/730d0d2c6093c4dc574947eea94e0cddeea836f43823a80fc8b064a82ddf/qdldl-0.1.7.post5-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/c5/19/5af6804c4cc0fed83f47bff6e413a98a36618e7d40185cd36e69737f3b0e/aiofiles-23.2.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/cf/20/9a22cfe08be16ddfeef2542cf4eeed1b29f3f57ddbba0b42f7e0bb8331fd/cbor2-5.9.0-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/d2/5c/110884d0c632aedc54cdef5b7de3a78b388b03582e3ba57ae06c79db8b10/watchdog-4.0.0-py3-none-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/d3/97/60860e9ee87a7d4712b98f7e1411730520053b9d69e9e42b0b9751809c17/httptools-0.6.1-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/d4/69/31c82567719b34d8f6b41077732589104883771d182a9f4ff3e71430999a/python_utils-3.9.1-py2.py3-none-any.whl
@@ -2187,6 +2187,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/e7/98/87b5946356095738cb90a6df7b35ff69ac5750f6e783d5fbcc5cb3b6cbd7/etils-1.13.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ea/2c/e17b8814050427929077639d35a42187a006922600d4840475bdc5f64ebb/numpy_stl-3.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ed/47/14a76b926edc3957c8a8258423db789d3fa925d2fed800102fce58959413/fastapi-0.120.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/f1/06/68c50a905e1e5481b04a6166b69fecddb87681aae7a556ab727f8e8e6f70/azure_storage_blob-12.17.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/f9/9b/335f9764261e915ed497fcdeb11df5dfd6f7bf257d4a6a2a686d80da4d54/requests-2.32.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/fb/76/641ae371508676492379f16e2fa48f4e2c11741bd63c48be4b12a6b09cba/aiosignal-1.4.0-py3-none-any.whl
@@ -2196,33 +2197,33 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/fd/7b/122376b1fd3c62c1ed9dc80c931ace4844b3c55407b6fb2d199377c9736f/pydantic-2.13.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/fe/1f/6e839b7ba4823c34f762d3f3e9e8f8405bd3e210314b60df862e030ad8ad/pyopengl_accelerate-3.1.10-cp312-cp312-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/fe/ba/e2081de779ca30d473f21f5b30e0e737c438205440784c7dfc81efc2b029/async_timeout-5.0.1-py3-none-any.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-app/isaacsim_app-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-asset/isaacsim_asset-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-benchmark/isaacsim_benchmark-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-code-editor/isaacsim_code_editor-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-core/isaacsim_core-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-cortex/isaacsim_cortex-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-example/isaacsim_example-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-extscache-kit-sdk/isaacsim_extscache_kit_sdk-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-extscache-kit/isaacsim_extscache_kit-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-extscache-physics/isaacsim_extscache_physics-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-gui/isaacsim_gui-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-kernel/isaacsim_kernel-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-replicator/isaacsim_replicator-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-rl/isaacsim_rl-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-robot-motion/isaacsim_robot_motion-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-robot-setup/isaacsim_robot_setup-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-robot/isaacsim_robot-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-ros1/isaacsim_ros1-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-ros2/isaacsim_ros2-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-sensor/isaacsim_sensor-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-storage/isaacsim_storage-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-template/isaacsim_template-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-test/isaacsim_test-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim-utils/isaacsim_utils-6.0.0.0-cp312-none-win_amd64.whl
-      - pypi: https://pypi.nvidia.com/isaacsim/isaacsim-6.0.0.0-cp312-none-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/ff/66/853013bccb60f8a6aec5871a9f7ba5eacdcd6628a8f8cd5df109cf5a6171/imgui_bundle-1.92.601-cp312-cp312-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-app/isaacsim_app-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-asset/isaacsim_asset-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-benchmark/isaacsim_benchmark-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-code-editor/isaacsim_code_editor-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-core/isaacsim_core-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-cortex/isaacsim_cortex-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-example/isaacsim_example-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-extscache-kit-sdk/isaacsim_extscache_kit_sdk-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-extscache-kit/isaacsim_extscache_kit-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-extscache-physics/isaacsim_extscache_physics-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-gui/isaacsim_gui-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-kernel/isaacsim_kernel-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-replicator/isaacsim_replicator-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-rl/isaacsim_rl-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-robot-motion/isaacsim_robot_motion-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-robot-setup/isaacsim_robot_setup-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-robot/isaacsim_robot-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-ros1/isaacsim_ros1-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-ros2/isaacsim_ros2-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-sensor/isaacsim_sensor-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-storage/isaacsim_storage-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-template/isaacsim_template-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-test/isaacsim_test-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim-utils/isaacsim_utils-6.0.1.0-cp312-none-win_amd64.whl
+      - pypi: https://pypi.nvidia.com/isaacsim/isaacsim-6.0.1.0-cp312-none-win_amd64.whl
       - pypi: https://pypi.nvidia.com/mujoco-usd-converter/mujoco_usd_converter-0.1.0a2-py3-none-any.whl
-      - pypi: https://pypi.nvidia.com/pynvvideocodec/pynvvideocodec-2.1.0-cp312-cp312-win_amd64.whl
       - pypi: https://pypi.nvidia.com/usd-exchange/usd_exchange-2.3.0-cp312-cp312-win_amd64.whl
       - pypi: https://pypi.nvidia.com/warp-lang/warp_lang-1.13.0-py3-none-win_amd64.whl
 packages:
@@ -38466,53 +38467,43 @@ packages:
   license: BSD-3-Clause
   size: 2330
   timestamp: 1771181442199
-- pypi: https://download-r2.pytorch.org/whl/cu128/torch-2.10.0%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl
+- pypi: https://download-r2.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl
   name: torch
-  version: 2.10.0+cu128
-  sha256: 628e89bd5110ced7debee2a57c69959725b7fbc64eab81a39dd70e46c7e28ba5
+  version: 2.11.0+cu128
+  sha256: d252cf975fb18c94a85336323ad425f473df56dab35a44b00399bd70c7a3b997
   index: https://download.pytorch.org/whl/cu128
   requires_dist:
   - filelock
   - typing-extensions>=4.10.0
-  - setuptools ; python_full_version >= '3.12'
+  - setuptools<82
   - sympy>=1.13.3
   - networkx>=2.5.1
   - jinja2
   - fsspec>=0.8.5
-  - cuda-bindings==12.9.4 ; sys_platform == 'linux'
-  - nvidia-cuda-nvrtc-cu12==12.8.93 ; sys_platform == 'linux'
-  - nvidia-cuda-runtime-cu12==12.8.90 ; sys_platform == 'linux'
-  - nvidia-cuda-cupti-cu12==12.8.90 ; sys_platform == 'linux'
-  - nvidia-cudnn-cu12==9.10.2.21 ; sys_platform == 'linux'
-  - nvidia-cublas-cu12==12.8.4.1 ; sys_platform == 'linux'
-  - nvidia-cufft-cu12==11.3.3.83 ; sys_platform == 'linux'
-  - nvidia-curand-cu12==10.3.9.90 ; sys_platform == 'linux'
-  - nvidia-cusolver-cu12==11.7.3.90 ; sys_platform == 'linux'
-  - nvidia-cusparse-cu12==12.5.8.93 ; sys_platform == 'linux'
+  - cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1 ; sys_platform == 'linux'
+  - cuda-bindings>=12.9.4,<13 ; sys_platform == 'linux'
+  - nvidia-cudnn-cu12==9.19.0.56 ; sys_platform == 'linux'
   - nvidia-cusparselt-cu12==0.7.1 ; sys_platform == 'linux'
-  - nvidia-nccl-cu12==2.27.5 ; sys_platform == 'linux'
+  - nvidia-nccl-cu12==2.28.9 ; sys_platform == 'linux'
   - nvidia-nvshmem-cu12==3.4.5 ; sys_platform == 'linux'
-  - nvidia-nvtx-cu12==12.8.90 ; sys_platform == 'linux'
-  - nvidia-nvjitlink-cu12==12.8.93 ; sys_platform == 'linux'
-  - nvidia-cufile-cu12==1.13.1.3 ; sys_platform == 'linux'
   - triton==3.6.0 ; sys_platform == 'linux'
   - optree>=0.13.0 ; extra == 'optree'
   - opt-einsum>=3.3 ; extra == 'opt-einsum'
   - pyyaml ; extra == 'pyyaml'
   requires_python: '>=3.10'
-- pypi: https://download-r2.pytorch.org/whl/cu128/torch-2.10.0%2Bcu128-cp312-cp312-win_amd64.whl
+- pypi: https://download-r2.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp312-cp312-win_amd64.whl
   name: torch
-  version: 2.10.0+cu128
-  sha256: fbde8f6a9ec8c76979a0d14df21c10b9e5cab6f0d106a73ca73e2179bc597cae
+  version: 2.11.0+cu128
+  sha256: 7c78215c3af4f62e63f2b2e360f1722fc719b0853c7ac22666483d9810613a4c
   index: https://download.pytorch.org/whl/cu128
   requires_dist:
   - filelock
   - typing-extensions>=4.10.0
+  - setuptools<82
   - sympy>=1.13.3
   - networkx>=2.5.1
   - jinja2
   - fsspec>=0.8.5
-  - setuptools ; python_full_version >= '3.12'
   - opt-einsum>=3.3 ; extra == 'opt-einsum'
   - optree>=0.13.0 ; extra == 'optree'
   - pyyaml ; extra == 'pyyaml'
@@ -38525,29 +38516,44 @@ packages:
   - colorama ; sys_platform == 'win32'
   - importlib-metadata ; python_full_version < '3.8'
   requires_python: '>=3.7'
-- pypi: https://files.pythonhosted.org/packages/02/37/527d83610b878f27c01dd762e0e41aaa62f095c607f0500ac7f724a2c7a5/mujoco-3.5.0-cp312-cp312-win_amd64.whl
-  name: mujoco
-  version: 3.5.0
-  sha256: 4b3a62af174ab59b9b6d816dca0786b7fd85ac081d6c2a931a2b22dd6e821f50
+- pypi: https://files.pythonhosted.org/packages/01/89/862a822ecc14aeea5ce834bc70dbba6838cfa9a6dbbef189acd47337cfbd/imgui_bundle-1.92.601-cp312-cp312-manylinux_2_28_x86_64.whl
+  name: imgui-bundle
+  version: 1.92.601
+  sha256: 20750fe1613a0d45402f3d7c96d2cfb79b9a8c16bfee43fea27febd90b41d71b
   requires_dist:
-  - absl-py
-  - etils[epath]
-  - glfw
   - numpy
-  - pyopengl
-  - absl-py ; extra == 'sysid'
-  - colorama ; extra == 'sysid'
-  - imageio[ffmpeg] ; extra == 'sysid'
-  - jinja2 ; extra == 'sysid'
-  - matplotlib ; extra == 'sysid'
-  - plotly ; extra == 'sysid'
-  - pyyaml ; extra == 'sysid'
-  - scipy ; extra == 'sysid'
-  - tabulate ; extra == 'sysid'
-  - typing-extensions ; extra == 'sysid'
-  - usd-core ; extra == 'usd'
-  - pillow ; extra == 'usd'
-  requires_python: '>=3.9'
+  - matplotlib ; extra == 'matplotlib'
+  - pillow ; extra == 'imgproc'
+  - opencv-python ; extra == 'imgproc'
+  - pydantic>=2.0.0 ; extra == 'pydantic'
+  - pyopengl ; extra == 'opengl'
+  - glfw ; extra == 'glfw'
+  - pysdl2 ; extra == 'sdl2'
+  - pysdl3 ; extra == 'sdl3'
+  - wgpu ; extra == 'wgpu'
+  - rendercanvas ; extra == 'wgpu'
+  - pyglet ; extra == 'pyglet'
+  - pyopengl ; extra == 'all-backends'
+  - glfw ; extra == 'all-backends'
+  - pysdl2 ; extra == 'all-backends'
+  - pysdl3 ; extra == 'all-backends'
+  - wgpu ; extra == 'all-backends'
+  - pyglet ; extra == 'all-backends'
+  - matplotlib ; extra == 'full'
+  - pillow ; extra == 'full'
+  - opencv-python ; extra == 'full'
+  - pyopengl ; extra == 'full'
+  - glfw ; extra == 'full'
+  - pysdl2 ; extra == 'full'
+  - pysdl3 ; extra == 'full'
+  - wgpu ; extra == 'full'
+  - rendercanvas ; extra == 'full'
+  - pyglet ; extra == 'full'
+  - pydantic>=2.0.0 ; extra == 'full'
+  - pyglm ; extra == 'full'
+  - pytest ; extra == 'test'
+  - pytest-asyncio ; extra == 'test'
+  requires_python: '>=3.10'
 - pypi: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl
   name: h11
   version: 0.16.0
@@ -38562,164 +38568,17 @@ packages:
   - numpy
   - lxml ; extra == 'prettyprint'
   - lxml ; extra == 'validation'
-- pypi: https://files.pythonhosted.org/packages/08/d1/3c16c963f8026e6e813c442db724abc1293fc67442f9620caa0d295a5d7a/newton_usd_schemas-0.1.0-py3-none-any.whl
-  name: newton-usd-schemas
-  version: 0.1.0
-  sha256: da83ba6a571cf7a3acec449d83477c8273bf37260314aa135a74f85b64256583
-  requires_python: '>=3.10,<3.14'
-- pypi: https://files.pythonhosted.org/packages/0c/cd/711385df9f7c6ccf2fe7e6df9074c250c62bf11f93ed48ecb3cf4c67cc94/newton-1.0.0-py3-none-any.whl
-  name: newton
-  version: 1.0.0
-  sha256: dab4ea230df62c6fc1418f609d0940538889448ad8bed25e5b186a85f8139bf2
+- pypi: https://files.pythonhosted.org/packages/0d/05/49564250b895976fd75dfddcccffb92283c1422a17aa7bf54d5b5adb0646/urdf_usd_converter-0.1.3-py3-none-any.whl
+  name: urdf-usd-converter
+  version: 0.1.3
+  sha256: 0db78b712ac99eed1b9180ce3d1d293020713476b818a31c56d2eee1c3f85fb6
   requires_dist:
-  - newton-actuators
-  - warp-lang>=1.12.0
-  - alphashape>=1.3.1 ; extra == 'dev'
-  - cbor2>=5.7.0 ; extra == 'dev'
-  - coacd>=1.0.7 ; python_full_version < '3.14' and extra == 'dev'
-  - coverage[toml]>=7.8.0 ; extra == 'dev'
-  - fast-simplification>=0.1.11 ; extra == 'dev'
-  - gitpython>=3.1.44 ; extra == 'dev'
-  - imgui-bundle>=1.92.0 ; extra == 'dev'
-  - meshio>=5.3.0 ; extra == 'dev'
-  - mujoco-warp==3.5.0.2 ; python_full_version < '3.14' and extra == 'dev'
-  - mujoco==3.5.0 ; python_full_version < '3.14' and extra == 'dev'
-  - newton-usd-schemas>=0.1.0 ; extra == 'dev'
-  - pillow>=9.0.0 ; extra == 'dev'
-  - pycollada>=0.9 ; extra == 'dev'
-  - pyglet>=2.1.6,<3 ; extra == 'dev'
-  - pyyaml>=6.0.2 ; extra == 'dev'
-  - requests>=2.25.0 ; extra == 'dev'
-  - resolve-robotics-uri-py>=0.4.0 ; extra == 'dev'
-  - scipy ; extra == 'dev'
-  - trimesh>=4.6.8 ; extra == 'dev'
-  - usd-core>=25.5 ; python_full_version < '3.14' and platform_machine != 'aarch64' and extra == 'dev'
-  - usd-exchange>=2.2.0 ; python_full_version < '3.13' and platform_machine == 'aarch64' and extra == 'dev'
-  - alphashape>=1.3.1 ; extra == 'docs'
-  - coacd>=1.0.7 ; python_full_version < '3.14' and extra == 'docs'
-  - fast-simplification>=0.1.11 ; extra == 'docs'
-  - ipykernel>=6.0.0,<7.0.0 ; extra == 'docs'
-  - meshio>=5.3.0 ; extra == 'docs'
-  - myst-parser>=3.0.1 ; extra == 'docs'
-  - nbsphinx>=0.9.0 ; extra == 'docs'
-  - newton-usd-schemas>=0.1.0 ; extra == 'docs'
-  - pycollada>=0.9 ; extra == 'docs'
-  - pydata-sphinx-theme>=0.16.1 ; extra == 'docs'
-  - pypandoc-binary>=1.11 ; extra == 'docs'
-  - pypandoc>=1.11 ; extra == 'docs'
-  - requests>=2.25.0 ; extra == 'docs'
-  - resolve-robotics-uri-py>=0.4.0 ; extra == 'docs'
-  - scipy ; extra == 'docs'
-  - sphinx-copybutton>=0.5.0 ; extra == 'docs'
-  - sphinx-design<=0.6.1 ; extra == 'docs'
-  - sphinx-tabs>=3.3.0 ; extra == 'docs'
-  - sphinx>=7.4.7 ; extra == 'docs'
-  - sphinxcontrib-mermaid>=1.0.0 ; extra == 'docs'
-  - trimesh>=4.6.8 ; extra == 'docs'
-  - usd-core>=25.5 ; python_full_version < '3.14' and platform_machine != 'aarch64' and extra == 'docs'
-  - usd-exchange>=2.2.0 ; python_full_version < '3.13' and platform_machine == 'aarch64' and extra == 'docs'
-  - viser>=1.0.16 ; extra == 'docs'
-  - alphashape>=1.3.1 ; extra == 'examples'
-  - cbor2>=5.7.0 ; extra == 'examples'
-  - coacd>=1.0.7 ; python_full_version < '3.14' and extra == 'examples'
-  - fast-simplification>=0.1.11 ; extra == 'examples'
-  - gitpython>=3.1.44 ; extra == 'examples'
-  - imgui-bundle>=1.92.0 ; extra == 'examples'
-  - meshio>=5.3.0 ; extra == 'examples'
-  - mujoco-warp==3.5.0.2 ; python_full_version < '3.14' and extra == 'examples'
-  - mujoco==3.5.0 ; python_full_version < '3.14' and extra == 'examples'
-  - newton-usd-schemas>=0.1.0 ; extra == 'examples'
-  - pillow>=9.0.0 ; extra == 'examples'
-  - pycollada>=0.9 ; extra == 'examples'
-  - pyglet>=2.1.6,<3 ; extra == 'examples'
-  - pyyaml>=6.0.2 ; extra == 'examples'
-  - requests>=2.25.0 ; extra == 'examples'
-  - resolve-robotics-uri-py>=0.4.0 ; extra == 'examples'
-  - scipy ; extra == 'examples'
-  - trimesh>=4.6.8 ; extra == 'examples'
-  - usd-core>=25.5 ; python_full_version < '3.14' and platform_machine != 'aarch64' and extra == 'examples'
-  - usd-exchange>=2.2.0 ; python_full_version < '3.13' and platform_machine == 'aarch64' and extra == 'examples'
-  - alphashape>=1.3.1 ; extra == 'importers'
-  - coacd>=1.0.7 ; python_full_version < '3.14' and extra == 'importers'
-  - fast-simplification>=0.1.11 ; extra == 'importers'
-  - meshio>=5.3.0 ; extra == 'importers'
-  - newton-usd-schemas>=0.1.0 ; extra == 'importers'
-  - pycollada>=0.9 ; extra == 'importers'
-  - requests>=2.25.0 ; extra == 'importers'
-  - resolve-robotics-uri-py>=0.4.0 ; extra == 'importers'
-  - scipy ; extra == 'importers'
-  - trimesh>=4.6.8 ; extra == 'importers'
-  - usd-core>=25.5 ; python_full_version < '3.14' and platform_machine != 'aarch64' and extra == 'importers'
-  - usd-exchange>=2.2.0 ; python_full_version < '3.13' and platform_machine == 'aarch64' and extra == 'importers'
-  - alphashape>=1.3.1 ; extra == 'notebook'
-  - cbor2>=5.7.0 ; extra == 'notebook'
-  - coacd>=1.0.7 ; python_full_version < '3.14' and extra == 'notebook'
-  - fast-simplification>=0.1.11 ; extra == 'notebook'
-  - gitpython>=3.1.44 ; extra == 'notebook'
-  - imgui-bundle>=1.92.0 ; extra == 'notebook'
-  - jupyterlab>=4.4.10 ; extra == 'notebook'
-  - meshio>=5.3.0 ; extra == 'notebook'
-  - mujoco-warp==3.5.0.2 ; python_full_version < '3.14' and extra == 'notebook'
-  - mujoco==3.5.0 ; python_full_version < '3.14' and extra == 'notebook'
-  - newton-usd-schemas>=0.1.0 ; extra == 'notebook'
-  - pillow>=9.0.0 ; extra == 'notebook'
-  - pycollada>=0.9 ; extra == 'notebook'
-  - pyglet>=2.1.6,<3 ; extra == 'notebook'
-  - pyyaml>=6.0.2 ; extra == 'notebook'
-  - requests>=2.25.0 ; extra == 'notebook'
-  - rerun-sdk[notebook]>=0.27.1 ; python_full_version < '3.14' and extra == 'notebook'
-  - resolve-robotics-uri-py>=0.4.0 ; extra == 'notebook'
-  - scipy ; extra == 'notebook'
-  - trimesh>=4.6.8 ; extra == 'notebook'
-  - usd-core>=25.5 ; python_full_version < '3.14' and platform_machine != 'aarch64' and extra == 'notebook'
-  - usd-exchange>=2.2.0 ; python_full_version < '3.13' and platform_machine == 'aarch64' and extra == 'notebook'
-  - open3d>=0.18.0 ; python_full_version < '3.14' and extra == 'remesh'
-  - pyfqmr>=0.5.0 ; extra == 'remesh'
-  - mujoco-warp==3.5.0.2 ; python_full_version < '3.14' and extra == 'sim'
-  - mujoco==3.5.0 ; python_full_version < '3.14' and extra == 'sim'
-  - alphashape>=1.3.1 ; extra == 'torch-cu12'
-  - cbor2>=5.7.0 ; extra == 'torch-cu12'
-  - coacd>=1.0.7 ; python_full_version < '3.14' and extra == 'torch-cu12'
-  - fast-simplification>=0.1.11 ; extra == 'torch-cu12'
-  - gitpython>=3.1.44 ; extra == 'torch-cu12'
-  - imgui-bundle>=1.92.0 ; extra == 'torch-cu12'
-  - meshio>=5.3.0 ; extra == 'torch-cu12'
-  - mujoco-warp==3.5.0.2 ; python_full_version < '3.14' and extra == 'torch-cu12'
-  - mujoco==3.5.0 ; python_full_version < '3.14' and extra == 'torch-cu12'
-  - newton-usd-schemas>=0.1.0 ; extra == 'torch-cu12'
-  - pillow>=9.0.0 ; extra == 'torch-cu12'
-  - pycollada>=0.9 ; extra == 'torch-cu12'
-  - pyglet>=2.1.6,<3 ; extra == 'torch-cu12'
-  - pyyaml>=6.0.2 ; extra == 'torch-cu12'
-  - requests>=2.25.0 ; extra == 'torch-cu12'
-  - resolve-robotics-uri-py>=0.4.0 ; extra == 'torch-cu12'
-  - scipy ; extra == 'torch-cu12'
-  - torch>=2.7.0 ; extra == 'torch-cu12'
-  - trimesh>=4.6.8 ; extra == 'torch-cu12'
-  - usd-core>=25.5 ; python_full_version < '3.14' and platform_machine != 'aarch64' and extra == 'torch-cu12'
-  - usd-exchange>=2.2.0 ; python_full_version < '3.13' and platform_machine == 'aarch64' and extra == 'torch-cu12'
-  - alphashape>=1.3.1 ; extra == 'torch-cu13'
-  - cbor2>=5.7.0 ; extra == 'torch-cu13'
-  - coacd>=1.0.7 ; python_full_version < '3.14' and extra == 'torch-cu13'
-  - fast-simplification>=0.1.11 ; extra == 'torch-cu13'
-  - gitpython>=3.1.44 ; extra == 'torch-cu13'
-  - imgui-bundle>=1.92.0 ; extra == 'torch-cu13'
-  - meshio>=5.3.0 ; extra == 'torch-cu13'
-  - mujoco-warp==3.5.0.2 ; python_full_version < '3.14' and extra == 'torch-cu13'
-  - mujoco==3.5.0 ; python_full_version < '3.14' and extra == 'torch-cu13'
-  - newton-usd-schemas>=0.1.0 ; extra == 'torch-cu13'
-  - pillow>=9.0.0 ; extra == 'torch-cu13'
-  - pycollada>=0.9 ; extra == 'torch-cu13'
-  - pyglet>=2.1.6,<3 ; extra == 'torch-cu13'
-  - pyyaml>=6.0.2 ; extra == 'torch-cu13'
-  - requests>=2.25.0 ; extra == 'torch-cu13'
-  - resolve-robotics-uri-py>=0.4.0 ; extra == 'torch-cu13'
-  - scipy ; extra == 'torch-cu13'
-  - torch>=2.10.0 ; extra == 'torch-cu13'
-  - trimesh>=4.6.8 ; extra == 'torch-cu13'
-  - usd-core>=25.5 ; python_full_version < '3.14' and platform_machine != 'aarch64' and extra == 'torch-cu13'
-  - usd-exchange>=2.2.0 ; python_full_version < '3.13' and platform_machine == 'aarch64' and extra == 'torch-cu13'
-  requires_python: '>=3.10'
+  - newton-usd-schemas>=0.1.0
+  - numpy-stl>=3.2
+  - pycollada>=0.9.2
+  - tinyobjloader>=2.0.0rc13
+  - usd-exchange>=2.2.2
+  requires_python: '>=3.10,<3.13'
 - pypi: https://files.pythonhosted.org/packages/0f/15/5bf3b99495fb160b63f95972b81750f18f7f4e02ad051373b669d17d44f2/aiohappyeyeballs-2.6.1-py3-none-any.whl
   name: aiohappyeyeballs
   version: 2.6.1
@@ -38827,6 +38686,11 @@ packages:
   - pytest-xdist ; extra == 'ci'
   - diff-cover ; extra == 'ci'
   requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/18/a6/907a406bb7d359e6a63f99c313846d9eec4f7e6f7437809e03aa00fa3074/absl_py-2.4.0-py3-none-any.whl
+  name: absl-py
+  version: 2.4.0
+  sha256: 88476fd881ca8aab94ffa78b7b6c632a782ab3ba1cd19c9bd423abc4fb4cd28d
+  requires_python: '>=3.10'
 - pypi: https://files.pythonhosted.org/packages/19/e8/6026ed58a64563186a9ee3f29f41261fd1828f527dd93d33b60feca63352/contourpy-1.3.3-cp312-cp312-win_amd64.whl
   name: contourpy
   version: 1.3.3
@@ -38867,21 +38731,54 @@ packages:
   - multidict>=4.0
   - propcache>=0.2.0
   requires_python: '>=3.9'
-- pypi: https://files.pythonhosted.org/packages/1b/d0/397f9626e711ff749a95d96b7af99b9c566a9bb5129b8e4c10fc4d100304/python_multipart-0.0.22-py3-none-any.whl
-  name: python-multipart
-  version: 0.0.22
-  sha256: 2b2cd894c83d21bf49d702499531c7bafd057d730c201782048f7945d82de155
-  requires_python: '>=3.10'
 - pypi: https://files.pythonhosted.org/packages/1c/07/ebe102777a830bca91bbb93e3479cd34c2ca5d0361b83be9dbd93104865e/propcache-0.2.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
   name: propcache
   version: 0.2.1
   sha256: 647894f5ae99c4cf6bb82a1bb3a796f6e06af3caa3d32e26d2350d0e3e3faf24
   requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/1c/a9/c272623a0f735c35f0f6cd6dc74784d4f970e800cf063bb76687895a2ab9/torchvision-0.26.0-cp312-cp312-win_amd64.whl
+  name: torchvision
+  version: 0.26.0
+  sha256: 7993c01648e7c61d191b018e84d38fe0825c8fcb2720cd0f37caf7ba14404aa1
+  requires_dist:
+  - numpy
+  - torch==2.11.0
+  - pillow>=5.3.0,!=8.3.*
+  - gdown>=4.7.3 ; extra == 'gdown'
+  - scipy ; extra == 'scipy'
+  requires_python: '>=3.10,!=3.14.1'
+- pypi: https://files.pythonhosted.org/packages/1e/1a/d92e3325134ebfff6f4069f270d3aac770d63320bd1fcd0eca023e74d9a8/aiohttp-3.13.4-cp312-cp312-win_amd64.whl
+  name: aiohttp
+  version: 3.13.4
+  sha256: 6148c9ae97a3e8bff9a1fc9c757fa164116f86c100468339730e717590a3fb77
+  requires_dist:
+  - aiohappyeyeballs>=2.5.0
+  - aiosignal>=1.4.0
+  - async-timeout>=4.0,<6.0 ; python_full_version < '3.11'
+  - attrs>=17.3.0
+  - frozenlist>=1.1.1
+  - multidict>=4.5,<7.0
+  - propcache>=0.2.0
+  - yarl>=1.17.0,<2.0
+  - aiodns>=3.3.0 ; extra == 'speedups'
+  - brotli>=1.2 ; platform_python_implementation == 'CPython' and extra == 'speedups'
+  - brotlicffi>=1.2 ; platform_python_implementation != 'CPython' and extra == 'speedups'
+  - backports-zstd ; python_full_version < '3.14' and platform_python_implementation == 'CPython' and extra == 'speedups'
+  requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/1e/d3/26bf1008eb3d2daa8ef4cacc7f3bfdc11818d111f7e2d0201bc6e3b49d45/annotated_doc-0.0.4-py3-none-any.whl
+  name: annotated-doc
+  version: 0.0.4
+  sha256: 571ac1dc6991c450b25a9c2d84a3705e2ae7a53467b5d111c24fa8baabbed320
+  requires_python: '>=3.8'
 - pypi: https://files.pythonhosted.org/packages/20/52/8915f51f9aaef4e4361c89dd6cf69f72a0159f14e0d25026c81b6ad22525/websockets-12.0-cp312-cp312-win_amd64.whl
   name: websockets
   version: '12.0'
   sha256: ae0a5da8f35a5be197f328d4727dbcfafa53d1824fac3d96cdd3a642fe09394f
   requires_python: '>=3.8'
+- pypi: https://files.pythonhosted.org/packages/23/a8/941277ecc39f7a0a169d554302a1f1afd87c1d94a8aec828891916cea59a/torchaudio-2.11.0-cp312-cp312-win_amd64.whl
+  name: torchaudio
+  version: 2.11.0
+  sha256: 478110f981e5d40a8d82221732c57a56c85a1d5895fb8fe646e86ee15eded3bd
 - pypi: https://files.pythonhosted.org/packages/24/79/aaf0c1c7214f2632badb2771d770b1500d3d7cbdf2590ae62e721ec50584/qrcode-7.4.2-py3-none-any.whl
   name: qrcode
   version: 7.4.2
@@ -39042,6 +38939,13 @@ packages:
   requires_dist:
   - typing-extensions>=4.0 ; python_full_version < '3.10'
   requires_python: '>=3.6'
+- pypi: https://files.pythonhosted.org/packages/45/7b/286fc9520088889aaddc40aed6ffe2737fe79931ecba01002f4e7c632dd2/coacd-1.0.7-cp39-abi3-win_amd64.whl
+  name: coacd
+  version: 1.0.7
+  sha256: 8bfeb23aecc0265baea2d5c446ceaa1c117ba4fd112843944fb78f5bb9626a7b
+  requires_dist:
+  - numpy
+  requires_python: '>=3.9'
 - pypi: https://files.pythonhosted.org/packages/46/03/07c4894aae38b0de52b52586b24bf189bb83e4ddabfe2e2c8f2419eec6f4/idna-ssl-1.1.0.tar.gz
   name: idna-ssl
   version: 1.1.0
@@ -39056,27 +38960,6 @@ packages:
   - botocore>=1.37.4,<2.0a0
   - botocore[crt]>=1.37.4,<2.0a0 ; extra == 'crt'
   requires_python: '>=3.9'
-- pypi: https://files.pythonhosted.org/packages/4b/2e/90f05ad3818fd4b826f712c9f89a3df3aa3ef204efeaa71f8ddc2ca5fd3b/mujoco_warp-3.5.0.2-py3-none-any.whl
-  name: mujoco-warp
-  version: 3.5.0.2
-  sha256: 877ed9d20d26b24e87233d4e09a34d8999a1414f8477d9a31590374c82c2176a
-  requires_dist:
-  - absl-py
-  - etils[epath]
-  - mujoco>=3.5.0
-  - numpy
-  - warp-lang>=1.11.0
-  - pre-commit ; extra == 'dev'
-  - pytest ; extra == 'dev'
-  - pytest-xdist ; extra == 'dev'
-  - ruff ; extra == 'dev'
-  - pygls>=1.0.0,<2.0.0 ; extra == 'dev'
-  - lsprotocol>=2023.0.1,<2024.0.0 ; extra == 'dev'
-  - mujoco>=3.5.0.dev0 ; extra == 'dev'
-  - warp-lang>=1.11.0.dev0 ; extra == 'dev'
-  - jax ; extra == 'cpu'
-  - jax[cuda12] ; extra == 'cuda'
-  requires_python: '>=3.10'
 - pypi: https://files.pythonhosted.org/packages/53/ee/3119604cad4ca894fb80ef8ccd06b6bbd0b485b38ddc152ca753c67e0e76/newton_actuators-0.1.0-py3-none-any.whl
   name: newton-actuators
   version: 0.1.0
@@ -39084,35 +38967,11 @@ packages:
   requires_dist:
   - warp-lang>=1.11.0.dev20251205
   requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/56/b3/7c69b37f03260a061883bec0e7b05be7117c1b1c85f5212c72c8c2bc3c8c/munch-4.0.0-py2.py3-none-any.whl
-  name: munch
-  version: 4.0.0
-  sha256: 71033c45db9fb677a0b7eb517a4ce70ae09258490e419b0e7f00d1e386ecb1b4
-  requires_dist:
-  - importlib-metadata>=1.7.0 ; python_full_version < '3.8'
-  - astroid>=2.0 ; extra == 'testing'
-  - pylint~=2.3.1 ; extra == 'testing'
-  - pytest ; extra == 'testing'
-  - coverage ; extra == 'testing'
-  - pyyaml>=5.1.0 ; extra == 'yaml'
-  requires_python: '>=3.6'
 - pypi: https://files.pythonhosted.org/packages/59/8c/57e832b7af6d7c5abe66eb3fbe3a3a32f4d11ea23a1aa7131371035be991/certifi-2026.5.20-py3-none-any.whl
   name: certifi
   version: 2026.5.20
   sha256: 3c52e209ba0a4ad7aebe60436a4ab349c39e1e602e8c134221e546902ad25897
   requires_python: '>=3.7'
-- pypi: https://files.pythonhosted.org/packages/59/d8/c0d8734fb0e3a4708b850b10fbe828d3fa5bbc510c53ae8553d6191bf98d/imgui_bundle-1.92.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
-  name: imgui-bundle
-  version: 1.92.4
-  sha256: cccbd06f4d9e587b24c7d8717dc5772485fcae2205bf4e93b5672a75765276a1
-  requires_dist:
-  - numpy
-  - munch
-  - glfw
-  - pyopengl
-  - pillow
-  - pytest ; extra == 'test'
-  requires_python: '>=3.10'
 - pypi: https://files.pythonhosted.org/packages/5a/3f/efeb7c6801c46e11bd666a5180f0d615f74f72264212f74f39586c6fda9d/glfw-2.10.0-py2.py27.py3.py30.py31.py32.py33.py34.py35.py36.py37.py38.py39.py310.py311.py312.py313.py314-none-manylinux_2_28_x86_64.whl
   name: glfw
   version: 2.10.0
@@ -39154,55 +39013,29 @@ packages:
   version: 1.16.0
   sha256: 98b5e1f498a8ca1858a1cdbffb023bfd954da4e3fa2c0cb5853d40014557248b
   requires_python: '>=3.6'
-- pypi: https://files.pythonhosted.org/packages/67/e5/9013d6b857ceb6cdb2851ffb5a887f53f2bab934a528c9d6fa73d9989d84/cbor2-5.8.0-cp312-cp312-win_amd64.whl
-  name: cbor2
-  version: 5.8.0
-  sha256: 074f0fa7535dd7fdee247c2c99f679d94f3aa058ccb1ccf4126cc72d6d89cbae
-  requires_python: '>=3.9'
-- pypi: https://files.pythonhosted.org/packages/68/2f/f24b039169db474e8688f649377de082a965fbf85daf4e46c44412f1d15a/torchvision-0.25.0-cp312-cp312-manylinux_2_28_x86_64.whl
-  name: torchvision
-  version: 0.25.0
-  sha256: f25aa9e380865b11ea6e9d99d84df86b9cc959f1a007cd966fc6f1ab2ed0e248
+- pypi: https://files.pythonhosted.org/packages/65/87/198a88747ff0c01e35070c0c80ae0c05ff8d1a61d6e6f379a4e5ff3e6185/mujoco-3.8.0-cp312-cp312-win_amd64.whl
+  name: mujoco
+  version: 3.8.0
+  sha256: 8db22dbc5a6c98241549c8161f20a2b0c2ccc5d08fa42595e7a4b594e35a70dd
   requires_dist:
+  - absl-py
+  - etils[epath]
+  - glfw
   - numpy
-  - torch==2.10.0
-  - pillow>=5.3.0,!=8.3.*
-  - gdown>=4.7.3 ; extra == 'gdown'
-  - scipy ; extra == 'scipy'
+  - pyopengl
+  - absl-py ; extra == 'sysid'
+  - colorama ; extra == 'sysid'
+  - imageio[ffmpeg] ; extra == 'sysid'
+  - jinja2 ; extra == 'sysid'
+  - matplotlib ; extra == 'sysid'
+  - plotly ; extra == 'sysid'
+  - pyyaml ; extra == 'sysid'
+  - scipy ; extra == 'sysid'
+  - tabulate ; extra == 'sysid'
+  - typing-extensions ; extra == 'sysid'
+  - usd-core ; extra == 'usd'
+  - pillow ; extra == 'usd'
   requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/6d/45/d9d3e8eeefbe93be1c50060a9d9a9f366dba66f288bb518a9566a23a8631/fastapi-0.117.1-py3-none-any.whl
-  name: fastapi
-  version: 0.117.1
-  sha256: 33c51a0d21cab2b9722d4e56dbb9316f3687155be6b276191790d8da03507552
-  requires_dist:
-  - starlette>=0.40.0,<0.49.0
-  - pydantic>=1.7.4,!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0
-  - typing-extensions>=4.8.0
-  - fastapi-cli[standard]>=0.0.8 ; extra == 'standard'
-  - httpx>=0.23.0,<1.0.0 ; extra == 'standard'
-  - jinja2>=3.1.5 ; extra == 'standard'
-  - python-multipart>=0.0.18 ; extra == 'standard'
-  - email-validator>=2.0.0 ; extra == 'standard'
-  - uvicorn[standard]>=0.12.0 ; extra == 'standard'
-  - fastapi-cli[standard-no-fastapi-cloud-cli]>=0.0.8 ; extra == 'standard-no-fastapi-cloud-cli'
-  - httpx>=0.23.0,<1.0.0 ; extra == 'standard-no-fastapi-cloud-cli'
-  - jinja2>=3.1.5 ; extra == 'standard-no-fastapi-cloud-cli'
-  - python-multipart>=0.0.18 ; extra == 'standard-no-fastapi-cloud-cli'
-  - email-validator>=2.0.0 ; extra == 'standard-no-fastapi-cloud-cli'
-  - uvicorn[standard]>=0.12.0 ; extra == 'standard-no-fastapi-cloud-cli'
-  - fastapi-cli[standard]>=0.0.8 ; extra == 'all'
-  - httpx>=0.23.0,<1.0.0 ; extra == 'all'
-  - jinja2>=3.1.5 ; extra == 'all'
-  - python-multipart>=0.0.18 ; extra == 'all'
-  - itsdangerous>=1.1.0 ; extra == 'all'
-  - pyyaml>=5.3.1 ; extra == 'all'
-  - ujson>=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0 ; extra == 'all'
-  - orjson>=3.2.1 ; extra == 'all'
-  - email-validator>=2.0.0 ; extra == 'all'
-  - uvicorn[standard]>=0.12.0 ; extra == 'all'
-  - pydantic-settings>=2.0.0 ; extra == 'all'
-  - pydantic-extra-types>=2.0.0 ; extra == 'all'
-  requires_python: '>=3.8'
 - pypi: https://files.pythonhosted.org/packages/6f/bb/5deac77a9af870143c684ab46a7934038a53eb4aa975bc0687ed6ca2c610/requests_oauthlib-1.3.1-py2.py3-none-any.whl
   name: requests-oauthlib
   version: 1.3.1
@@ -39212,28 +39045,34 @@ packages:
   - requests>=2.0.0
   - oauthlib[signedtoken]>=3.0.0 ; extra == 'rsa'
   requires_python: '>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*'
+- pypi: https://files.pythonhosted.org/packages/6f/de/bc2271210dad5c6ab73af294779226308e9cf4ed8bc2dbe59922eb8702ed/mujoco-3.8.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+  name: mujoco
+  version: 3.8.0
+  sha256: 323fedd14905b73cfe56ea8ff916716ccf8b57cff348a7aa6932c8983a465d64
+  requires_dist:
+  - absl-py
+  - etils[epath]
+  - glfw
+  - numpy
+  - pyopengl
+  - absl-py ; extra == 'sysid'
+  - colorama ; extra == 'sysid'
+  - imageio[ffmpeg] ; extra == 'sysid'
+  - jinja2 ; extra == 'sysid'
+  - matplotlib ; extra == 'sysid'
+  - plotly ; extra == 'sysid'
+  - pyyaml ; extra == 'sysid'
+  - scipy ; extra == 'sysid'
+  - tabulate ; extra == 'sysid'
+  - typing-extensions ; extra == 'sysid'
+  - usd-core ; extra == 'usd'
+  - pillow ; extra == 'usd'
+  requires_python: '>=3.10'
 - pypi: https://files.pythonhosted.org/packages/70/90/6d240beb0f24b74371762873e9b7f499f1e02166a2d9c5801f4dbf8fa12e/kiwisolver-1.4.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
   name: kiwisolver
   version: 1.4.9
   sha256: f6008a4919fdbc0b0097089f67a1eb55d950ed7e90ce2cc3e640abadd2757a04
   requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/73/12/2530fb2b08773f717ab2d249ca7a982ac66e32187c62d49e2c86c9bba9b4/aiohttp-3.12.14-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-  name: aiohttp
-  version: 3.12.14
-  sha256: 9888e60c2c54eaf56704b17feb558c7ed6b7439bca1e07d4818ab878f2083660
-  requires_dist:
-  - aiohappyeyeballs>=2.5.0
-  - aiosignal>=1.4.0
-  - async-timeout>=4.0,<6.0 ; python_full_version < '3.11'
-  - attrs>=17.3.0
-  - frozenlist>=1.1.1
-  - multidict>=4.5,<7.0
-  - propcache>=0.2.0
-  - yarl>=1.17.0,<2.0
-  - aiodns>=3.3.0 ; extra == 'speedups'
-  - brotli ; platform_python_implementation == 'CPython' and extra == 'speedups'
-  - brotlicffi ; platform_python_implementation != 'CPython' and extra == 'speedups'
-  requires_python: '>=3.9'
 - pypi: https://files.pythonhosted.org/packages/73/f5/cbb16fcbe277c1e0b8b3ddd188f2df0e0947f545c49119b589643632d156/uvicorn-0.29.0-py3-none-any.whl
   name: uvicorn
   version: 0.29.0
@@ -39276,11 +39115,6 @@ packages:
   name: joblib
   version: 1.5.3
   sha256: 5fc3c5039fc5ca8c0276333a188bbd59d6b7ab37fe6632daa76bc7f9ec18e713
-  requires_python: '>=3.9'
-- pypi: https://files.pythonhosted.org/packages/7b/a9/fdab6c10190cfb8d639e01f2b168f2406fc847a2a6bc00e7de78c3381d0a/cbor2-5.8.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
-  name: cbor2
-  version: 5.8.0
-  sha256: cff2a1999e49cd51c23d1b6786a012127fd8f722c5946e82bd7ab3eb307443f3
   requires_python: '>=3.9'
 - pypi: https://files.pythonhosted.org/packages/7e/80/cab10959dc1faead58dc8384a781dfbf93cb4d33d50988f7a69f1b7c9bbe/oauthlib-3.2.2-py3-none-any.whl
   name: oauthlib
@@ -39331,17 +39165,33 @@ packages:
   version: 3.29.0
   sha256: 96f5f6344709aa1572bbf631c640e4ebeeb519e08da902c39a001882f30ac258
   requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/88/1d/4dec33add4b8aa9db070d2f89e21920ee9ef1a7f0ec861d25b42eb148710/urdf_usd_converter-0.1.0-py3-none-any.whl
-  name: urdf-usd-converter
-  version: 0.1.0
-  sha256: fd17a929a952fea2204757cfc30a874ac446aa7456637fb70b3e5e015cff8755
+- pypi: https://files.pythonhosted.org/packages/82/f5/30c736dfe87ad7e8f7a7f8f43b80e0ff43c6af46cef65ba95d3ba172129a/mujoco_warp-3.8.0.3-py3-none-any.whl
+  name: mujoco-warp
+  version: 3.8.0.3
+  sha256: dfbfa24e376e0b03bf6dcebaed7ef69b4885280a020e5f0fd805c125fae3d129
   requires_dist:
-  - newton-usd-schemas>=0.1.0
-  - numpy-stl>=3.2
-  - pycollada>=0.9.2
-  - tinyobjloader>=2.0.0rc13
-  - usd-exchange>=2.2.2
-  requires_python: '>=3.10,<3.13'
+  - absl-py
+  - etils[epath]
+  - mujoco>=3.8.0
+  - numpy
+  - warp-lang>=1.12
+  - pre-commit ; extra == 'dev'
+  - pytest ; extra == 'dev'
+  - pytest-xdist ; extra == 'dev'
+  - ruff ; extra == 'dev'
+  - pygls>=1.0.0,<2.0.0 ; extra == 'dev'
+  - lsprotocol>=2023.0.1,<2024.0.0 ; extra == 'dev'
+  - mujoco>=3.8.0.dev0 ; extra == 'dev'
+  - warp-lang>=1.11.0.dev0 ; extra == 'dev'
+  - mjviser>=0.0.10 ; extra == 'dev'
+  - pillow ; extra == 'dev'
+  - jax ; extra == 'cpu'
+  - jax[cuda12] ; extra == 'cuda'
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/88/d8/d6d0f896e064aa67377484efef4911cdcc07bce2929474e1417cc0af18c2/torchaudio-2.11.0-cp312-cp312-manylinux_2_28_x86_64.whl
+  name: torchaudio
+  version: 2.11.0
+  sha256: 6503c0bdb29daf2e6281bb70ea2dfe2c3553b782b619eb5d73bdadd8a3f7cecf
 - pypi: https://files.pythonhosted.org/packages/8c/df/d4f711d168524f5aebd7fb30969eaa31e3048cf8979688cde3b08f6e5eb8/portalocker-2.7.0-py2.py3-none-any.whl
   name: portalocker
   version: 2.7.0
@@ -39357,11 +39207,6 @@ packages:
   - pytest-mypy>=0.8.0 ; extra == 'tests'
   - redis ; extra == 'tests'
   requires_python: '>=3.5'
-- pypi: https://files.pythonhosted.org/packages/8f/aa/ba0014cc4659328dc818a28827be78e6d97312ab0cb98105a770924dc11e/absl_py-2.3.1-py3-none-any.whl
-  name: absl-py
-  version: 2.3.1
-  sha256: eeecf07f0c2a93ace0772c92e596ace6d3d3996c042b2128459aaae2a76de11d
-  requires_python: '>=3.8'
 - pypi: https://files.pythonhosted.org/packages/91/7b/26d2f43aa9fe428416be21ee1cb9ac75638cf302466b7e706c14eeaea42c/watchdog-4.0.0-py3-none-manylinux2014_x86_64.whl
   name: watchdog
   version: 4.0.0
@@ -39429,18 +39274,6 @@ packages:
   - boto3>=1.40.46,<1.40.62 ; extra == 'boto3'
   - httpx>=0.25.1,<0.29 ; extra == 'httpx'
   requires_python: '>=3.9'
-- pypi: https://files.pythonhosted.org/packages/96/2c/b250651b747d52d263291e6c1b2aba28f944e58366ebe250a169418e01f2/imgui_bundle-1.92.4-cp312-cp312-win_amd64.whl
-  name: imgui-bundle
-  version: 1.92.4
-  sha256: 30d722262060f0d0c4ca45bb85ba8ede1a58a712bd1582441b71c485b95983da
-  requires_dist:
-  - numpy
-  - munch
-  - glfw
-  - pyopengl
-  - pillow
-  - pytest ; extra == 'test'
-  requires_python: '>=3.10'
 - pypi: https://files.pythonhosted.org/packages/96/86/16815fddf056ca998853c6dc525397edf0b43559bb4073a80d2bc7fe8009/msal-1.35.1-py3-none-any.whl
   name: msal
   version: 1.35.1
@@ -39453,29 +39286,11 @@ packages:
   - pymsalruntime>=0.17,<0.21 ; python_full_version >= '3.8' and sys_platform == 'darwin' and extra == 'broker'
   - pymsalruntime>=0.18,<0.21 ; python_full_version >= '3.8' and sys_platform == 'linux' and extra == 'broker'
   requires_python: '>=3.8'
-- pypi: https://files.pythonhosted.org/packages/98/25/e55a30d7138f8fe56ed006df25b0a3c27681f0ec7bc9989e1778e6d559c3/torchaudio-2.10.0-cp312-cp312-manylinux_2_28_x86_64.whl
-  name: torchaudio
-  version: 2.10.0
-  sha256: 0e77b2956448d63790a99beed0b74ac8b8cd3a94dcdd9ad01974411078f46278
-  requires_dist:
-  - torch==2.10.0
-- pypi: https://files.pythonhosted.org/packages/98/d5/7ac2464aebd2eecac38dbe96148c9eb487679c512449ba5215d233755582/aiohttp-3.12.14-cp312-cp312-win_amd64.whl
-  name: aiohttp
-  version: 3.12.14
-  sha256: 3b66e1a182879f579b105a80d5c4bd448b91a57e8933564bf41665064796a338
-  requires_dist:
-  - aiohappyeyeballs>=2.5.0
-  - aiosignal>=1.4.0
-  - async-timeout>=4.0,<6.0 ; python_full_version < '3.11'
-  - attrs>=17.3.0
-  - frozenlist>=1.1.1
-  - multidict>=4.5,<7.0
-  - propcache>=0.2.0
-  - yarl>=1.17.0,<2.0
-  - aiodns>=3.3.0 ; extra == 'speedups'
-  - brotli ; platform_python_implementation == 'CPython' and extra == 'speedups'
-  - brotlicffi ; platform_python_implementation != 'CPython' and extra == 'speedups'
-  requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/9a/22/f1925cdda983ab66fc8ec6ec8014b959262747e58bdca26a4e3d1da29d56/python_multipart-0.0.26-py3-none-any.whl
+  name: python-multipart
+  version: 0.0.26
+  sha256: c0b169f8c4484c13b0dcf2ef0ec3a4adb255c4b7d18d8e420477d2b1dd03f185
+  requires_python: '>=3.10'
 - pypi: https://files.pythonhosted.org/packages/9c/3d/a121f284241f08268b21359bd425f7d4825cffc5ac5cd0e1b3d82ffd2b10/pytz-2024.1-py2.py3-none-any.whl
   name: pytz
   version: '2024.1'
@@ -39577,6 +39392,11 @@ packages:
   - cffi>=2.0.0b1 ; python_full_version >= '3.14'
   - idna>=2.1 ; extra == 'idna'
   requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/a7/7c/79ff957c828116966894268a749eccf455e4d11f08ef66ea681084c3faaa/newton_usd_schemas-0.2.0-py3-none-any.whl
+  name: newton-usd-schemas
+  version: 0.2.0
+  sha256: b6402affb6cdc59b0a237994ee5196cc1b43f04f766e527b7e6ef061c0719acf
+  requires_python: '>=3.10,<3.14'
 - pypi: https://files.pythonhosted.org/packages/a9/c1/dabe88f52c3e3760d861401bb994df08f672ec893b8f7592dc91626adcf3/cuda_bindings-12.9.4-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
   name: cuda-bindings
   version: 12.9.4
@@ -39618,17 +39438,6 @@ packages:
   - pandas ; extra == 'tutorials'
   - tabulate ; extra == 'tutorials'
   requires_python: '>=3.10,<3.15'
-- pypi: https://files.pythonhosted.org/packages/ad/16/8f650c2e288977cf0f8f85184b90ee56ed170a4919347fc74ee99286ed6f/torchvision-0.25.0-cp312-cp312-win_amd64.whl
-  name: torchvision
-  version: 0.25.0
-  sha256: f9c55ae8d673ab493325d1267cbd285bb94d56f99626c00ac4644de32a59ede3
-  requires_dist:
-  - numpy
-  - torch==2.10.0
-  - pillow>=5.3.0,!=8.3.*
-  - gdown>=4.7.3 ; extra == 'gdown'
-  - scipy ; extra == 'scipy'
-  requires_python: '>=3.10'
 - pypi: https://files.pythonhosted.org/packages/ae/55/90ad03c32e673a9b33cfa7cb43f55d1ab0509b60396afbb1031fa1516fd9/qdldl-0.1.7.post5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
   name: qdldl
   version: 0.1.7.post5
@@ -39646,6 +39455,24 @@ packages:
   version: 0.23.8
   sha256: 5a2bb5786bcce5bb568a53b89d7a8e87f847b2c939e587377344603a62314a04
   requires_python: '>=3.8'
+- pypi: https://files.pythonhosted.org/packages/b0/b6/f7f4f318c7e58c23b761c9b13b9a3c9b394e0f9d5d76fbc6622fa98509f6/aiohttp-3.13.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+  name: aiohttp
+  version: 3.13.4
+  sha256: 54203e10405c06f8b6020bd1e076ae0fe6c194adcee12a5a78af3ffa3c57025e
+  requires_dist:
+  - aiohappyeyeballs>=2.5.0
+  - aiosignal>=1.4.0
+  - async-timeout>=4.0,<6.0 ; python_full_version < '3.11'
+  - attrs>=17.3.0
+  - frozenlist>=1.1.1
+  - multidict>=4.5,<7.0
+  - propcache>=0.2.0
+  - yarl>=1.17.0,<2.0
+  - aiodns>=3.3.0 ; extra == 'speedups'
+  - brotli>=1.2 ; platform_python_implementation == 'CPython' and extra == 'speedups'
+  - brotlicffi>=1.2 ; platform_python_implementation != 'CPython' and extra == 'speedups'
+  - backports-zstd ; python_full_version < '3.14' and platform_python_implementation == 'CPython' and extra == 'speedups'
+  requires_python: '>=3.9'
 - pypi: https://files.pythonhosted.org/packages/b0/be/69fffc97b78f52a5d1372e5d56a0599291e96996a47089fb6312bc023d88/trimesh-4.11.1-py3-none-any.whl
   name: trimesh
   version: 4.11.1
@@ -39763,12 +39590,64 @@ packages:
   - python-multipart>=0.0.18 ; extra == 'full'
   - pyyaml ; extra == 'full'
   requires_python: '>=3.9'
-- pypi: https://files.pythonhosted.org/packages/be/a0/da53c7d20fac15f66f8838653b91162de1bf21fb40fee88cf839e4ef5174/torchaudio-2.10.0-cp312-cp312-win_amd64.whl
-  name: torchaudio
-  version: 2.10.0
-  sha256: 7f76a01ecebf1869e1f2c50a261f1cf07e5fccb24402b4e9bbb82d6725b9c7dd
+- pypi: https://files.pythonhosted.org/packages/bf/a2/37101b824e0d444875d941ad6b41f64c1fe3829272d591d6a7ad07819790/newton-1.2.1-py3-none-any.whl
+  name: newton
+  version: 1.2.1
+  sha256: a5eb8bbdfb6033b272a8542b86e4f250b110122cd359bda06e1fcf162ddf77eb
   requires_dist:
-  - torch==2.10.0
+  - warp-lang>=1.13.0,<1.14
+  - newton[examples] ; extra == 'dev'
+  - coverage[toml]>=7.8.0 ; extra == 'dev'
+  - newton[importers] ; extra == 'docs'
+  - myst-parser>=3.0.1 ; extra == 'docs'
+  - sphinx>=7.4.7 ; extra == 'docs'
+  - pydata-sphinx-theme>=0.16.1 ; extra == 'docs'
+  - sphinxcontrib-mermaid>=1.0.0 ; extra == 'docs'
+  - sphinx-copybutton>=0.5.0 ; extra == 'docs'
+  - sphinx-design>=0.5.0,<=0.6.1 ; extra == 'docs'
+  - sphinx-tabs>=3.3.0 ; extra == 'docs'
+  - nbsphinx>=0.9.0 ; extra == 'docs'
+  - ipykernel>=6.0.0,<7.0.0 ; extra == 'docs'
+  - pypandoc>=1.11 ; extra == 'docs'
+  - pypandoc-binary>=1.11 ; extra == 'docs'
+  - gitpython>=3.1.47 ; extra == 'docs'
+  - viser==1.0.26 ; extra == 'docs'
+  - newton[sim] ; extra == 'examples'
+  - newton[importers] ; extra == 'examples'
+  - pyglet>=2.1.6,<3 ; extra == 'examples'
+  - gitpython>=3.1.47 ; extra == 'examples'
+  - imgui-bundle>=1.92.0 ; extra == 'examples'
+  - pyyaml>=6.0.2 ; extra == 'examples'
+  - cbor2>=5.7.0,<6 ; extra == 'examples'
+  - pillow>=11.3.0 ; extra == 'examples'
+  - requests>=2.25.0 ; extra == 'importers'
+  - scipy>=1.11.0 ; extra == 'importers'
+  - fast-simplification>=0.1.11 ; extra == 'importers'
+  - alphashape>=1.3.1 ; extra == 'importers'
+  - coacd>=1.0.7 ; python_full_version < '3.14' and extra == 'importers'
+  - trimesh>=4.6.8 ; extra == 'importers'
+  - meshio>=5.3.5 ; extra == 'importers'
+  - pycollada>=0.9 ; extra == 'importers'
+  - resolve-robotics-uri-py>=0.4.0 ; extra == 'importers'
+  - open3d>=0.19.0 ; (python_full_version < '3.13' and platform_machine != 'aarch64' and extra == 'importers') or (python_full_version < '3.13' and sys_platform != 'linux' and extra == 'importers')
+  - usd-core>=25.5,<26.5 ; python_full_version < '3.14' and platform_machine != 'aarch64' and extra == 'importers'
+  - usd-exchange>=2.2.0 ; python_full_version < '3.13' and platform_machine == 'aarch64' and extra == 'importers'
+  - newton-usd-schemas>=0.2.0 ; extra == 'importers'
+  - newton[examples] ; extra == 'notebook'
+  - rerun-sdk[notebook]>=0.27.1 ; python_full_version < '3.14' and extra == 'notebook'
+  - jupyterlab>=4.5.7 ; extra == 'notebook'
+  - jupyter-server-proxy>=4.5.0 ; extra == 'notebook'
+  - viser==1.0.26 ; extra == 'notebook'
+  - open3d>=0.19.0 ; (python_full_version < '3.13' and platform_machine != 'aarch64' and extra == 'remesh') or (python_full_version < '3.13' and sys_platform != 'linux' and extra == 'remesh')
+  - pyfqmr>=0.5.0 ; extra == 'remesh'
+  - mujoco-warp~=3.8.0,>=3.8.0.3 ; extra == 'sim'
+  - mujoco~=3.8.0 ; extra == 'sim'
+  - newton-actuators>=0.1.0,<0.1.1 ; extra == 'sim'
+  - newton[examples] ; extra == 'torch-cu12'
+  - torch>=2.7.0 ; extra == 'torch-cu12'
+  - newton[examples] ; extra == 'torch-cu13'
+  - torch>=2.10.0 ; extra == 'torch-cu13'
+  requires_python: '>=3.10'
 - pypi: https://files.pythonhosted.org/packages/c1/82/730d0d2c6093c4dc574947eea94e0cddeea836f43823a80fc8b064a82ddf/qdldl-0.1.7.post5-cp312-cp312-win_amd64.whl
   name: qdldl
   version: 0.1.7.post5
@@ -39781,29 +39660,6 @@ packages:
   version: 23.2.1
   sha256: 19297512c647d4b27a2cf7c34caa7e405c0d60b5560618a29a9fe027b18b0107
   requires_python: '>=3.7'
-- pypi: https://files.pythonhosted.org/packages/c8/8a/229e4db3692be55532e155e2ca6a1363752243ee79df0e7e22ba00f716cf/mujoco-3.5.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
-  name: mujoco
-  version: 3.5.0
-  sha256: 66fe37276644c28fab497929c55580725de81afc6d511a40cc27525a8dd99efa
-  requires_dist:
-  - absl-py
-  - etils[epath]
-  - glfw
-  - numpy
-  - pyopengl
-  - absl-py ; extra == 'sysid'
-  - colorama ; extra == 'sysid'
-  - imageio[ffmpeg] ; extra == 'sysid'
-  - jinja2 ; extra == 'sysid'
-  - matplotlib ; extra == 'sysid'
-  - plotly ; extra == 'sysid'
-  - pyyaml ; extra == 'sysid'
-  - scipy ; extra == 'sysid'
-  - tabulate ; extra == 'sysid'
-  - typing-extensions ; extra == 'sysid'
-  - usd-core ; extra == 'usd'
-  - pillow ; extra == 'usd'
-  requires_python: '>=3.9'
 - pypi: https://files.pythonhosted.org/packages/cc/8f/ec6289987824b29529d0dfda0d74a07cec60e54b9c92f3c9da4c0ac732de/contourpy-1.3.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
   name: contourpy
   version: 1.3.3
@@ -39829,6 +39685,11 @@ packages:
   - pytest-xdist ; extra == 'test-no-images'
   - wurlitzer ; extra == 'test-no-images'
   requires_python: '>=3.11'
+- pypi: https://files.pythonhosted.org/packages/cf/20/9a22cfe08be16ddfeef2542cf4eeed1b29f3f57ddbba0b42f7e0bb8331fd/cbor2-5.9.0-cp312-cp312-win_amd64.whl
+  name: cbor2
+  version: 5.9.0
+  sha256: 34a6cb15e6ab6a8eae94ad2041731cd3ef786af43a8df99f847969af5b902ee7
+  requires_python: '>=3.9'
 - pypi: https://files.pythonhosted.org/packages/d1/75/e5d44be90525cd28503e7f836d077ae6663ec0687a13ba7810b4114b3668/rtree-1.4.1-py3-none-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
   name: rtree
   version: 1.4.1
@@ -40040,6 +39901,11 @@ packages:
   - typing-extensions>=4.5 ; python_full_version < '3.13'
   - trio>=0.32.0 ; extra == 'trio'
   requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/db/9d/7ede2cc42f9bb4260492e7d29d2aab781eacbbcfb09d983de1e695077199/cbor2-5.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+  name: cbor2
+  version: 5.9.0
+  sha256: 4cd43d8fc374b31643b2830910f28177a606a7bc84975a62675dd3f2e320fc7b
+  requires_python: '>=3.9'
 - pypi: https://files.pythonhosted.org/packages/dc/9b/47798a6c91d8bdb567fe2698fe81e0c6b7cb7ef4d13da4114b41d239f65d/typing_inspection-0.4.2-py3-none-any.whl
   name: typing-inspection
   version: 0.4.2
@@ -40200,6 +40066,40 @@ packages:
   - flake8 ; extra == 'tests'
   - wheel ; extra == 'tests'
   requires_python: '>3.9.0'
+- pypi: https://files.pythonhosted.org/packages/ed/47/14a76b926edc3957c8a8258423db789d3fa925d2fed800102fce58959413/fastapi-0.120.4-py3-none-any.whl
+  name: fastapi
+  version: 0.120.4
+  sha256: 9bdf192308676480d3593e10fd05094e56d6fdc7d9283db26053d8104d5f82a0
+  requires_dist:
+  - starlette>=0.40.0,<0.50.0
+  - pydantic>=1.7.4,!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0
+  - typing-extensions>=4.8.0
+  - annotated-doc>=0.0.2
+  - fastapi-cli[standard]>=0.0.8 ; extra == 'standard'
+  - httpx>=0.23.0,<1.0.0 ; extra == 'standard'
+  - jinja2>=3.1.5 ; extra == 'standard'
+  - python-multipart>=0.0.18 ; extra == 'standard'
+  - email-validator>=2.0.0 ; extra == 'standard'
+  - uvicorn[standard]>=0.12.0 ; extra == 'standard'
+  - fastapi-cli[standard-no-fastapi-cloud-cli]>=0.0.8 ; extra == 'standard-no-fastapi-cloud-cli'
+  - httpx>=0.23.0,<1.0.0 ; extra == 'standard-no-fastapi-cloud-cli'
+  - jinja2>=3.1.5 ; extra == 'standard-no-fastapi-cloud-cli'
+  - python-multipart>=0.0.18 ; extra == 'standard-no-fastapi-cloud-cli'
+  - email-validator>=2.0.0 ; extra == 'standard-no-fastapi-cloud-cli'
+  - uvicorn[standard]>=0.12.0 ; extra == 'standard-no-fastapi-cloud-cli'
+  - fastapi-cli[standard]>=0.0.8 ; extra == 'all'
+  - httpx>=0.23.0,<1.0.0 ; extra == 'all'
+  - jinja2>=3.1.5 ; extra == 'all'
+  - python-multipart>=0.0.18 ; extra == 'all'
+  - itsdangerous>=1.1.0 ; extra == 'all'
+  - pyyaml>=5.3.1 ; extra == 'all'
+  - ujson>=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0 ; extra == 'all'
+  - orjson>=3.2.1 ; extra == 'all'
+  - email-validator>=2.0.0 ; extra == 'all'
+  - uvicorn[standard]>=0.12.0 ; extra == 'all'
+  - pydantic-settings>=2.0.0 ; extra == 'all'
+  - pydantic-extra-types>=2.0.0 ; extra == 'all'
+  requires_python: '>=3.8'
 - pypi: https://files.pythonhosted.org/packages/ee/fb/14d30eb4956408ee3ae09ad34299131fb383c47df355ddb428a7331cfa1e/charset_normalizer-3.3.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
   name: charset-normalizer
   version: 3.3.2
@@ -40221,6 +40121,24 @@ packages:
   - isodate>=0.6.1
   - azure-core[aio]>=1.28.0,<2.0.0 ; extra == 'aio'
   requires_python: '>=3.7'
+- pypi: https://files.pythonhosted.org/packages/f5/d8/cb6ccda1a1f35a6597645818641701207b3e8e13553e75fce5d86bac74b2/torchvision-0.26.0-cp312-cp312-manylinux_2_28_x86_64.whl
+  name: torchvision
+  version: 0.26.0
+  sha256: d61a5abb6b42a0c0c311996c2ac4b83a94418a97182c83b055a2a4ae985e05aa
+  requires_dist:
+  - numpy
+  - torch==2.11.0
+  - pillow>=5.3.0,!=8.3.*
+  - gdown>=4.7.3 ; extra == 'gdown'
+  - scipy ; extra == 'scipy'
+  requires_python: '>=3.10,!=3.14.1'
+- pypi: https://files.pythonhosted.org/packages/f8/52/92b11b909686bef993819720c518cb38318a16acae038b70f64a3c35582a/coacd-1.0.7-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+  name: coacd
+  version: 1.0.7
+  sha256: d1d330c03cdd3f5a571677d5cbb991a51d96bd0e157a34b0fb3623d7ed3b1886
+  requires_dist:
+  - numpy
+  requires_python: '>=3.9'
 - pypi: https://files.pythonhosted.org/packages/f9/9b/335f9764261e915ed497fcdeb11df5dfd6f7bf257d4a6a2a686d80da4d54/requests-2.32.3-py3-none-any.whl
   name: requests
   version: 2.32.3
@@ -40380,79 +40298,165 @@ packages:
   version: 5.0.1
   sha256: 39e3809566ff85354557ec2398b55e096c8364bacac9405a7a1fa429e77fe76c
   requires_python: '>=3.8'
-- pypi: https://pypi.nvidia.com/isaacsim-app/isaacsim_app-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://files.pythonhosted.org/packages/ff/66/853013bccb60f8a6aec5871a9f7ba5eacdcd6628a8f8cd5df109cf5a6171/imgui_bundle-1.92.601-cp312-cp312-win_amd64.whl
+  name: imgui-bundle
+  version: 1.92.601
+  sha256: 679e97553463dd89ac40a2de94aee580772fd20c09cc0fa8b5d9ea84c74c94b6
+  requires_dist:
+  - numpy
+  - matplotlib ; extra == 'matplotlib'
+  - pillow ; extra == 'imgproc'
+  - opencv-python ; extra == 'imgproc'
+  - pydantic>=2.0.0 ; extra == 'pydantic'
+  - pyopengl ; extra == 'opengl'
+  - glfw ; extra == 'glfw'
+  - pysdl2 ; extra == 'sdl2'
+  - pysdl3 ; extra == 'sdl3'
+  - wgpu ; extra == 'wgpu'
+  - rendercanvas ; extra == 'wgpu'
+  - pyglet ; extra == 'pyglet'
+  - pyopengl ; extra == 'all-backends'
+  - glfw ; extra == 'all-backends'
+  - pysdl2 ; extra == 'all-backends'
+  - pysdl3 ; extra == 'all-backends'
+  - wgpu ; extra == 'all-backends'
+  - pyglet ; extra == 'all-backends'
+  - matplotlib ; extra == 'full'
+  - pillow ; extra == 'full'
+  - opencv-python ; extra == 'full'
+  - pyopengl ; extra == 'full'
+  - glfw ; extra == 'full'
+  - pysdl2 ; extra == 'full'
+  - pysdl3 ; extra == 'full'
+  - wgpu ; extra == 'full'
+  - rendercanvas ; extra == 'full'
+  - pyglet ; extra == 'full'
+  - pydantic>=2.0.0 ; extra == 'full'
+  - pyglm ; extra == 'full'
+  - pytest ; extra == 'test'
+  - pytest-asyncio ; extra == 'test'
+  requires_python: '>=3.10'
+- pypi: https://pypi.nvidia.com/cuda-toolkit/cuda_toolkit-12.8.1-py2.py3-none-any.whl
+  name: cuda-toolkit
+  version: 12.8.1
+  sha256: adc7906af4ecbf9a352f9dca5734eceb21daec281ccfcf5675e1d2f724fc2cba
+  index: https://pypi.nvidia.com/
+  requires_dist:
+  - nvidia-cublas-cu12==12.8.4.1.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cuda-cccl-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cuda-cupti-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cuda-cuxxfilt-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cuda-nvcc-cu12==12.8.93.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cuda-nvrtc-cu12==12.8.93.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cuda-opencl-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cuda-profiler-api-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cuda-runtime-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cuda-sanitizer-api-cu12==12.8.93.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cufft-cu12==11.3.3.83.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cufile-cu12==1.13.1.3.* ; sys_platform == 'linux' and extra == 'all'
+  - nvidia-curand-cu12==10.3.9.90.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cusolver-cu12==11.7.3.90.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cusparse-cu12==12.5.8.93.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-npp-cu12==12.3.3.100.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-nvfatbin-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-nvjitlink-cu12==12.8.93.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-nvjpeg-cu12==12.3.5.92.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-nvml-dev-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-nvtx-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - nvidia-cuda-cccl-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'cccl') or (sys_platform == 'win32' and extra == 'cccl')
+  - nvidia-cublas-cu12==12.8.4.1.* ; (sys_platform == 'linux' and extra == 'cublas') or (sys_platform == 'win32' and extra == 'cublas')
+  - nvidia-cuda-runtime-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'cudart') or (sys_platform == 'win32' and extra == 'cudart')
+  - nvidia-cufft-cu12==11.3.3.83.* ; (sys_platform == 'linux' and extra == 'cufft') or (sys_platform == 'win32' and extra == 'cufft')
+  - nvidia-cufile-cu12==1.13.1.3.* ; sys_platform == 'linux' and extra == 'cufile'
+  - nvidia-cuda-cupti-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'cupti') or (sys_platform == 'win32' and extra == 'cupti')
+  - nvidia-curand-cu12==10.3.9.90.* ; (sys_platform == 'linux' and extra == 'curand') or (sys_platform == 'win32' and extra == 'curand')
+  - nvidia-cusolver-cu12==11.7.3.90.* ; (sys_platform == 'linux' and extra == 'cusolver') or (sys_platform == 'win32' and extra == 'cusolver')
+  - nvidia-cusparse-cu12==12.5.8.93.* ; (sys_platform == 'linux' and extra == 'cusparse') or (sys_platform == 'win32' and extra == 'cusparse')
+  - nvidia-cuda-cuxxfilt-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'cuxxfilt') or (sys_platform == 'win32' and extra == 'cuxxfilt')
+  - nvidia-npp-cu12==12.3.3.100.* ; (sys_platform == 'linux' and extra == 'npp') or (sys_platform == 'win32' and extra == 'npp')
+  - nvidia-cuda-nvcc-cu12==12.8.93.* ; (sys_platform == 'linux' and extra == 'nvcc') or (sys_platform == 'win32' and extra == 'nvcc')
+  - nvidia-nvfatbin-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'nvfatbin') or (sys_platform == 'win32' and extra == 'nvfatbin')
+  - nvidia-nvjitlink-cu12==12.8.93.* ; (sys_platform == 'linux' and extra == 'nvjitlink') or (sys_platform == 'win32' and extra == 'nvjitlink')
+  - nvidia-nvjpeg-cu12==12.3.5.92.* ; (sys_platform == 'linux' and extra == 'nvjpeg') or (sys_platform == 'win32' and extra == 'nvjpeg')
+  - nvidia-nvml-dev-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'nvml') or (sys_platform == 'win32' and extra == 'nvml')
+  - nvidia-cuda-nvrtc-cu12==12.8.93.* ; (sys_platform == 'linux' and extra == 'nvrtc') or (sys_platform == 'win32' and extra == 'nvrtc')
+  - nvidia-nvtx-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'nvtx') or (sys_platform == 'win32' and extra == 'nvtx')
+  - nvidia-cuda-opencl-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'opencl') or (sys_platform == 'win32' and extra == 'opencl')
+  - nvidia-cuda-profiler-api-cu12==12.8.90.* ; (sys_platform == 'linux' and extra == 'profiler') or (sys_platform == 'win32' and extra == 'profiler')
+  - nvidia-cuda-sanitizer-api-cu12==12.8.93.* ; (sys_platform == 'linux' and extra == 'sanitizer') or (sys_platform == 'win32' and extra == 'sanitizer')
+- pypi: https://pypi.nvidia.com/isaacsim-app/isaacsim_app-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-app
-  version: 6.0.0.0
-  sha256: ff2769ddc810da0508da82dba83d2f9e5141c1e23089575ddd3c30fac5d74d42
+  version: 6.0.1.0
+  sha256: 108bd30ac91cf8bdafd520b7c22f1eac81907174998b614ded104cf126792fd4
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-kernel==6.0.0.0
+  - isaacsim-kernel==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-app/isaacsim_app-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-app/isaacsim_app-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-app
-  version: 6.0.0.0
-  sha256: 1cf60cb9ecb072f063f71bbf8cf134d4e84f5e43f93cb6d0ff1da2fbd4e35d0e
+  version: 6.0.1.0
+  sha256: 0512a8ad76520f136df663195b9cb916ab3b3c4c57636d918ced83b84b80aba6
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-kernel==6.0.0.0
+  - isaacsim-kernel==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-asset/isaacsim_asset-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-asset/isaacsim_asset-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-asset
-  version: 6.0.0.0
-  sha256: af241c29f450c57138643df76735493d9b8068a9d5dca1464696f7de28143dd6
+  version: 6.0.1.0
+  sha256: fc62712adb1641ce53aad11c257331f5c4fccba59255ba8d2514a745cb0efbe4
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-utils==6.0.0.0
-  - isaacsim-storage==6.0.0.0
+  - isaacsim-utils==6.0.1.0
+  - isaacsim-storage==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-asset/isaacsim_asset-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-asset/isaacsim_asset-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-asset
-  version: 6.0.0.0
-  sha256: c003dc21d674e618213d7a192ff0e6eae8dc603fa6b43930aa991b995ca5f5e1
+  version: 6.0.1.0
+  sha256: fcca96376a4151fca0be2f8596d7c644cae71ba8ac56d735d3643052e0369596
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-utils==6.0.0.0
-  - isaacsim-storage==6.0.0.0
+  - isaacsim-utils==6.0.1.0
+  - isaacsim-storage==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-benchmark/isaacsim_benchmark-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-benchmark/isaacsim_benchmark-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-benchmark
-  version: 6.0.0.0
-  sha256: 0afb4b7c46b71c3cfdcb2f8976c7cf6fee73373afb2b35a48048a87577c368f6
+  version: 6.0.1.0
+  sha256: 89917f3e36113ccb032e99b89ca9d5c6c4d7cc030f325baf5a808731b6ba5b52
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-robot==6.0.0.0
+  - isaacsim-robot==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-benchmark/isaacsim_benchmark-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-benchmark/isaacsim_benchmark-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-benchmark
-  version: 6.0.0.0
-  sha256: aabf1b8b6c881c2872d4a4d37ade5290e70a54dfa1bbc3958bf8c8bddd820cd5
+  version: 6.0.1.0
+  sha256: ffa69b10006e3916fb8a723d80734d20163f4a3e7a3fb8a7d113a2b95e44de24
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-robot==6.0.0.0
+  - isaacsim-robot==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-code-editor/isaacsim_code_editor-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-code-editor/isaacsim_code_editor-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-code-editor
-  version: 6.0.0.0
-  sha256: 87d457bb18d5ac08e482322f535529e03f2d2a8383deea6b0ff22fd396ea94db
+  version: 6.0.1.0
+  sha256: adbf216dcb34471c7e67a0683bb9f746a7773040b91cf42432f1a21dee95a665
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-kernel==6.0.0.0
+  - isaacsim-kernel==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-code-editor/isaacsim_code_editor-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-code-editor/isaacsim_code_editor-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-code-editor
-  version: 6.0.0.0
-  sha256: ec43f64387201583a46ec314faa2650fbdf04007c3b0c32af6e724a67fa1c3e7
+  version: 6.0.1.0
+  sha256: 83e596316f6ac28483d08bcd0dab7d9ecda23919b52fe3b39831a89cd39b0755
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-kernel==6.0.0.0
+  - isaacsim-kernel==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-core/isaacsim_core-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-core/isaacsim_core-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-core
-  version: 6.0.0.0
-  sha256: 9431c64a3a554d8fd2c47d9a338da13776665d346381958b3afc661b15291662
+  version: 6.0.1.0
+  sha256: aadb3c5dffd433d5caec5cf0c4c7a314d30b222997bb8496385baae67dd3367c
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-kernel==6.0.0.0
+  - isaacsim-kernel==6.0.1.0
   - llvmlite==0.46.0
   - nest-asyncio==1.6.0
   - matplotlib==3.10.8
@@ -40473,7 +40477,6 @@ packages:
   - opencv-python-headless==4.13.0.90
   - trimesh==4.11.1
   - rtree==1.4.1
-  - pynvvideocodec==2.1.0
   - aioboto3==15.5.0
   - boto3==1.40.61
   - botocore==1.40.61
@@ -40484,7 +40487,7 @@ packages:
   - oauthlib==3.2.2
   - requests-oauthlib==1.3.1
   - isodate==0.6.1
-  - cryptography==46.0.5
+  - cryptography==46.0.7
   - azure-core==1.38.0
   - msal==1.35.1
   - msal-extensions==1.3.1
@@ -40492,40 +40495,40 @@ packages:
   - jmespath==1.0.1
   - python-dateutil==2.9.0.post0
   - six==1.17.0
-  - mujoco==3.5.0
-  - mujoco-warp==3.5.0.2
-  - newton[sim]==1.0.0
+  - mujoco==3.8.0
+  - mujoco-warp==3.8.0.3
+  - newton[sim]==1.2.1
   - newton-actuators==0.1.0
-  - newton-usd-schemas==0.1.0
-  - mujoco-usd-converter==0.1.0
-  - cbor2==5.8.0
-  - imgui-bundle==1.92.4
+  - newton-usd-schemas==0.2.0
+  - mujoco-usd-converter==0.2.0
+  - cbor2==5.9.0
+  - imgui-bundle==1.92.601
   - pyopengl-accelerate==3.1.10
   - glfw==2.10.0
-  - absl-py==2.3.1
+  - absl-py==2.4.0
   - etils[epath]==1.13.0
   - numpy-stl
   - python-utils
   - tinyobjloader==2.0.0rc13
-  - urdf-usd-converter==0.1.0
+  - coacd==1.0.7
+  - urdf-usd-converter==0.1.3
   - pycollada==0.9.3
-  - torch==2.10.0
-  - torchvision==0.25.0
-  - torchaudio==2.10.0
-  - filelock==3.20.0
-  - fsspec==2025.12.0
+  - torch==2.11.0
+  - torchvision==0.26.0
+  - torchaudio==2.11.0
+  - filelock==3.25.2
+  - fsspec==2026.2.0
   - mpmath==1.3.0
   - networkx==3.6.1
   - sympy==1.14.0
-  - cuda-bindings==12.9.4
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-core/isaacsim_core-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-core/isaacsim_core-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-core
-  version: 6.0.0.0
-  sha256: 5b7b95898e64dbb4d41d0ea99ddc9068e4d13a89601f0d87715ebbfdf8a71728
+  version: 6.0.1.0
+  sha256: c4e34b73a9a8bf45e00848da7c629bfd52f18154ddb08ef6e5e21d854b83b7b8
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-kernel==6.0.0.0
+  - isaacsim-kernel==6.0.1.0
   - llvmlite==0.46.0
   - nest-asyncio==1.6.0
   - matplotlib==3.10.8
@@ -40546,7 +40549,6 @@ packages:
   - opencv-python-headless==4.13.0.90
   - trimesh==4.11.1
   - rtree==1.4.1
-  - pynvvideocodec==2.1.0
   - aioboto3==15.5.0
   - boto3==1.40.61
   - botocore==1.40.61
@@ -40557,7 +40559,7 @@ packages:
   - oauthlib==3.2.2
   - requests-oauthlib==1.3.1
   - isodate==0.6.1
-  - cryptography==46.0.5
+  - cryptography==46.0.7
   - azure-core==1.38.0
   - msal==1.35.1
   - msal-extensions==1.3.1
@@ -40565,134 +40567,135 @@ packages:
   - jmespath==1.0.1
   - python-dateutil==2.9.0.post0
   - six==1.17.0
-  - mujoco==3.5.0
-  - mujoco-warp==3.5.0.2
-  - newton[sim]==1.0.0
+  - mujoco==3.8.0
+  - mujoco-warp==3.8.0.3
+  - newton[sim]==1.2.1
   - newton-actuators==0.1.0
-  - newton-usd-schemas==0.1.0
-  - mujoco-usd-converter==0.1.0
-  - cbor2==5.8.0
-  - imgui-bundle==1.92.4
+  - newton-usd-schemas==0.2.0
+  - mujoco-usd-converter==0.2.0
+  - cbor2==5.9.0
+  - imgui-bundle==1.92.601
   - pyopengl-accelerate==3.1.10
   - glfw==2.10.0
-  - absl-py==2.3.1
+  - absl-py==2.4.0
   - etils[epath]==1.13.0
   - numpy-stl
   - python-utils
   - tinyobjloader==2.0.0rc13
-  - urdf-usd-converter==0.1.0
+  - coacd==1.0.7
+  - urdf-usd-converter==0.1.3
   - pycollada==0.9.3
-  - torch==2.10.0
-  - torchvision==0.25.0
-  - torchaudio==2.10.0
-  - filelock==3.20.0
-  - fsspec==2025.12.0
+  - torch==2.11.0
+  - torchvision==0.26.0
+  - torchaudio==2.11.0
+  - filelock==3.25.2
+  - fsspec==2026.2.0
   - mpmath==1.3.0
   - networkx==3.6.1
   - sympy==1.14.0
   - pywin32==306
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-cortex/isaacsim_cortex-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-cortex/isaacsim_cortex-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-cortex
-  version: 6.0.0.0
-  sha256: 8edb40205f129317e8adcd48a7b56d460e0630e028d46a5380fda3fc924aec22
+  version: 6.0.1.0
+  sha256: 71e455b2ea5fae001fb841ba11115bdbc1e738bfa98fcaf9aebbde4d5694db8a
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-robot==6.0.0.0
-  - isaacsim-ros1==6.0.0.0
+  - isaacsim-robot==6.0.1.0
+  - isaacsim-ros1==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-cortex/isaacsim_cortex-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-cortex/isaacsim_cortex-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-cortex
-  version: 6.0.0.0
-  sha256: a70599a634efaf7d66ac4df9e6bb5a93addd31a9a860dbb4c6b6fe5dad86254b
+  version: 6.0.1.0
+  sha256: be9c831051afcb7a0d16e309cf0f3dd5992d940af1f3e75d1fbe0fd9a3157e2d
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-robot==6.0.0.0
-  - isaacsim-ros1==6.0.0.0
+  - isaacsim-robot==6.0.1.0
+  - isaacsim-ros1==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-example/isaacsim_example-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-example/isaacsim_example-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-example
-  version: 6.0.0.0
-  sha256: 05017bf13c63a3a280dbb516f196641005c09de29f3ab25b33a3a3ebc834083c
+  version: 6.0.1.0
+  sha256: 4c22448a337a2bbf0b99934cb6d5c84ebde4692b088846acefba04e8b949f588
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-cortex==6.0.0.0
+  - isaacsim-cortex==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-example/isaacsim_example-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-example/isaacsim_example-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-example
-  version: 6.0.0.0
-  sha256: ec6c4f5ea01191b2ac0a283286d88fdfa6e945bda54664b283d1a1dee6dad74d
+  version: 6.0.1.0
+  sha256: 93ec10e41965bdada028f6b57a9f8f2e6d4f82a83d1e4435134955311aef0a4b
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-cortex==6.0.0.0
+  - isaacsim-cortex==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-extscache-kit-sdk/isaacsim_extscache_kit_sdk-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-extscache-kit-sdk/isaacsim_extscache_kit_sdk-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-extscache-kit-sdk
-  version: 6.0.0.0
-  sha256: 6d14c47aa5934c8449ab851d19337517f4cbde2c85ceec7373a4fc1b585a78e7
+  version: 6.0.1.0
+  sha256: a39c7a71f7a859e9db4ce6f81382f63a480d7e1938c6f3653702c9e6dd609c5e
   index: https://pypi.nvidia.com/
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-extscache-kit-sdk/isaacsim_extscache_kit_sdk-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-extscache-kit-sdk/isaacsim_extscache_kit_sdk-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-extscache-kit-sdk
-  version: 6.0.0.0
-  sha256: 97cd5ecf995eef922877c0f72128dfea3c88b2bedaf571a2075876c133c7137d
+  version: 6.0.1.0
+  sha256: 02e3d383db1fdf993ef08d3873e8e89e09bcbbe4939b6af440e816836166667a
   index: https://pypi.nvidia.com/
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-extscache-kit/isaacsim_extscache_kit-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-extscache-kit/isaacsim_extscache_kit-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-extscache-kit
-  version: 6.0.0.0
-  sha256: 804dae44f5d2655b3b0ce1a1640f4125b51878e7b63438bf7a19c113cf100667
+  version: 6.0.1.0
+  sha256: 35b64cf35ce3d31875ef43025f243c8bd03e29cb28fe844b0cd06b76ba535714
   index: https://pypi.nvidia.com/
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-extscache-kit/isaacsim_extscache_kit-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-extscache-kit/isaacsim_extscache_kit-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-extscache-kit
-  version: 6.0.0.0
-  sha256: 62e6b43630922a8ffa6cab3b616e015b61637447e1af71e7d74e0e93abb09aea
+  version: 6.0.1.0
+  sha256: c27b2557f3d02a2f880d6f759d05263e353c34be55b6dccf8a960049208607d9
   index: https://pypi.nvidia.com/
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-extscache-physics/isaacsim_extscache_physics-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-extscache-physics/isaacsim_extscache_physics-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-extscache-physics
-  version: 6.0.0.0
-  sha256: 3c6eba5313f105652326c83930727b2bae2528753ceb43163253b45e66a2b35f
+  version: 6.0.1.0
+  sha256: e666e4985f99752df68c3aee25daf8d8771d17a5546d76dde26c038985f60127
   index: https://pypi.nvidia.com/
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-extscache-physics/isaacsim_extscache_physics-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-extscache-physics/isaacsim_extscache_physics-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-extscache-physics
-  version: 6.0.0.0
-  sha256: f4b2e01577b3ee59d01b8b8c0b88ee3551d4ab6a579e300d60b2d036d9017d76
+  version: 6.0.1.0
+  sha256: 367be0033e33e55865eb0cba62f2c14aed0305b9399c8ff373853da13be98aa1
   index: https://pypi.nvidia.com/
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-gui/isaacsim_gui-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-gui/isaacsim_gui-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-gui
-  version: 6.0.0.0
-  sha256: b5befb3406cfcbbed60f3f084dad0fb40e226db9e880af25beee118f3df6a902
+  version: 6.0.1.0
+  sha256: 92568f2553dc3f9bc9a5e411b5035a48b12b65544b43d3029ef9cbe31b4f0983
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-core==6.0.0.0
+  - isaacsim-core==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-gui/isaacsim_gui-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-gui/isaacsim_gui-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-gui
-  version: 6.0.0.0
-  sha256: 32d5322437e69456376a87d04bfc7c770358ee3091444eefde67837760a4d31b
+  version: 6.0.1.0
+  sha256: d5da64f2320c8d2c01b145ea9e02c3f7768637ca360c0267a197e2bb1090b743
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-core==6.0.0.0
+  - isaacsim-core==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-kernel/isaacsim_kernel-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-kernel/isaacsim_kernel-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-kernel
-  version: 6.0.0.0
-  sha256: 6339458f705df2794fb1bbea6aca739a51bf6c804b18648fe4137a99b11685e3
+  version: 6.0.1.0
+  sha256: 618fd6fb09d7d67ca5102251b999bf1a851a8918dadbeea0789e7d4f2a24bbb1
   index: https://pypi.nvidia.com/
   requires_dist:
-  - aiohttp==3.12.14
+  - aiohttp==3.13.4
   - pycares==5.0.1
   - aiodns==3.1.1
-  - pillow==12.1.1
+  - pillow==12.2.0
   - toml==0.10.2
   - numpy==2.3.1
   - click==8.1.7
   - websockets==12.0
-  - fastapi==0.117.1
+  - fastapi==0.120.4
   - attrs==25.1.0
   - multidict==6.1.0
   - async-timeout==5.0.1
@@ -40705,7 +40708,7 @@ packages:
   - uvicorn==0.29.0
   - httptools==0.6.1
   - asteval==1.0.6
-  - python-multipart==0.0.22
+  - python-multipart==0.0.26
   - wrapt==1.16.0
   - aioitertools==0.11.0
   - coverage==7.4.4
@@ -40724,21 +40727,21 @@ packages:
   - psutil==5.9.8
   - requests==2.32.3
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-kernel/isaacsim_kernel-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-kernel/isaacsim_kernel-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-kernel
-  version: 6.0.0.0
-  sha256: 0be0d31de990fd8d684e171864e1ab6ab41931b814fb1dd262e46df9f83f7f72
+  version: 6.0.1.0
+  sha256: 892afb902abdc9f6571cb6e793271303d075eb5c9998e9cc779db812911a9ed9
   index: https://pypi.nvidia.com/
   requires_dist:
-  - aiohttp==3.12.14
+  - aiohttp==3.13.4
   - pycares==5.0.1
   - aiodns==3.1.1
-  - pillow==12.1.1
+  - pillow==12.2.0
   - toml==0.10.2
   - numpy==2.3.1
   - click==8.1.7
   - websockets==12.0
-  - fastapi==0.117.1
+  - fastapi==0.120.4
   - attrs==25.1.0
   - multidict==6.1.0
   - async-timeout==5.0.1
@@ -40751,7 +40754,7 @@ packages:
   - uvicorn==0.29.0
   - httptools==0.6.1
   - asteval==1.0.6
-  - python-multipart==0.0.22
+  - python-multipart==0.0.26
   - wrapt==1.16.0
   - aioitertools==0.11.0
   - coverage==7.4.4
@@ -40770,283 +40773,283 @@ packages:
   - psutil==5.9.8
   - requests==2.32.3
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-replicator/isaacsim_replicator-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-replicator/isaacsim_replicator-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-replicator
-  version: 6.0.0.0
-  sha256: 513ea2a3aa177ef41f48cc0d7ea82e2953234e14fba4b2ce9e08911f1ee113f6
+  version: 6.0.1.0
+  sha256: 01485414698e1052ce04d5c61942aca8284fe69cbc969bca129f7950736f3445
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-core==6.0.0.0
-  - isaacsim-storage==6.0.0.0
+  - isaacsim-core==6.0.1.0
+  - isaacsim-storage==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-replicator/isaacsim_replicator-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-replicator/isaacsim_replicator-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-replicator
-  version: 6.0.0.0
-  sha256: cc1f1f227940b6fc1ca3764af9a3e7052d4235c6588288fd9a8d8f5b40b11496
+  version: 6.0.1.0
+  sha256: e3c4068c12a4c008efb1e4d8e644b072cdda5d05beaeae9292979bb3ebcf6e88
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-core==6.0.0.0
-  - isaacsim-storage==6.0.0.0
+  - isaacsim-core==6.0.1.0
+  - isaacsim-storage==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-rl/isaacsim_rl-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-rl/isaacsim_rl-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-rl
-  version: 6.0.0.0
-  sha256: 96ad9649f7646fbc68c1e9b16b9f72ccf1541abfd52c74e3293e21cf8f64094d
+  version: 6.0.1.0
+  sha256: fda0f6f9a200dacc7bb76e363ed66f8b9bce3ebdb9d254e00533a5789e121d73
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-robot==6.0.0.0
-  - isaacsim-benchmark==6.0.0.0
+  - isaacsim-robot==6.0.1.0
+  - isaacsim-benchmark==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-rl/isaacsim_rl-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-rl/isaacsim_rl-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-rl
-  version: 6.0.0.0
-  sha256: e4a19eb4045157b3098f5b0fc118b60c8713836f49f7f40907107f536d9f5bb7
+  version: 6.0.1.0
+  sha256: 02595ff26cb2822602e1f25c5f9c3ccaf5a5abc3b227e69e140f4db599836a7d
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-robot==6.0.0.0
-  - isaacsim-benchmark==6.0.0.0
+  - isaacsim-robot==6.0.1.0
+  - isaacsim-benchmark==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-robot-motion/isaacsim_robot_motion-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-robot-motion/isaacsim_robot_motion-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-robot-motion
-  version: 6.0.0.0
-  sha256: 0fcd62ce6f52e55fc77346ccceea248dc57baf25f30bd082186d61e33e47748f
+  version: 6.0.1.0
+  sha256: 2a6af11d616efbde551813d40ac22cd2ce992a862fbe8395a3f83ca5d4a937de
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-gui==6.0.0.0
+  - isaacsim-gui==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-robot-motion/isaacsim_robot_motion-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-robot-motion/isaacsim_robot_motion-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-robot-motion
-  version: 6.0.0.0
-  sha256: 8cfbb69eb8ef5304e69e880f66a6aa5977ed2c5486d671032ab516a881c610e6
+  version: 6.0.1.0
+  sha256: 4ce18b32cbcca44fc2163346076fd99d2ea1b6b19fff9e9a11cb69c134e0c16f
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-gui==6.0.0.0
+  - isaacsim-gui==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-robot-setup/isaacsim_robot_setup-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-robot-setup/isaacsim_robot_setup-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-robot-setup
-  version: 6.0.0.0
-  sha256: 3216c885cfa9c6b227e727bbe183df54a22baef2f3a03f1259ea99db6116d8c2
+  version: 6.0.1.0
+  sha256: b199045e8f8d9ca9806e5d7eb8a119654746cff8bc33a2ef254494502d832ea2
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-robot-motion==6.0.0.0
+  - isaacsim-robot-motion==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-robot-setup/isaacsim_robot_setup-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-robot-setup/isaacsim_robot_setup-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-robot-setup
-  version: 6.0.0.0
-  sha256: 4d4e250e987f901f0f771d514dc1ffdc760b53f0aa0fe820bb35c82301e5b5fb
+  version: 6.0.1.0
+  sha256: e57993e7a658a90300967969965b2d9e05210752b9cb41b645d57b69764b7efc
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-robot-motion==6.0.0.0
+  - isaacsim-robot-motion==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-robot/isaacsim_robot-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-robot/isaacsim_robot-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-robot
-  version: 6.0.0.0
-  sha256: 7583e887798a57e8d07aa130be66166c872fcaf66267e96bc81204856ce467cd
+  version: 6.0.1.0
+  sha256: 2b5e23d06e80b5ba538803c3e63b2ccd909a8bc10516e75ee7693ad49e3407b5
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-sensor==6.0.0.0
-  - isaacsim-robot-motion==6.0.0.0
+  - isaacsim-sensor==6.0.1.0
+  - isaacsim-robot-motion==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-robot/isaacsim_robot-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-robot/isaacsim_robot-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-robot
-  version: 6.0.0.0
-  sha256: 85e425a1f3bb22a8c8ab109ee823a879a7b2d0cf149c36ea4f4b0a5e1d71fa89
+  version: 6.0.1.0
+  sha256: 2df7350dbbdf2a9442d671416d5039e809bdb65a6303f2bfbd3a19eb1118fdc6
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-sensor==6.0.0.0
-  - isaacsim-robot-motion==6.0.0.0
+  - isaacsim-sensor==6.0.1.0
+  - isaacsim-robot-motion==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-ros1/isaacsim_ros1-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-ros1/isaacsim_ros1-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-ros1
-  version: 6.0.0.0
-  sha256: cd40231e5bcb387b00af96972fa88941d9338a33f5a0c61479d7b5293545cb3b
+  version: 6.0.1.0
+  sha256: 3ce21fa59dc5c717452f3c038064fc294b139200a2d35a35b92032117f20db41
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-sensor==6.0.0.0
+  - isaacsim-sensor==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-ros1/isaacsim_ros1-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-ros1/isaacsim_ros1-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-ros1
-  version: 6.0.0.0
-  sha256: 1aa645f69d786aa1a26900037bfe510cb5eb6866c405b98df5ab63a27246ad33
+  version: 6.0.1.0
+  sha256: 918e26f5f5cbb88847850fcbcd96cf4773b4c06b0f364233f320bb76c16d7d85
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-sensor==6.0.0.0
+  - isaacsim-sensor==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-ros2/isaacsim_ros2-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-ros2/isaacsim_ros2-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-ros2
-  version: 6.0.0.0
-  sha256: 17b6e292fa3a203860b8e424e9473b866a259502b1768a3500924d0c5707edf0
+  version: 6.0.1.0
+  sha256: 3bbfc86ecf12a67858bbb4a226a2acbbcc3b754f504da1a78ba4bf80dde8fae7
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-sensor==6.0.0.0
+  - isaacsim-sensor==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-ros2/isaacsim_ros2-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-ros2/isaacsim_ros2-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-ros2
-  version: 6.0.0.0
-  sha256: 5aaada0fac7975535e1a9294c9e245c4914d0ab98367968ea121bbcca63200f1
+  version: 6.0.1.0
+  sha256: 74e76fe2e6e101e47b1c01374d0f00fab2e9a55911d30ca3501d2f4f48e20687
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-sensor==6.0.0.0
+  - isaacsim-sensor==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-sensor/isaacsim_sensor-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-sensor/isaacsim_sensor-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-sensor
-  version: 6.0.0.0
-  sha256: 18ab20580580cf24acfc14681040f099c6ae58361a1dc82a3abdd5572d83530e
+  version: 6.0.1.0
+  sha256: d4fbcda65fb9ea5c1c8a097d015130dabd6ea0416a878068d4a92fa7ef2f9594
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-utils==6.0.0.0
-  - isaacsim-gui==6.0.0.0
-  - isaacsim-storage==6.0.0.0
+  - isaacsim-utils==6.0.1.0
+  - isaacsim-gui==6.0.1.0
+  - isaacsim-storage==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-sensor/isaacsim_sensor-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-sensor/isaacsim_sensor-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-sensor
-  version: 6.0.0.0
-  sha256: 5fa1ba942eb547d67b5c4ca81e471b51c35c747012dca3d3e586e4e2679c63b4
+  version: 6.0.1.0
+  sha256: 2f027b1605627b3eba69f89bc893e3b5be345bcffae215e90e329151e40b2851
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-utils==6.0.0.0
-  - isaacsim-gui==6.0.0.0
-  - isaacsim-storage==6.0.0.0
+  - isaacsim-utils==6.0.1.0
+  - isaacsim-gui==6.0.1.0
+  - isaacsim-storage==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-storage/isaacsim_storage-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-storage/isaacsim_storage-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-storage
-  version: 6.0.0.0
-  sha256: 0a25177e52ea1841e4c2ff33db85924db3fb500b1aa3c179aeb35d8ccde310bb
+  version: 6.0.1.0
+  sha256: 66b5734f9104066395a97ae9dcecb5855a1a4201eb9dea3c01e012b39a1968fe
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-kernel==6.0.0.0
+  - isaacsim-kernel==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-storage/isaacsim_storage-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-storage/isaacsim_storage-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-storage
-  version: 6.0.0.0
-  sha256: 152506298ce700dfc174993b16c17f9f34597c8c747fc7b2297584cd06b42c52
+  version: 6.0.1.0
+  sha256: fc0f50818c0d1d12424464e61bf95c679ed8748925b3eca1108789d40d830bcc
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-kernel==6.0.0.0
+  - isaacsim-kernel==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-template/isaacsim_template-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-template/isaacsim_template-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-template
-  version: 6.0.0.0
-  sha256: fa252584d665a01a54dad3fa0f5dba49af50e1539962a5347ad12a75d2780ba0
+  version: 6.0.1.0
+  sha256: 5b5c8697847002a49cfd342ba3aeb313c5c574e0da7fc56cd1e3861ebd654a27
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-storage==6.0.0.0
-  - isaacsim-gui==6.0.0.0
+  - isaacsim-storage==6.0.1.0
+  - isaacsim-gui==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-template/isaacsim_template-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-template/isaacsim_template-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-template
-  version: 6.0.0.0
-  sha256: b4f938a73b5f689109e0c303d9626a64891bbed6cd15f0ee82d0d05a770ee38d
+  version: 6.0.1.0
+  sha256: 4634bf5da8e09a9bc30a28610f315f7003d3915e27de78e9fd951cb360fb62b8
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-storage==6.0.0.0
-  - isaacsim-gui==6.0.0.0
+  - isaacsim-storage==6.0.1.0
+  - isaacsim-gui==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-test/isaacsim_test-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-test/isaacsim_test-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-test
-  version: 6.0.0.0
-  sha256: cb764c6257bd0d234a4d25256aa53a4803a73a8522fbf4f049f82101a2f7f786
+  version: 6.0.1.0
+  sha256: 90b7b58d7bed986c0e523f88411706394c5fd9c24911016b6c38b713c4b9aa66
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-robot==6.0.0.0
+  - isaacsim-robot==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-test/isaacsim_test-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-test/isaacsim_test-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-test
-  version: 6.0.0.0
-  sha256: f6dd85aedac1845b742fee9e0d5ff1104c75c3e3a9c77e2c86677bb9cdced9b8
+  version: 6.0.1.0
+  sha256: d3a6d1ae818c73230b18b86c102aa67c38ee38b966d86f9178149da83fecdb4d
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-robot==6.0.0.0
+  - isaacsim-robot==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-utils/isaacsim_utils-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-utils/isaacsim_utils-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim-utils
-  version: 6.0.0.0
-  sha256: d6b66f36e58df812e1c9008e41e36bfff9b3bbb86e344f6af125b4d015cbdbe0
+  version: 6.0.1.0
+  sha256: 588a32a81e430c8f9759c8769f41bd76e6ca5c39351bd0bdb8f9fb5888715b53
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-gui==6.0.0.0
+  - isaacsim-gui==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim-utils/isaacsim_utils-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim-utils/isaacsim_utils-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim-utils
-  version: 6.0.0.0
-  sha256: 486b278916a1a9b17e3c5ff2a65be4f483d72b27b93dd34889900d6e49d7dffc
+  version: 6.0.1.0
+  sha256: ddd00712bb7c8d8f3b36a0938424f90f426e246dadfac8efa36d11358e1c43af
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-gui==6.0.0.0
+  - isaacsim-gui==6.0.1.0
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim/isaacsim-6.0.0.0-cp312-none-manylinux_2_35_x86_64.whl
+- pypi: https://pypi.nvidia.com/isaacsim/isaacsim-6.0.1.0-cp312-none-manylinux_2_35_x86_64.whl
   name: isaacsim
-  version: 6.0.0.0
-  sha256: 39052a90ba5928c97450b671ab74f2f25194d7af1fdecb8d9b0022a3faf37875
+  version: 6.0.1.0
+  sha256: d3fea3b40b513482e85c62e552bfdfb73a3ac950662a843c7375cfa8c97941c2
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-kernel==6.0.0.0
-  - isaacsim-app==6.0.0.0 ; extra == 'compatibility-check'
-  - isaacsim-rl==6.0.0.0 ; extra == 'rl'
-  - isaacsim-replicator==6.0.0.0 ; extra == 'rl'
-  - isaacsim-app==6.0.0.0 ; extra == 'rl'
-  - isaacsim-ros1==6.0.0.0 ; extra == 'ros'
-  - isaacsim-ros2==6.0.0.0 ; extra == 'ros2'
-  - isaacsim-extscache-kit==6.0.0.0 ; extra == 'extscache'
-  - isaacsim-extscache-kit-sdk==6.0.0.0 ; extra == 'extscache'
-  - isaacsim-extscache-physics==6.0.0.0 ; extra == 'extscache'
-  - isaacsim-app==6.0.0.0 ; extra == 'all'
-  - isaacsim-asset==6.0.0.0 ; extra == 'all'
-  - isaacsim-benchmark==6.0.0.0 ; extra == 'all'
-  - isaacsim-code-editor==6.0.0.0 ; extra == 'all'
-  - isaacsim-core==6.0.0.0 ; extra == 'all'
-  - isaacsim-cortex==6.0.0.0 ; extra == 'all'
-  - isaacsim-example==6.0.0.0 ; extra == 'all'
-  - isaacsim-gui==6.0.0.0 ; extra == 'all'
-  - isaacsim-replicator==6.0.0.0 ; extra == 'all'
-  - isaacsim-rl==6.0.0.0 ; extra == 'all'
-  - isaacsim-robot==6.0.0.0 ; extra == 'all'
-  - isaacsim-robot-motion==6.0.0.0 ; extra == 'all'
-  - isaacsim-robot-setup==6.0.0.0 ; extra == 'all'
-  - isaacsim-ros1==6.0.0.0 ; extra == 'all'
-  - isaacsim-ros2==6.0.0.0 ; extra == 'all'
-  - isaacsim-sensor==6.0.0.0 ; extra == 'all'
-  - isaacsim-storage==6.0.0.0 ; extra == 'all'
-  - isaacsim-template==6.0.0.0 ; extra == 'all'
-  - isaacsim-test==6.0.0.0 ; extra == 'all'
-  - isaacsim-utils==6.0.0.0 ; extra == 'all'
+  - isaacsim-kernel==6.0.1.0
+  - isaacsim-app==6.0.1.0 ; extra == 'compatibility-check'
+  - isaacsim-rl==6.0.1.0 ; extra == 'rl'
+  - isaacsim-replicator==6.0.1.0 ; extra == 'rl'
+  - isaacsim-app==6.0.1.0 ; extra == 'rl'
+  - isaacsim-ros1==6.0.1.0 ; extra == 'ros'
+  - isaacsim-ros2==6.0.1.0 ; extra == 'ros2'
+  - isaacsim-extscache-kit==6.0.1.0 ; extra == 'extscache'
+  - isaacsim-extscache-kit-sdk==6.0.1.0 ; extra == 'extscache'
+  - isaacsim-extscache-physics==6.0.1.0 ; extra == 'extscache'
+  - isaacsim-app==6.0.1.0 ; extra == 'all'
+  - isaacsim-asset==6.0.1.0 ; extra == 'all'
+  - isaacsim-benchmark==6.0.1.0 ; extra == 'all'
+  - isaacsim-code-editor==6.0.1.0 ; extra == 'all'
+  - isaacsim-core==6.0.1.0 ; extra == 'all'
+  - isaacsim-cortex==6.0.1.0 ; extra == 'all'
+  - isaacsim-example==6.0.1.0 ; extra == 'all'
+  - isaacsim-gui==6.0.1.0 ; extra == 'all'
+  - isaacsim-replicator==6.0.1.0 ; extra == 'all'
+  - isaacsim-rl==6.0.1.0 ; extra == 'all'
+  - isaacsim-robot==6.0.1.0 ; extra == 'all'
+  - isaacsim-robot-motion==6.0.1.0 ; extra == 'all'
+  - isaacsim-robot-setup==6.0.1.0 ; extra == 'all'
+  - isaacsim-ros1==6.0.1.0 ; extra == 'all'
+  - isaacsim-ros2==6.0.1.0 ; extra == 'all'
+  - isaacsim-sensor==6.0.1.0 ; extra == 'all'
+  - isaacsim-storage==6.0.1.0 ; extra == 'all'
+  - isaacsim-template==6.0.1.0 ; extra == 'all'
+  - isaacsim-test==6.0.1.0 ; extra == 'all'
+  - isaacsim-utils==6.0.1.0 ; extra == 'all'
   requires_python: ==3.12.*
-- pypi: https://pypi.nvidia.com/isaacsim/isaacsim-6.0.0.0-cp312-none-win_amd64.whl
+- pypi: https://pypi.nvidia.com/isaacsim/isaacsim-6.0.1.0-cp312-none-win_amd64.whl
   name: isaacsim
-  version: 6.0.0.0
-  sha256: 3b525a92cee2faf94d623131af481fe3ebb4b4ae14d99a125da3518c485dd811
+  version: 6.0.1.0
+  sha256: a978f1ffb72bcba89fe1ee3bcc4fd204f8401938c369d6a3db8fc5c2753e6223
   index: https://pypi.nvidia.com/
   requires_dist:
-  - isaacsim-kernel==6.0.0.0
-  - isaacsim-app==6.0.0.0 ; extra == 'compatibility-check'
-  - isaacsim-rl==6.0.0.0 ; extra == 'rl'
-  - isaacsim-replicator==6.0.0.0 ; extra == 'rl'
-  - isaacsim-app==6.0.0.0 ; extra == 'rl'
-  - isaacsim-ros1==6.0.0.0 ; extra == 'ros'
-  - isaacsim-ros2==6.0.0.0 ; extra == 'ros2'
-  - isaacsim-extscache-kit==6.0.0.0 ; extra == 'extscache'
-  - isaacsim-extscache-kit-sdk==6.0.0.0 ; extra == 'extscache'
-  - isaacsim-extscache-physics==6.0.0.0 ; extra == 'extscache'
-  - isaacsim-app==6.0.0.0 ; extra == 'all'
-  - isaacsim-asset==6.0.0.0 ; extra == 'all'
-  - isaacsim-benchmark==6.0.0.0 ; extra == 'all'
-  - isaacsim-code-editor==6.0.0.0 ; extra == 'all'
-  - isaacsim-core==6.0.0.0 ; extra == 'all'
-  - isaacsim-cortex==6.0.0.0 ; extra == 'all'
-  - isaacsim-example==6.0.0.0 ; extra == 'all'
-  - isaacsim-gui==6.0.0.0 ; extra == 'all'
-  - isaacsim-replicator==6.0.0.0 ; extra == 'all'
-  - isaacsim-rl==6.0.0.0 ; extra == 'all'
-  - isaacsim-robot==6.0.0.0 ; extra == 'all'
-  - isaacsim-robot-motion==6.0.0.0 ; extra == 'all'
-  - isaacsim-robot-setup==6.0.0.0 ; extra == 'all'
-  - isaacsim-ros1==6.0.0.0 ; extra == 'all'
-  - isaacsim-ros2==6.0.0.0 ; extra == 'all'
-  - isaacsim-sensor==6.0.0.0 ; extra == 'all'
-  - isaacsim-storage==6.0.0.0 ; extra == 'all'
-  - isaacsim-template==6.0.0.0 ; extra == 'all'
-  - isaacsim-test==6.0.0.0 ; extra == 'all'
-  - isaacsim-utils==6.0.0.0 ; extra == 'all'
+  - isaacsim-kernel==6.0.1.0
+  - isaacsim-app==6.0.1.0 ; extra == 'compatibility-check'
+  - isaacsim-rl==6.0.1.0 ; extra == 'rl'
+  - isaacsim-replicator==6.0.1.0 ; extra == 'rl'
+  - isaacsim-app==6.0.1.0 ; extra == 'rl'
+  - isaacsim-ros1==6.0.1.0 ; extra == 'ros'
+  - isaacsim-ros2==6.0.1.0 ; extra == 'ros2'
+  - isaacsim-extscache-kit==6.0.1.0 ; extra == 'extscache'
+  - isaacsim-extscache-kit-sdk==6.0.1.0 ; extra == 'extscache'
+  - isaacsim-extscache-physics==6.0.1.0 ; extra == 'extscache'
+  - isaacsim-app==6.0.1.0 ; extra == 'all'
+  - isaacsim-asset==6.0.1.0 ; extra == 'all'
+  - isaacsim-benchmark==6.0.1.0 ; extra == 'all'
+  - isaacsim-code-editor==6.0.1.0 ; extra == 'all'
+  - isaacsim-core==6.0.1.0 ; extra == 'all'
+  - isaacsim-cortex==6.0.1.0 ; extra == 'all'
+  - isaacsim-example==6.0.1.0 ; extra == 'all'
+  - isaacsim-gui==6.0.1.0 ; extra == 'all'
+  - isaacsim-replicator==6.0.1.0 ; extra == 'all'
+  - isaacsim-rl==6.0.1.0 ; extra == 'all'
+  - isaacsim-robot==6.0.1.0 ; extra == 'all'
+  - isaacsim-robot-motion==6.0.1.0 ; extra == 'all'
+  - isaacsim-robot-setup==6.0.1.0 ; extra == 'all'
+  - isaacsim-ros1==6.0.1.0 ; extra == 'all'
+  - isaacsim-ros2==6.0.1.0 ; extra == 'all'
+  - isaacsim-sensor==6.0.1.0 ; extra == 'all'
+  - isaacsim-storage==6.0.1.0 ; extra == 'all'
+  - isaacsim-template==6.0.1.0 ; extra == 'all'
+  - isaacsim-test==6.0.1.0 ; extra == 'all'
+  - isaacsim-utils==6.0.1.0 ; extra == 'all'
   requires_python: ==3.12.*
 - pypi: https://pypi.nvidia.com/mujoco-usd-converter/mujoco_usd_converter-0.1.0a2-py3-none-any.whl
   name: mujoco-usd-converter
@@ -41083,10 +41086,10 @@ packages:
   sha256: adade8dcbd0edf427b7204d480d6066d33902cab2a4707dcfc48a2d0fd44ab90
   index: https://pypi.nvidia.com/
   requires_python: '>=3'
-- pypi: https://pypi.nvidia.com/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl
+- pypi: https://pypi.nvidia.com/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.19.0.56-py3-none-manylinux_2_27_x86_64.whl
   name: nvidia-cudnn-cu12
-  version: 9.10.2.21
-  sha256: 949452be657fa16687d0930933f032835951ef0892b37d2d53824d1a84dc97a8
+  version: 9.19.0.56
+  sha256: ac6ad90a075bb33a94f2b4cf4622eac13dd4dc65cf6dd9c7572a318516a36625
   index: https://pypi.nvidia.com/
   requires_dist:
   - nvidia-cublas-cu12
@@ -41134,10 +41137,10 @@ packages:
   version: 0.7.1
   sha256: f1bb701d6b930d5a7cea44c19ceb973311500847f81b634d802b7b539dc55623
   index: https://pypi.nvidia.com/
-- pypi: https://pypi.nvidia.com/nvidia-nccl-cu12/nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+- pypi: https://pypi.nvidia.com/nvidia-nccl-cu12/nvidia_nccl_cu12-2.28.9-py3-none-manylinux_2_18_x86_64.whl
   name: nvidia-nccl-cu12
-  version: 2.27.5
-  sha256: ad730cf15cb5d25fe849c6e6ca9eb5b76db16a80f13f425ac68d8e2e55624457
+  version: 2.28.9
+  sha256: 485776daa8447da5da39681af455aa3b2c2586ddcf4af8772495e7c532c7e5ab
   index: https://pypi.nvidia.com/
   requires_python: '>=3'
 - pypi: https://pypi.nvidia.com/nvidia-nvjitlink-cu12/nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl
@@ -41158,18 +41161,6 @@ packages:
   sha256: 5b17e2001cc0d751a5bc2c6ec6d26ad95913324a4adb86788c944f8ce9ba441f
   index: https://pypi.nvidia.com/
   requires_python: '>=3'
-- pypi: https://pypi.nvidia.com/pynvvideocodec/pynvvideocodec-2.1.0-cp312-cp312-manylinux_2_28_x86_64.whl
-  name: pynvvideocodec
-  version: 2.1.0
-  sha256: c317fbad725b1b81936b863edcd98920bc4be423b9965719657030359d7afe29
-  index: https://pypi.nvidia.com/
-  requires_python: '>=3.8'
-- pypi: https://pypi.nvidia.com/pynvvideocodec/pynvvideocodec-2.1.0-cp312-cp312-win_amd64.whl
-  name: pynvvideocodec
-  version: 2.1.0
-  sha256: 09cdd222c761855cde9b05ddc13d21893473cebae50077eca20b4eac0fed8acb
-  index: https://pypi.nvidia.com/
-  requires_python: '>=3.8'
 - pypi: https://pypi.nvidia.com/usd-exchange/usd_exchange-2.3.0-cp312-cp312-manylinux_2_35_x86_64.whl
   name: usd-exchange
   version: 2.3.0

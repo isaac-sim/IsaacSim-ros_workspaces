@@ -27,7 +27,7 @@ import atexit
 
 # Default values
 defaults = {
-    "isaac_sim_version": "6.0.0",
+    "isaac_sim_version": "6.0.1",
     "isaac_sim_path": "",
     "use_internal_libs": False,
     "dds_type": "",

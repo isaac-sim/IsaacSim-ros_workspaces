@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.1.0] - 2026-06-23
+### Changed
+- Bumped versions for Isaac Sim pip dependency to 6.0.1.0.
+
 ## [6.0.3] - 2026-06-10
 ### Changed
 - Bumped versions for Isaac Sim pip dependency to 6.0.0.1.
