@@ -84,7 +84,7 @@ def generate_launch_description():
                     ]
                 ),
                 launch_arguments={
-                    'version': '6.0.0',
+                    'version': '6.0.1',
                     'play_sim_on_start': 'true',
                 }.items(),
             ),
