@@ -49,6 +49,7 @@ while getopts "v:d:hn" opt; do
     n) NO_CACHE="--no-cache" ;;
     h) display_help; exit 0 ;;
     \?) echo "Invalid option -$OPTARG" >&2; display_help; exit 1 ;;
+    *) echo "Unexpected option -$OPTARG" >&2; display_help; exit 1 ;;
   esac
 done
 
@@ -128,4 +129,4 @@ docker cp $(docker create --rm isaac_sim_ros:ubuntu_${UBUNTU_VERSION%.*}_${ROS_D
 
 popd
 
-echo "Build complete for $ROS_DISTRO on Ubuntu $UBUNTU_VERSION" 
+echo "Build complete for $ROS_DISTRO on Ubuntu $UBUNTU_VERSION"
