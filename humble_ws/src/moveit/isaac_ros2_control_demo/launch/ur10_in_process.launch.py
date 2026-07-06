@@ -16,27 +16,42 @@ ROBOT_DESCRIPTION_TIMEOUT = 60.0  # First-run asset download can take 30s+.
 
 def _fetch_latched_urdf(timeout: float) -> str:
     import rclpy
+    from rclpy.executors import SingleThreadedExecutor
     from rclpy.qos import QoSDurabilityPolicy, QoSHistoryPolicy, QoSProfile, QoSReliabilityPolicy
     from std_msgs.msg import String
 
-    rclpy.init()
+    context = rclpy.Context()
+    node = None
+    executor = None
+    holder = {"urdf": None}
     try:
-        node = rclpy.create_node("isaac_ros2_control_demo_urdf_reader")
+        rclpy.init(args=[], context=context)
+        node = rclpy.create_node("isaac_ros2_control_demo_urdf_reader", context=context)
+        executor = SingleThreadedExecutor(context=context)
+        executor.add_node(node)
         qos = QoSProfile(
             depth=1,
             durability=QoSDurabilityPolicy.TRANSIENT_LOCAL,
             reliability=QoSReliabilityPolicy.RELIABLE,
             history=QoSHistoryPolicy.KEEP_LAST,
         )
-        holder = {"urdf": None}
         node.create_subscription(String, "/robot_description", lambda m: holder.update(urdf=m.data), qos)
         node.get_logger().info(f"Waiting up to {timeout:.0f}s for /robot_description from Isaac Sim...")
         deadline = time.time() + timeout
         while holder["urdf"] is None and time.time() < deadline:
-            rclpy.spin_once(node, timeout_sec=0.5)
-        node.destroy_node()
+            executor.spin_once(timeout_sec=0.5)
     finally:
-        rclpy.shutdown()
+        try:
+            if executor is not None:
+                if node is not None:
+                    executor.remove_node(node)
+                executor.shutdown()
+        finally:
+            try:
+                if node is not None:
+                    node.destroy_node()
+            finally:
+                context.try_shutdown()
 
     if holder["urdf"] is None:
         raise RuntimeError(
