@@ -1,0 +1,24 @@
+/**:
+  ros__parameters:
+    planning_pipelines:
+      pipeline_names: ["ompl"]
+    default_planning_pipeline: ompl
+    ompl:
+      planning_plugins: ["ompl_interface/OMPLPlanner"]
+      request_adapters:
+        - default_planning_request_adapters/ResolveConstraintFrames
+        - default_planning_request_adapters/ValidateWorkspaceBounds
+        - default_planning_request_adapters/CheckStartStateBounds
+        - default_planning_request_adapters/CheckStartStateCollision
+      response_adapters:
+        - default_planning_response_adapters/AddTimeOptimalParameterization
+        - default_planning_response_adapters/ValidateSolution
+        - default_planning_response_adapters/DisplayMotionPath
+      planner_configs:
+        RRTConnectkConfigDefault:
+          type: geometric::RRTConnect
+          range: 0.0
+      ur_manipulator:
+        planner_configs:
+          - RRTConnectkConfigDefault
+        default_planner_config: RRTConnectkConfigDefault
