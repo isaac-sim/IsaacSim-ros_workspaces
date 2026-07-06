@@ -7,7 +7,7 @@ in-Isaac-Sim half lives in
 ## Build
 
 ```bash
-cd ~/IsaacSim-ros_workspaces/jazzy_ws
+cd ~/IsaacSim-ros_workspaces/humble_ws
 colcon build --packages-select isaac_ros2_control_demo
 source install/setup.bash
 ```
