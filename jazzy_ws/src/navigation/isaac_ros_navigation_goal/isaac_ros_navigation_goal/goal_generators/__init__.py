@@ -13,5 +13,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .random_goal_generator import RandomGoalGenerator
 from .goal_reader import GoalReader
+from .random_goal_generator import RandomGoalGenerator

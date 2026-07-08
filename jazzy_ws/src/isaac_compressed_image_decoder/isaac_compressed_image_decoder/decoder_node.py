@@ -27,17 +27,17 @@ class CompressedImageDecoder(Node):
     """Subscribe to H264 CompressedImage messages, decode with PyAV, and republish as raw Image."""
 
     def __init__(self):
-        super().__init__('compressed_image_decoder')
+        super().__init__("compressed_image_decoder")
 
         # Declare parameters for topic names
-        self.declare_parameter('input_topic', 'image_raw/compressed')
-        self.declare_parameter('output_topic', 'image_decoded')
+        self.declare_parameter("input_topic", "image_raw/compressed")
+        self.declare_parameter("output_topic", "image_decoded")
 
-        input_topic = self.get_parameter('input_topic').get_parameter_value().string_value
-        output_topic = self.get_parameter('output_topic').get_parameter_value().string_value
+        input_topic = self.get_parameter("input_topic").get_parameter_value().string_value
+        output_topic = self.get_parameter("output_topic").get_parameter_value().string_value
 
         # Create H264 codec context for decoding
-        self._codec = av.CodecContext.create('h264', 'r')
+        self._codec = av.CodecContext.create("h264", "r")
 
         # Publisher for decoded raw images
         self._publisher = self.create_publisher(Image, output_topic, 10)
@@ -50,9 +50,7 @@ class CompressedImageDecoder(Node):
             10,
         )
 
-        self.get_logger().info(
-            f'Compressed image decoder started: {input_topic} -> {output_topic}'
-        )
+        self.get_logger().info(f"Compressed image decoder started: {input_topic} -> {output_topic}")
 
     def _on_compressed_image(self, msg: CompressedImage):
         """Decode an H264 CompressedImage and publish as a raw Image."""
@@ -67,12 +65,12 @@ class CompressedImageDecoder(Node):
         try:
             frames = self._codec.decode(packet)
         except av.error.InvalidDataError as e:
-            self.get_logger().warn(f'Failed to decode H264 packet: {e}')
+            self.get_logger().warn(f"Failed to decode H264 packet: {e}")
             return
 
         for frame in frames:
             # Convert the decoded frame to RGB24 numpy array
-            rgb_frame = frame.to_ndarray(format='rgb24')
+            rgb_frame = frame.to_ndarray(format="rgb24")
             height, width, channels = rgb_frame.shape
 
             # Build the output Image message
@@ -80,7 +78,7 @@ class CompressedImageDecoder(Node):
             out_msg.header = msg.header
             out_msg.height = height
             out_msg.width = width
-            out_msg.encoding = 'rgb8'
+            out_msg.encoding = "rgb8"
             out_msg.is_bigendian = 0
             out_msg.step = width * channels
             out_msg.data = rgb_frame.tobytes()
@@ -101,5 +99,5 @@ def main(args=None):
         rclpy.shutdown()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

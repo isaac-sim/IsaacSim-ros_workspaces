@@ -19,17 +19,16 @@ import signal
 import sys
 
 import numpy as np
-
 import rclpy
+from ackermann_msgs.msg import AckermannDriveStamped
 from rclpy.node import Node
 
-from ackermann_msgs.msg import AckermannDriveStamped
 
 class MinimalPublisher(Node):
 
     def __init__(self):
-        super().__init__('test_ackermann')
-        self.publisher_ = self.create_publisher(AckermannDriveStamped, 'ackermann_cmd', 10)
+        super().__init__("test_ackermann")
+        self.publisher_ = self.create_publisher(AckermannDriveStamped, "ackermann_cmd", 10)
         timer_period = 0.05  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
@@ -43,7 +42,7 @@ class MinimalPublisher(Node):
         degrees = np.concatenate((degrees1, degrees1[::-1], degrees2[::-1], degrees2))
         msg.header.frame_id = "ackermann"
         msg.header.stamp = self.get_clock().now().to_msg()
-        msg.drive.steering_angle =  0.0174533 * (degrees[self.i % degrees.size])
+        msg.drive.steering_angle = 0.0174533 * (degrees[self.i % degrees.size])
 
         msg.drive.speed = float(degrees[self.i % degrees.size])
         msg.drive.acceleration = 1.0
@@ -56,7 +55,7 @@ class MinimalPublisher(Node):
         # Publish zero-velocity message
         msg.drive.steering_angle = 0.0
         msg.drive.speed = 0.0
-        self.publisher_.publish(msg)  
+        self.publisher_.publish(msg)
 
 
 def main(args=None):
@@ -80,5 +79,5 @@ def main(args=None):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

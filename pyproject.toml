@@ -1,0 +1,30 @@
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    \.git
+  | \.pixi
+  | \.pytest_cache
+  | \.venv
+  | \.venv-format
+  | __pycache__
+  | build
+  | build_ws
+  | install
+  | log
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
+src_paths = ["."]
+skip_gitignore = true
+skip_glob = [
+  "*/build/*",
+  "*/install/*",
+  "*/log/*",
+  "build_ws/*",
+  ".venv-format/*",
+]

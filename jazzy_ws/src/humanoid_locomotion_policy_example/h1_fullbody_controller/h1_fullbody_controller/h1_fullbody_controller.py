@@ -15,15 +15,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import rclpy
-import torch
-import numpy as np
 import io
 import time
-from rclpy.node import Node
+
+import numpy as np
+import rclpy
+import torch
 from geometry_msgs.msg import Twist
-from sensor_msgs.msg import JointState, Imu
 from message_filters import Subscriber, TimeSynchronizer
+from rclpy.node import Node
+from sensor_msgs.msg import Imu, JointState
 
 
 class H1FullbodyController(Node):
@@ -36,18 +37,12 @@ class H1FullbodyController(Node):
 
     def __init__(self):
         """Initialize the H1 fullbody controller node."""
-        super().__init__('h1_fullbody_controller')
+        super().__init__("h1_fullbody_controller")
 
         # Declare and set parameters
-        self.declare_parameter('publish_period_ms', 5)
-        self.declare_parameter('policy_path', 'policy/h1_policy.pt')
-        self.set_parameters(
-            [rclpy.parameter.Parameter(
-                'use_sim_time',
-                rclpy.Parameter.Type.BOOL,
-                True
-            )]
-        )
+        self.declare_parameter("publish_period_ms", 5)
+        self.declare_parameter("policy_path", "policy/h1_policy.pt")
+        self.declare_parameter("use_sim_time", True)
 
         self._logger = self.get_logger()
 
@@ -59,29 +54,22 @@ class H1FullbodyController(Node):
         )
 
         # Create subscription for velocity commands
-        self._cmd_vel_subscription = self.create_subscription(
-            Twist,
-            'cmd_vel',
-            self._cmd_vel_callback,
-            qos_profile=10)
+        self._cmd_vel_subscription = self.create_subscription(Twist, "cmd_vel", self._cmd_vel_callback, qos_profile=10)
 
         # Create publisher for joint commands
-        self._joint_publisher = self.create_publisher(
-            JointState,
-            'joint_command',
-            qos_profile=sim_qos_profile)
+        self._joint_publisher = self.create_publisher(JointState, "joint_command", qos_profile=sim_qos_profile)
 
         # Setup synchronized subscribers for IMU and joint state data
         self._imu_sub_filter = Subscriber(
             self,
             Imu,
-            'imu',
+            "imu",
             qos_profile=sim_qos_profile,
         )
         self._joint_states_sub_filter = Subscriber(
             self,
             JointState,
-            'joint_states',
+            "joint_states",
             qos_profile=sim_qos_profile,
         )
         queue_size = 10
@@ -92,7 +80,7 @@ class H1FullbodyController(Node):
         self.sync.registerCallback(self._tick)
 
         # Load neural network policy
-        self.policy_path = self.get_parameter('policy_path').value
+        self.policy_path = self.get_parameter("policy_path").value
         self.load_policy()
 
         # Initialize state variables
@@ -109,35 +97,51 @@ class H1FullbodyController(Node):
         self._dt = 0.0  # Time delta between ticks
 
         # Default joint positions representing the nominal stance
-        self.default_pos = np.array([
-            0.0, 0.0, 0.0, 0.0, 0.0,
-            0.28, 0.28, -0.28, -0.28,
-            0.0, 0.0, 0.79, 0.79,
-            0.0, 0.0, -0.52, -0.52,
-            0.52, 0.52
-        ])
+        self.default_pos = np.array(
+            [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.28,
+                0.28,
+                -0.28,
+                -0.28,
+                0.0,
+                0.0,
+                0.79,
+                0.79,
+                0.0,
+                0.0,
+                -0.52,
+                -0.52,
+                0.52,
+                0.52,
+            ]
+        )
 
         # Joint names in the order expected by the policy
         self.joint_names = [
-            'left_hip_yaw',
-            'right_hip_yaw',
-            'torso',
-            'left_hip_roll',
-            'right_hip_roll',
-            'left_shoulder_pitch',
-            'right_shoulder_pitch',
-            'left_hip_pitch',
-            'right_hip_pitch',
-            'left_shoulder_roll',
-            'right_shoulder_roll',
-            'left_knee',
-            'right_knee',
-            'left_shoulder_yaw',
-            'right_shoulder_yaw',
-            'left_ankle',
-            'right_ankle',
-            'left_elbow',
-            'right_elbow'
+            "left_hip_yaw",
+            "right_hip_yaw",
+            "torso",
+            "left_hip_roll",
+            "right_hip_roll",
+            "left_shoulder_pitch",
+            "right_shoulder_pitch",
+            "left_hip_pitch",
+            "right_hip_pitch",
+            "left_shoulder_roll",
+            "right_shoulder_roll",
+            "left_knee",
+            "right_knee",
+            "left_shoulder_yaw",
+            "right_shoulder_yaw",
+            "left_ankle",
+            "right_ankle",
+            "left_elbow",
+            "right_elbow",
         ]
 
         self._logger.info("Initializing H1FullbodyController")
@@ -151,12 +155,13 @@ class H1FullbodyController(Node):
         # Reset if time jumped backwards (most likely due to sim time reset)
         now = self.get_clock().now().nanoseconds * 1e-9
         if now < self._last_tick_time:
-            self._logger.error(
-                f'{self._get_stamp_prefix()} Time jumped backwards. Resetting.'
-            )
+            self._logger.error(f"{self._get_stamp_prefix()} Time jumped backwards. Resetting.")
+            self._last_tick_time = now
+            self._dt = 0.0
+            return
 
         # Calculate time delta since last tick
-        self._dt = (now - self._last_tick_time)
+        self._dt = now - self._last_tick_time
         self._last_tick_time = now
 
         # Run the control policy
@@ -183,21 +188,13 @@ class H1FullbodyController(Node):
         R_BI = self.quat_to_rot_matrix(quat_array).T
 
         # Extract linear acceleration and integrate to estimate velocity
-        lin_acc_b = np.array([
-            imu.linear_acceleration.x,
-            imu.linear_acceleration.y,
-            imu.linear_acceleration.z
-        ])
+        lin_acc_b = np.array([imu.linear_acceleration.x, imu.linear_acceleration.y, imu.linear_acceleration.z])
 
         # Simple integration to estimate velocity
         self._lin_vel_b = lin_acc_b * self._dt + self._lin_vel_b
 
         # Extract angular velocity
-        ang_vel_b = np.array([
-            imu.angular_velocity.x,
-            imu.angular_velocity.y,
-            imu.angular_velocity.z
-        ])
+        ang_vel_b = np.array([imu.angular_velocity.x, imu.angular_velocity.y, imu.angular_velocity.z])
 
         # Calculate gravity direction in body frame
         gravity_b = np.matmul(R_BI, np.array([0.0, 0.0, -1.0]))
@@ -209,11 +206,7 @@ class H1FullbodyController(Node):
         obs[3:6] = ang_vel_b
         obs[6:9] = gravity_b
 
-        cmd_vel = [
-            self._cmd_vel.linear.x,
-            self._cmd_vel.linear.y,
-            self._cmd_vel.angular.z
-        ]
+        cmd_vel = [self._cmd_vel.linear.x, self._cmd_vel.linear.y, self._cmd_vel.angular.z]
         obs[9:12] = np.array(cmd_vel)
 
         current_joint_pos = np.zeros(19)
@@ -266,7 +259,7 @@ class H1FullbodyController(Node):
 
     def load_policy(self):
         """Load the neural network policy from the specified path."""
-        with open(self.policy_path, 'rb') as f:
+        with open(self.policy_path, "rb") as f:
             buffer = io.BytesIO(f.read())
         self.policy = torch.jit.load(buffer)
 
@@ -274,7 +267,7 @@ class H1FullbodyController(Node):
         """Create a timestamp prefix for logging."""
         now = time.time()
         now_ros = self.get_clock().now().nanoseconds / 1e9
-        return f'[{now}][{now_ros}]'
+        return f"[{now}][{now_ros}]"
 
     def header_time_in_seconds(self, header) -> float:
         """Convert a ROS message header timestamp to seconds."""
@@ -290,5 +283,5 @@ def main(args=None):
     rclpy.shutdown()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -14,16 +14,15 @@
 # limitations under the License.
 
 import os
+
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.actions import IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription, RegisterEventHandler
+from launch.event_handlers import OnProcessIO, OnProcessStart
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import FindExecutable, LaunchConfiguration
 from launch_ros.actions import Node
-from launch.actions import RegisterEventHandler, ExecuteProcess
-from launch.event_handlers import OnProcessStart, OnProcessIO
-from launch.substitutions import FindExecutable
+
 
 def generate_launch_description():
 
@@ -43,52 +42,63 @@ def generate_launch_description():
         ),
     )
 
-
     nav2_bringup_launch_dir = os.path.join(get_package_share_directory("nav2_bringup"), "launch")
 
     rviz_config_dir = os.path.join(get_package_share_directory("iw_hub_navigation"), "rviz2", "iw_hub_navigation.rviz")
 
     ld_automatic_goal = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory("isaac_ros_navigation_goal"), "launch", "isaac_ros_navigation_goal.launch.py"
+        PythonLaunchDescriptionSource(
+            [
+                os.path.join(
+                    get_package_share_directory("isaac_ros_navigation_goal"),
+                    "launch",
+                    "isaac_ros_navigation_goal.launch.py",
                 ),
             ]
         ),
     )
-
-    
+    automatic_goal_launched = False
 
     def execute_second_node_if_condition_met(event, second_node_action):
+        nonlocal automatic_goal_launched
+        if automatic_goal_launched:
+            return None
+
         output = event.text.decode().strip()
         # Look for fully loaded message from Isaac Sim. Only applicable in Gui mode.
         if "Stage loaded and simulation is playing." in output:
+            automatic_goal_launched = True
             # Log a message indicating the condition has been met
             print("Condition met, launching the second node.")
-            
+
             # If Nav2 takes additional time to initialize, uncomment the lines below to add a delay of 10 seconds (or any desired duration) before launching the second_node_action
             # import time
             # time.sleep(10)
             return second_node_action
 
-
     return LaunchDescription(
         [
             # Declaring the Isaac Sim scene path. 'gui' launch argument is already used withing run_isaac_sim.launch.py
-            DeclareLaunchArgument("gui", default_value='https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Samples/ROS2/Scenario/iw_hub_warehouse_navigation.usd', description="Path to isaac sim scene"),
-
+            DeclareLaunchArgument(
+                "gui",
+                default_value="https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Samples/ROS2/Scenario/iw_hub_warehouse_navigation.usd",
+                description="Path to isaac sim scene",
+            ),
             # Include Isaac Sim launch file from isaacsim package with given launch parameters.
             IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
+                PythonLaunchDescriptionSource(
+                    [
+                        os.path.join(
                             get_package_share_directory("isaacsim_bringup"), "launch", "run_isaacsim.launch.py"
                         ),
                     ]
                 ),
                 launch_arguments={
-                    'version': '6.0.1',
-                    'play_sim_on_start': 'True',
+                    "version": "6.0.1",
+                    "gui": LaunchConfiguration("gui"),
+                    "play_sim_on_start": "True",
                 }.items(),
             ),
-            
             DeclareLaunchArgument("map", default_value=map_dir, description="Full path to map file to load"),
             DeclareLaunchArgument(
                 "params_file", default_value=param_dir, description="Full path to param file to load"
@@ -106,9 +116,7 @@ def generate_launch_description():
             ),
             # Launch automatic goal generator node when Isaac Sim has finished loading.
             RegisterEventHandler(
-                OnProcessIO(
-                    on_stdout=lambda event: execute_second_node_if_condition_met(event, ld_automatic_goal)
-                )
+                OnProcessIO(on_stdout=lambda event: execute_second_node_if_condition_met(event, ld_automatic_goal))
             ),
         ]
     )

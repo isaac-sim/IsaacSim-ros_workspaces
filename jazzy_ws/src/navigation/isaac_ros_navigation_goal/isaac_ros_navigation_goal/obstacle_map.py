@@ -13,10 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import math
+import os
+
 import numpy as np
 import yaml
-import os
-import math
 from PIL import Image
 
 
@@ -30,7 +31,7 @@ class GridMap:
     def __get_meta_from_yaml(self, yaml_file_path):
         """
         Reads map meta from the yaml file.
-        
+
         Parameters
         ----------
         yaml_file_path: path of the yaml file.
@@ -77,7 +78,7 @@ class GridMap:
     def get_range(self):
         """
         Returns the bounds of pose values in x & y direction.\n
-        
+
         Returns
         -------
         [List]:\n
