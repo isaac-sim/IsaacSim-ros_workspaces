@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+### Added
+- `isaacsim_bringup`: Added `python_script` launch argument to run a user-provided Python script inside Isaac Sim
+  after startup in GUI/headless mode. [Humble, Jazzy]
+- `isaacsim_bringup`: Added an installed `add_cube_and_lights.py` sample startup script. [Humble, Jazzy]
+
 ## [6.1.0] - 2026-06-23
 ### Changed
 - Bumped versions for Isaac Sim pip dependency to 6.0.1.0.

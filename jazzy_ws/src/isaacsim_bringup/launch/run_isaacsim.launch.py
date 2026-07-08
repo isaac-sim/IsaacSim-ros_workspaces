@@ -33,6 +33,15 @@ launch_args = [
     DeclareLaunchArgument('gui', default_value='', description='Provide the path to a usd file to open it when starting Isaac Sim in standard gui mode. If left empty, Isaac Sim will open an empty stage in standard gui mode.'),
     
     DeclareLaunchArgument('standalone', default_value='', description='Provide the path to the python file to open it and start Isaac Sim in standalone workflow. If left empty, Isaac Sim will open an empty stage in standard Gui mode.'),
+
+    DeclareLaunchArgument(
+        'python_script',
+        default_value='',
+        description=(
+            'Provide the path to a Python script to execute inside Isaac Sim after the app starts. '
+            'Only applies when \"standalone\" is empty.'
+        ),
+    ),
     
     DeclareLaunchArgument('play_sim_on_start', default_value='false', description='If enabled and Isaac Sim will start playing the scene after it is loaded. (Only applicable when in standard gui mode and loading a scene)'),
     
@@ -62,6 +71,7 @@ def launch_setup(context):
             'dds_type': LaunchConfiguration('dds_type'),
             'gui': LaunchConfiguration('gui'),
             'standalone': LaunchConfiguration('standalone'),
+            'python_script': LaunchConfiguration('python_script'),
             'play_sim_on_start': LaunchConfiguration('play_sim_on_start'),
             'ros_distro': LaunchConfiguration('ros_distro'),
             'ros_installation_path': LaunchConfiguration('ros_installation_path'),
