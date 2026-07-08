@@ -21,6 +21,7 @@ from ament_index_python.packages import get_package_share_directory
 import argparse
 import os
 import subprocess
+import shlex
 import signal
 import sys
 import atexit
@@ -33,6 +34,7 @@ defaults = {
     "dds_type": "",
     "gui": "",
     "standalone": "",
+    "python_script": "",
     "play_sim_on_start": False,
     "ros_distro_var": "humble",
     "ros_installation_path": "",
@@ -98,6 +100,31 @@ def exclude_paths_from_env(exclude_paths_str, env_var_name):
 
     os.environ[env_var_name] = os.pathsep.join(filtered_paths)
 
+
+def _build_exec_command(command_args):
+    if sys.platform == "win32":
+        return subprocess.list2cmdline(command_args)
+    return shlex.join(command_args)
+
+
+def _quote_command_argument(command_arg):
+    if sys.platform == "win32":
+        return subprocess.list2cmdline([command_arg])
+    return shlex.quote(command_arg)
+
+
+def _resolve_python_script_path(python_script):
+    if not python_script:
+        return ""
+
+    script_path = os.path.abspath(os.path.expanduser(python_script))
+    if not os.path.isfile(script_path):
+        print(f"ERROR: python_script path does not exist or is not a file: {script_path}", file=sys.stderr)
+        sys.exit(1)
+
+    return script_path
+
+
 class IsaacSimLauncherNode(Node):
     def __init__(self):
         super().__init__('isaac_sim_launcher_node')
@@ -110,6 +137,7 @@ class IsaacSimLauncherNode(Node):
                 ('dds_type', defaults['dds_type']),
                 ('gui', defaults['gui']),
                 ('standalone', defaults['standalone']),
+                ('python_script', defaults['python_script']),
                 ('play_sim_on_start', defaults['play_sim_on_start']),
                 ('ros_distro', defaults['ros_distro_var']),
                 ('ros_installation_path', defaults['ros_installation_path']),
@@ -128,6 +156,7 @@ class IsaacSimLauncherNode(Node):
         args.dds_type = self.get_parameter('dds_type').get_parameter_value().string_value
         args.gui = self.get_parameter('gui').get_parameter_value().string_value
         args.standalone = self.get_parameter('standalone').get_parameter_value().string_value
+        args.python_script = self.get_parameter('python_script').get_parameter_value().string_value
         args.play_sim_on_start = self.get_parameter('play_sim_on_start').get_parameter_value().bool_value
         args.ros_distro = self.get_parameter('ros_distro').get_parameter_value().string_value
         args.ros_installation_path = self.get_parameter('ros_installation_path').get_parameter_value().string_value
@@ -233,7 +262,7 @@ class IsaacSimLauncherNode(Node):
                 print(f"ERROR: Unsupported dds_type '{args.dds_type}'. Use one of: {', '.join(dds_to_rmw)}.", file=sys.stderr)
                 sys.exit(1)
             os.environ["RMW_IMPLEMENTATION"] = dds_to_rmw[args.dds_type]
-        play_sim_on_start_arg = "--start-on-play" if args.play_sim_on_start else ""
+        python_script = _resolve_python_script_path(args.python_script)
 
         popen_kwargs = {"shell": True}
         if sys.platform == "win32":
@@ -242,6 +271,14 @@ class IsaacSimLauncherNode(Node):
             popen_kwargs["start_new_session"] = True
 
         if args.standalone != "":
+            if python_script:
+                print(
+                    "ERROR: python_script is only supported when standalone is empty. "
+                    "Use standalone to run a standalone Isaac Sim Python workflow.",
+                    file=sys.stderr,
+                )
+                sys.exit(1)
+
             executable_path = os.path.join(filepath_root, "python.sh" if sys.platform != "win32" else "python.bat")
             if sys.platform == "win32":
                 proc = subprocess.Popen(f'"{executable_path}" {args.standalone}', **popen_kwargs)
@@ -264,12 +301,18 @@ class IsaacSimLauncherNode(Node):
             if args.custom_args != "":
                 executable_command += f" {args.custom_args}"
 
-            if args.gui != "":
+            if args.gui != "" or python_script:
                 scripts_dir = os.path.join(get_package_share_directory('isaacsim_bringup'), 'scripts')
-                file_arg = os.path.join(scripts_dir, "open_isaacsim_stage.py") + f" --path {args.gui} {play_sim_on_start_arg}"
-                # cmd.exe does not strip single quotes; use double quotes on Windows.
-                quote = '"' if sys.platform == "win32" else "'"
-                executable_command += f" --exec {quote}{file_arg}{quote}"
+                startup_command_args = [os.path.join(scripts_dir, "open_isaacsim_stage.py")]
+                if args.gui != "":
+                    startup_command_args.extend(["--path", args.gui])
+                if args.play_sim_on_start:
+                    startup_command_args.append("--start-on-play")
+                if python_script:
+                    startup_command_args.extend(["--python-script", python_script])
+
+                startup_command = _build_exec_command(startup_command_args)
+                executable_command += f" --exec {_quote_command_argument(startup_command)}"
 
             proc = subprocess.Popen(executable_command, **popen_kwargs)
             subprocesses.append(proc.pid)
