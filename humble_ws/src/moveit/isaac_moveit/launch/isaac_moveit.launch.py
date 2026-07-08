@@ -14,11 +14,12 @@
 # limitations under the License.
 
 import os
+
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
 
 
@@ -39,19 +40,13 @@ def generate_launch_description():
     )
 
     isaac_moveit_share = get_package_share_directory("isaac_moveit")
-    custom_urdf_xacro = os.path.join(
-        isaac_moveit_share, "config", "panda_isaac.urdf.xacro"
-    )
+    custom_urdf_xacro = os.path.join(isaac_moveit_share, "config", "panda_isaac.urdf.xacro")
 
     moveit_config = (
         MoveItConfigsBuilder("moveit_resources_panda")
         .robot_description(
             file_path=custom_urdf_xacro,
-            mappings={
-                "ros2_control_hardware_type": LaunchConfiguration(
-                    "ros2_control_hardware_type"
-                )
-            },
+            mappings={"ros2_control_hardware_type": LaunchConfiguration("ros2_control_hardware_type")},
         )
         .robot_description_semantic(file_path="config/panda.srdf")
         .trajectory_execution(file_path="config/gripper_moveit_controllers.yaml")
@@ -100,15 +95,7 @@ def generate_launch_description():
         executable="static_transform_publisher",
         name="static_transform_publisher_world_to_robot",
         output="log",
-        arguments=[
-            "0.0",
-            "-0.64",
-            "0.0",
-            "0.0",
-            "0.0",
-            "0.0",
-            "world",
-            "panda_link0"],
+        arguments=["0.0", "-0.64", "0.0", "0.0", "0.0", "0.0", "world", "panda_link0"],
         parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
     )
     # hand2camera_tf_node = Node(

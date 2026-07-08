@@ -16,7 +16,6 @@
 import os
 
 from ament_index_python.packages import get_package_share_directory
-
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
@@ -33,9 +32,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 def generate_launch_description():
 
     pkg_dir = get_package_share_directory("isaacsim_clearpath_nav2")
-    nav2_bringup_launch_dir = os.path.join(
-        get_package_share_directory("nav2_bringup"), "launch"
-    )
+    nav2_bringup_launch_dir = os.path.join(get_package_share_directory("nav2_bringup"), "launch")
 
     setup_path = LaunchConfiguration("setup_path")
     namespace = LaunchConfiguration("namespace")
@@ -47,16 +44,21 @@ def generate_launch_description():
     config_control = PathJoinSubstitution([setup_path, "platform", "config", "control.yaml"])
 
     robot_description_content = ParameterValue(
-        Command([
-            PathJoinSubstitution([FindExecutable(name="xacro")]),
-            " ", robot_urdf,
-            " is_sim:=true",
-            " gazebo_controllers:=", config_control,
-            " namespace:=", namespace,
-            " use_fake_hardware:=true",
-            " use_platform_controllers:=false",
-            " use_manipulation_controllers:=false",
-        ]),
+        Command(
+            [
+                PathJoinSubstitution([FindExecutable(name="xacro")]),
+                " ",
+                robot_urdf,
+                " is_sim:=true",
+                " gazebo_controllers:=",
+                config_control,
+                " namespace:=",
+                namespace,
+                " use_fake_hardware:=true",
+                " use_platform_controllers:=false",
+                " use_manipulation_controllers:=false",
+            ]
+        ),
         value_type=str,
     )
 
@@ -91,10 +93,12 @@ def generate_launch_description():
                 package="robot_state_publisher",
                 executable="robot_state_publisher",
                 namespace=namespace,
-                parameters=[{
-                    "robot_description": robot_description_content,
-                    "use_sim_time": use_sim_time,
-                }],
+                parameters=[
+                    {
+                        "robot_description": robot_description_content,
+                        "use_sim_time": use_sim_time,
+                    }
+                ],
                 remappings=[
                     ("/tf", "tf"),
                     ("/tf_static", "tf_static"),
@@ -102,22 +106,16 @@ def generate_launch_description():
             ),
             # RViz
             IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(
-                    os.path.join(nav2_bringup_launch_dir, "rviz_launch.py")
-                ),
+                PythonLaunchDescriptionSource(os.path.join(nav2_bringup_launch_dir, "rviz_launch.py")),
                 launch_arguments={
                     "namespace": namespace,
                     "use_namespace": "true",
-                    "rviz_config": os.path.join(
-                        pkg_dir, "params", "rviz2", "isaacsim_clearpath_nav2_namespaced.rviz"
-                    ),
+                    "rviz_config": os.path.join(pkg_dir, "params", "rviz2", "isaacsim_clearpath_nav2_namespaced.rviz"),
                 }.items(),
             ),
             # Nav2 full bringup (localization, navigation, map server, etc.)
             IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(
-                    os.path.join(nav2_bringup_launch_dir, "bringup_launch.py")
-                ),
+                PythonLaunchDescriptionSource(os.path.join(nav2_bringup_launch_dir, "bringup_launch.py")),
                 launch_arguments={
                     "map": map_yaml,
                     "namespace": namespace,

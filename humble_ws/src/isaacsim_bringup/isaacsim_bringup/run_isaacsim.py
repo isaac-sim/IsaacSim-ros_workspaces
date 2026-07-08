@@ -15,16 +15,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import rclpy
-from rclpy.node import Node
-from ament_index_python.packages import get_package_share_directory
 import argparse
+import atexit
 import os
-import subprocess
 import shlex
 import signal
+import subprocess
 import sys
-import atexit
+
+import rclpy
+from ament_index_python.packages import get_package_share_directory
+from rclpy.node import Node
 
 # Default values
 defaults = {
@@ -46,10 +47,12 @@ defaults = {
 # List to keep track of subprocesses
 subprocesses = []
 
+
 def signal_handler(sig, frame):
-    print('Ctrl+C received, shutting down...')
+    print("Ctrl+C received, shutting down...")
     isaac_sim_shutdown()
     sys.exit(0)
+
 
 def isaac_sim_shutdown():
     for proc_id in subprocesses:
@@ -59,14 +62,18 @@ def isaac_sim_shutdown():
             os.killpg(os.getpgid(proc_id), signal.SIGKILL)
     print("All subprocesses terminated.")
 
+
 # Register the signal handler for SIGINT
 signal.signal(signal.SIGINT, signal_handler)
+
 
 def version_ge(v1, v2):
     return tuple(map(int, (v1.split(".")))) >= tuple(map(int, (v2.split("."))))
 
+
 def version_gt(v1, v2):
     return tuple(map(int, (v1.split(".")))) > tuple(map(int, (v2.split("."))))
+
 
 def update_env_vars(version_to_remove, specified_path_to_remove, env_var_name):
     env_var_value = os.environ.get(env_var_name, "")
@@ -75,6 +82,7 @@ def update_env_vars(version_to_remove, specified_path_to_remove, env_var_name):
         if not version_to_remove in path and not path.startswith(specified_path_to_remove):
             new_env_var_value.append(path)
     os.environ[env_var_name] = os.pathsep.join(new_env_var_value)
+
 
 def exclude_paths_from_env(exclude_paths_str, env_var_name):
     """Simple function to exclude paths from environment variable"""
@@ -85,7 +93,7 @@ def exclude_paths_from_env(exclude_paths_str, env_var_name):
     if not env_var_value:
         return
 
-    exclude_paths = [path.strip() for path in exclude_paths_str.split(',') if path.strip()]
+    exclude_paths = [path.strip() for path in exclude_paths_str.split(",") if path.strip()]
     paths = env_var_value.split(os.pathsep)
     filtered_paths = []
 
@@ -127,42 +135,42 @@ def _resolve_python_script_path(python_script):
 
 class IsaacSimLauncherNode(Node):
     def __init__(self):
-        super().__init__('isaac_sim_launcher_node')
+        super().__init__("isaac_sim_launcher_node")
         self.declare_parameters(
-            namespace='',
+            namespace="",
             parameters=[
-                ('version', defaults['isaac_sim_version']),
-                ('install_path', defaults['isaac_sim_path']),
-                ('use_internal_libs', defaults['use_internal_libs']),
-                ('dds_type', defaults['dds_type']),
-                ('gui', defaults['gui']),
-                ('standalone', defaults['standalone']),
-                ('python_script', defaults['python_script']),
-                ('play_sim_on_start', defaults['play_sim_on_start']),
-                ('ros_distro', defaults['ros_distro_var']),
-                ('ros_installation_path', defaults['ros_installation_path']),
-                ('headless', defaults['headless']),
-                ('custom_args', defaults['custom_args']),
-                ('exclude_install_path', defaults['exclude_install_path'])
-            ]
+                ("version", defaults["isaac_sim_version"]),
+                ("install_path", defaults["isaac_sim_path"]),
+                ("use_internal_libs", defaults["use_internal_libs"]),
+                ("dds_type", defaults["dds_type"]),
+                ("gui", defaults["gui"]),
+                ("standalone", defaults["standalone"]),
+                ("python_script", defaults["python_script"]),
+                ("play_sim_on_start", defaults["play_sim_on_start"]),
+                ("ros_distro", defaults["ros_distro_var"]),
+                ("ros_installation_path", defaults["ros_installation_path"]),
+                ("headless", defaults["headless"]),
+                ("custom_args", defaults["custom_args"]),
+                ("exclude_install_path", defaults["exclude_install_path"]),
+            ],
         )
         self.execute_launch()
 
     def execute_launch(self):
         args = argparse.Namespace()
-        args.version = self.get_parameter('version').get_parameter_value().string_value
-        args.install_path = self.get_parameter('install_path').get_parameter_value().string_value
-        args.use_internal_libs = self.get_parameter('use_internal_libs').get_parameter_value().bool_value
-        args.dds_type = self.get_parameter('dds_type').get_parameter_value().string_value
-        args.gui = self.get_parameter('gui').get_parameter_value().string_value
-        args.standalone = self.get_parameter('standalone').get_parameter_value().string_value
-        args.python_script = self.get_parameter('python_script').get_parameter_value().string_value
-        args.play_sim_on_start = self.get_parameter('play_sim_on_start').get_parameter_value().bool_value
-        args.ros_distro = self.get_parameter('ros_distro').get_parameter_value().string_value
-        args.ros_installation_path = self.get_parameter('ros_installation_path').get_parameter_value().string_value
-        args.headless = self.get_parameter('headless').get_parameter_value().string_value
-        args.custom_args = self.get_parameter('custom_args').get_parameter_value().string_value
-        args.exclude_install_path = self.get_parameter('exclude_install_path').get_parameter_value().string_value
+        args.version = self.get_parameter("version").get_parameter_value().string_value
+        args.install_path = self.get_parameter("install_path").get_parameter_value().string_value
+        args.use_internal_libs = self.get_parameter("use_internal_libs").get_parameter_value().bool_value
+        args.dds_type = self.get_parameter("dds_type").get_parameter_value().string_value
+        args.gui = self.get_parameter("gui").get_parameter_value().string_value
+        args.standalone = self.get_parameter("standalone").get_parameter_value().string_value
+        args.python_script = self.get_parameter("python_script").get_parameter_value().string_value
+        args.play_sim_on_start = self.get_parameter("play_sim_on_start").get_parameter_value().bool_value
+        args.ros_distro = self.get_parameter("ros_distro").get_parameter_value().string_value
+        args.ros_installation_path = self.get_parameter("ros_installation_path").get_parameter_value().string_value
+        args.headless = self.get_parameter("headless").get_parameter_value().string_value
+        args.custom_args = self.get_parameter("custom_args").get_parameter_value().string_value
+        args.exclude_install_path = self.get_parameter("exclude_install_path").get_parameter_value().string_value
 
         filepath_root = ""
 
@@ -181,12 +189,16 @@ class IsaacSimLauncherNode(Node):
                     filepath_root = os.path.join(home_path, "isaacsim")
             elif args.version == "4.2.0":
                 if sys.platform == "win32":
-                    filepath_root = os.path.join(home_path, "AppData", "Local", "ov", "pkg", f"isaac-sim-{args.version}")
+                    filepath_root = os.path.join(
+                        home_path, "AppData", "Local", "ov", "pkg", f"isaac-sim-{args.version}"
+                    )
                 else:
                     filepath_root = os.path.join(home_path, ".local", "share", "ov", "pkg", f"isaac-sim-{args.version}")
             elif version_ge(args.version, "2021.2.1") and not version_ge(args.version, "2023.1.2"):
                 if sys.platform == "win32":
-                    filepath_root = os.path.join(home_path, "AppData", "Local", "ov", "pkg", f"isaac_sim-{args.version}")
+                    filepath_root = os.path.join(
+                        home_path, "AppData", "Local", "ov", "pkg", f"isaac_sim-{args.version}"
+                    )
                 else:
                     filepath_root = os.path.join(home_path, ".local", "share", "ov", "pkg", f"isaac_sim-{args.version}")
             else:
@@ -200,7 +212,11 @@ class IsaacSimLauncherNode(Node):
                 print("ERROR: use_internal_libs is not supported on Windows.", file=sys.stderr)
                 sys.exit(1)
             else:
-                os.environ["LD_LIBRARY_PATH"] = f"{os.getenv('LD_LIBRARY_PATH')}:{filepath_root}/exts/isaacsim.ros2.core/{args.ros_distro}/lib"
+                internal_lib_path = f"{filepath_root}/exts/isaacsim.ros2.core/{args.ros_distro}/lib"
+                current_ld_path = os.environ.get("LD_LIBRARY_PATH", "")
+                os.environ["LD_LIBRARY_PATH"] = (
+                    f"{internal_lib_path}:{current_ld_path}" if current_ld_path else internal_lib_path
+                )
                 specific_path_to_remove = f"/opt/ros/{args.ros_distro}"
                 version_to_remove = "jazzy" if args.ros_distro == "humble" else "humble"
                 update_env_vars(version_to_remove, specific_path_to_remove, "LD_LIBRARY_PATH")
@@ -220,46 +236,48 @@ class IsaacSimLauncherNode(Node):
                 sys.exit(1)
             else:
                 # Split by comma to handle multiple paths
-                ros_paths = [path.strip() for path in args.ros_installation_path.split(',') if path.strip()]
+                ros_paths = [path.strip() for path in args.ros_installation_path.split(",") if path.strip()]
 
                 for ros_path in ros_paths:
                     # Check if it's a setup.bash file or a directory
-                    if ros_path.endswith('setup.bash') or 'setup.bash' in ros_path:
+                    if ros_path.endswith("setup.bash") or "setup.bash" in ros_path:
                         # It's a ROS installation setup file
-                        source_cmd = f"source {ros_path} && env"
-                        result = subprocess.run(['bash', '-c', source_cmd],
-                                                capture_output=True, text=True, check=True)
+                        source_cmd = f"source {shlex.quote(ros_path)} && env"
+                        result = subprocess.run(["bash", "-c", source_cmd], capture_output=True, text=True, check=True)
 
                         # Parse and apply environment variables
                         for line in result.stdout.splitlines():
-                            if '=' in line:
-                                key, value = line.split('=', 1)
-                                if key in ['LD_LIBRARY_PATH', 'PYTHONPATH', 'PATH', 'ROS_DISTRO']:
+                            if "=" in line:
+                                key, value = line.split("=", 1)
+                                if key in ["LD_LIBRARY_PATH", "PYTHONPATH", "PATH", "ROS_DISTRO"]:
                                     os.environ[key] = value
                     else:
                         # It's a workspace install directory - add to environment variables
-                        install_path = ros_path.rstrip('/')
+                        install_path = ros_path.rstrip("/")
 
                         # Add to LD_LIBRARY_PATH
-                        current_ld_path = os.environ.get('LD_LIBRARY_PATH', '')
+                        current_ld_path = os.environ.get("LD_LIBRARY_PATH", "")
                         if current_ld_path:
-                            os.environ['LD_LIBRARY_PATH'] = f"{install_path}/lib:{current_ld_path}"
+                            os.environ["LD_LIBRARY_PATH"] = f"{install_path}/lib:{current_ld_path}"
                         else:
-                            os.environ['LD_LIBRARY_PATH'] = f"{install_path}/lib"
+                            os.environ["LD_LIBRARY_PATH"] = f"{install_path}/lib"
 
                         # Add to PYTHONPATH
-                        current_python_path = os.environ.get('PYTHONPATH', '')
+                        current_python_path = os.environ.get("PYTHONPATH", "")
                         if current_python_path:
-                            os.environ['PYTHONPATH'] = f"{install_path}/lib/python3/dist-packages:{current_python_path}"
+                            os.environ["PYTHONPATH"] = f"{install_path}/lib/python3/dist-packages:{current_python_path}"
                         else:
-                            os.environ['PYTHONPATH'] = f"{install_path}/lib/python3/dist-packages"
+                            os.environ["PYTHONPATH"] = f"{install_path}/lib/python3/dist-packages"
 
         # Only override RMW_IMPLEMENTATION when dds_type is explicitly set; otherwise
         # keep whatever the surrounding environment selected (e.g. zenoh from pixi).
         if args.dds_type:
             dds_to_rmw = {"fastdds": "rmw_fastrtps_cpp", "cyclonedds": "rmw_cyclonedds_cpp", "zenoh": "rmw_zenoh_cpp"}
             if args.dds_type not in dds_to_rmw:
-                print(f"ERROR: Unsupported dds_type '{args.dds_type}'. Use one of: {', '.join(dds_to_rmw)}.", file=sys.stderr)
+                print(
+                    f"ERROR: Unsupported dds_type '{args.dds_type}'. Use one of: {', '.join(dds_to_rmw)}.",
+                    file=sys.stderr,
+                )
                 sys.exit(1)
             os.environ["RMW_IMPLEMENTATION"] = dds_to_rmw[args.dds_type]
         python_script = _resolve_python_script_path(args.python_script)
@@ -302,7 +320,7 @@ class IsaacSimLauncherNode(Node):
                 executable_command += f" {args.custom_args}"
 
             if args.gui != "" or python_script:
-                scripts_dir = os.path.join(get_package_share_directory('isaacsim_bringup'), 'scripts')
+                scripts_dir = os.path.join(get_package_share_directory("isaacsim_bringup"), "scripts")
                 startup_command_args = [os.path.join(scripts_dir, "open_isaacsim_stage.py")]
                 if args.gui != "":
                     startup_command_args.extend(["--path", args.gui])
@@ -317,6 +335,7 @@ class IsaacSimLauncherNode(Node):
             proc = subprocess.Popen(executable_command, **popen_kwargs)
             subprocesses.append(proc.pid)
 
+
 def main(args=None):
     rclpy.init(args=args)
     isaac_sim_launcher_node = IsaacSimLauncherNode()
@@ -326,5 +345,6 @@ def main(args=None):
     isaac_sim_launcher_node.destroy_node()
     rclpy.shutdown()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

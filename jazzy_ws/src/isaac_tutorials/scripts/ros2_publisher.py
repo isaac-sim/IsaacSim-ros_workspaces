@@ -15,11 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import time
+
+import numpy as np
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
-import numpy as np
-import time
 
 
 class TestROS2Bridge(Node):

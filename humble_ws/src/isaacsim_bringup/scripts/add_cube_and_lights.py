@@ -85,9 +85,7 @@ def _create_camera(stage: Usd.Stage) -> None:
 def main() -> None:
     stage = omni.usd.get_context().get_stage()
     if stage is None:
-        carb.log_error(
-            "No USD stage is open. Launch with gui:=<stage.usd> or open a stage before running this script."
-        )
+        carb.log_error("No USD stage is open. Launch with gui:=<stage.usd> or open a stage before running this script.")
         return
 
     if not stage.GetPrimAtPath(WORLD_PATH):

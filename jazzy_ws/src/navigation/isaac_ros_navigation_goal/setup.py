@@ -13,9 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from setuptools import setup
-from glob import glob
 import os
+from glob import glob
+
+from setuptools import setup
 
 package_name = "isaac_ros_navigation_goal"
 

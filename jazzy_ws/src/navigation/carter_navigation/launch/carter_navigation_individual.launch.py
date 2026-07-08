@@ -16,7 +16,6 @@
 import os
 
 from ament_index_python.packages import get_package_share_directory
-
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription
 from launch.conditions import IfCondition
@@ -88,7 +87,7 @@ def generate_launch_description():
             "params_file": params_file,
             "default_bt_xml_filename": default_bt_xml_filename,
             "autostart": autostart,
-        }.items(),   
+        }.items(),
     )
 
     # Create the launch description and populate

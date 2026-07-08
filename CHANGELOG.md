@@ -1,10 +1,17 @@
 # Changelog
 
-## [Unreleased]
+## [6.2.0] - 2026-07-07
 ### Added
 - `isaacsim_bringup`: Added `python_script` launch argument to run a user-provided Python script inside Isaac Sim
   after startup in GUI/headless mode. [Humble, Jazzy]
 - `isaacsim_bringup`: Added an installed `add_cube_and_lights.py` sample startup script. [Humble, Jazzy]
+
+## [6.1.1] - 2026-07-02
+### Added
+- Added repo-level Python/C++ formatter tooling using isort, Black, and clang-format.
+
+### Changed
+- Updated MoveIt-related submodules with formatting-only changes: `moveit_resources` [Humble, Jazzy] and `topic_based_ros2_control` [Jazzy].
 
 ## [6.1.0] - 2026-06-23
 ### Changed
