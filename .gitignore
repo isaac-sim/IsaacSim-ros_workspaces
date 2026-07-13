@@ -7,6 +7,7 @@ jazzy_ws/log
 build_ws/jazzy
 build_ws/humble
 .vscode/
-**/.*.pyc
+*.py[cod]
 __pycache__/
 .venv-format/
+*~

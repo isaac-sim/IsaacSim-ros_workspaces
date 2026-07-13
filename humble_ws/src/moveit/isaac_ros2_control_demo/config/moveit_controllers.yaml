@@ -1,0 +1,21 @@
+/**:
+  ros__parameters:
+    moveit_simple_controller_manager:
+      controller_names:
+        - scaled_joint_trajectory_controller
+      scaled_joint_trajectory_controller:
+        type: FollowJointTrajectory
+        action_ns: follow_joint_trajectory
+        default: true
+        joints:
+          - shoulder_pan_joint
+          - shoulder_lift_joint
+          - elbow_joint
+          - wrist_1_joint
+          - wrist_2_joint
+          - wrist_3_joint
+    moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+    trajectory_execution:
+      allowed_execution_duration_scaling: 1.2
+      allowed_goal_duration_margin: 0.5
+      allowed_start_tolerance: 0.05

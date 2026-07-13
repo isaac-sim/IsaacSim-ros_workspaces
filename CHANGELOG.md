@@ -1,10 +1,17 @@
 # Changelog
 
-## [6.2.0] - 2026-07-07
+## [6.2.0] - 2026-07-13
 ### Added
 - `isaacsim_bringup`: Added `python_script` launch argument to run a user-provided Python script inside Isaac Sim
   after startup in GUI/headless mode. [Humble, Jazzy]
 - `isaacsim_bringup`: Added an installed `add_cube_and_lights.py` sample startup script. [Humble, Jazzy]
+- Added the `isaac_ros2_control_demo` package for controlling a UR10 in Isaac Sim with MoveIt 2 and an in-process ROS 2 Controller Manager. [Humble, Jazzy]
+- Added a Pixi environment and lockfile for the Humble workspace. [Humble]
+- Added Linux AArch64 as a supported Pixi platform. [Humble, Jazzy]
+
+### Changed
+- Added the RViz Visual Tools dependency to the Jazzy Pixi environment. [Jazzy]
+- Updated `.gitignore` to ignore Python bytecode, `__pycache__` directories, and editor backup files.
 
 ## [6.1.1] - 2026-07-02
 ### Added

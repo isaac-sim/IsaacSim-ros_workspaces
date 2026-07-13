@@ -1,0 +1,135 @@
+[workspace]
+name = "humble_ws"
+channels = ["https://prefix.dev/robostack-humble", "https://prefix.dev/conda-forge"]
+platforms = ["linux-64", "linux-aarch64", "win-64"]
+
+[dependencies]
+python = "3.12.*"
+pkg-config = ">=0.29.2,<0.30"
+compilers = ">=1.11.0,<2"
+make = ">=4.4.1,<5"
+ninja = ">=1.13.2,<2"
+colcon-common-extensions = ">=0.3.0,<0.4"
+cmake = ">=3.27,<4"
+pytest = ">=9.0.3,<10"
+
+ros-humble-ros-base = "*"
+ros-humble-ros2cli = "*"
+ros-humble-ackermann-msgs = "*"
+ros-humble-ament-cmake = "*"
+ros-humble-ament-flake8 = "*"
+ros-humble-ament-lint-auto = "*"
+ros-humble-ament-lint-common = "*"
+ros-humble-ament-pep257 = "*"
+ros-humble-angles = "*"
+ros-humble-builtin-interfaces = "*"
+ros-humble-control-msgs = "*"
+ros-humble-controller-manager = "*"
+ros-humble-geometry-msgs = "*"
+ros-humble-hardware-interface = "*"
+ros-humble-joint-state-broadcaster = "*"
+ros-humble-joint-state-publisher = "*"
+ros-humble-joint-state-publisher-gui = "*"
+ros-humble-joint-trajectory-controller = "*"
+ros-humble-launch = "*"
+ros-humble-launch-ros = "*"
+ros-humble-launch-testing = "*"
+ros-humble-moveit = "*"
+ros-humble-moveit-resources-panda-moveit-config = "*"
+ros-humble-moveit-simple-controller-manager = "*"
+ros-humble-nav2-amcl = "*"
+ros-humble-nav2-behavior-tree = "*"
+ros-humble-nav2-behaviors = "*"
+ros-humble-nav2-bringup = "*"
+ros-humble-nav2-bt-navigator = "*"
+ros-humble-nav2-controller = "*"
+ros-humble-nav2-core = "*"
+ros-humble-nav2-costmap-2d = "*"
+ros-humble-nav2-dwb-controller = "*"
+ros-humble-nav2-lifecycle-manager = "*"
+ros-humble-nav2-map-server = "*"
+ros-humble-nav2-msgs = "*"
+ros-humble-nav2-navfn-planner = "*"
+ros-humble-nav2-planner = "*"
+ros-humble-nav2-rviz-plugins = "*"
+ros-humble-nav2-util = "*"
+ros-humble-nav2-voxel-grid = "*"
+ros-humble-nav2-waypoint-follower = "*"
+ros-humble-navigation2 = "*"
+ros-humble-picknik-ament-copyright = "*"
+ros-humble-pointcloud-to-laserscan = "*"
+ros-humble-rclcpp = "*"
+ros-humble-rclpy = "*"
+ros-humble-rmw-fastrtps-cpp = "*"
+ros-humble-robot-state-publisher = "*"
+ros-humble-ros-testing = "*"
+ros-humble-ros2-control = "*"
+ros-humble-ros2-control-test-assets = "*"
+ros-humble-ros2-controllers = "*"
+ros-humble-rosidl-default-generators = "*"
+ros-humble-rosidl-default-runtime = "*"
+ros-humble-rqt-image-view = "*"
+ros-humble-rviz2 = "*"
+ros-humble-rviz-visual-tools = "*"
+ros-humble-sensor-msgs = "*"
+ros-humble-sensor-msgs-py = "*"
+ros-humble-std-msgs = "*"
+ros-humble-teleop-twist-keyboard = "*"
+ros-humble-topic-based-ros2-control = "*"
+ros-humble-vision-msgs = "*"
+ros-humble-visualization-msgs = "*"
+ros-humble-xacro = "*"
+
+av = "*"
+tinyobjloader = "==2.0.0rc13"
+typing-extensions = ">=4.13,<5"
+
+[target.win.dependencies]
+pywin32 = "==306"
+
+[system-requirements]
+libc = "2.35"
+cuda = "12.9"
+
+[pypi-options]
+extra-index-urls = ["https://pypi.nvidia.com"]
+
+[pypi-options.dependency-overrides]
+opencv-python-headless = "*"
+typing-extensions = "*"
+numpy = "*"
+cryptography = "*"
+packaging = "*"
+mujoco-usd-converter = "*"
+psutil = "*"
+jinja2 = "*"
+coverage = "*"
+pillow = "*"
+tinyobjloader = "*"
+mpmath = "*"
+fsspec = "*"
+filelock = "*"
+
+[pypi-dependencies]
+isaacsim = { version = "==6.0.1.0", extras = ["all", "extscache", "ros2"] }
+torch = { version = "==2.11.0", index = "https://download.pytorch.org/whl/cu128" }
+
+[tasks]
+build = { cmd = "colcon build --merge-install --cmake-args -DBUILD_TESTING=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DPython_FIND_VIRTUALENV=ONLY -DPython3_FIND_VIRTUALENV=ONLY", description = "Build the ROS workspace" }
+test = { cmd = "colcon test", description = "Run tests for the workspace" }
+clean = { cmd = "rm -rf build install log", description = "Clean build artifacts" }
+fastdds = "ros2 run demo_nodes_cpp talker"
+
+[activation.env]
+RMW_IMPLEMENTATION = "rmw_fastrtps_cpp"
+ROS_DOMAIN_ID = "0"
+ROS_DISTRO = "humble"
+KMP_DUPLICATE_LIB_OK = "TRUE"
+
+[target.unix.activation]
+scripts = ["install/setup.bash"]
+env = { isaac_sim_package_path = "$HOME/isaacsim", LD_LIBRARY_PATH = "$isaac_sim_package_path/kit/python/lib:$LD_LIBRARY_PATH" }
+
+[target.win.activation]
+scripts = ["install\\setup.bat"]
+env = { isaac_sim_package_path = "C:\\isaacsim", PATH = "%isaac_sim_package_path%\\kit\\python\\lib;%PATH%" }
