@@ -100,6 +100,11 @@ def _build_nodes(context, *args, **kwargs):
         arguments=["-d", rviz_config],
         parameters=[robot_description, robot_description_semantic, kinematics_yaml, use_sim_time],
     )
+    floor = Node(
+        package="isaac_ros2_control_demo",
+        executable="add_floor.py",
+        output="log",
+    )
     spawners = [
         Node(
             package="controller_manager",
@@ -109,7 +114,7 @@ def _build_nodes(context, *args, **kwargs):
         )
         for name in ("joint_state_broadcaster", "scaled_joint_trajectory_controller")
     ]
-    return [rsp, move_group, rviz, *spawners]
+    return [rsp, move_group, rviz, floor, *spawners]
 
 
 def generate_launch_description():
