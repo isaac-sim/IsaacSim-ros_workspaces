@@ -10,7 +10,6 @@ from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
-
 ROBOT_DESCRIPTION_TIMEOUT = 60.0  # First-run asset download can take 30s+.
 
 
@@ -54,9 +53,7 @@ def _fetch_latched_urdf(timeout: float) -> str:
                 context.try_shutdown()
 
     if holder["urdf"] is None:
-        raise RuntimeError(
-            "Timed out waiting for /robot_description. Is Isaac Sim running and at Play?"
-        )
+        raise RuntimeError("Timed out waiting for /robot_description. Is Isaac Sim running and at Play?")
     return holder["urdf"]
 
 
@@ -82,8 +79,12 @@ def _build_nodes(context, *args, **kwargs):
         executable="move_group",
         output="screen",
         parameters=[
-            robot_description, robot_description_semantic,
-            kinematics_yaml, ompl_yaml, joint_limits_yaml, moveit_controllers_yaml,
+            robot_description,
+            robot_description_semantic,
+            kinematics_yaml,
+            ompl_yaml,
+            joint_limits_yaml,
+            moveit_controllers_yaml,
             use_sim_time,
         ],
     )
@@ -118,7 +119,9 @@ def _build_nodes(context, *args, **kwargs):
 
 
 def generate_launch_description():
-    return LaunchDescription([
-        DeclareLaunchArgument("use_sim_time", default_value="true"),
-        OpaqueFunction(function=_build_nodes),
-    ])
+    return LaunchDescription(
+        [
+            DeclareLaunchArgument("use_sim_time", default_value="true"),
+            OpaqueFunction(function=_build_nodes),
+        ]
+    )
