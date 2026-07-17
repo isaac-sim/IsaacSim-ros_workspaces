@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+  SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  SPDX-License-Identifier: Apache-2.0
+-->
+<launch>
+  <arg name="ros2_control_hardware_type" default="isaac"
+       description="ROS 2 control hardware interface: mock_components or isaac"/>
+  <arg name="use_sim_time" default="true" description="Use simulation clock if true"/>
+
+  <let name="robot_description"
+       value="$(command '$(find-exec xacro) &quot;$(find-pkg-share isaac_moveit)/config/panda_isaac.urdf.xacro&quot; ros2_control_hardware_type:=$(var ros2_control_hardware_type)')"/>
+  <let name="robot_description_semantic"
+       value="$(file-content $(find-pkg-share moveit_resources_panda_moveit_config)/config/panda.srdf)"/>
+
+  <node pkg="rviz2" exec="rviz2" name="rviz2" output="log"
+        args="-d $(find-pkg-share isaac_moveit)/rviz2/panda_moveit_config.rviz">
+    <param name="robot_description" value="$(var robot_description)" type="str"/>
+    <param name="robot_description_semantic" value="$(var robot_description_semantic)" type="str"/>
+    <param from="$(find-pkg-share isaac_moveit)/config/moveit_rviz.yaml"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+
+  <node pkg="tf2_ros" exec="static_transform_publisher"
+        name="static_transform_publisher_world_to_robot" output="log"
+        args="0.0 -0.64 0.0 0.0 0.0 0.0 world panda_link0">
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+
+  <node pkg="robot_state_publisher" exec="robot_state_publisher"
+        name="robot_state_publisher" output="both">
+    <param name="robot_description" value="$(var robot_description)" type="str"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+
+  <node pkg="moveit_ros_move_group" exec="move_group" output="screen"
+        args="--ros-args --log-level info">
+    <param name="robot_description" value="$(var robot_description)" type="str"/>
+    <param name="robot_description_semantic" value="$(var robot_description_semantic)" type="str"/>
+    <param from="$(find-pkg-share isaac_moveit)/config/move_group.yaml"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+
+  <node pkg="controller_manager" exec="ros2_control_node" output="screen">
+    <param from="$(find-pkg-share moveit_resources_panda_moveit_config)/config/ros2_controllers.yaml"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+    <remap from="/controller_manager/robot_description" to="/robot_description"/>
+  </node>
+  <node pkg="controller_manager" exec="spawner"
+        args="joint_state_broadcaster --controller-manager /controller_manager"/>
+  <node pkg="controller_manager" exec="spawner"
+        args="panda_arm_controller -c /controller_manager"/>
+  <node pkg="isaac_moveit" exec="gripper_to_isaac" name="gripper_to_isaac" output="screen">
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+</launch>

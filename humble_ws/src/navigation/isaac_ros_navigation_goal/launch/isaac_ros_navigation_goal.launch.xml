@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<launch>
+  <arg name="namespace" default="" description="ROS namespace for the goal node and its relative interfaces."/>
+  <arg name="map_yaml_path" default="$(find-pkg-share isaac_ros_navigation_goal)/assets/carter_warehouse_navigation.yaml"/>
+  <arg name="goal_text_file_path" default="$(find-pkg-share isaac_ros_navigation_goal)/assets/goals.txt"/>
+  <arg name="iteration_count" default="3"/>
+  <arg name="goal_generator_type" default="RandomGoalGenerator"/>
+  <arg name="action_server_name" default="navigate_to_pose"/>
+  <arg name="obstacle_search_distance_in_meters" default="0.2"/>
+  <arg name="frame_id" default="map"/>
+  <arg name="initial_pose" default="[-6.4,-1.04,0.0,0.0,0.0,0.99,0.02]"/>
+  <arg name="action_server_timeout_sec" default="60.0"/>
+  <arg name="initial_pose_subscriber_timeout_sec" default="60.0"/>
+  <arg name="initial_pose_settle_time_sec" default="10.0"/>
+  <arg name="use_sim_time" default="true" description="Use simulation (Isaac Sim) clock for stamped poses"/>
+
+  <node pkg="isaac_ros_navigation_goal" exec="SetNavigationGoal" name="set_navigation_goal"
+        namespace="$(var namespace)" output="screen">
+    <param name="map_yaml_path" value="$(var map_yaml_path)" type="str"/>
+    <param name="goal_text_file_path" value="$(var goal_text_file_path)" type="str"/>
+    <param name="iteration_count" value="$(var iteration_count)" type="int"/>
+    <param name="goal_generator_type" value="$(var goal_generator_type)" type="str"/>
+    <param name="action_server_name" value="$(var action_server_name)" type="str"/>
+    <param name="obstacle_search_distance_in_meters" value="$(var obstacle_search_distance_in_meters)" type="float"/>
+    <param name="frame_id" value="$(var frame_id)" type="str"/>
+    <param name="initial_pose" value="$(var initial_pose)" type="yaml"/>
+    <param name="action_server_timeout_sec" value="$(var action_server_timeout_sec)" type="float"/>
+    <param name="initial_pose_subscriber_timeout_sec" value="$(var initial_pose_subscriber_timeout_sec)" type="float"/>
+    <param name="initial_pose_settle_time_sec" value="$(var initial_pose_settle_time_sec)" type="float"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+</launch>

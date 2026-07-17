@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<launch>
+  <arg name="publish_period_ms" default="5" description="publishing dt in milliseconds"/>
+  <arg name="policy_path" default="$(find-pkg-share h1_fullbody_controller)/policy/h1_policy.pt" description="path to the policy file"/>
+  <arg name="use_sim_time" default="true" description="Use simulation (Omniverse Isaac Sim) clock if true"/>
+  <arg name="namespace" default="h1_01" description="ROS namespace for the H1 controller"/>
+  <arg name="use_namespace" default="false" description="Whether to apply the ROS namespace to the node"/>
+
+  <node pkg="h1_fullbody_controller" exec="h1_fullbody_controller" name="h1_fullbody_controller"
+        namespace="$(if $(var use_namespace) $(var namespace) '')" output="screen">
+    <param name="publish_period_ms" value="$(var publish_period_ms)" type="int"/>
+    <param name="policy_path" value="$(var policy_path)" type="str"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+</launch>

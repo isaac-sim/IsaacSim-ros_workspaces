@@ -41,6 +41,9 @@ class SetNavigationGoal(Node):
                 ("map_yaml_path", rclpy.Parameter.Type.STRING),
                 ("goal_text_file_path", rclpy.Parameter.Type.STRING),
                 ("initial_pose", rclpy.Parameter.Type.DOUBLE_ARRAY),
+                ("action_server_timeout_sec", 60.0),
+                ("initial_pose_subscriber_timeout_sec", 60.0),
+                ("initial_pose_settle_time_sec", 10.0),
             ],
         )
 
@@ -52,7 +55,9 @@ class SetNavigationGoal(Node):
         assert self.MAX_ITERATION_COUNT > 0
         self.curr_iteration_count = 1
 
-        self.__initial_goal_publisher = self.create_publisher(PoseWithCovarianceStamped, "/initialpose", 1)
+        # A relative topic keeps the publisher inside this node's namespace for
+        # multi-robot launches (for example, /carter1/initialpose).
+        self.__initial_goal_publisher = self.create_publisher(PoseWithCovarianceStamped, "initialpose", 1)
 
         self.__initial_pose = self.get_parameter("initial_pose").value
         self.__is_initial_pose_sent = True if self.__initial_pose is None else False
@@ -80,28 +85,43 @@ class SetNavigationGoal(Node):
         Sends the goal to the action server.
         """
 
+        action_server_timeout = self.get_parameter("action_server_timeout_sec").value
+        self.get_logger().info(f"Waiting up to {action_server_timeout:.1f}s for the navigation action server")
+        if not self._action_client.wait_for_server(timeout_sec=action_server_timeout):
+            self.get_logger().error("Navigation action server did not become ready before the timeout")
+            rclpy.shutdown()
+            return False
+
         if not self.__is_initial_pose_sent:
+            subscriber_timeout = self.get_parameter("initial_pose_subscriber_timeout_sec").value
+            deadline = time.monotonic() + subscriber_timeout
+            while self.__initial_goal_publisher.get_subscription_count() == 0 and time.monotonic() < deadline:
+                rclpy.spin_once(self, timeout_sec=0.1)
+            if self.__initial_goal_publisher.get_subscription_count() == 0:
+                self.get_logger().error("No initial pose subscriber became ready before the timeout")
+                rclpy.shutdown()
+                return False
+
             self.get_logger().info("Sending initial pose")
             self.__send_initial_pose()
             self.__is_initial_pose_sent = True
 
-            # Assumption is that initial pose is set after publishing first time in this duration.
-            # Can be changed to more sophisticated way. e.g. /particlecloud topic has no msg until
-            # the initial pose is set.
-            time.sleep(10)
+            # Preserve the existing localization settling period, but make it
+            # configurable now that this node owns launch readiness.
+            time.sleep(self.get_parameter("initial_pose_settle_time_sec").value)
             self.get_logger().info("Sending first goal")
 
-        self._action_client.wait_for_server()
         goal_msg = self.__get_goal()
 
         if goal_msg is None:
             rclpy.shutdown()
-            sys.exit(1)
+            return False
 
         self._send_goal_future = self._action_client.send_goal_async(
             goal_msg, feedback_callback=self.__feedback_callback
         )
         self._send_goal_future.add_done_callback(self.__goal_response_callback)
+        return True
 
     def __goal_response_callback(self, future):
         """
@@ -213,9 +233,14 @@ class SetNavigationGoal(Node):
 def main():
     rclpy.init()
     set_goal = SetNavigationGoal()
-    result = set_goal.send_goal()
+    if not set_goal.send_goal():
+        set_goal.destroy_node()
+        return 1
+
     rclpy.spin(set_goal)
+    set_goal.destroy_node()
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

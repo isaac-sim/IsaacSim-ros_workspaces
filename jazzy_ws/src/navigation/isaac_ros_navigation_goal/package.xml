@@ -27,11 +27,15 @@
   <url type="Forums">https://forums.developer.nvidia.com/c/omniverse/simulation/69</url>
   <url type="Website">https://developer.nvidia.com/isaac-ros-gems/</url>
 
-  <build_depend>rclpy</build_depend>
-  <build_depend>std_msgs</build_depend>
-  <build_depend>sensor_msgs</build_depend>
-  <build_depend>geometry_msgs</build_depend>
-  <build_depend>nav2_msgs</build_depend>
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav2_msgs</depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>launch_xml</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-pil</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
   <test_depend>python3-pytest</test_depend>

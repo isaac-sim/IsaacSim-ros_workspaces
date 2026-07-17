@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+  SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  SPDX-License-Identifier: Apache-2.0
+-->
+<launch>
+  <arg name="setup_path"
+       default="$(find-pkg-share isaacsim_clearpath_nav2)/params/dd100"
+       description="Path to clearpath-generated description directory (must contain robot.urdf.xacro from generate_description)"/>
+  <arg name="namespace" default="" description="Robot namespace"/>
+  <arg name="map" description="Full path to the occupancy-map yaml file"/>
+  <arg name="params_file"
+       default="$(var setup_path)/nav2.yaml"
+       description="Full path to the Nav2 parameters file"/>
+  <arg name="use_sim_time" default="true"
+       description="Use simulation (Omniverse Isaac Sim) clock if true"/>
+
+  <let name="robot_description"
+       value="$(command '$(find-exec xacro) &quot;$(var setup_path)/robot.urdf.xacro&quot; is_sim:=true gazebo_controllers:=&quot;$(var setup_path)/platform/config/control.yaml&quot; namespace:=&quot;$(var namespace)&quot; use_fake_hardware:=true use_platform_controllers:=false use_manipulation_controllers:=false')"/>
+
+  <node pkg="robot_state_publisher" exec="robot_state_publisher"
+        namespace="$(var namespace)" output="both">
+    <param name="robot_description" value="$(var robot_description)" type="str"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+    <remap from="/tf" to="tf"/>
+    <remap from="/tf_static" to="tf_static"/>
+  </node>
+
+  <group>
+    <set_parameter name="use_sim_time" value="$(var use_sim_time)"/>
+    <include file="$(find-pkg-share nav2_bringup)/launch/rviz_launch.py">
+      <arg name="namespace" value="$(var namespace)"/>
+      <arg name="use_namespace" value="true"/>
+      <arg name="rviz_config"
+           value="$(find-pkg-share isaacsim_clearpath_nav2)/params/rviz2/isaacsim_clearpath_nav2_namespaced.rviz"/>
+    </include>
+  </group>
+
+  <include file="$(find-pkg-share nav2_bringup)/launch/bringup_launch.py">
+    <arg name="map" value="$(var map)"/>
+    <arg name="namespace" value="$(var namespace)"/>
+    <arg name="use_namespace" value="true"/>
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+    <arg name="params_file" value="$(var params_file)"/>
+  </include>
+</launch>

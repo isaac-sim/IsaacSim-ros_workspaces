@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+set -euo pipefail
+calibrated_urdf="$1"
+nominal_urdf="$2"
+if [[ -f "${calibrated_urdf}" ]]; then urdf="${calibrated_urdf}"; elif [[ -f "${nominal_urdf}" ]]; then urdf="${nominal_urdf}"; else echo "No Nova Carter robot description found" >&2; exit 1; fi
+exec xacro "${urdf}" add_subsensor_frames:=False

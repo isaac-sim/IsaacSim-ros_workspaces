@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<launch>
+  <arg name="publish_period_ms" default="20" description="publishing dt in milliseconds"/>
+  <arg name="track_width" default="0.24" description="wheel separation distance (m)"/>
+  <arg name="acceleration" default="0.0" description="acceleration, 0 means change speed as quickly as possible (ms^-2)"/>
+  <arg name="steering_velocity" default="0.0" description="delta steering angle, 0 means change angle as quickly as possible (radians/s)"/>
+  <arg name="use_sim_time" default="true" description="Use simulation (Isaac Sim) clock if true"/>
+
+  <node pkg="cmdvel_to_ackermann" exec="cmdvel_to_ackermann" name="cmdvel_to_ackermann" output="screen">
+    <param name="publish_period_ms" value="$(var publish_period_ms)" type="int"/>
+    <param name="track_width" value="$(var track_width)" type="float"/>
+    <param name="acceleration" value="$(var acceleration)" type="float"/>
+    <param name="steering_velocity" value="$(var steering_velocity)" type="float"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+</launch>

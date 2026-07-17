@@ -1,0 +1,28 @@
+<!-- SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<launch>
+  <arg name="map"/><arg name="carter1_params_file"/><arg name="carter2_params_file"/><arg name="carter3_params_file"/>
+  <arg name="default_bt_xml_filename"/><arg name="autostart"/><arg name="rviz_config"/><arg name="use_rviz"/><arg name="use_sim_time"/><arg name="log_settings"/>
+  <arg name="transform_tolerance"/><arg name="min_height"/><arg name="max_height"/><arg name="use_range_limits"/><arg name="range_min"/><arg name="range_max"/>
+  <include file="$(find-pkg-share carter_navigation)/launch/carter_navigation_robot.launch.xml">
+    <arg name="robot_name" value="carter1"/><arg name="params_file" value="$(var carter1_params_file)"/>
+    <arg name="map" value="$(var map)"/><arg name="default_bt_xml_filename" value="$(var default_bt_xml_filename)"/><arg name="autostart" value="$(var autostart)"/>
+    <arg name="rviz_config" value="$(var rviz_config)"/><arg name="use_rviz" value="$(var use_rviz)"/><arg name="use_sim_time" value="$(var use_sim_time)"/><arg name="log_settings" value="$(var log_settings)"/>
+    <arg name="transform_tolerance" value="$(var transform_tolerance)"/><arg name="min_height" value="$(var min_height)"/><arg name="max_height" value="$(var max_height)"/>
+    <arg name="use_range_limits" value="$(var use_range_limits)"/><arg name="range_min" value="$(var range_min)"/><arg name="range_max" value="$(var range_max)"/>
+  </include>
+  <include file="$(find-pkg-share carter_navigation)/launch/carter_navigation_robot.launch.xml">
+    <arg name="robot_name" value="carter2"/><arg name="params_file" value="$(var carter2_params_file)"/>
+    <arg name="map" value="$(var map)"/><arg name="default_bt_xml_filename" value="$(var default_bt_xml_filename)"/><arg name="autostart" value="$(var autostart)"/>
+    <arg name="rviz_config" value="$(var rviz_config)"/><arg name="use_rviz" value="$(var use_rviz)"/><arg name="use_sim_time" value="$(var use_sim_time)"/><arg name="log_settings" value="$(var log_settings)"/>
+    <arg name="transform_tolerance" value="$(var transform_tolerance)"/><arg name="min_height" value="$(var min_height)"/><arg name="max_height" value="$(var max_height)"/>
+    <arg name="use_range_limits" value="$(var use_range_limits)"/><arg name="range_min" value="$(var range_min)"/><arg name="range_max" value="$(var range_max)"/>
+  </include>
+  <include file="$(find-pkg-share carter_navigation)/launch/carter_navigation_robot.launch.xml">
+    <arg name="robot_name" value="carter3"/><arg name="params_file" value="$(var carter3_params_file)"/>
+    <arg name="map" value="$(var map)"/><arg name="default_bt_xml_filename" value="$(var default_bt_xml_filename)"/><arg name="autostart" value="$(var autostart)"/>
+    <arg name="rviz_config" value="$(var rviz_config)"/><arg name="use_rviz" value="$(var use_rviz)"/><arg name="use_sim_time" value="$(var use_sim_time)"/><arg name="log_settings" value="$(var log_settings)"/>
+    <arg name="transform_tolerance" value="$(var transform_tolerance)"/><arg name="min_height" value="$(var min_height)"/><arg name="max_height" value="$(var max_height)"/>
+    <arg name="use_range_limits" value="$(var use_range_limits)"/><arg name="range_min" value="$(var range_min)"/><arg name="range_max" value="$(var range_max)"/>
+  </include>
+</launch>

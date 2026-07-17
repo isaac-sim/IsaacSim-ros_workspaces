@@ -10,8 +10,16 @@
 - Added Linux AArch64 as a supported Pixi platform. [Humble, Jazzy]
 
 ### Changed
+- Migrated all repository-owned ROS 2 launch files from Python to XML and updated their package metadata and documentation references. [Humble, Jazzy]
 - Added the RViz Visual Tools dependency to the Jazzy Pixi environment. [Jazzy]
 - Updated `.gitignore` to ignore Python bytecode, `__pycache__` directories, and editor backup files.
+
+### Fixed
+- `isaac_ros_navigation_goal`: Wait for Nav2 and localization readiness before sending goals, forward map configuration from integrated navigation launches, and use namespace-relative action and `initialpose` names for multi-robot launches. [Humble, Jazzy]
+- `isaac_ros_navigation_goal` and `cmdvel_to_ackermann`: Use the simulation clock for stamped navigation poses and Ackermann commands, with launch arguments for explicit clock selection. [Humble, Jazzy]
+- `isaac_ros_navigation_goal`: Preserve the initial pose as a typed floating-point array when passed through the XML launch frontend. [Humble, Jazzy]
+- `carter_navigation`: Forward `use_sim_time` to the point-cloud-to-laser-scan node. [Humble, Jazzy]
+- Navigation launches: Forward `use_sim_time` to Jazzy RViz instances and Nova Carter's robot-state publisher. [Humble, Jazzy where applicable]
 
 ## [6.1.1] - 2026-07-02
 ### Added

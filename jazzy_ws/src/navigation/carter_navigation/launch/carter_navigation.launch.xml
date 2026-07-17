@@ -1,0 +1,25 @@
+<!-- SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<launch>
+  <arg name="map" default="$(find-pkg-share carter_navigation)/maps/carter_warehouse_navigation.yaml" description="Full path to map file to load"/>
+  <arg name="params_file" default="$(find-pkg-share carter_navigation)/params/carter_navigation_params.yaml" description="Full path to parameter file to load"/>
+  <arg name="use_sim_time" default="True" description="Use simulation (Isaac Sim) clock if true"/>
+  <include file="$(find-pkg-share nav2_bringup)/launch/rviz_launch.py">
+    <arg name="namespace" value=""/><arg name="use_namespace" value="False"/>
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+    <arg name="rviz_config" value="$(find-pkg-share carter_navigation)/rviz2/carter_navigation.rviz"/>
+  </include>
+  <include file="$(find-pkg-share nav2_bringup)/launch/bringup_launch.py">
+    <arg name="map" value="$(var map)"/><arg name="use_sim_time" value="$(var use_sim_time)"/><arg name="params_file" value="$(var params_file)"/>
+  </include>
+  <node pkg="pointcloud_to_laserscan" exec="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+    <remap from="cloud_in" to="/front_3d_lidar/lidar_points"/><remap from="scan" to="/scan"/>
+    <param name="target_frame" value="front_3d_lidar"/><param name="transform_tolerance" value="0.01" type="float"/>
+    <param name="min_height" value="-0.4" type="float"/><param name="max_height" value="1.5" type="float"/>
+    <param name="angle_min" value="-1.5708" type="float"/><param name="angle_max" value="1.5708" type="float"/>
+    <param name="angle_increment" value="0.0087" type="float"/><param name="scan_time" value="0.3333" type="float"/>
+    <param name="range_min" value="0.05" type="float"/><param name="range_max" value="100.0" type="float"/>
+    <param name="use_inf" value="true" type="bool"/><param name="inf_epsilon" value="1.0" type="float"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+</launch>

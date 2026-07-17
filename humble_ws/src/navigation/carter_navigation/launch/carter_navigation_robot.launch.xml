@@ -1,0 +1,76 @@
+<!--
+  SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  SPDX-License-Identifier: Apache-2.0
+-->
+<launch>
+  <arg name="robot_name"/>
+  <arg name="map"/>
+  <arg name="params_file"/>
+  <arg name="default_bt_xml_filename"/>
+  <arg name="autostart"/>
+  <arg name="rviz_config"/>
+  <arg name="use_rviz"/>
+  <arg name="use_sim_time"/>
+  <arg name="log_settings"/>
+  <arg name="transform_tolerance"/>
+  <arg name="min_height"/>
+  <arg name="max_height"/>
+  <arg name="use_range_limits"/>
+  <arg name="range_min"/>
+  <arg name="range_max"/>
+
+  <include file="$(find-pkg-share nav2_bringup)/launch/rviz_launch.py" if="$(var use_rviz)">
+    <arg name="namespace" value="$(var robot_name)"/>
+    <arg name="use_namespace" value="true"/>
+    <arg name="rviz_config" value="$(var rviz_config)"/>
+  </include>
+  <include file="$(find-pkg-share carter_navigation)/launch/carter_navigation_individual.launch.xml">
+    <arg name="namespace" value="$(var robot_name)"/>
+    <arg name="use_namespace" value="true"/>
+    <arg name="map" value="$(var map)"/>
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+    <arg name="params_file" value="$(var params_file)"/>
+    <arg name="default_bt_xml_filename" value="$(var default_bt_xml_filename)"/>
+    <arg name="autostart" value="$(var autostart)"/>
+  </include>
+  <node pkg="pointcloud_to_laserscan" exec="pointcloud_to_laserscan_node"
+        name="pointcloud_to_laserscan" namespace="$(var robot_name)" if="$(var use_range_limits)">
+    <remap from="cloud_in" to="front_3d_lidar/lidar_points"/>
+    <remap from="scan" to="scan"/>
+    <param name="target_frame" value="front_3d_lidar"/>
+    <param name="transform_tolerance" value="$(var transform_tolerance)" type="float"/>
+    <param name="min_height" value="$(var min_height)" type="float"/>
+    <param name="max_height" value="$(var max_height)" type="float"/>
+    <param name="angle_min" value="-1.5708" type="float"/>
+    <param name="angle_max" value="1.5708" type="float"/>
+    <param name="angle_increment" value="0.0087" type="float"/>
+    <param name="scan_time" value="0.3333" type="float"/>
+    <param name="range_min" value="$(var range_min)" type="float"/>
+    <param name="range_max" value="$(var range_max)" type="float"/>
+    <param name="use_inf" value="true" type="bool"/>
+    <param name="inf_epsilon" value="1.0" type="float"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+  <node pkg="pointcloud_to_laserscan" exec="pointcloud_to_laserscan_node"
+        name="pointcloud_to_laserscan" namespace="$(var robot_name)" unless="$(var use_range_limits)">
+    <remap from="cloud_in" to="front_3d_lidar/lidar_points"/>
+    <remap from="scan" to="scan"/>
+    <param name="target_frame" value="front_3d_lidar"/>
+    <param name="transform_tolerance" value="$(var transform_tolerance)" type="float"/>
+    <param name="min_height" value="$(var min_height)" type="float"/>
+    <param name="max_height" value="$(var max_height)" type="float"/>
+    <param name="angle_min" value="-1.5708" type="float"/>
+    <param name="angle_max" value="1.5708" type="float"/>
+    <param name="angle_increment" value="0.0087" type="float"/>
+    <param name="scan_time" value="0.3333" type="float"/>
+    <param name="use_inf" value="true" type="bool"/>
+    <param name="inf_epsilon" value="1.0" type="float"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+  <log message="Launching $(var robot_name)" if="$(var log_settings)"/>
+  <log message="$(var robot_name) map yaml: $(var map)" if="$(var log_settings)"/>
+  <log message="$(var robot_name) params yaml: $(var params_file)" if="$(var log_settings)"/>
+  <log message="$(var robot_name) behavior tree xml: $(var default_bt_xml_filename)" if="$(var log_settings)"/>
+  <log message="$(var robot_name) rviz config file: $(var rviz_config)" if="$(var log_settings)"/>
+  <log message="$(var robot_name) autostart: $(var autostart)" if="$(var log_settings)"/>
+</launch>
