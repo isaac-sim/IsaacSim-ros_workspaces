@@ -28,6 +28,8 @@
   <depend>ackermann_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>launch</depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>launch_xml</exec_depend>
   <depend>rclpy</depend>
 
   <export>

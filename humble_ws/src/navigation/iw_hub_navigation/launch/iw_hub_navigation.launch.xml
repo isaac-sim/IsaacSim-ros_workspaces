@@ -1,0 +1,25 @@
+<!--
+  SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  SPDX-License-Identifier: Apache-2.0
+-->
+<launch>
+  <arg name="map" default="$(find-pkg-share iw_hub_navigation)/maps/iw_hub_warehouse_navigation.yaml"
+       description="Full path to map file to load"/>
+  <arg name="params_file" default="$(find-pkg-share iw_hub_navigation)/params/iw_hub_navigation_params.yaml"
+       description="Full path to parameter file to load"/>
+  <arg name="use_sim_time" default="true" description="Use simulation (Isaac Sim) clock if true"/>
+
+  <group>
+    <set_parameter name="use_sim_time" value="$(var use_sim_time)"/>
+    <include file="$(find-pkg-share nav2_bringup)/launch/rviz_launch.py">
+      <arg name="namespace" value=""/>
+      <arg name="use_namespace" value="false"/>
+      <arg name="rviz_config" value="$(find-pkg-share iw_hub_navigation)/rviz2/iw_hub_navigation.rviz"/>
+    </include>
+  </group>
+  <include file="$(find-pkg-share nav2_bringup)/launch/bringup_launch.py">
+    <arg name="map" value="$(var map)"/>
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+    <arg name="params_file" value="$(var params_file)"/>
+  </include>
+</launch>

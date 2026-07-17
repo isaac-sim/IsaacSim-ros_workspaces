@@ -253,7 +253,7 @@ local_costmap:
         enabled: True
         observation_sources: scan
         scan:
-          topic: sim_lidar/scan
+          topic: $(var scan_topic)
           max_obstacle_height: 2.0
           clearing: True
           marking: True
@@ -281,7 +281,7 @@ global_costmap:
         enabled: True
         observation_sources: scan
         scan:
-          topic: sim_lidar/scan
+          topic: $(var scan_topic)
           max_obstacle_height: 2.0
           clearing: True
           marking: True
@@ -332,7 +332,7 @@ collision_monitor:
     observation_sources: ["scan"]
     scan:
       type: "scan"
-      topic: "sim_lidar/scan"
+      topic: $(var scan_topic)
       min_height: 0.15
       max_height: 2.0
       enabled: True
@@ -412,4 +412,3 @@ waypoint_follower:
       plugin: "nav2_waypoint_follower::WaitAtWaypoint"
       enabled: True
       waypoint_pause_duration: 200
-

@@ -1,0 +1,20 @@
+<!-- SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<launch>
+  <arg name="map" default="$(find-pkg-share carter_navigation)/maps/carter_office_navigation.yaml" description="Full path to map file"/>
+  <arg name="carter1_params_file" default="$(find-pkg-share carter_navigation)/params/office/multi_robot_carter_navigation_params_1.yaml" description="Parameters for carter1"/>
+  <arg name="carter2_params_file" default="$(find-pkg-share carter_navigation)/params/office/multi_robot_carter_navigation_params_2.yaml" description="Parameters for carter2"/>
+  <arg name="carter3_params_file" default="$(find-pkg-share carter_navigation)/params/office/multi_robot_carter_navigation_params_3.yaml" description="Parameters for carter3"/>
+  <arg name="default_bt_xml_filename" default="$(find-pkg-share nav2_bt_navigator)/behavior_trees/navigate_w_replanning_and_recovery.xml" description="Behavior tree XML file"/>
+  <arg name="autostart" default="True" description="Automatically start the navigation stacks"/>
+  <arg name="rviz_config" default="$(find-pkg-share carter_navigation)/rviz2/carter_navigation_namespaced.rviz" description="RViz configuration file"/>
+  <arg name="use_rviz" default="True" description="Whether to start RViz"/><arg name="use_sim_time" default="True" description="Use simulation clock"/>
+  <arg name="log_settings" default="True" description="Log each robot's launch settings"/>
+  <include file="$(find-pkg-share carter_navigation)/launch/multiple_robot_carter_navigation.launch.xml">
+    <arg name="map" value="$(var map)"/><arg name="carter1_params_file" value="$(var carter1_params_file)"/><arg name="carter2_params_file" value="$(var carter2_params_file)"/><arg name="carter3_params_file" value="$(var carter3_params_file)"/>
+    <arg name="default_bt_xml_filename" value="$(var default_bt_xml_filename)"/><arg name="autostart" value="$(var autostart)"/><arg name="rviz_config" value="$(var rviz_config)"/>
+    <arg name="use_rviz" value="$(var use_rviz)"/><arg name="use_sim_time" value="$(var use_sim_time)"/><arg name="log_settings" value="$(var log_settings)"/>
+    <arg name="transform_tolerance" value="0.01"/><arg name="min_height" value="-0.4"/><arg name="max_height" value="1.5"/>
+    <arg name="use_range_limits" value="True"/><arg name="range_min" value="0.05"/><arg name="range_max" value="100.0"/>
+  </include>
+</launch>

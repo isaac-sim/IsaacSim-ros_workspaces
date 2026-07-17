@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<launch>
+  <arg name="version" default="6.0.1" description="Specify the Isaac Sim version; leave empty for the latest version."/>
+  <arg name="install_path" default="" description="Isaac Sim installation root; overrides version when set."/>
+  <arg name="use_internal_libs" default="true" description="Use the ROS libraries shipped with Isaac Sim."/>
+  <arg name="dds_type" default="" description="Override the RMW implementation with fastdds, cyclonedds, or zenoh."/>
+  <arg name="gui" default="" description="USD file to open in standard GUI mode."/>
+  <arg name="standalone" default="" description="Python file to run in the standalone workflow."/>
+  <arg name="python_script" default="" description="Python script to execute after GUI-mode startup."/>
+  <arg name="play_sim_on_start" default="false" description="Play a GUI-loaded scene after startup."/>
+  <arg name="ros_distro" default="humble" description="ROS distribution to use (Humble or Jazzy)."/>
+  <arg name="ros_installation_path" default="" description="Comma-separated ROS setup files for non-default installations."/>
+  <arg name="headless" default="" description="Headless mode: native, webrtc, or empty for GUI."/>
+  <arg name="custom_args" default="" description="Additional arguments forwarded to Isaac Sim."/>
+  <arg name="exclude_install_path" default="" description="Comma-separated paths excluded from process environment variables."/>
+
+  <node pkg="isaacsim_bringup" exec="run_isaacsim" name="isaacsim_bringup" output="screen">
+    <param name="version" value="$(var version)" type="str"/>
+    <param name="install_path" value="$(var install_path)" type="str"/>
+    <param name="use_internal_libs" value="$(var use_internal_libs)" type="bool"/>
+    <param name="dds_type" value="$(var dds_type)" type="str"/>
+    <param name="gui" value="$(var gui)" type="str"/>
+    <param name="standalone" value="$(var standalone)" type="str"/>
+    <param name="python_script" value="$(var python_script)" type="str"/>
+    <param name="play_sim_on_start" value="$(var play_sim_on_start)" type="bool"/>
+    <param name="ros_distro" value="$(var ros_distro)" type="str"/>
+    <param name="ros_installation_path" value="$(var ros_installation_path)" type="str"/>
+    <param name="headless" value="$(var headless)" type="str"/>
+    <param name="custom_args" value="$(var custom_args)" type="str"/>
+    <param name="exclude_install_path" value="$(var exclude_install_path)" type="str"/>
+  </node>
+</launch>

@@ -1,0 +1,314 @@
+# Generated explicitly from the distro's moveit_resources_panda configuration.
+/**:
+  ros__parameters:
+    robot_description_kinematics:
+      panda_arm:
+        kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
+        kinematics_solver_search_resolution: 0.005
+        kinematics_solver_timeout: 0.05
+    planning_pipelines:
+    - ompl
+    - pilz_industrial_motion_planner
+    default_planning_pipeline: ompl
+    ompl:
+      planning_plugin: ompl_interface/OMPLPlanner
+      request_adapters: default_planner_request_adapters/AddTimeOptimalParameterization
+        default_planner_request_adapters/ResolveConstraintFrames default_planner_request_adapters/FixWorkspaceBounds
+        default_planner_request_adapters/FixStartStateBounds default_planner_request_adapters/FixStartStateCollision
+        default_planner_request_adapters/FixStartStatePathConstraints
+      start_state_max_bounds_error: 0.1
+      planner_configs:
+        SBLkConfigDefault:
+          type: geometric::SBL
+          range: 0.0
+        ESTkConfigDefault:
+          type: geometric::EST
+          range: 0.0
+          goal_bias: 0.05
+        LBKPIECEkConfigDefault:
+          type: geometric::LBKPIECE
+          range: 0.0
+          border_fraction: 0.9
+          min_valid_path_fraction: 0.5
+        BKPIECEkConfigDefault:
+          type: geometric::BKPIECE
+          range: 0.0
+          border_fraction: 0.9
+          failed_expansion_score_factor: 0.5
+          min_valid_path_fraction: 0.5
+        KPIECEkConfigDefault:
+          type: geometric::KPIECE
+          range: 0.0
+          goal_bias: 0.05
+          border_fraction: 0.9
+          failed_expansion_score_factor: 0.5
+          min_valid_path_fraction: 0.5
+        RRTkConfigDefault:
+          type: geometric::RRT
+          range: 0.0
+          goal_bias: 0.05
+        RRTConnectkConfigDefault:
+          type: geometric::RRTConnect
+          range: 0.0
+        RRTstarkConfigDefault:
+          type: geometric::RRTstar
+          range: 0.0
+          goal_bias: 0.05
+          delay_collision_checking: 1
+        TRRTkConfigDefault:
+          type: geometric::TRRT
+          range: 0.0
+          goal_bias: 0.05
+          max_states_failed: 10
+          temp_change_factor: 2.0
+          min_temperature: 10e-10
+          init_temperature: 10e-6
+          frountier_threshold: 0.0
+          frountierNodeRatio: 0.1
+          k_constant: 0.0
+        PRMkConfigDefault:
+          type: geometric::PRM
+          max_nearest_neighbors: 10
+        PRMstarkConfigDefault:
+          type: geometric::PRMstar
+        FMTkConfigDefault:
+          type: geometric::FMT
+          num_samples: 1000
+          radius_multiplier: 1.1
+          nearest_k: 1
+          cache_cc: 1
+          heuristics: 0
+          extended_fmt: 1
+        BFMTkConfigDefault:
+          type: geometric::BFMT
+          num_samples: 1000
+          radius_multiplier: 1.0
+          nearest_k: 1
+          balanced: 0
+          optimality: 1
+          heuristics: 1
+          cache_cc: 1
+          extended_fmt: 1
+        PDSTkConfigDefault:
+          type: geometric::PDST
+        STRIDEkConfigDefault:
+          type: geometric::STRIDE
+          range: 0.0
+          goal_bias: 0.05
+          use_projected_distance: 0
+          degree: 16
+          max_degree: 18
+          min_degree: 12
+          max_pts_per_leaf: 6
+          estimated_dimension: 0.0
+          min_valid_path_fraction: 0.2
+        BiTRRTkConfigDefault:
+          type: geometric::BiTRRT
+          range: 0.0
+          temp_change_factor: 0.1
+          init_temperature: 100
+          frountier_threshold: 0.0
+          frountier_node_ratio: 0.1
+          cost_threshold: 1e300
+        LBTRRTkConfigDefault:
+          type: geometric::LBTRRT
+          range: 0.0
+          goal_bias: 0.05
+          epsilon: 0.4
+        BiESTkConfigDefault:
+          type: geometric::BiEST
+          range: 0.0
+        ProjESTkConfigDefault:
+          type: geometric::ProjEST
+          range: 0.0
+          goal_bias: 0.05
+        LazyPRMkConfigDefault:
+          type: geometric::LazyPRM
+          range: 0.0
+        LazyPRMstarkConfigDefault:
+          type: geometric::LazyPRMstar
+        SPARSkConfigDefault:
+          type: geometric::SPARS
+          stretch_factor: 3.0
+          sparse_delta_fraction: 0.25
+          dense_delta_fraction: 0.001
+          max_failures: 1000
+        SPARStwokConfigDefault:
+          type: geometric::SPARStwo
+          stretch_factor: 3.0
+          sparse_delta_fraction: 0.25
+          dense_delta_fraction: 0.001
+          max_failures: 5000
+        TrajOptDefault:
+          type: geometric::TrajOpt
+      panda_arm:
+        planner_configs:
+        - SBLkConfigDefault
+        - ESTkConfigDefault
+        - LBKPIECEkConfigDefault
+        - BKPIECEkConfigDefault
+        - KPIECEkConfigDefault
+        - RRTkConfigDefault
+        - RRTConnectkConfigDefault
+        - RRTstarkConfigDefault
+        - TRRTkConfigDefault
+        - PRMkConfigDefault
+        - PRMstarkConfigDefault
+        - FMTkConfigDefault
+        - BFMTkConfigDefault
+        - PDSTkConfigDefault
+        - STRIDEkConfigDefault
+        - BiTRRTkConfigDefault
+        - LBTRRTkConfigDefault
+        - BiESTkConfigDefault
+        - ProjESTkConfigDefault
+        - LazyPRMkConfigDefault
+        - LazyPRMstarkConfigDefault
+        - SPARSkConfigDefault
+        - SPARStwokConfigDefault
+        - TrajOptDefault
+      panda_arm_hand:
+        planner_configs:
+        - SBLkConfigDefault
+        - ESTkConfigDefault
+        - LBKPIECEkConfigDefault
+        - BKPIECEkConfigDefault
+        - KPIECEkConfigDefault
+        - RRTkConfigDefault
+        - RRTConnectkConfigDefault
+        - RRTstarkConfigDefault
+        - TRRTkConfigDefault
+        - PRMkConfigDefault
+        - PRMstarkConfigDefault
+        - FMTkConfigDefault
+        - BFMTkConfigDefault
+        - PDSTkConfigDefault
+        - STRIDEkConfigDefault
+        - BiTRRTkConfigDefault
+        - LBTRRTkConfigDefault
+        - BiESTkConfigDefault
+        - ProjESTkConfigDefault
+        - LazyPRMkConfigDefault
+        - LazyPRMstarkConfigDefault
+        - SPARSkConfigDefault
+        - SPARStwokConfigDefault
+        - TrajOptDefault
+      hand:
+        planner_configs:
+        - SBLkConfigDefault
+        - ESTkConfigDefault
+        - LBKPIECEkConfigDefault
+        - BKPIECEkConfigDefault
+        - KPIECEkConfigDefault
+        - RRTkConfigDefault
+        - RRTConnectkConfigDefault
+        - RRTstarkConfigDefault
+        - TRRTkConfigDefault
+        - PRMkConfigDefault
+        - PRMstarkConfigDefault
+        - FMTkConfigDefault
+        - BFMTkConfigDefault
+        - PDSTkConfigDefault
+        - STRIDEkConfigDefault
+        - BiTRRTkConfigDefault
+        - LBTRRTkConfigDefault
+        - BiESTkConfigDefault
+        - ProjESTkConfigDefault
+        - LazyPRMkConfigDefault
+        - LazyPRMstarkConfigDefault
+        - SPARSkConfigDefault
+        - SPARStwokConfigDefault
+        - TrajOptDefault
+    pilz_industrial_motion_planner:
+      planning_plugin: pilz_industrial_motion_planner/CommandPlanner
+      request_adapters: default_planner_request_adapters/FixWorkspaceBounds default_planner_request_adapters/FixStartStateBounds
+        default_planner_request_adapters/FixStartStateCollision default_planner_request_adapters/FixStartStatePathConstraints
+      default_planner_config: PTP
+      capabilities: pilz_industrial_motion_planner/MoveGroupSequenceAction pilz_industrial_motion_planner/MoveGroupSequenceService
+    moveit_manage_controllers: true
+    trajectory_execution:
+      allowed_execution_duration_scaling: 1.2
+      allowed_goal_duration_margin: 0.5
+      allowed_start_tolerance: 0.01
+    moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+    moveit_simple_controller_manager:
+      controller_names:
+      - panda_arm_controller
+      - panda_hand_controller
+      panda_arm_controller:
+        action_ns: follow_joint_trajectory
+        type: FollowJointTrajectory
+        default: true
+        joints:
+        - panda_joint1
+        - panda_joint2
+        - panda_joint3
+        - panda_joint4
+        - panda_joint5
+        - panda_joint6
+        - panda_joint7
+      panda_hand_controller:
+        action_ns: gripper_cmd
+        type: GripperCommand
+        default: true
+        joints:
+        - panda_finger_joint1
+    publish_planning_scene: true
+    publish_geometry_updates: true
+    publish_state_updates: true
+    publish_transforms_updates: true
+    publish_robot_description: false
+    publish_robot_description_semantic: false
+    robot_description_planning:
+      joint_limits:
+        panda_joint1:
+          has_velocity_limits: true
+          max_velocity: 2.175
+          has_acceleration_limits: true
+          max_acceleration: 3.75
+        panda_joint2:
+          has_velocity_limits: true
+          max_velocity: 2.175
+          has_acceleration_limits: true
+          max_acceleration: 1.875
+        panda_joint3:
+          has_velocity_limits: true
+          max_velocity: 2.175
+          has_acceleration_limits: true
+          max_acceleration: 2.5
+        panda_joint4:
+          has_velocity_limits: true
+          max_velocity: 2.175
+          has_acceleration_limits: true
+          max_acceleration: 3.125
+        panda_joint5:
+          has_velocity_limits: true
+          max_velocity: 2.61
+          has_acceleration_limits: true
+          max_acceleration: 3.75
+        panda_joint6:
+          has_velocity_limits: true
+          max_velocity: 2.61
+          has_acceleration_limits: true
+          max_acceleration: 5.0
+        panda_joint7:
+          has_velocity_limits: true
+          max_velocity: 2.61
+          has_acceleration_limits: true
+          max_acceleration: 5.0
+        panda_finger_joint1:
+          has_velocity_limits: true
+          max_velocity: 0.1
+          has_acceleration_limits: false
+          max_acceleration: 0.0
+        panda_finger_joint2:
+          has_velocity_limits: true
+          max_velocity: 0.1
+          has_acceleration_limits: false
+          max_acceleration: 0.0
+      cartesian_limits:
+        max_trans_vel: 1.0
+        max_trans_acc: 2.25
+        max_trans_dec: -5.0
+        max_rot_vel: 1.57
+

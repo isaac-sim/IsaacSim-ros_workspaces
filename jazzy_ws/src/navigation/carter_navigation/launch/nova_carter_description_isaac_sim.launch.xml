@@ -1,0 +1,11 @@
+<!-- SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<launch>
+  <arg name="calibrated_urdf_file" default="/etc/nova/calibration/isaac_calibration.urdf" description="Calibrated URDF; the nominal xacro is used when this file does not exist"/>
+  <arg name="use_sim_time" default="true" description="Use simulation (Isaac Sim) clock if true"/>
+  <let name="robot_description" value="$(command '$(find-exec bash) &quot;$(find-pkg-share carter_navigation)/scripts/nova_carter_robot_description&quot; &quot;$(var calibrated_urdf_file)&quot; &quot;$(find-pkg-share nova_carter_description)/urdf/nova_carter.urdf.xacro&quot;')"/>
+  <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
+    <param name="robot_description" value="$(var robot_description)" type="str"/>
+    <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
+  </node>
+</launch>

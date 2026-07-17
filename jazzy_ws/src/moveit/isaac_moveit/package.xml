@@ -32,6 +32,8 @@
   <depend>moveit</depend>
   <depend>robot_state_publisher</depend>
   <depend>moveit_resources_panda_moveit_config</depend>
+  <depend>moveit_resources_panda_description</depend>
+  <depend>topic_based_ros2_control</depend>
   <depend>ros2_control</depend>
   <depend>ros2_controllers</depend>
   <depend>moveit_simple_controller_manager</depend>
@@ -41,7 +43,12 @@
   <depend>sensor_msgs</depend>
 
   <exec_depend>launch</exec_depend>
+  <exec_depend>launch_xml</exec_depend>
   <exec_depend>launch_ros</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>moveit_ros_move_group</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>xacro</exec_depend>
 
   <exec_depend>rviz2</exec_depend>
 

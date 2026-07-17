@@ -5,6 +5,7 @@ find_package(ament_cmake REQUIRED)
 
 install(DIRECTORY
   launch
+  scripts
   params
   maps
   rviz2
