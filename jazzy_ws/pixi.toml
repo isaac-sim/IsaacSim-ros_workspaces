@@ -83,7 +83,7 @@ ros-jazzy-visualization-msgs = ">=5.3.6,<6"
 ros-jazzy-xacro = ">=2.1.1,<3"
 
 # Python dependencies
-av = "*"                                   # PyAV for isaac_compressed_image_decoder
+av = "*"                                   # PyAV for H.264/HEVC isaac_compressed_image_decoder
 # On pypi tinyobjloader is only available in `0.1`.
 tinyobjloader = "==2.0.0rc13"
 
