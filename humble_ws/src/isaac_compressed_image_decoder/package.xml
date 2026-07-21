@@ -2,9 +2,9 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>isaac_compressed_image_decoder</name>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <description>
-    Decodes H264-compressed images published by Isaac Sim and republishes them as raw sensor_msgs/Image messages.
+    Decodes H.264 and HEVC/H.265 CompressedImage topics published by Isaac Sim and republishes them as raw sensor_msgs/Image messages.
   </description>
 
   <maintainer email="isaac-sim-maintainers@nvidia.com">Isaac Sim</maintainer>
