@@ -1,7 +1,11 @@
 [workspace]
 name = "humble_ws"
 channels = ["https://prefix.dev/robostack-humble", "https://prefix.dev/conda-forge"]
-platforms = ["linux-64", "linux-aarch64", "win-64"]
+platforms = [
+    { platform = "linux-64", glibc = "2.35", cuda = "12.9" },
+    { platform = "linux-aarch64", glibc = "2.35", cuda = "12.9" },
+    { platform = "win-64", cuda = "12.9" },
+]
 
 [dependencies]
 python = "3.12.*"
@@ -62,6 +66,7 @@ ros-humble-pointcloud-to-laserscan = "*"
 ros-humble-rclcpp = "*"
 ros-humble-rclpy = "*"
 ros-humble-rmw-fastrtps-cpp = "*"
+ros-humble-rmw-zenoh-cpp = "*"
 ros-humble-robot-state-publisher = "*"
 ros-humble-ros-testing = "*"
 ros-humble-ros2-control = "*"
@@ -88,10 +93,6 @@ typing-extensions = ">=4.13,<5"
 [target.win.dependencies]
 pywin32 = "==306"
 
-[system-requirements]
-libc = "2.35"
-cuda = "12.9"
-
 [pypi-options]
 extra-index-urls = ["https://pypi.nvidia.com"]
 
@@ -112,25 +113,37 @@ fsspec = "*"
 filelock = "*"
 
 [pypi-dependencies]
-isaacsim = { version = "==6.0.1.0", extras = ["all", "extscache", "ros2"] }
 torch = { version = "==2.11.0", index = "https://download.pytorch.org/whl/cu128" }
 
 [tasks]
+# ROS
 build = { cmd = "colcon build --merge-install --cmake-args -DBUILD_TESTING=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DPython_FIND_VIRTUALENV=ONLY -DPython3_FIND_VIRTUALENV=ONLY", description = "Build the ROS workspace" }
 test = { cmd = "colcon test", description = "Run tests for the workspace" }
 clean = { cmd = "rm -rf build install log", description = "Clean build artifacts" }
-fastdds = "ros2 run demo_nodes_cpp talker"
+zenoh = "ros2 run rmw_zenoh_cpp rmw_zenohd"
+
+# Isaacsim
+check = "$isaac_sim_package_path/isaac-sim.compatibility_check.sh"
+sim = "$isaac_sim_package_path/isaac-sim.sh --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
+headless = "$isaac_sim_package_path/isaac-sim.streaming.sh --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
+standalone = "$isaac_sim_package_path/python.sh"
+
+[target.win-64.tasks]
+check = "$isaac_sim_package_path\\isaac-sim.compatibility_check.bat"
+sim = "$isaac_sim_package_path\\isaac-sim.bat --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
+headless = "$isaac_sim_package_path\\isaac-sim.streaming.bat --/isaac/startup/ros_bridge_extension=isaacsim.ros2.bridge"
+standalone = "$isaac_sim_package_path\\python.bat"
 
 [activation.env]
-RMW_IMPLEMENTATION = "rmw_fastrtps_cpp"
+RMW_IMPLEMENTATION = "rmw_zenoh_cpp"
 ROS_DOMAIN_ID = "0"
 ROS_DISTRO = "humble"
 KMP_DUPLICATE_LIB_OK = "TRUE"
 
 [target.unix.activation]
 scripts = ["install/setup.bash"]
-env = { isaac_sim_package_path = "$HOME/isaacsim", LD_LIBRARY_PATH = "$isaac_sim_package_path/kit/python/lib:$LD_LIBRARY_PATH" }
+env = { isaac_sim_package_path = "$HOME/isaacsim", LD_LIBRARY_PATH = "$isaac_sim_package_path/exts/isaacsim.ros2.core/$ROS_DISTRO/lib:$LD_LIBRARY_PATH", LD_PRELOAD = "$CONDA_PREFIX/lib/librmw_zenoh_cpp.so:$LD_PRELOAD" }
 
 [target.win.activation]
 scripts = ["install\\setup.bat"]
-env = { isaac_sim_package_path = "C:\\isaacsim", PATH = "%isaac_sim_package_path%\\kit\\python\\lib;%PATH%" }
+env = { isaac_sim_package_path = "C:\\isaacsim", PATH = "%isaac_sim_package_path%\\exts\\isaacsim.ros2.core\\humble\\lib;%PATH%" }
