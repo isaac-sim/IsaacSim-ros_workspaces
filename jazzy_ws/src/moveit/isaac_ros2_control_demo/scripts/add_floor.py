@@ -27,7 +27,7 @@ def main():
 
     pose = Pose()
     pose.orientation.w = 1.0
-    pose.position.z = -0.05
+    pose.position.z = -0.10
     floor.primitive_poses.append(pose)
 
     scene = PlanningScene()
@@ -43,7 +43,7 @@ def main():
     rclpy.spin_until_future_complete(node, future)
     if future.result() is None or not future.result().success:
         raise RuntimeError("MoveIt rejected the floor collision object")
-    node.get_logger().info("Added floor collision object at base_link z=0")
+    node.get_logger().info("Added floor collision object at base_link z=-0.05")
 
     node.destroy_node()
     rclpy.shutdown()
