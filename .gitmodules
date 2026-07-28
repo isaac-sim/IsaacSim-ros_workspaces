@@ -10,3 +10,11 @@
 	path = jazzy_ws/src/moveit/topic_based_ros2_control
 	url = https://github.com/ayushgnv/topic_based_ros2_control.git
 	branch = ayushg/isaacsim-windows-stability
+[submodule "humble_ws/src/greenwave_monitor"]
+	path = humble_ws/src/greenwave_monitor
+	url = https://github.com/NVIDIA-ISAAC-ROS/greenwave_monitor.git
+	branch = main
+[submodule "jazzy_ws/src/greenwave_monitor"]
+	path = jazzy_ws/src/greenwave_monitor
+	url = https://github.com/NVIDIA-ISAAC-ROS/greenwave_monitor.git
+	branch = main
