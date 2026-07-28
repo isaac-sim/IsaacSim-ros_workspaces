@@ -1,6 +1,7 @@
 [workspace]
 name = "jazzy_ws"
 channels = ["https://prefix.dev/robostack-jazzy", "https://prefix.dev/conda-forge"]
+requires-pixi = ">=0.68.0"
 platforms = [
     { platform = "linux-64", glibc = "2.35", cuda = "12.9" },
     { platform = "linux-aarch64", glibc = "2.35", cuda = "12.9" },

@@ -22,6 +22,14 @@ If you cloned with `git clone --recurse-submodules`, this step is already done.
 
 ### 2. Install dependencies
 
+If `pixi install` reports an unsupported lock-file version, update Pixi first:
+
+```bash
+pixi self-update
+```
+
+Then install the workspace dependencies:
+
 ```bash
 pixi install
 ```
