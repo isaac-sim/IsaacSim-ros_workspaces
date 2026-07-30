@@ -55,6 +55,42 @@ with `pixi run <command>` without entering the shell.
 > `install/setup.(bash/bat)` on environment activation. This means all your built packages
 > are available without any manual sourcing.
 
+### 5. Start Isaac Sim
+
+There is a `zenoh` and `sim` task you can run.
+
+**Terminal 1:**
+
+Start the zenoh server:
+
+```bash
+pixi run zenoh
+```
+
+**Terminal 2:**
+
+Start the simulator:
+
+```bash
+pixi run sim
+```
+
+Now add the ROS 2 clock publisher from the sim and start the sim to test the ROS bridge:
+
+- Click through: **Tools -> Robotics -> ROS 2 OmniGraphs -> Clock -> OK**
+- Press the Play button in the simulator.
+
+**Terminal 3:**
+
+Check whether the topic became visible for the ROS CLI:
+
+```bash
+pixi run ros2 topic list
+/clock
+/parameter_events
+/rosout
+```
+
 ## Adding dependencies
 
 When you add dependencies to your `package.xml` files, re-run `pixi ros init` to update `pixi.toml`:
