@@ -1,6 +1,7 @@
 [workspace]
 name = "humble_ws"
 channels = ["https://prefix.dev/robostack-humble", "https://prefix.dev/conda-forge"]
+requires-pixi = ">=0.68.0"
 platforms = [
     { platform = "linux-64", glibc = "2.35", cuda = "12.9" },
     { platform = "linux-aarch64", glibc = "2.35", cuda = "12.9" },
@@ -21,6 +22,8 @@ ros-humble-ros-base = "*"
 ros-humble-ros2cli = "*"
 ros-humble-ackermann-msgs = "*"
 ros-humble-ament-cmake = "*"
+ros-humble-ament-cmake-auto = "*"
+ros-humble-ament-cmake-python = "*"
 ros-humble-ament-flake8 = "*"
 ros-humble-ament-lint-auto = "*"
 ros-humble-ament-lint-common = "*"
@@ -29,6 +32,7 @@ ros-humble-angles = "*"
 ros-humble-builtin-interfaces = "*"
 ros-humble-control-msgs = "*"
 ros-humble-controller-manager = "*"
+ros-humble-diagnostic-msgs = "*"
 ros-humble-geometry-msgs = "*"
 ros-humble-hardware-interface = "*"
 ros-humble-joint-state-broadcaster = "*"

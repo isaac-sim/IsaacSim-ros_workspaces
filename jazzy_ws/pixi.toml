@@ -1,6 +1,7 @@
 [workspace]
 name = "jazzy_ws"
 channels = ["https://prefix.dev/robostack-jazzy", "https://prefix.dev/conda-forge"]
+requires-pixi = ">=0.68.0"
 platforms = [
     { platform = "linux-64", glibc = "2.35", cuda = "12.9" },
     { platform = "linux-aarch64", glibc = "2.35", cuda = "12.9" },
@@ -24,6 +25,8 @@ cmake = ">=4.3.2,<5"
 pytest = ">=9.0.3,<10"
 ros-jazzy-ackermann-msgs = ">=2.0.2,<3"
 ros-jazzy-ament-cmake = ">=2.5.5,<3"
+ros-jazzy-ament-cmake-auto = ">=2.5.5,<3"
+ros-jazzy-ament-cmake-python = ">=2.5.5,<3"
 ros-jazzy-ament-flake8 = ">=0.17.4,<0.18"
 ros-jazzy-ament-lint-auto = ">=0.17.4,<0.18"
 ros-jazzy-ament-lint-common = ">=0.17.4,<0.18"
@@ -32,6 +35,7 @@ ros-jazzy-angles = ">=1.16.1,<2"
 ros-jazzy-builtin-interfaces = ">=2.0.3,<3"
 ros-jazzy-clearpath-common = "*"
 ros-jazzy-controller-manager = ">=4.43.0,<5"
+ros-jazzy-diagnostic-msgs = ">=5.3.6,<6"
 ros-jazzy-geometry-msgs = ">=5.3.6,<6"
 ros-jazzy-hardware-interface = ">=4.43.0,<5"
 ros-jazzy-joint-state-broadcaster = ">=4.37.0,<5"

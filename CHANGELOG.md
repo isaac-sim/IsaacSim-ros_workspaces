@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.4.0] - 2026-07-29
+### Added
+- Added Greenwave Monitor as a workspace submodule with Pixi build dependencies and setup documentation. [Humble, Jazzy]
+
 ## [6.3.0] - 2026-07-20
 ### Added
 - `isaac_compressed_image_decoder`: auto-discovers `sensor_msgs/msg/CompressedImage` topics, decodes H.264 and HEVC/H.265 payloads based on the message `format`, and republishes `/topic/compressed` as `/topic` raw `sensor_msgs/Image` topics. Existing single-topic `input_topic`/`output_topic` parameters remain supported. [Humble, Jazzy]

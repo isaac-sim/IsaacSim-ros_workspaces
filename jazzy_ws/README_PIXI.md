@@ -9,9 +9,10 @@ This ROS jazzy workspace is configured to use [Pixi](https://pixi.sh) for depend
 
 ### 1. Fetch git submodules
 
-Several packages under `src/moveit/` (including `moveit_resources` / `panda_moveit_config`
-and `topic_based_ros2_control`) are tracked as git submodules. After cloning, you must
-initialize them or the workspace will fail to build with missing-package errors:
+Several workspace packages are tracked as git submodules, including Greenwave Monitor
+under `src/greenwave_monitor` and MoveIt-related packages under `src/moveit/`. After
+cloning, you must initialize them or the workspace will fail to build with missing-package
+errors:
 
 ```bash
 git submodule update --init --recursive
@@ -20,6 +21,14 @@ git submodule update --init --recursive
 If you cloned with `git clone --recurse-submodules`, this step is already done.
 
 ### 2. Install dependencies
+
+If `pixi install` reports an unsupported lock-file version, update Pixi first:
+
+```bash
+pixi self-update
+```
+
+Then install the workspace dependencies:
 
 ```bash
 pixi install
