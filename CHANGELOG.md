@@ -1,5 +1,8 @@
 # Changelog
 
+## [6.4.1] - 2026-08-04
+- `isaac_ros2_control_demo`: Installed `read_robot_description` and `add_floor` as ROS console scripts so launch can discover their `.exe` wrappers on Windows, and enabled the floor collision node for Humble. [Humble, Jazzy]
+
 ## [6.4.0] - 2026-07-29
 ### Added
 - Added Greenwave Monitor as a workspace submodule with Pixi build dependencies and setup documentation. [Humble, Jazzy]

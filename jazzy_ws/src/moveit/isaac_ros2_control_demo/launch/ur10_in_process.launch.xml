@@ -37,7 +37,7 @@
     <param name="use_sim_time" value="$(var use_sim_time)" type="bool"/>
   </node>
 
-  <node pkg="isaac_ros2_control_demo" exec="add_floor.py" output="log"/>
+  <node pkg="isaac_ros2_control_demo" exec="add_floor" output="log"/>
   <node pkg="controller_manager" exec="spawner" output="log"
         args="joint_state_broadcaster --controller-manager /controller_manager"/>
   <node pkg="controller_manager" exec="spawner" output="log"
