@@ -31,20 +31,31 @@ class CmdvelToAckermann(Node):
 
         self.declare_parameter("publish_period_ms", 20)
         self.declare_parameter("track_width", 0.24)
+        self.declare_parameter("wheelbase", 0.32)
         self.declare_parameter("acceleration", 0.0)
         self.declare_parameter("steering_velocity", 0.0)
+        self.declare_parameter("frame_id", "ackermann")
+        self.declare_parameter("cmd_vel_topic", "cmd_vel")
+        self.declare_parameter("ackermann_topic", "ackermann_cmd")
 
-        self._cmd_vel_subscription = self.create_subscription(Twist, "/cmd_vel", self._cmd_vel_callback, 1)
-        self._ackermann_publisher = self.create_publisher(AckermannDriveStamped, "/ackermann_cmd", 1)
+        cmd_vel_topic = self.get_parameter("cmd_vel_topic").value
+        ackermann_topic = self.get_parameter("ackermann_topic").value
+        self._cmd_vel_subscription = self.create_subscription(Twist, cmd_vel_topic, self._cmd_vel_callback, 1)
+        self._ackermann_publisher = self.create_publisher(AckermannDriveStamped, ackermann_topic, 1)
         publish_period_ms = self.get_parameter("publish_period_ms").value / 1000
         self.create_timer(publish_period_ms, self._timer_callback)
         self.track_width = self.get_parameter("track_width").value
+        self.wheelbase = self.get_parameter("wheelbase").value
         self.acceleration = self.get_parameter("acceleration").value
         self.steering_velocity = self.get_parameter("steering_velocity").value
+        self.frame_id = self.get_parameter("frame_id").value
 
         self.get_logger().info(f"track_width: {self.track_width}")
+        self.get_logger().info(f"wheelbase: {self.wheelbase}")
         self.get_logger().info(f"acceleration: {self.acceleration}")
         self.get_logger().info(f"steering_velocity: {self.steering_velocity}")
+        self.get_logger().info(f"cmd_vel_topic: {cmd_vel_topic}")
+        self.get_logger().info(f"ackermann_topic: {ackermann_topic}")
         self._ackermann_msg = None
 
     def _convert_trans_rot_vel_to_steering_angle(self, v, omega) -> float:
@@ -56,21 +67,25 @@ class CmdvelToAckermann(Node):
             return 0.0
 
         turning_radius = v / omega
-        return math.atan(self.track_width / turning_radius)
+        return math.atan(self.wheelbase / turning_radius)
 
     def _cmd_vel_callback(self, msg):
         self._ackermann_msg = AckermannDriveStamped()
-        self._ackermann_msg.header.stamp = self.get_clock().now().to_msg()
-        # Conversion logic (simplified example)
+        self._ackermann_msg.header.frame_id = self.frame_id
         self._ackermann_msg.drive.speed = msg.linear.x
         steering_angle = self._convert_trans_rot_vel_to_steering_angle(self._ackermann_msg.drive.speed, msg.angular.z)
         self._ackermann_msg.drive.steering_angle = steering_angle
         self._ackermann_msg.drive.acceleration = self.acceleration
         self._ackermann_msg.drive.steering_angle_velocity = self.steering_velocity
+        self._publish_ackermann_msg()
 
     def _timer_callback(self):
         if self._ackermann_msg:
-            self._ackermann_publisher.publish(self._ackermann_msg)
+            self._publish_ackermann_msg()
+
+    def _publish_ackermann_msg(self):
+        self._ackermann_msg.header.stamp = self.get_clock().now().to_msg()
+        self._ackermann_publisher.publish(self._ackermann_msg)
 
 
 def main(args=None):
