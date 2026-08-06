@@ -29,7 +29,7 @@ from rclpy.node import Node
 
 # Default values
 defaults = {
-    "isaac_sim_version": "6.0.1",
+    "isaac_sim_version": "6.1.0",
     "isaac_sim_path": "",
     "use_internal_libs": True,
     "dds_type": "",

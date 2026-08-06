@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.5.0] - 2026-08-04
+### Changed
+- `isaacsim_bringup`: Updated the default Isaac Sim launch version and package documentation links to 6.1.0. [Humble, Jazzy]
+
+### Fixed
+- `cmdvel_to_ackermann`: Restored reliable `cmd_vel` to `ackermann_cmd` conversion and publishing by using relative/configurable topics, stamping every published `AckermannDriveStamped` message, setting the default Ackermann frame ID, and using wheelbase for steering conversion. [Humble, Jazzy]
+
 ## [6.4.1] - 2026-08-04
 - `isaac_ros2_control_demo`: Installed `read_robot_description` and `add_floor` as ROS console scripts so launch can discover their `.exe` wrappers on Windows, and enabled the floor collision node for Humble. [Humble, Jazzy]
 

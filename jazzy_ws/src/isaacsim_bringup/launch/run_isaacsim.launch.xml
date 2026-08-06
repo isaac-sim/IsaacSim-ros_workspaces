@@ -2,7 +2,7 @@
 <!-- SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 <launch>
-  <arg name="version" default="6.0.1" description="Specify the Isaac Sim version; leave empty for the latest version."/>
+  <arg name="version" default="6.1.0" description="Specify the Isaac Sim version; leave empty for the latest version."/>
   <arg name="install_path" default="" description="Isaac Sim installation root; overrides version when set."/>
   <arg name="use_internal_libs" default="false" description="Use the ROS libraries shipped with Isaac Sim."/>
   <arg name="dds_type" default="" description="Override the RMW implementation with fastdds, cyclonedds, or zenoh."/>
