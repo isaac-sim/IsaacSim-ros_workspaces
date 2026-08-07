@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.6.0] - 2026-08-05
+### Changed
+- Removed the `standalone` Pixi task. Run standalone scripts with Isaac Sim's bundled Python launcher from a clean terminal to avoid exposing the Pixi dependency environment to Isaac Sim. [Humble, Jazzy]
+- `isaac_ros2_control_demo`: Installed `add_floor` as a ROS console script and removed redundant direct script installs. [Humble, Jazzy]
+- `isaac_ros2_control_demo`: Replaced stdout capture of `/robot_description` with a one-shot node and atomic parameter-file handoff so middleware logs cannot corrupt the URDF. [Humble, Jazzy]
+- `isaac_ros2_control_demo`: Wait indefinitely for `/robot_description`, reporting the wait every 60 seconds until the message arrives or the user presses `Ctrl+C`. [Humble, Jazzy]
+
 ## [6.5.0] - 2026-08-04
 ### Changed
 - `isaacsim_bringup`: Updated the default Isaac Sim launch version and package documentation links to 6.1.0. [Humble, Jazzy]

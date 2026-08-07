@@ -25,17 +25,20 @@ source _build/linux-x86_64/release/setup_ros_env.sh
 Terminal 2 (this workspace):
 
 ```bash
-ros2 launch isaac_ros2_control_demo ur10_in_process.launch.xml
+ros2 launch isaac_ros2_control_demo ur10_in_process.launch.py
 ```
+
+The launch waits indefinitely for `/robot_description`, reports its status every
+60 seconds, validates the message, and writes it to a temporary ROS 2 parameter
+file before starting MoveIt. Press `Ctrl+C` to stop waiting.
 
 RViz opens; Plan & Execute in the MotionPlanning panel drives the UR10 in
 Isaac Sim. The launch activates both controllers after the ControllerManager
 becomes available.
 
-By default, the launch waits up to 60 seconds for Isaac Sim's transient-local
-`/robot_description` message. For offline testing or a file-based integration,
-pass `robot_description_file:=/absolute/path/to/robot.urdf`; use
-`robot_description_timeout:=SECONDS` to change the topic wait timeout.
+For offline testing or a file-based integration, pass
+`robot_description_file:=/absolute/path/to/robot.urdf`. Use
+`robot_description_log_interval:=SECONDS` to change the status interval.
 
 ## vs `isaac_moveit`
 
