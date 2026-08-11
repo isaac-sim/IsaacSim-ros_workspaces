@@ -155,8 +155,8 @@ KMP_DUPLICATE_LIB_OK = "TRUE"
 
 [target.unix.activation]
 scripts = ["install/setup.bash"]
-env = { isaac_sim_package_path = "$HOME/isaacsim", LD_LIBRARY_PATH = "$isaac_sim_package_path/exts/isaacsim.ros2.core/$ROS_DISTRO/lib:$LD_LIBRARY_PATH", LD_PRELOAD = "$CONDA_PREFIX/lib/librmw_zenoh_cpp.so:$LD_PRELOAD" }
+env = { isaac_sim_package_path = "$HOME/isaacsim", LD_PRELOAD = "$CONDA_PREFIX/lib/librmw_zenoh_cpp.so:$LD_PRELOAD" }
 
 [target.win.activation]
 scripts = ["install\\setup.bat"]
-env = { isaac_sim_package_path = "C:\\isaacsim", PATH = "%isaac_sim_package_path%\\exts\\isaacsim.ros2.core\\jazzy\\lib;%PATH%" }
+env = { isaac_sim_package_path = "C:\\isaacsim" }
