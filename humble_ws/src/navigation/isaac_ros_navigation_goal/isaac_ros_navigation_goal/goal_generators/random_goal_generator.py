@@ -49,10 +49,11 @@ class RandomGoalGenerator(GoalGenerator):
         while trial_count < max_num_of_trials:
             x = np.random.uniform(range_[0][0], range_[0][1])
             y = np.random.uniform(range_[1][0], range_[1][1])
-            orient_x = np.random.uniform(0, 1)
-            orient_y = np.random.uniform(0, 1)
-            orient_z = np.random.uniform(0, 1)
-            orient_w = np.random.uniform(0, 1)
+            theta = np.random.uniform(-np.pi, np.pi)
+            orient_x = 0.0
+            orient_y = 0.0
+            orient_z = float(np.sin(theta / 2.0))
+            orient_w = float(np.cos(theta / 2.0))
             if self.__grid_map.is_valid_pose([x, y], self.__distance):
                 goal = [x, y, orient_x, orient_y, orient_z, orient_w]
                 return goal

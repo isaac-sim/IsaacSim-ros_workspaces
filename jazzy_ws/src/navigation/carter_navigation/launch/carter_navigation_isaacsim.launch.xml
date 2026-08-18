@@ -11,7 +11,7 @@
   <include file="$(find-pkg-share carter_navigation)/launch/carter_navigation.launch.xml">
     <arg name="map" value="$(var map)"/><arg name="params_file" value="$(var params_file)"/><arg name="use_sim_time" value="$(var use_sim_time)"/>
   </include>
-  <include file="$(find-pkg-share isaac_ros_navigation_goal)/launch/isaac_ros_navigation_goal.launch.xml">
+  <include file="$(find-pkg-share carter_navigation)/launch/carter_navigation_goal_on_isaacsim_ready.launch.py">
     <arg name="map_yaml_path" value="$(var map)"/>
     <arg name="use_sim_time" value="$(var use_sim_time)"/>
   </include>

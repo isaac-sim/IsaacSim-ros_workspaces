@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.6.1] - 2026-08-17
+### Fixed
+- Navigation goals wait for Isaac Sim/Nav2. [Humble, Jazzy]
+
 ## [6.6.0] - 2026-08-05
 ### Changed
 - Removed the `standalone` Pixi task. Run standalone scripts with Isaac Sim's bundled Python launcher from a clean terminal to avoid exposing the Pixi dependency environment to Isaac Sim. [Humble, Jazzy]

@@ -13,17 +13,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import math
 import sys
 import time
 
 import rclpy
 from geometry_msgs.msg import PoseWithCovarianceStamped
+from lifecycle_msgs.msg import State
+from lifecycle_msgs.srv import GetState
 from nav2_msgs.action import NavigateToPose
 from rclpy.action import ActionClient
 from rclpy.node import Node
 
 from .goal_generators import GoalReader, RandomGoalGenerator
 from .obstacle_map import GridMap
+
+
+def _normalize_quaternion(quaternion):
+    if len(quaternion) != 4:
+        raise ValueError("Quaternion must contain exactly 4 values")
+
+    if not all(math.isfinite(value) for value in quaternion):
+        raise ValueError("Quaternion contains a non-finite value")
+
+    norm = math.sqrt(sum(value * value for value in quaternion))
+    if norm <= 0.0:
+        raise ValueError("Quaternion norm must be greater than zero")
+
+    return [value / norm for value in quaternion]
 
 
 class SetNavigationGoal(Node):
@@ -44,6 +61,8 @@ class SetNavigationGoal(Node):
                 ("action_server_timeout_sec", 60.0),
                 ("initial_pose_subscriber_timeout_sec", 60.0),
                 ("initial_pose_settle_time_sec", 10.0),
+                ("lifecycle_node_name", "bt_navigator"),
+                ("lifecycle_state_timeout_sec", 180.0),
             ],
         )
 
@@ -61,6 +80,7 @@ class SetNavigationGoal(Node):
 
         self.__initial_pose = self.get_parameter("initial_pose").value
         self.__is_initial_pose_sent = True if self.__initial_pose is None else False
+        self.__is_navigation_lifecycle_active = False
 
     def __send_initial_pose(self):
         """
@@ -74,11 +94,69 @@ class SetNavigationGoal(Node):
         goal.pose.pose.position.x = self.__initial_pose[0]
         goal.pose.pose.position.y = self.__initial_pose[1]
         goal.pose.pose.position.z = self.__initial_pose[2]
-        goal.pose.pose.orientation.x = self.__initial_pose[3]
-        goal.pose.pose.orientation.y = self.__initial_pose[4]
-        goal.pose.pose.orientation.z = self.__initial_pose[5]
-        goal.pose.pose.orientation.w = self.__initial_pose[6]
+        try:
+            orientation = _normalize_quaternion(self.__initial_pose[3:7])
+        except ValueError as exc:
+            self.get_logger().error(f"Invalid initial pose orientation: {exc}")
+            return False
+
+        goal.pose.pose.orientation.x = orientation[0]
+        goal.pose.pose.orientation.y = orientation[1]
+        goal.pose.pose.orientation.z = orientation[2]
+        goal.pose.pose.orientation.w = orientation[3]
         self.__initial_goal_publisher.publish(goal)
+        return True
+
+    def __wait_for_navigation_lifecycle_active(self):
+        if self.__is_navigation_lifecycle_active:
+            return True
+
+        lifecycle_node_name = self.get_parameter("lifecycle_node_name").value
+        lifecycle_state_timeout = self.get_parameter("lifecycle_state_timeout_sec").value
+        if not lifecycle_node_name or lifecycle_state_timeout <= 0.0:
+            self.__is_navigation_lifecycle_active = True
+            return True
+
+        service_name = lifecycle_node_name.rstrip("/") + "/get_state"
+        state_client = self.create_client(GetState, service_name)
+        try:
+            deadline = time.monotonic() + lifecycle_state_timeout
+            self.get_logger().info(
+                f"Waiting up to {lifecycle_state_timeout:.1f}s for " f"{lifecycle_node_name} to become active"
+            )
+
+            last_state_label = None
+            while time.monotonic() < deadline:
+                if not state_client.wait_for_service(timeout_sec=0.5):
+                    continue
+
+                future = state_client.call_async(GetState.Request())
+                while not future.done() and time.monotonic() < deadline:
+                    rclpy.spin_once(self, timeout_sec=0.1)
+
+                if not future.done():
+                    break
+
+                response = future.result()
+                if response is None:
+                    continue
+
+                current_state = response.current_state
+                if current_state.id == State.PRIMARY_STATE_ACTIVE:
+                    self.get_logger().info(f"{lifecycle_node_name} is active")
+                    self.__is_navigation_lifecycle_active = True
+                    return True
+
+                if current_state.label != last_state_label:
+                    self.get_logger().info(f"{lifecycle_node_name} is {current_state.label}; waiting for active")
+                    last_state_label = current_state.label
+
+                time.sleep(0.5)
+
+            self.get_logger().error(f"{lifecycle_node_name} did not become active before the timeout")
+            return False
+        finally:
+            self.destroy_client(state_client)
 
     def send_goal(self):
         """
@@ -89,6 +167,10 @@ class SetNavigationGoal(Node):
         self.get_logger().info(f"Waiting up to {action_server_timeout:.1f}s for the navigation action server")
         if not self._action_client.wait_for_server(timeout_sec=action_server_timeout):
             self.get_logger().error("Navigation action server did not become ready before the timeout")
+            rclpy.shutdown()
+            return False
+
+        if not self.__wait_for_navigation_lifecycle_active():
             rclpy.shutdown()
             return False
 
@@ -103,7 +185,9 @@ class SetNavigationGoal(Node):
                 return False
 
             self.get_logger().info("Sending initial pose")
-            self.__send_initial_pose()
+            if not self.__send_initial_pose():
+                rclpy.shutdown()
+                return False
             self.__is_initial_pose_sent = True
 
             # Preserve the existing localization settling period, but make it
@@ -168,13 +252,19 @@ class SetNavigationGoal(Node):
             )
             return
 
+        try:
+            orientation = _normalize_quaternion(pose[2:6])
+        except ValueError as exc:
+            self.get_logger().error(f"Generated goal has invalid orientation: {exc}")
+            return
+
         self.get_logger().info("Generated goal pose: {0}".format(pose))
         goal_msg.pose.pose.position.x = pose[0]
         goal_msg.pose.pose.position.y = pose[1]
-        goal_msg.pose.pose.orientation.x = pose[2]
-        goal_msg.pose.pose.orientation.y = pose[3]
-        goal_msg.pose.pose.orientation.z = pose[4]
-        goal_msg.pose.pose.orientation.w = pose[5]
+        goal_msg.pose.pose.orientation.x = orientation[0]
+        goal_msg.pose.pose.orientation.y = orientation[1]
+        goal_msg.pose.pose.orientation.z = orientation[2]
+        goal_msg.pose.pose.orientation.w = orientation[3]
         return goal_msg
 
     def __get_result_callback(self, future):
