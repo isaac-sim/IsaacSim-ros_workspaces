@@ -4,6 +4,7 @@
   <arg name="gui" default="https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Samples/ROS2/Scenario/iw_hub_warehouse_navigation.usd" description="Path to the Isaac Sim scene"/>
   <arg name="map" default="$(find-pkg-share iw_hub_navigation)/maps/iw_hub_warehouse_navigation.yaml" description="Full path to map file to load"/>
   <arg name="params_file" default="$(find-pkg-share iw_hub_navigation)/params/iw_hub_navigation_params.yaml" description="Full path to parameter file to load"/>
+  <arg name="initial_pose" default="[-6.0,0.0,0.0,0.0,0.0,0.0,1.0]" description="Initial pose for the automatic goal node"/>
   <arg name="use_sim_time" default="True" description="Use simulation (Isaac Sim) clock if true"/>
   <include file="$(find-pkg-share isaacsim_bringup)/launch/run_isaacsim.launch.xml">
     <arg name="version" value="6.0.1"/><arg name="gui" value="$(var gui)"/><arg name="play_sim_on_start" value="True"/>
@@ -13,6 +14,7 @@
   </include>
   <include file="$(find-pkg-share isaac_ros_navigation_goal)/launch/isaac_ros_navigation_goal.launch.xml">
     <arg name="map_yaml_path" value="$(var map)"/>
+    <arg name="initial_pose" value="$(var initial_pose)"/>
     <arg name="use_sim_time" value="$(var use_sim_time)"/>
   </include>
 </launch>
