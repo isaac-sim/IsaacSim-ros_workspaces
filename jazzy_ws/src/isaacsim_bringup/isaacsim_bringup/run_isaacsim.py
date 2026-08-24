@@ -75,21 +75,23 @@ def version_gt(v1, v2):
     return tuple(map(int, (v1.split(".")))) > tuple(map(int, (v2.split("."))))
 
 
-def update_env_vars(version_to_remove, specified_path_to_remove, env_var_name):
-    env_var_value = os.environ.get(env_var_name, "")
+def update_env_vars(version_to_remove, specified_path_to_remove, env_var_name, environment=None):
+    environment = os.environ if environment is None else environment
+    env_var_value = environment.get(env_var_name, "")
     new_env_var_value = []
     for path in env_var_value.split(os.pathsep):
         if not version_to_remove in path and not path.startswith(specified_path_to_remove):
             new_env_var_value.append(path)
-    os.environ[env_var_name] = os.pathsep.join(new_env_var_value)
+    environment[env_var_name] = os.pathsep.join(new_env_var_value)
 
 
-def exclude_paths_from_env(exclude_paths_str, env_var_name):
+def exclude_paths_from_env(exclude_paths_str, env_var_name, environment=None):
     """Simple function to exclude paths from environment variable"""
+    environment = os.environ if environment is None else environment
     if not exclude_paths_str:
         return
 
-    env_var_value = os.environ.get(env_var_name, "")
+    env_var_value = environment.get(env_var_name, "")
     if not env_var_value:
         return
 
@@ -106,7 +108,71 @@ def exclude_paths_from_env(exclude_paths_str, env_var_name):
         if not exclude_this_path:
             filtered_paths.append(path)
 
-    os.environ[env_var_name] = os.pathsep.join(filtered_paths)
+    environment[env_var_name] = os.pathsep.join(filtered_paths)
+
+
+def _is_path_under_roots(path, roots):
+    if not path:
+        return False
+
+    candidate = os.path.normcase(os.path.realpath(os.path.expanduser(os.path.expandvars(path.strip('"')))))
+    for root in roots:
+        try:
+            if os.path.commonpath([candidate, root]) == root:
+                return True
+        except ValueError:
+            continue
+    return False
+
+
+def _create_isaac_sim_environment(source_environment=None):
+    """Remove Pixi activation from the environment inherited by Isaac Sim."""
+    environment = dict(os.environ if source_environment is None else source_environment)
+    roots = []
+    for variable in ("CONDA_PREFIX", "PIXI_PROJECT_ROOT"):
+        root = environment.get(variable)
+        if root:
+            roots.append(os.path.normcase(os.path.realpath(os.path.expanduser(os.path.expandvars(root)))))
+
+    if not roots:
+        return environment
+
+    for variable in (
+        "PATH",
+        "PYTHONPATH",
+        "LD_LIBRARY_PATH",
+        "LD_PRELOAD",
+        "PKG_CONFIG_PATH",
+        "QT_PLUGIN_PATH",
+        "QML2_IMPORT_PATH",
+    ):
+        value = environment.get(variable)
+        if not value:
+            continue
+        filtered = [entry for entry in value.split(os.pathsep) if not _is_path_under_roots(entry, roots)]
+        if filtered:
+            environment[variable] = os.pathsep.join(filtered)
+        else:
+            environment.pop(variable, None)
+
+    for variable in (
+        "AMENT_PREFIX_PATH",
+        "CMAKE_PREFIX_PATH",
+        "COLCON_PREFIX_PATH",
+        "PYTHONHOME",
+        "RMW_IMPLEMENTATION",
+        "ROS_DISTRO",
+        "ROS_PYTHON_VERSION",
+        "ROS_VERSION",
+        "VIRTUAL_ENV",
+    ):
+        environment.pop(variable, None)
+
+    for variable in list(environment):
+        if variable.startswith(("AMENT_", "COLCON_", "CONDA_", "PIXI_")):
+            environment.pop(variable)
+
+    return environment
 
 
 def _build_exec_command(command_args):
@@ -205,7 +271,10 @@ class IsaacSimLauncherNode(Node):
                 print(f"Unsupported Isaac Sim version: {args.version}")
                 sys.exit(0)
 
-        os.environ["ROS_DISTRO"] = args.ros_distro
+        is_pixi_environment = bool(os.environ.get("CONDA_PREFIX") or os.environ.get("PIXI_PROJECT_ROOT"))
+        child_env = _create_isaac_sim_environment()
+        if sys.platform != "win32" and not is_pixi_environment:
+            child_env["ROS_DISTRO"] = args.ros_distro
 
         if args.use_internal_libs:
             if sys.platform == "win32":
@@ -213,21 +282,21 @@ class IsaacSimLauncherNode(Node):
                 sys.exit(1)
             else:
                 internal_lib_path = f"{filepath_root}/exts/isaacsim.ros2.core/{args.ros_distro}/lib"
-                current_ld_path = os.environ.get("LD_LIBRARY_PATH", "")
-                os.environ["LD_LIBRARY_PATH"] = (
+                current_ld_path = child_env.get("LD_LIBRARY_PATH", "")
+                child_env["LD_LIBRARY_PATH"] = (
                     f"{internal_lib_path}:{current_ld_path}" if current_ld_path else internal_lib_path
                 )
                 specific_path_to_remove = f"/opt/ros/{args.ros_distro}"
                 version_to_remove = "jazzy" if args.ros_distro == "humble" else "humble"
-                update_env_vars(version_to_remove, specific_path_to_remove, "LD_LIBRARY_PATH")
-                update_env_vars(version_to_remove, specific_path_to_remove, "PYTHONPATH")
-                update_env_vars(version_to_remove, specific_path_to_remove, "PATH")
+                update_env_vars(version_to_remove, specific_path_to_remove, "LD_LIBRARY_PATH", child_env)
+                update_env_vars(version_to_remove, specific_path_to_remove, "PYTHONPATH", child_env)
+                update_env_vars(version_to_remove, specific_path_to_remove, "PATH", child_env)
 
         # Apply path exclusions AFTER all other modifications
         if args.exclude_install_path:
-            exclude_paths_from_env(args.exclude_install_path, "LD_LIBRARY_PATH")
-            exclude_paths_from_env(args.exclude_install_path, "PYTHONPATH")
-            exclude_paths_from_env(args.exclude_install_path, "PATH")
+            exclude_paths_from_env(args.exclude_install_path, "LD_LIBRARY_PATH", child_env)
+            exclude_paths_from_env(args.exclude_install_path, "PYTHONPATH", child_env)
+            exclude_paths_from_env(args.exclude_install_path, "PATH", child_env)
 
         if args.ros_installation_path:
             # If a custom ros installation path is provided (can be comma-separated list)
@@ -243,34 +312,36 @@ class IsaacSimLauncherNode(Node):
                     if ros_path.endswith("setup.bash") or "setup.bash" in ros_path:
                         # It's a ROS installation setup file
                         source_cmd = f"source {shlex.quote(ros_path)} && env"
-                        result = subprocess.run(["bash", "-c", source_cmd], capture_output=True, text=True, check=True)
+                        result = subprocess.run(
+                            ["bash", "-c", source_cmd], capture_output=True, text=True, check=True, env=child_env
+                        )
 
                         # Parse and apply environment variables
                         for line in result.stdout.splitlines():
                             if "=" in line:
                                 key, value = line.split("=", 1)
                                 if key in ["LD_LIBRARY_PATH", "PYTHONPATH", "PATH", "ROS_DISTRO"]:
-                                    os.environ[key] = value
+                                    child_env[key] = value
                     else:
                         # It's a workspace install directory - add to environment variables
                         install_path = ros_path.rstrip("/")
 
                         # Add to LD_LIBRARY_PATH
-                        current_ld_path = os.environ.get("LD_LIBRARY_PATH", "")
+                        current_ld_path = child_env.get("LD_LIBRARY_PATH", "")
                         if current_ld_path:
-                            os.environ["LD_LIBRARY_PATH"] = f"{install_path}/lib:{current_ld_path}"
+                            child_env["LD_LIBRARY_PATH"] = f"{install_path}/lib:{current_ld_path}"
                         else:
-                            os.environ["LD_LIBRARY_PATH"] = f"{install_path}/lib"
+                            child_env["LD_LIBRARY_PATH"] = f"{install_path}/lib"
 
                         # Add to PYTHONPATH
-                        current_python_path = os.environ.get("PYTHONPATH", "")
+                        current_python_path = child_env.get("PYTHONPATH", "")
                         if current_python_path:
-                            os.environ["PYTHONPATH"] = f"{install_path}/lib/python3/dist-packages:{current_python_path}"
+                            child_env["PYTHONPATH"] = f"{install_path}/lib/python3/dist-packages:{current_python_path}"
                         else:
-                            os.environ["PYTHONPATH"] = f"{install_path}/lib/python3/dist-packages"
+                            child_env["PYTHONPATH"] = f"{install_path}/lib/python3/dist-packages"
 
-        # Only override RMW_IMPLEMENTATION when dds_type is explicitly set; otherwise
-        # keep whatever the surrounding environment selected (e.g. zenoh from pixi).
+        # Only override RMW_IMPLEMENTATION when dds_type is explicitly set. Otherwise,
+        # let the Isaac Sim launcher select its bundled default.
         if args.dds_type:
             dds_to_rmw = {"fastdds": "rmw_fastrtps_cpp", "cyclonedds": "rmw_cyclonedds_cpp", "zenoh": "rmw_zenoh_cpp"}
             if args.dds_type not in dds_to_rmw:
@@ -279,10 +350,10 @@ class IsaacSimLauncherNode(Node):
                     file=sys.stderr,
                 )
                 sys.exit(1)
-            os.environ["RMW_IMPLEMENTATION"] = dds_to_rmw[args.dds_type]
+            child_env["RMW_IMPLEMENTATION"] = dds_to_rmw[args.dds_type]
         python_script = _resolve_python_script_path(args.python_script)
 
-        popen_kwargs = {"shell": True}
+        popen_kwargs = {"shell": True, "env": child_env}
         if sys.platform == "win32":
             popen_kwargs["creationflags"] = subprocess.CREATE_NEW_PROCESS_GROUP
         else:

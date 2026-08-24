@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.8.0] - 2026-08-24
+### Fixed
+- `isaacsim_bringup`: Isolated Isaac Sim child processes from Pixi and ROS activation paths while preserving unrelated user environment settings. [Humble, Jazzy]
+
 ## [6.7.0] - 2026-08-22
 ### Added
 - Added `pal_statistics`, `ros2_control`, and `ros2_control_cmake` as workspace submodules. [Jazzy]
