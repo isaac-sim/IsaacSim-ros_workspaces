@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.7.0] - 2026-08-22
+### Added
+- Added `pal_statistics`, `ros2_control`, and `ros2_control_cmake` as workspace submodules. [Jazzy]
+
 ## [6.6.1] - 2026-08-17
 ### Fixed
 - Navigation goals wait for Isaac Sim/Nav2. [Humble, Jazzy]

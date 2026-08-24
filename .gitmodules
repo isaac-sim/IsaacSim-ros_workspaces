@@ -18,3 +18,12 @@
 	path = jazzy_ws/src/greenwave_monitor
 	url = https://github.com/NVIDIA-ISAAC-ROS/greenwave_monitor.git
 	branch = main
+[submodule "jazzy_ws/src/pal_statistics"]
+	path = jazzy_ws/src/pal_statistics
+	url = https://github.com/pal-robotics/pal_statistics.git
+[submodule "jazzy_ws/src/ros2_control"]
+	path = jazzy_ws/src/ros2_control
+	url = https://github.com/ros-controls/ros2_control.git
+[submodule "jazzy_ws/src/ros2_control_cmake"]
+	path = jazzy_ws/src/ros2_control_cmake
+	url = https://github.com/ros-controls/ros2_control_cmake.git
