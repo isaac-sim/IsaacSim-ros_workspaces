@@ -7,7 +7,7 @@
   <arg name="initial_pose" default="[-6.0,0.0,0.0,0.0,0.0,0.0,1.0]" description="Initial pose for the automatic goal node"/>
   <arg name="use_sim_time" default="True" description="Use simulation (Isaac Sim) clock if true"/>
   <include file="$(find-pkg-share isaacsim_bringup)/launch/run_isaacsim.launch.xml">
-    <arg name="version" value="6.0.1"/><arg name="gui" value="$(var gui)"/><arg name="play_sim_on_start" value="True"/>
+    <arg name="version" value="6.1.0"/><arg name="gui" value="$(var gui)"/><arg name="play_sim_on_start" value="True"/>
   </include>
   <include file="$(find-pkg-share iw_hub_navigation)/launch/iw_hub_navigation.launch.xml">
     <arg name="map" value="$(var map)"/><arg name="params_file" value="$(var params_file)"/><arg name="use_sim_time" value="$(var use_sim_time)"/>

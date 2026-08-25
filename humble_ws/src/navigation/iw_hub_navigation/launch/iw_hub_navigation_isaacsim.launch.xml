@@ -15,7 +15,7 @@
   <arg name="use_sim_time" default="true" description="Use simulation (Isaac Sim) clock if true"/>
 
   <include file="$(find-pkg-share isaacsim_bringup)/launch/run_isaacsim.launch.xml">
-    <arg name="version" value="6.0.1"/>
+    <arg name="version" value="6.1.0"/>
     <arg name="gui" value="$(var gui)"/>
     <arg name="play_sim_on_start" value="true"/>
   </include>

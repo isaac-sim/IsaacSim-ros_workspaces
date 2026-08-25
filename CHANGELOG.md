@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.8.1] - 2026-08-24
+### Changed
+- Bump versions to 6.1.0 [Humble, Jazzy]
+
 ## [6.8.0] - 2026-08-24
 ### Fixed
 - `isaacsim_bringup`: Isolated Isaac Sim child processes from Pixi and ROS activation paths while preserving unrelated user environment settings. [Humble, Jazzy]
