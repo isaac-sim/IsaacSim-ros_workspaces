@@ -42,7 +42,6 @@ class H1FullbodyController(Node):
         # Declare and set parameters
         self.declare_parameter("publish_period_ms", 5)
         self.declare_parameter("policy_path", "policy/h1_policy.pt")
-        self.declare_parameter("use_sim_time", True)
 
         self._logger = self.get_logger()
 
