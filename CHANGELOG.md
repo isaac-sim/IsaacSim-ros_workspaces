@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.8.2] - 2026-08-25
+### Fixed
+- `h1_fullbody_controller`: Removed the duplicate `use_sim_time` declaration that prevented the controller from starting. [Humble, Jazzy]
+
 ## [6.8.1] - 2026-08-24
 ### Changed
 - Bump versions to 6.1.0 [Humble, Jazzy]
