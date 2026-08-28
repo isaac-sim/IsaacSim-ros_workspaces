@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.8.3] - 2026-08-27
+### Fixed
+- `isaacsim_clearpath_nav2`: Added localization-only scan filtering so AMCL ignores severely incomplete lidar scans that can destabilize localization during in-place rotations. [Jazzy]
+
 ## [6.8.2] - 2026-08-25
 ### Fixed
 - `h1_fullbody_controller`: Removed the duplicate `use_sim_time` declaration that prevented the controller from starting. [Humble, Jazzy]

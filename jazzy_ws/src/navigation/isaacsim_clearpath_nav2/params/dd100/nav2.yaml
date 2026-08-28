@@ -1,11 +1,11 @@
 amcl:
   ros__parameters:
     use_sim_time: True
-    alpha1: 0.2
-    alpha2: 0.2
-    alpha3: 0.2
-    alpha4: 0.2
-    alpha5: 0.2
+    alpha1: 0.01
+    alpha2: 0.01
+    alpha3: 0.01
+    alpha4: 0.01
+    alpha5: 0.01
     base_frame_id: "base_link"
     beam_skip_distance: 0.5
     beam_skip_error_threshold: 0.9
@@ -37,7 +37,7 @@ amcl:
     z_max: 0.05
     z_rand: 0.5
     z_short: 0.05
-    scan_topic: sim_lidar/scan
+    scan_topic: sim_lidar/scan_localization
     map_topic: map
     set_initial_pose: false
     always_reset_initial_pose: false

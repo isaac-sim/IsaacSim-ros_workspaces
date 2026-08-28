@@ -14,11 +14,20 @@
        description="Full path to the Nav2 parameters file"/>
   <arg name="use_sim_time" default="true"
        description="Use simulation (Omniverse Isaac Sim) clock if true"/>
+  <arg name="localization_scan_minimum_ranges" default="100"
+       description="Minimum valid ranges required to pass a lidar scan to localization"/>
 
   <let name="robot_description"
        value="$(command '$(find-exec xacro) &quot;$(var setup_path)/robot.urdf.xacro&quot; is_sim:=true gazebo_controllers:=&quot;$(var setup_path)/platform/config/control.yaml&quot; namespace:=&quot;$(var namespace)&quot; use_fake_hardware:=true use_platform_controllers:=false use_manipulation_controllers:=false')"/>
   <let name="scan_topic"
        value="$(if $(eval &quot;'$(var namespace)' != ''&quot;) /$(var namespace)/sim_lidar/scan /sim_lidar/scan)"/>
+
+  <node pkg="isaacsim_clearpath_nav2" exec="localization_scan_filter"
+        namespace="$(var namespace)" output="both">
+    <param name="minimum_valid_ranges" value="$(var localization_scan_minimum_ranges)" type="int"/>
+    <remap from="scan" to="sim_lidar/scan"/>
+    <remap from="scan_filtered" to="sim_lidar/scan_localization"/>
+  </node>
 
   <node pkg="robot_state_publisher" exec="robot_state_publisher"
         namespace="$(var namespace)" output="both">

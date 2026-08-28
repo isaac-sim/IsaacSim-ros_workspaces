@@ -62,9 +62,20 @@
   <exec_depend>launch_ros</exec_depend>
   <exec_depend>launch_xml</exec_depend>
   <exec_depend>nav2_bringup</exec_depend>
+  <exec_depend>nav2_bt_navigator</exec_depend>
   <exec_depend>rviz2</exec_depend>
   <exec_depend>isaacsim_bringup</exec_depend>
   <exec_depend>isaac_ros_navigation_goal</exec_depend>
+  <exec_depend>action_msgs</exec_depend>
+  <exec_depend>carter_navigation</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>lifecycle_msgs</exec_depend>
+  <exec_depend>nav2_msgs</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+
+  <test_depend>ament_cmake_pytest</test_depend>
 
 
   <export>
