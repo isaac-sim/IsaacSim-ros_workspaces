@@ -22,9 +22,7 @@ class LocalizationScanFilter(Node):
             raise ValueError("minimum_valid_ranges must be greater than zero")
 
         self._publisher = self.create_publisher(LaserScan, "scan_filtered", qos_profile_sensor_data)
-        self._subscription = self.create_subscription(
-            LaserScan, "scan", self._filter_scan, qos_profile_sensor_data
-        )
+        self._subscription = self.create_subscription(LaserScan, "scan", self._filter_scan, qos_profile_sensor_data)
 
     def _filter_scan(self, message: LaserScan) -> None:
         valid_ranges = sum(message.range_min <= value <= message.range_max for value in message.ranges)
