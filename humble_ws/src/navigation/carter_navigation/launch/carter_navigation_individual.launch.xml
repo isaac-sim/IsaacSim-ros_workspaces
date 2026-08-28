@@ -4,8 +4,8 @@
 -->
 <launch>
   <arg name="namespace" default="" description="Top-level namespace"/>
-  <arg name="use_namespace" default="false" description="Whether to apply a namespace to the navigation stack"/>
-  <arg name="slam" default="false" description="Whether to run SLAM"/>
+  <arg name="use_namespace" default="False" description="Whether to apply a namespace to the navigation stack"/>
+  <arg name="slam" default="False" description="Whether to run SLAM"/>
   <arg name="map" default="$(find-pkg-share carter_navigation)/maps/carter_warehouse_navigation.yaml"
        description="Full path to map file to load"/>
   <arg name="use_sim_time" default="true" description="Use simulation (Isaac Sim) clock if true"/>
