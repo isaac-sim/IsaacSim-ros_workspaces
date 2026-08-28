@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.8.4] - 2026-08-27
+### Fixed
+- `carter_navigation`: Corrected the Humble SLAM launch argument Boolean so multi-robot navigation launches no longer fail during Nav2 Python expression evaluation. [Humble]
+
 ## [6.8.3] - 2026-08-27
 ### Fixed
 - `isaacsim_clearpath_nav2`: Added localization-only scan filtering so AMCL ignores severely incomplete lidar scans that can destabilize localization during in-place rotations. [Jazzy]
