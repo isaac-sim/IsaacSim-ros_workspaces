@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+build-ros-docker:
+  stage: build
+  image: docker:27.5.1-cli
+  services:
+    - name: docker:27.5.1-dind
+      alias: docker
+      command: ["--tls=false"]
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+  parallel:
+    matrix:
+      - ROS_DISTRO: humble
+        UBUNTU_VERSION: "22.04"
+      - ROS_DISTRO: jazzy
+        UBUNTU_VERSION:
+          - "22.04"
+          - "24.04"
+  before_script:
+    - apk add --no-cache bash git
+    - docker info
+  script:
+    - ./build_ros.sh -d "$ROS_DISTRO" -v "$UBUNTU_VERSION"
