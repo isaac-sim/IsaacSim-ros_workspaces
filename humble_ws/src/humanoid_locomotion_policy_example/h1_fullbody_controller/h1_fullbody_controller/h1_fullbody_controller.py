@@ -189,11 +189,11 @@ class H1FullbodyController(Node):
         # Extract linear acceleration and integrate to estimate velocity
         lin_acc_b = np.array([imu.linear_acceleration.x, imu.linear_acceleration.y, imu.linear_acceleration.z])
 
-        # Simple integration to estimate velocity
-        self._lin_vel_b = lin_acc_b * self._dt + self._lin_vel_b
-
         # Extract angular velocity
         ang_vel_b = np.array([imu.angular_velocity.x, imu.angular_velocity.y, imu.angular_velocity.z])
+
+        # Integrate acceleration in the rotating body frame
+        self._lin_vel_b += (lin_acc_b - np.cross(ang_vel_b, self._lin_vel_b)) * self._dt
 
         # Calculate gravity direction in body frame
         gravity_b = np.matmul(R_BI, np.array([0.0, 0.0, -1.0]))
