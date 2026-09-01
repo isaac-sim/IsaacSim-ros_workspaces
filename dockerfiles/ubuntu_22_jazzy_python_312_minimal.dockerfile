@@ -16,6 +16,7 @@ RUN apt-get update && \
 		build-essential \
 		curl \
 		wget \
+		ca-certificates \
 		gnupg2 \
 		lsb-release
 
@@ -44,8 +45,10 @@ RUN curl -s https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python3.12 get-pip.py --force-reinstall && \
     rm get-pip.py
 
-RUN curl -fsS -o ros.asc https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc && apt-key add ros.asc
-RUN sh -c 'echo "deb [arch=$(dpkg --print-architecture)] https://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
+RUN curl -fsSL --proto '=https' --proto-redir '=https' https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /tmp/ros.key && \
+    gpg --batch --yes --dearmor -o /usr/share/keyrings/ros-archive-keyring.gpg /tmp/ros.key && \
+    rm /tmp/ros.key && \
+    sh -c 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2.list'
 
 # Additional dependencies needed for rosidl_generator_c
 RUN apt update && apt install -y \
