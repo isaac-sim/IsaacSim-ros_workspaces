@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## [6.9.0] - 2026-09-01
 ### Added
 - Added CI matrix coverage for every supported `build_ros.sh` ROS 2 and Ubuntu combination. [Humble, Jazzy]
 
