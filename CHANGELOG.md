@@ -4,6 +4,10 @@
 ### Added
 - Added CI matrix coverage for every supported `build_ros.sh` ROS 2 and Ubuntu combination. [Humble, Jazzy]
 
+### Fixed
+- Installed CA certificates, modernized the ROS apt keyring setup, and included missing workspace dependencies in the Jazzy Docker images. [Jazzy]
+- Serialized Docker workspace source imports to avoid intermittent GitHub throttling in CI. [Humble, Jazzy]
+
 ## [6.8.4] - 2026-08-27
 ### Fixed
 - `carter_navigation`: Corrected the Humble SLAM launch argument Boolean so multi-robot navigation launches no longer fail during Nav2 Python expression evaluation. [Humble]
