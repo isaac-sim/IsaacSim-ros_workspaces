@@ -168,9 +168,9 @@ RUN python3.12 -m pip install "pybind11[global]"
 
 RUN mkdir -p ${ROS_ROOT}/src && \
     cd ${ROS_ROOT} && \
-    rosinstall_generator --deps --rosdistro ${ROS_DISTRO} rosidl_runtime_c rcutils rcl rmw tf2 tf2_msgs common_interfaces geometry_msgs nav_msgs std_msgs rosgraph_msgs sensor_msgs vision_msgs rclpy ros2topic ros2pkg ros2doctor ros2run ros2node ros_environment ackermann_msgs example_interfaces tinyxml2_vendor rmw_dds_common fastcdr rosidl_typesupport_fastrtps_c rosidl_typesupport_fastrtps_cpp rclcpp > ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
+    rosinstall_generator --deps --rosdistro ${ROS_DISTRO} ament_cmake_auto ament_cmake_gen_version_h ament_cmake_python backward_ros control_msgs diagnostic_updater generate_parameter_library libstatistics_collector pluginlib rclcpp_lifecycle realtime_tools ros2param rosidl_default_generators sdformat_urdf urdf rosidl_runtime_c rcutils rcl rmw tf2 tf2_msgs common_interfaces geometry_msgs nav_msgs std_msgs rosgraph_msgs sensor_msgs vision_msgs rclpy ros2topic ros2pkg ros2doctor ros2run ros2node ros_environment ackermann_msgs example_interfaces tinyxml2_vendor rmw_dds_common fastcdr rosidl_typesupport_fastrtps_c rosidl_typesupport_fastrtps_cpp rclcpp > ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
     cat ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
-    vcs import src < ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall
+    vcs import --workers 1 src < ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall
 
 # Patch rclpy to ensure it builds with Python 3.12 - find the correct path first
 RUN find /workspace/${ROS_ROOT}/src -name rclpy -type d | xargs -I{} /bin/bash -c 'if [ -f {}/CMakeLists.txt ]; then \
@@ -180,6 +180,8 @@ RUN find /workspace/${ROS_ROOT}/src -name rclpy -type d | xargs -I{} /bin/bash -
     fi'
 
 RUN rosdep init && rosdep update
+
+RUN apt update && apt install -y libcap-dev libexpected-dev && rm -rf /var/lib/apt/lists/*
 
 # Make sure PYTHONPATH includes the correct site-packages
 ENV PYTHONPATH=/usr/local/lib/python3.12/dist-packages
@@ -192,6 +194,8 @@ RUN cd ${ROS_ROOT} && colcon build --cmake-args \
     "-DPYTHON_INCLUDE_DIR=/usr/include/python3.12" \
     "-DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.12.so" \
     --merge-install
+
+RUN python3.12 -m pip install --ignore-installed jinja2 typeguard
 
 # Need these to maintain compatibility on non 20.04 systems
 RUN cp /usr/lib/x86_64-linux-gnu/libtinyxml2.so* /workspace/jazzy_ws/install/lib/ || true

@@ -5,7 +5,8 @@
 - Added CI matrix coverage for every supported `build_ros.sh` ROS 2 and Ubuntu combination. [Humble, Jazzy]
 
 ### Fixed
-- Installed CA certificates and modernized the ROS apt keyring setup in the Jazzy Docker images. [Jazzy]
+- Installed CA certificates, modernized the ROS apt keyring setup, and included missing workspace dependencies in the Jazzy Docker images. [Jazzy]
+- Serialized Docker workspace source imports to avoid intermittent GitHub throttling in CI. [Humble, Jazzy]
 
 ## [6.8.4] - 2026-08-27
 ### Fixed

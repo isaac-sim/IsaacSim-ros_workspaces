@@ -168,7 +168,7 @@ RUN mkdir -p ${ROS_ROOT}/src && \
     cd ${ROS_ROOT} && \
     rosinstall_generator --deps --rosdistro ${ROS_DISTRO} ament_cmake_auto rosidl_runtime_c rcutils rcl rmw tf2 tf2_msgs common_interfaces geometry_msgs nav_msgs std_msgs rosgraph_msgs sensor_msgs vision_msgs rclpy ros2topic ros2pkg ros2doctor ros2run ros2node ros_environment ackermann_msgs example_interfaces rclcpp > ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
     cat ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall && \
-    vcs import src < ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall
+    vcs import --workers 1 src < ros2.${ROS_DISTRO}.${ROS_PKG}.rosinstall
 
 # Patch rclpy to ensure it builds with Python 3.12 - find the correct path first
 RUN find /workspace/${ROS_ROOT}/src -name rclpy -type d | xargs -I{} /bin/bash -c 'if [ -f {}/CMakeLists.txt ]; then \
@@ -189,6 +189,8 @@ RUN cd ${ROS_ROOT} && colcon build --cmake-args \
     "-DPYTHON_INCLUDE_DIR=/usr/include/python3.12" \
     "-DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.12.so" \
     --merge-install
+
+RUN python3.12 -m pip install --ignore-installed jinja2 typeguard
 
 # Need these to maintain compatibility on non 20.04 systems
 RUN cp /usr/lib/x86_64-linux-gnu/libtinyxml2.so* /workspace/humble_ws/install/lib/ || true
