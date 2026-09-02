@@ -2000,7 +2000,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/win-64/openh264-2.6.0-h1eab103_1.conda
       - conda: https://prefix.dev/conda-forge/win-64/openjpeg-2.5.4-h0e57b4f_0.conda
       - conda: https://prefix.dev/conda-forge/win-64/openjph-0.30.1-hf13a347_0.conda
-      - conda: https://prefix.dev/conda-forge/win-64/openssl-3.6.3-hf411b9b_0.conda
+      - conda: https://prefix.dev/conda-forge/win-64/openssl-3.6.4-hf411b9b_0.conda
       - conda: https://prefix.dev/conda-forge/win-64/orocos-kdl-1.5.3-he726583_1.conda
       - conda: https://prefix.dev/conda-forge/win-64/pango-1.56.4-h13911b6_1.conda
       - conda: https://prefix.dev/conda-forge/win-64/pcre-8.45-h0e60522_0.tar.bz2
@@ -13859,7 +13859,7 @@ packages:
   license: BSD-3-Clause
   license_family: BSD
   purls:
-  - pkg:pypi/av?source=compressed-mapping
+  - pkg:pypi/av?source=hash-mapping
   size: 1115344
   timestamp: 1782992943768
 - conda: https://prefix.dev/conda-forge/win-64/benchmark-1.9.5-hac47afa_0.conda
@@ -14152,7 +14152,7 @@ packages:
   license: Apache-2.0
   license_family: APACHE
   purls:
-  - pkg:pypi/coverage?source=compressed-mapping
+  - pkg:pypi/coverage?source=hash-mapping
   size: 420526
   timestamp: 1784150195164
 - conda: https://prefix.dev/conda-forge/win-64/cpp-expected-1.3.1-h477610d_0.conda
@@ -16738,9 +16738,9 @@ packages:
   purls: []
   size: 226246
   timestamp: 1782091209917
-- conda: https://prefix.dev/conda-forge/win-64/openssl-3.6.3-hf411b9b_0.conda
-  sha256: cb6e7ba0d010ee0d3249ce9886de3d7613d26d9965d4c95666fa66b9c4c31001
-  md5: e99f95734a326c0fd4d02bbd995150d4
+- conda: https://prefix.dev/conda-forge/win-64/openssl-3.6.4-hf411b9b_0.conda
+  sha256: 9dddb559ba49744d5d94092d8d13cb0567f5c3b3f439f3acf28433d1f4256acc
+  md5: 73cb1783f47c452be4c309430fbef89f
   depends:
   - ca-certificates
   - ucrt >=10.0.20348.0
@@ -16749,8 +16749,11 @@ packages:
   license: Apache-2.0
   license_family: Apache
   purls: []
-  size: 9414790
-  timestamp: 1781071745579
+  run_exports:
+    weak:
+    - openssl >=3.6.4,<4.0a0
+  size: 9474879
+  timestamp: 1787699876495
 - conda: https://prefix.dev/conda-forge/win-64/orocos-kdl-1.5.3-he726583_1.conda
   sha256: 9b12fb0800ed7d7cedd013ee920883745ac757e85b8fb579f966cb1e44129774
   md5: 7a80faefdd60f778890f60e12d77e1f6
@@ -16833,7 +16836,7 @@ packages:
   - libwebp-base >=1.6.0,<2.0a0
   license: HPND
   purls:
-  - pkg:pypi/pillow?source=compressed-mapping
+  - pkg:pypi/pillow?source=hash-mapping
   size: 949403
   timestamp: 1782912129930
 - conda: https://prefix.dev/conda-forge/win-64/pixman-0.46.4-h5112557_2.conda

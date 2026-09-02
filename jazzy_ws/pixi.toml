@@ -102,6 +102,8 @@ typing-extensions = ">=4.13,<5"
 
 [target.win.dependencies]
 pywin32 = "==306"
+# Security-patched dependencies shipped by the Windows nv_ros2 package.
+openssl = "==3.6.4"
 
 [pypi-options]
 extra-index-urls = ["https://pypi.nvidia.com"]
