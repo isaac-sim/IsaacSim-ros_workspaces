@@ -2570,7 +2570,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/win-64/openjpeg-2.5.4-h0e57b4f_0.conda
       - conda: https://prefix.dev/conda-forge/win-64/openjph-0.30.1-hf13a347_0.conda
       - conda: https://prefix.dev/conda-forge/win-64/openscenegraph-3.6.5-h7a45ddc_21.conda
-      - conda: https://prefix.dev/conda-forge/win-64/openssl-3.6.3-hf411b9b_0.conda
+      - conda: https://prefix.dev/conda-forge/win-64/openssl-3.6.4-hf411b9b_0.conda
       - conda: https://prefix.dev/conda-forge/win-64/orocos-kdl-1.5.3-h85e3ab8_2.conda
       - conda: https://prefix.dev/conda-forge/win-64/pagmo-2.19.1-h0e86b8e_18.conda
       - conda: https://prefix.dev/conda-forge/win-64/pango-1.56.4-h13911b6_1.conda
@@ -19661,7 +19661,7 @@ packages:
   license: BSD-3-Clause
   license_family: BSD
   purls:
-  - pkg:pypi/av?source=compressed-mapping
+  - pkg:pypi/av?source=hash-mapping
   size: 1115344
   timestamp: 1782992943768
 - conda: https://prefix.dev/conda-forge/win-64/aws-c-auth-0.10.3-h4ad2c79_3.conda
@@ -24576,9 +24576,9 @@ packages:
   purls: []
   size: 6282412
   timestamp: 1773953759018
-- conda: https://prefix.dev/conda-forge/win-64/openssl-3.6.3-hf411b9b_0.conda
-  sha256: cb6e7ba0d010ee0d3249ce9886de3d7613d26d9965d4c95666fa66b9c4c31001
-  md5: e99f95734a326c0fd4d02bbd995150d4
+- conda: https://prefix.dev/conda-forge/win-64/openssl-3.6.4-hf411b9b_0.conda
+  sha256: 9dddb559ba49744d5d94092d8d13cb0567f5c3b3f439f3acf28433d1f4256acc
+  md5: 73cb1783f47c452be4c309430fbef89f
   depends:
   - ca-certificates
   - ucrt >=10.0.20348.0
@@ -24587,8 +24587,11 @@ packages:
   license: Apache-2.0
   license_family: Apache
   purls: []
-  size: 9414790
-  timestamp: 1781071745579
+  run_exports:
+    weak:
+    - openssl >=3.6.4,<4.0a0
+  size: 9474879
+  timestamp: 1787699876495
 - conda: https://prefix.dev/conda-forge/win-64/orocos-kdl-1.5.3-h85e3ab8_2.conda
   sha256: 6c13f22cb604ed7339b14adb9cc050537dd33d6006fad7b2e736b4ed8062311b
   md5: 848ebd2a02904b61003c7fd8f294600a
@@ -24686,7 +24689,7 @@ packages:
   - libwebp-base >=1.6.0,<2.0a0
   license: HPND
   purls:
-  - pkg:pypi/pillow?source=compressed-mapping
+  - pkg:pypi/pillow?source=hash-mapping
   size: 949403
   timestamp: 1782912129930
 - conda: https://prefix.dev/conda-forge/win-64/pixman-0.46.4-h5112557_1.conda

@@ -1,6 +1,10 @@
 # Changelog
 
-## [Unreleased]
+## [6.10.0] - 2026-09-02
+
+### Security
+
+- Updated the Windows Pixi environments to OpenSSL 3.6.4. [Humble, Jazzy]
 
 ## [6.9.0] - 2026-09-01
 ### Added
