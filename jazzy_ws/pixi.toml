@@ -90,6 +90,7 @@ ros-jazzy-simulation-interfaces = "*"
 ros-jazzy-std-msgs = ">=5.3.6,<6"
 ros-jazzy-teleop-twist-keyboard = "*"     # Keyboard teleop for /cmd_vel
 ros-jazzy-visualization-msgs = ">=5.3.6,<6"
+ros-jazzy-vision-msgs = ">=4.1.1,<5"
 ros-jazzy-xacro = ">=2.1.1,<3"
 
 # Python dependencies
