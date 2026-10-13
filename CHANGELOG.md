@@ -1,15 +1,15 @@
 # Changelog
 
+## [6.11.0] - 2026-09-30
+### Fixed
+- `isaac_tutorials`: Declared `vision_msgs` as a runtime dependency so rosdep installs the bounding-box message interfaces automatically. [Humble, Jazzy]
+- Added `vision_msgs` as an explicit Pixi dependency. [Jazzy]
+
 ## [6.10.0] - 2026-09-02
 
 ### Security
 
 - Updated the Windows Pixi environments to OpenSSL 3.6.4. [Humble, Jazzy]
-
-## [6.10.0] - 2026-09-30
-### Fixed
-- `isaac_tutorials`: Declared `vision_msgs` as a runtime dependency so rosdep installs the bounding-box message interfaces automatically. [Humble, Jazzy]
-- Added `vision_msgs` as an explicit Pixi dependency. [Jazzy]
 
 ## [6.9.0] - 2026-09-01
 ### Added
