@@ -3,7 +3,6 @@
 Direct bridge: Gripper commands -> Isaac Sim joint commands
 """
 
-import asyncio
 import threading
 
 import rclpy
@@ -11,6 +10,8 @@ from control_msgs.action import GripperCommand
 from rclpy.action import ActionServer, CancelResponse, GoalResponse
 from rclpy.action.server import ServerGoalHandle
 from rclpy.node import Node
+from rclpy.clock import Clock, ClockType
+from rclpy.task import Future
 from sensor_msgs.msg import JointState
 
 FINGER_JOINTS = ("panda_finger_joint1", "panda_finger_joint2")
@@ -94,8 +95,17 @@ class GripperToIsaac(Node):
         with self.position_lock:
             self.target_position = goal_handle.request.command.position
 
-        # Wait for gripper to move (simulate execution time)
-        await asyncio.sleep(1.0)
+        # Use rclpy scheduling rather than an asyncio loop (upstream issue #27).
+        # https://github.com/isaac-sim/IsaacSim-ros_workspaces/issues/27
+        completed = Future()
+        timer = self.create_timer(
+            1.0, lambda: completed.set_result(None),
+            clock=Clock(clock_type=ClockType.STEADY_TIME),
+        )
+        try:
+            await completed
+        finally:
+            self.destroy_timer(timer)
 
         self.get_logger().info("Gripper command completed!")
         goal_handle.succeed()
